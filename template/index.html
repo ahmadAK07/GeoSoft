@@ -394,6 +394,7 @@
 				<!-- Dark mode option START -->
 				<li class="nav-item dropdown dropdown-animation">
 					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					aria-label="switch to dark or light mode"
 					type="button"
 					aria-expanded="false"
 					data-bs-toggle="dropdown"
@@ -406,7 +407,7 @@
 
 					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
 						<li class="mb-1">
-							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+							<button aria-label="switch to light" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
 								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
 									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
 									<use href="#"></use>
@@ -414,7 +415,7 @@
 							</button>
 						</li>
 						<li class="mb-1">
-							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+							<button aria-label="switch to dark" type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
 									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
 									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
@@ -423,7 +424,7 @@
 							</button>
 						</li>
 						<li>
-							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+							<button aria-label="auto to dark or light" type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
 									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
 									<use href="#"></use>
@@ -436,11 +437,11 @@
 
 				<!-- Sign up button -->
 				<li class="nav-item me-2 d-none d-sm-block">
-					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0" aria-label="Sign Up"><i class="bi bi-person-circle me-1"></i>Sign up</a>
 				</li>
 				<!-- Buy now button -->
 				<li class="nav-item d-none d-sm-block">
-					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+					<button class="btn btn-sm btn-primary mb-0" aria-label="Buy Now">Buy now!</button>
 				</li>
 				<!-- Responsive navbar toggler -->
 				<li class="nav-item">
@@ -507,7 +508,7 @@ Main Banner START -->
 					<form class="col-md-10 bg-body border rounded-2 position-relative p-2 mt-4 mt-md-5">
 						<div class="input-group">
 							<input class="form-control focus-shadow-none border-0 me-1" type="email" placeholder="Enter your email address">
-							<button type="button" class="btn btn-dark rounded-2 mb-0">Start trial!</button>
+							<button type="button" class="btn btn-dark rounded-2 mb-0" aria-label="Start Trial">Start trial!</button>
 						</div>
 					</form>
 
@@ -528,7 +529,7 @@ Main Banner START -->
 									</svg>
 								</figure>
 								<div class="ms-3">
-									<h6 class="mb-1">24/7 Support</h6>
+									<h6 class="mb-2">24/7 Support</h6>
 									<p class="mb-0">We're always here to help</p>
 								</div>
 							</div>
@@ -546,7 +547,7 @@ Main Banner START -->
 								</figure>
 
 								<div class="ms-3">
-									<h6 class="mb-1">Award Winning agency</h6>
+									<h6 class="mb-2">Award Winning agency</h6>
 									<p class="mb-0">You are in safe hand</p>
 								</div>
 							</div>
@@ -739,7 +740,7 @@ About START -->
 					<li class="list-group-item heading-color d-flex mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Proven track record of delivering results</li>
 				</ul>
 				<!-- Button -->
-				<a href="about-v1.html" class="btn btn-dark mb-0">Discover more</a>
+				<a href="about-v1.html" class="btn btn-dark mb-0" aria-label="Discover More">Discover more</a>
 			</div>
 			<!-- About content END -->
 
@@ -994,7 +995,7 @@ Pricing START -->
 								<li class="list-group-item heading-color mb-0"><i class="bi bi-check-lg text-primary me-1"></i>24/7 Dedicated Support</li>
 							</ul>
 							<!-- Button -->
-							<a href="#" class="btn btn-dark">Start a free 7-day trial</a>
+							<a href="#" class="btn btn-dark" aria-label="Start a free 7-day trial">Start a free 7-day trial</a>
 							<p class="mb-0">No credit card is required!</p>
 						</div>
 					</div>
@@ -1017,7 +1018,7 @@ Pricing START -->
 
 					<!-- Card footer -->
 					<div class="card-footer bg-transparent d-grid text-center p-0 mt-8">
-						<a href="contact-v1.html" class="btn btn-white">Contact Sales</a>
+						<a href="contact-v1.html" class="btn btn-white" aria-label="Contact Sales">Contact Sales</a>
 						<p class="mb-0 text-white">Get personalized demo and custom plan</p>
 					</div>
 				</div>
@@ -1248,7 +1249,7 @@ CTA START -->
 					<form class="col-md-10 bg-body rounded-2 p-2 mt-4">
 						<div class="input-group">
 							<input class="form-control focus-shadow-none border-0 me-1" type="email" placeholder="Your email address">
-							<button type="button" class="btn btn-dark rounded-2">Subscribe</button>
+							<button type="button" class="btn btn-dark rounded-2" aria-label="Subscribe">Subscribe</button>
 						</div>
 					</form>
 				</div>
@@ -1391,7 +1392,7 @@ Footer START -->
 			<!-- copyright links-->
 			<!-- Language selector -->
 			<div class="dropdown dropup text-center text-md-end mt-3 mt-md-0">
-				<a class="dropdown-toggle btn btn-sm btn-light mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+				<a class="dropdown-toggle btn btn-sm btn-light mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false" aria-label="swithc language">
 					<i class="fas fa-globe me-2"></i>Language
 				</a>
 				<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
