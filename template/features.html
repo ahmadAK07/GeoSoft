@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/aos/aos.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main hero START -->
+<section class="pt-lg-8">
+	<div class="container position-relative pt-4 pt-lg-0">
+		<div class="row align-items-center">
+
+			<div class="col-lg-5 mb-5 mb-md-0">
+				<h1 class="mb-4">Unleash the Power of Our Features</h1>
+				<p class="mb-4">This structure maintains a focus on the strength and potential of your SAAS features while providing an invitation to explore them further.</p>
+				<a href="feature-single.html" class="btn btn-lg btn-dark mb-0">Start Exploring Now</a>
+			</div>
+
+			<!-- Image -->
+			<div class="col-lg-6 ms-auto">
+				<div class="position-relative pe-4 pe-sm-6">
+					<!-- Bg dark pattern -->
+					<div class="bg-dark rounded position-absolute top-0 end-0 w-50 h-100" style="background-image:url(assets/images/elements/bg-pattern-2.png); background-position: center left; background-size: cover;"></div>
+
+					<img src="assets/images/bg/saas-bg.jpg" class="rounded-4 border border-dark border-5 my-4 my-sm-6 position-relative" alt="saas-img">
+					<div class="col-2 position-absolute bottom-0 start-0 ms-lg-n7">
+						<img src="assets/images/elements/saas-decoration/01.png" class="shadow rounded-4" alt="decoration-img">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>	
+</section>
+<!-- =======================
+Main hero END -->
+
+<!-- =======================
+Feature START -->
+<section class="pt-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-sm-5">
+			<h2 class="mb-4">Empowering Your Business with Advanced Tools</h2>
+			<p class="mb-0">There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+		</div>
+
+		<div class="row g-4 g-lg-6">
+			<!-- Feature item -->
+			<div class="col-xl-4">
+				<div class="card card-body d-flex p-4 border h-100 flex-md-row flex-xl-column">
+					<!-- Content -->
+					<div class="me-md-5 me-xl-0 mb-4 mb-md-0">
+						<!-- Icon -->
+						<figure class="text-primary mb-3">
+							<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9.74136 18.8326C9.60765 18.6411 9.54079 18.5453 9.48641 18.4446C9.36533 18.2205 9.2882 17.9753 9.25914 17.7222C9.24609 17.6085 9.24609 17.4917 9.24609 17.2582V14.1914H14.7461V17.2582C14.7461 19.1702 14.7461 20.1262 14.5249 20.5566C14.0158 21.5471 12.7956 21.931 11.8111 21.4103C11.3833 21.1841 10.836 20.4002 9.74136 18.8326Z" fill="currentColor"></path>
+								<path d="M17.5114 9.84101C19.375 6.88684 20.3067 5.40976 19.9484 4.21191C19.8359 3.83574 19.6441 3.48802 19.386 3.19214C18.5641 2.25 16.8176 2.25 13.3248 2.25H10.6405C7.12482 2.25 5.36697 2.25 4.54466 3.1974C4.28652 3.49482 4.09526 3.84421 3.98384 4.22194C3.6289 5.42518 4.57619 6.90596 6.47077 9.86751L9.23438 14.1875H14.7695L17.5114 9.84101Z" fill="currentColor" fill-opacity="0.25"></path>
+							</svg>
+						</figure>	
+						<h5 class="card-title mb-3">Expertise in SaaS implements</h5>
+						<p class="mb-3">Our platform offers a comprehensive suite of features designed to empower your business.</p>
+						<a href="#" class="btn btn-dark mb-0">View Integration</a>
+					</div>
+					<!-- Image -->
+					<div class="mt-auto p-0">
+						<img src="assets/images/elements/integration.png" alt="feature-img">
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature group items -->
+			<div class="col-xl-8">
+				<div class="row g-4 g-lg-6">
+					<!-- Feature item -->
+					<div class="col-12">
+						<div class="card bg-primary bg-opacity-10 overflow-hidden p-5 pb-0">
+							<div class="row g-4">
+								<div class="col-md-6">
+									<div class="card-body p-0">
+										<!-- Icon -->
+										<figure class="text-primary mb-3">
+											<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M10 2.25C8.20507 2.25 6.75 3.70507 6.75 5.5V6.25H13.25V5.5C13.25 3.70507 11.7949 2.25 10 2.25Z" fill="currentColor"></path>
+												<path d="M17.75 17.25H18.5C20.2949 17.25 21.75 15.7949 21.75 14C21.75 12.2051 20.2949 10.75 18.5 10.75H17.75V17.25Z" fill="currentColor"></path>
+												<path d="M4.5 12.25C5.4665 12.25 6.25 13.0335 6.25 14C6.25 14.9665 5.4665 15.75 4.5 15.75H3.53571C3.03452 15.75 2.78393 15.75 2.60098 15.865C2.50557 15.9249 2.4249 16.0056 2.36496 16.101C2.25 16.2839 2.25 16.5345 2.25 17.0357C2.25 18.8734 2.25 19.7923 2.67151 20.4631C2.89131 20.8129 3.1871 21.1087 3.53691 21.3285C4.20774 21.75 5.12659 21.75 6.96429 21.75C7.46548 21.75 7.71607 21.75 7.89903 21.635C7.99443 21.5751 8.0751 21.4944 8.13505 21.399C8.25 21.2161 8.25 20.9655 8.25 20.4643L8.25 19.5C8.25 18.5335 9.0335 17.75 10 17.75C10.9665 17.75 11.75 18.5335 11.75 19.5V20.4643C11.75 20.9655 11.75 21.2161 11.865 21.399C11.9249 21.4944 12.0056 21.5751 12.101 21.635C12.2839 21.75 12.5345 21.75 13.0357 21.75H13.25C14.8846 21.75 15.7019 21.75 16.3179 21.4136C16.7806 21.161 17.161 20.7806 17.4136 20.3179C17.75 19.7019 17.75 18.8846 17.75 17.25V10.75C17.75 9.1154 17.75 8.2981 17.4136 7.68207C17.161 7.21936 16.7806 6.83904 16.3179 6.58638C15.7019 6.25 14.8846 6.25 13.25 6.25H6.75C5.1154 6.25 4.2981 6.25 3.68206 6.58638C3.21936 6.83904 2.83904 7.21936 2.58638 7.68206C2.25 8.2981 2.25 9.1154 2.25 10.75V10.9643C2.25 11.4655 2.25 11.7161 2.36496 11.899C2.4249 11.9944 2.50557 12.0751 2.60098 12.135C2.78393 12.25 3.03452 12.25 3.53572 12.25H4.5Z" fill="currentColor" fill-opacity="0.25"></path>
+												</svg>
+												
+										</figure>
+										<!-- Title and content -->
+										<h5 class="card-title mb-3">Collaborating on work shouldn't be this hard</h5>
+										<p class="mb-3">We provide digital transformation solutions, enabling companies to make their visions. </p>
+										<a href="#" class="btn btn-outline-primary mb-5">Explore Now</a>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<!-- Image -->
+									<div class="me-n9 mb-n6">
+										<img src="assets/images/elements/saas-feature.png" class="card-img border border-dark border-5" alt="feature-img">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Feature item -->
+					<div class="col-lg-6">
+						<div class="card bg-dark rounded h-100 overflow-hidden p-5">
+							<!-- SVG decoration -->
+							<figure class="position-absolute bottom-0 end-0 mb-n4 me-n5">
+								<svg class="fill-white opacity-1" width="220px" height="209px" viewBox="0 0 220 209" style="enable-background:new 0 0 220 209;" xml:space="preserve">
+									<path d="M84.3,120.6c-1.1-0.3-1.9-0.8-2.4-1.6c-1-1.4-0.7-3.3,0.8-5.2l15.9-21.1c2.2-2.9,6.5-5.3,10.6-5.8 c2.3-0.3,4.2,0,5.4,1l14.9,11.6c1,0.8,1.4,1.9,1.2,3.2c-0.6,3.1-4.6,6.5-9.3,8l-30.9,9.5C88.2,121,85.9,121.1,84.3,120.6z  M112.7,87.7c-1-0.3-2.1-0.3-3.4-0.1c-3.9,0.5-8.1,2.8-10.1,5.6l-15.9,21.1c-1.3,1.7-1.6,3.3-0.8,4.5c1.2,1.7,4.3,2,8,0.9 l30.8-9.5c5.2-1.6,8.4-5,8.9-7.5c0.2-1.1-0.1-2-1-2.6l-14.9-11.6C113.8,88.1,113.3,87.9,112.7,87.7z"></path>
+									<path d="M82.9,123.4c-1-0.3-1.8-0.7-2.4-1.4c-1.1-1.4-1-3.3,0.4-5.4l15.2-23.5c3.5-5.4,12.9-8.9,17-6.3l17.8,11.1 c1.2,0.8,1.8,1.9,1.6,3.3c-0.3,3.3-4.4,7.2-9.4,9l-32.9,12.4C87.5,123.6,84.9,123.9,82.9,123.4z M111.6,86.7 c-4.3-1.1-11.9,2.1-14.9,6.7l-15.2,23.5c-1.2,1.9-1.4,3.5-0.5,4.7c1.4,1.8,5.1,1.9,9,0.4l32.9-12.4c5.5-2.1,8.7-5.9,9-8.5 c0.1-1.2-0.3-2.1-1.4-2.7l-17.8-11.1C112.5,87,112.1,86.9,111.6,86.7z"></path>
+									<path d="M81.7,126.3c-0.9-0.3-1.7-0.7-2.3-1.3c-1.3-1.3-1.3-3.3,0-5.6l14.1-25.9c3.3-6,13.2-10.4,18-8l20.8,10.3 c1.4,0.7,2.2,1.9,2.2,3.5c-0.1,3.5-4,7.8-9.3,10.2l-34.9,15.6C87,126.5,83.9,126.9,81.7,126.3z M110.3,85.8 c-4.8-1.3-13.4,2.9-16.2,8.1l-14.1,25.9c-1.1,2-1.1,3.7-0.1,4.9c1.4,1.5,5.1,2.1,10.1-0.1l34.9-15.6c5.7-2.6,8.9-6.8,8.9-9.6 c0-1.3-0.6-2.3-1.8-2.9l-20.8-10.3C111,86,110.6,85.9,110.3,85.8z"></path>
+									<path d="M80.7,129.6c-0.9-0.2-1.6-0.6-2.2-1.2c-1.4-1.3-1.6-3.4-0.5-5.8l12.7-28.4c2.9-6.6,13.4-11.9,18.9-9.8 l24.1,9.3c1.7,0.7,2.7,1.9,2.8,3.6c0.2,3.7-3.6,8.4-9.1,11.3l-36.8,19.1C86.9,129.6,83.2,130.2,80.7,129.6z M108.8,84.8 c-5.3-1.4-14.9,3.7-17.5,9.7l-12.7,28.4c-1,2.1-0.8,4,0.4,5.1c1.7,1.6,5.9,2,11.3-0.8L127,108c5.9-3.1,9-7.8,8.8-10.7 c-0.1-1.4-0.9-2.5-2.4-3L109.3,85C109.2,84.9,109,84.9,108.8,84.8z"></path>
+									<path d="M79.9,133c-0.8-0.2-1.5-0.5-2.1-1c-1.6-1.3-2-3.4-1.1-5.9l10.8-30.9c2.5-7.1,13.4-13.6,19.7-11.8l27.5,7.9 c2,0.6,3.2,1.9,3.4,3.7c0.5,3.8-3.2,9.1-8.8,12.4l-38.3,23C87,132.9,82.8,133.8,79.9,133z M107,84c-6-1.6-16.5,4.7-18.8,11.4 l-10.8,30.9c-0.8,2.3-0.5,4.1,0.9,5.3c2.4,2,7.6,1.3,12.5-1.7l38.3-23c6.1-3.7,8.9-8.7,8.5-11.8c-0.2-1.6-1.2-2.7-3-3.2L107.2,84 C107.1,84,107.1,84,107,84z"></path>
+									<path d="M79.5,136.8c-0.7-0.2-1.3-0.5-1.9-0.9c-1.8-1.3-2.4-3.4-1.7-6.1l8.5-33.4c2-7.7,13.2-15.4,20.4-14l31.2,6.2 c2.3,0.5,3.8,1.8,4.2,3.8c0.8,4.1-2.6,9.6-8.4,13.6L92,133.3C87.5,136.4,82.8,137.7,79.5,136.8z M136.2,89.4 c-0.1,0-0.3-0.1-0.5-0.1l-31.2-6.2c-6.8-1.3-17.8,6.2-19.6,13.5L76.4,130c-0.6,2.4-0.1,4.3,1.5,5.4c2.9,2,8.6,0.9,13.8-2.6 l39.7-27.2c6.2-4.3,8.8-9.7,8.1-12.9C139.1,91,138,89.9,136.2,89.4z"></path>
+									<path d="M79.3,140.7c-0.6-0.2-1.1-0.4-1.6-0.7c-2-1.2-2.9-3.4-2.4-6.2L80.9,98c1.3-8.2,12.8-17.2,20.9-16.3l35.1,4.1 c2.7,0.3,4.5,1.7,5.1,3.9c1.2,4.2-2,10.3-7.8,14.7l-40.7,31.8C88.5,140,83,141.7,79.3,140.7z M136.7,86.2l0,0.3l-35.1-4.1 c-7.6-0.9-18.9,7.9-20.2,15.7l-5.6,35.8c-0.4,2.6,0.3,4.5,2.1,5.6c3.4,2,9.6,0.5,15-3.8l40.7-31.7c5.6-4.3,8.7-10.1,7.6-14.1 c-0.5-2-2.1-3.2-4.6-3.4L136.7,86.2z"></path>
+									<path d="M79.5,144.9c-0.4-0.1-0.9-0.3-1.3-0.5c-2.3-1.1-3.4-3.3-3.3-6.3l2.2-38.2c0.5-8.8,12.2-19.1,21.2-18.8 l39.1,1.6c3.1,0.1,5.3,1.5,6.1,3.9c1.5,4.3-1.4,10.8-7,15.9l-41.3,36.6C90,143.8,83.8,146,79.5,144.9z M137.4,83.1l0,0.3 l-39.1-1.6c-8.5-0.3-20,9.8-20.5,18.2l-2.2,38.2c-0.2,2.7,0.8,4.7,2.9,5.7c4,1.9,10.7-0.2,16.3-5.1l41.3-36.6 c5.5-4.9,8.3-11.1,6.8-15.2c-0.8-2.2-2.7-3.4-5.5-3.5L137.4,83.1z"></path>
+									<path d="M80.2,149.2c-0.3-0.1-0.6-0.2-0.8-0.3c-2.6-1-4.1-3.2-4.2-6.3l-1.8-40.4c-0.2-4.1,2-9,6.1-13.3 c4.5-4.8,10.3-7.9,15.1-8.1l43.2-1.3c3.5-0.1,6.1,1.3,7.3,3.9c2,4.5-0.5,11.3-6.1,17l-41.4,41.8C92,147.8,85.1,150.5,80.2,149.2z  M140.6,80.4c-0.8-0.2-1.7-0.3-2.7-0.3l-43.2,1.3c-4.7,0.1-10.3,3.1-14.7,7.9c-3.9,4.2-6.1,9-5.9,12.9l1.8,40.4 c0.1,2.8,1.4,4.8,3.8,5.7c4.6,1.8,11.8-0.9,17.5-6.6l41.4-41.8c5.3-5.4,7.8-12.1,6-16.3C143.8,82.1,142.4,80.9,140.6,80.4z"></path>
+									<path d="M81.4,153.8c-0.1,0-0.1,0-0.2,0c-2.9-0.8-4.8-3.1-5.3-6.3L69.5,105c-0.6-4.2,1.1-9.3,4.8-14 c4.4-5.7,10.6-9.6,16.1-10.1l47.5-4.8c4-0.4,7,1,8.5,3.9c2.4,4.6,0.4,11.9-5,18.1l-41,47.3C94.7,151.8,86.9,155.3,81.4,153.8z  M137.9,76.4l0,0.3l-47.5,4.8c-5.4,0.5-11.4,4.3-15.7,9.9c-3.6,4.6-5.3,9.5-4.7,13.6l6.5,42.5c0.5,3,2.1,5,4.8,5.8 c5.3,1.5,12.9-1.9,18.5-8.3l41-47.2c5.2-6,7.2-13,4.9-17.3c-1.4-2.6-4.2-3.9-7.9-3.5L137.9,76.4z"></path>
+									<path d="M83.2,158.5c-3-0.8-5-2.9-5.9-6.1l-11.8-44.3c-1.1-4.2,0.1-9.6,3.5-14.7c4.2-6.6,10.7-11.3,16.9-12.4 l51.8-8.7c4.5-0.8,8.1,0.6,10,3.7c2.9,4.7,1.4,12.3-3.7,19.1L104,148.1c-5.6,7.4-13.9,11.7-20.1,10.5 C83.6,158.6,83.4,158.5,83.2,158.5z M142.6,73.1c-1.4-0.4-3.1-0.4-4.9-0.1l-51.8,8.7c-6,1-12.4,5.6-16.5,12.1 c-3.2,5-4.5,10.2-3.4,14.2l11.8,44.3c0.9,3.2,2.9,5.2,6.1,5.8c6,1.2,14-3,19.5-10.2l39.9-52.9c4.9-6.5,6.4-13.9,3.7-18.4 C146.1,74.7,144.5,73.6,142.6,73.1z"></path>
+									<path d="M85.6,163.2c-2.9-0.8-5.1-2.8-6.3-5.7l-18-45.7c-1.7-4.2-0.9-9.8,2-15.4c3.9-7.3,10.7-13.1,17.5-14.7 l56.1-13.2c5-1.2,9.3,0.1,11.7,3.5c3.4,4.8,2.5,12.7-2.2,20L108.2,151c-5.3,8.1-13.8,13.3-20.8,12.6 C86.7,163.5,86.2,163.4,85.6,163.2z M137,68.8l0.1,0.3L80.9,82.3c-6.6,1.6-13.3,7.2-17,14.4c-2.8,5.4-3.5,10.8-1.9,14.9l18,45.7 c1.3,3.3,3.9,5.3,7.5,5.6c6.8,0.7,15.1-4.4,20.2-12.3l38.1-58.9c4.6-7.1,5.5-14.7,2.3-19.3c-2.3-3.2-6.2-4.4-11-3.2L137,68.8z"></path>
+									<path d="M88.7,168.1c-2.9-0.8-5.1-2.6-6.6-5.3L57.3,116c-2.3-4.3-2.1-10.2,0.4-16.2C61,91.7,68,85,75.3,82.7 l60.3-18.2c5.6-1.7,10.5-0.5,13.5,3.1c4,4.8,3.7,13.1-0.5,20.9l-35.4,65c-4.8,8.8-13.5,14.9-21.2,14.9 C90.8,168.5,89.7,168.3,88.7,168.1z M135.8,65.1L75.5,83.3c-7.2,2.2-14,8.7-17.3,16.7c-2.4,5.8-2.6,11.5-0.4,15.6l24.9,46.8 c1.8,3.5,5.1,5.4,9.2,5.4c7.5,0,16-6,20.7-14.6l35.4-65c4.2-7.6,4.4-15.6,0.6-20.2C145.8,64.6,141.1,63.5,135.8,65.1z"></path>
+									<path d="M92.6,172.9c-2.8-0.7-5.1-2.4-6.8-4.8l-32.6-47.4c-3-4.3-3.5-10.5-1.4-17c2.8-8.9,9.7-16.5,17.6-19.4 l64.4-23.9c6.2-2.3,11.8-1.3,15.5,2.6c4.6,4.9,5.1,13.2,1.4,21.7L118.9,156c-4.3,9.6-12.8,16.5-21.3,17.3 C95.8,173.4,94.1,173.3,92.6,172.9z M143.5,60.2c-2.8-0.8-6.1-0.5-9.5,0.7L69.6,84.9c-7.7,2.9-14.5,10.3-17.2,19 c-2,6.3-1.5,12.3,1.3,16.4l32.6,47.4c2.5,3.6,6.5,5.4,11.2,5c8.2-0.7,16.6-7.6,20.7-16.9l31.8-71.3c3.7-8.2,3.2-16.3-1.2-21 C147.4,61.9,145.6,60.8,143.5,60.2z"></path>
+									<path d="M97.3,177.7c-2.6-0.7-5-2.1-6.8-4.3l-41.2-47.4c-3.8-4.3-5-10.8-3.4-17.8C48,98.6,54.8,90,63.1,86.4 l68.3-30.1c6.7-3,13.2-2.3,17.7,1.9c5.3,4.9,6.6,13.5,3.5,22.4l-27.1,77.6c-3.5,10.1-11.9,18.1-20.9,19.8 C102,178.3,99.5,178.3,97.3,177.7z M131.5,56.5l0.1,0.3L63.3,86.9c-8.1,3.6-14.7,12-16.8,21.3c-1.5,6.8-0.3,13.1,3.3,17.3 L90.9,173c3.3,3.8,8.1,5.3,13.5,4.3c8.8-1.7,17-9.5,20.4-19.4L152,80.3c3-8.7,1.8-17.1-3.4-21.8c-4.3-4-10.5-4.6-17-1.7 L131.5,56.5z"></path>
+									<path d="M102.9,182.3c-2.5-0.7-4.7-1.9-6.7-3.7l-50.6-46.8c-4.7-4.3-6.7-11.2-5.7-18.8c1.4-10.1,7.8-19.5,16.5-24 L128.2,52c7.3-3.7,14.6-3.4,20,0.9c6.1,4.8,8.3,13.7,6,23.1L133,159.7c-2.7,10.7-10.6,19.4-20.1,22.2 C109.3,183,105.9,183.1,102.9,182.3z M128.4,52.2l0.1,0.3L56.6,89.6c-8.5,4.4-14.8,13.6-16.2,23.5c-1,7.4,1,14.1,5.5,18.2 l50.6,46.8c4.2,3.9,10,5.1,16.1,3.3c9.3-2.7,17-11.3,19.6-21.8l21.3-83.8c2.3-9.2,0.1-17.7-5.7-22.4c-5.2-4.2-12.3-4.5-19.3-0.8 L128.4,52.2z"></path>
+									<path d="M109.3,186.7c-2.2-0.6-4.3-1.6-6.2-3l-61-45.4c-5.7-4.3-8.8-11.5-8.3-19.8c0.6-10.7,6.5-20.7,15.5-26.1 l75.1-44.6c7.7-4.6,16.1-4.7,22.5-0.3c7,4.7,10.3,13.5,8.7,23.6l-14.1,90c-1.7,11-9.1,20.7-18.7,24.6 C118.1,187.4,113.4,187.8,109.3,186.7z M124.4,48l0.2,0.3L49.5,92.9c-8.8,5.2-14.6,15-15.2,25.6c-0.4,8.1,2.5,15.1,8.1,19.3 l61,45.4c5.3,3.9,12.2,4.6,19,1.9c9.4-3.9,16.7-13.3,18.4-24.2l14.1-90c1.5-9.8-1.6-18.3-8.4-22.9c-6.2-4.2-14.4-4.1-21.9,0.4 L124.4,48z"></path>
+									<path d="M116.6,190.8c-1.9-0.5-3.7-1.3-5.5-2.3l-72.2-43.1c-7-4.2-11.1-11.8-11.4-20.9c-0.3-11.1,5.1-21.8,14.2-28 l77.8-52.8c8.1-5.5,17.5-6.2,25.1-1.9c8,4.5,12.4,13.4,11.8,23.9l-5.5,95.9c-0.7,11.4-7.1,21.7-16.9,26.9 C128.2,191.5,122.2,192.2,116.6,190.8z M119.6,43.9l0.2,0.3L42,97c-8.9,6-14.2,16.6-13.9,27.5c0.3,8.9,4.3,16.3,11.1,20.4 l72.2,43.1c6.6,3.9,14.7,4,22.2,0c9.6-5.1,15.9-15.2,16.6-26.4l5.5-95.9c0.6-10.2-3.7-18.9-11.5-23.3c-7.4-4.2-16.6-3.5-24.5,1.9 L119.6,43.9z"></path>
+									<path d="M124.9,194.4c-1.5-0.4-2.9-0.9-4.3-1.6L36.2,153c-8.4-4-13.9-12-15-22c-1.3-11.4,3.6-22.8,12.6-29.8 l79.8-61.7c8.4-6.5,18.8-7.9,27.7-3.8c9.1,4.2,14.8,13.2,15.3,24.1l4.6,101.5c0.5,11.6-5.1,22.7-14.6,29 C139.9,195,132.1,196.4,124.9,194.4z M137.2,35c-7.7-2.1-16.1-0.2-23.1,5.2l-79.8,61.7c-8.8,6.8-13.6,18-12.4,29.2 c1.1,9.8,6.4,17.6,14.6,21.5l84.4,39.8c8.2,3.8,17.4,3,25.5-2.4c9.3-6.2,14.8-17.1,14.3-28.5L156.1,60 c-0.5-10.6-6.1-19.5-14.9-23.6C139.9,35.8,138.5,35.3,137.2,35z"></path>
+									<path d="M134,197.6c-0.8-0.2-1.6-0.5-2.5-0.8l-97.4-35.4c-9.9-3.6-17.1-12.2-19.1-23c-2.2-11.7,1.8-23.4,10.8-31.3 l81.1-71.2c8.6-7.6,19.9-9.8,30.3-6.1c10.4,3.8,17.6,12.8,19.3,24.1l16.3,106.6c1.8,11.8-2.6,23.4-11.9,30.9 C153.2,197.8,143.2,200,134,197.6z M134.5,29.6c-9.5-2.5-19.5-0.1-27.2,6.7l-81.1,71.2c-8.8,7.7-12.8,19.2-10.6,30.7 c2,10.6,9,19,18.7,22.5l97.4,35.4c9.7,3.5,20.5,1.6,28.8-5.2c9.1-7.4,13.4-18.7,11.6-30.3L155.9,54c-1.7-11.1-8.8-19.9-18.9-23.6 C136.2,30.1,135.3,29.8,134.5,29.6z"></path>
+									<path d="M144,200.1L32.8,170.3C21,167.1,12,158.2,8.9,146.4c-3.2-11.8,0.1-24,8.7-32.6L99,32.4 c8.7-8.6,20.9-11.9,32.7-8.7c11.8,3.2,20.8,12.1,23.9,23.9l29.8,111.1c3.2,11.8-0.1,24-8.7,32.6C168,200,155.8,203.3,144,200.1z  M99.2,32.6l0.2,0.2L18,114.2c-8.5,8.5-11.7,20.5-8.6,32c3.1,11.6,11.9,20.3,23.5,23.5l111.2,29.8c11.6,3.1,23.6-0.1,32.1-8.6 c8.5-8.5,11.7-20.5,8.6-32L155,47.7c-3.1-11.6-11.9-20.4-23.5-23.5c-11.6-3.1-23.6,0.1-32.1,8.6L99.2,32.6z"></path>
+								</svg>
+							</figure>
+		
+							<!-- Card body -->
+							<div class="card-body bg-transparent p-0">
+								<h5 class="text-white mb-0">Want to see how to apply this in projects?</h5>
+							</div>
+		
+							<!-- Card footer -->
+							<div class="card-footer bg-transparent p-0 mt-6">
+								<a href="portfolio-list.html" class="btn btn-white mb-0">See our work</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Feature item -->
+					<div class="col-lg-6">
+						<div class="card bg-light rounded h-100 overflow-hidden p-4">
+							<!-- Card body -->
+							<div class="card-body bg-transparent p-0">
+								<!-- Icon SVG -->
+								<figure class="text-primary">
+									<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M4.95 9.83377C3.51099 9.1789 2.79149 8.85147 2.55187 8.40828C2.3112 7.96313 2.3112 7.42663 2.55187 6.98148C2.79149 6.53829 3.51099 6.21086 4.95 5.55599L10.8816 2.8566C11.37 2.63435 11.6142 2.52322 11.872 2.50115C11.9572 2.49386 12.0428 2.49386 12.128 2.50115C12.3858 2.52322 12.63 2.63435 13.1184 2.8566L19.05 5.55599C20.489 6.21086 21.2085 6.53829 21.4481 6.98148C21.6888 7.42663 21.6888 7.96313 21.4481 8.40828C21.2085 8.85147 20.489 9.1789 19.05 9.83377L13.1184 12.5332C12.63 12.7554 12.3858 12.8665 12.128 12.8886C12.0428 12.8959 11.9572 12.8959 11.872 12.8886C11.6142 12.8665 11.37 12.7554 10.8816 12.5332L4.95 9.83377Z" fill="currentColor" fill-opacity="0.25"></path>
+										<path d="M4.95 9.83377C3.51099 10.4886 2.79149 10.8161 2.55187 11.2593C2.3112 11.7044 2.3112 12.2409 2.55187 12.6861C2.79149 13.1292 3.51099 13.4567 4.95 14.1115L10.8816 16.8109C11.37 17.0332 11.6142 17.1443 11.872 17.1664C11.9572 17.1737 12.0428 17.1737 12.128 17.1664C12.3858 17.1443 12.63 17.0332 13.1184 16.8109L19.05 14.1115C20.489 13.4567 21.2085 13.1292 21.4481 12.6861C21.6888 12.2409 21.6888 11.7044 21.4481 11.2593C21.2085 10.8161 20.489 10.4886 19.05 9.83377L13.1184 12.5332C12.63 12.7554 12.3858 12.8665 12.128 12.8886C12.0428 12.8959 11.9572 12.8959 11.872 12.8886C11.6142 12.8665 11.37 12.7554 10.8816 12.5332L4.95 9.83377Z" fill="currentColor" fill-opacity="0.25"></path>
+										<path d="M4.95 14.1115C3.51099 14.7664 2.79149 15.0938 2.55187 15.537C2.3112 15.9822 2.3112 16.5187 2.55187 16.9638C2.79149 17.407 3.51099 17.7345 4.95 18.3893L10.8816 21.0887C11.37 21.311 11.6142 21.4221 11.872 21.4442C11.9572 21.4515 12.0428 21.4515 12.128 21.4442C12.3858 21.4221 12.63 21.311 13.1184 21.0887L19.05 18.3893C20.489 17.7345 21.2085 17.407 21.4481 16.9638C21.6888 16.5187 21.6888 15.9822 21.4481 15.537C21.2085 15.0938 20.489 14.7664 19.05 14.1115L13.1184 16.8109C12.63 17.0332 12.3858 17.1443 12.128 17.1664C12.0428 17.1737 11.9572 17.1737 11.872 17.1664C11.6142 17.1443 11.37 17.0332 10.8816 16.8109L4.95 14.1115Z" fill="currentColor" fill-opacity="0.25"></path>
+										<path d="M6 10.2734L10.8827 12.4929C11.3707 12.7146 11.6146 12.8255 11.8722 12.8476C11.9572 12.8548 12.0428 12.8548 12.1278 12.8476C12.3854 12.8255 12.6293 12.7146 13.1173 12.4929L18 10.2734M6 14.2734L10.8827 16.4929C11.3707 16.7146 11.6146 16.8255 11.8722 16.8476C11.9572 16.8548 12.0428 16.8548 12.1278 16.8476C12.3854 16.8255 12.6293 16.7146 13.1173 16.4929L18 14.2734" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>	
+								</figure>
+								<!-- Title -->
+								<h5 class="mb-3">Data Protection</h5>
+								<p class="mb-0">Ample order up in of in ready. Timed blind had now those ought set often which. Or snug dull he show more true wish.</p>
+							</div>
+		
+							<!-- Card footer -->
+							<div class="card-footer bg-transparent p-0 mt-6">
+								<a href="#" class="btn btn-primary">Learn more</a>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</div> <!-- Row END -->
+	</div>	
+</section>
+<!-- =======================
+Feature END -->
+
+<!-- =======================
+Feature START -->
+<section class="bg-dark position-relative overflow-hidden" data-bs-theme="dark">
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 start-0 mt-n6 ms-n8">
+		<svg class="opacity-3" width="371" height="354" viewBox="0 0 371 354" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<ellipse cx="172.5" cy="176.5" rx="131.5" ry="125.5" fill="url(#paint0_linear_195_2)"></ellipse>
+			<ellipse cx="185.5" cy="177" rx="185.5" ry="177" fill="url(#paint1_linear_195_2)"></ellipse>
+			<defs>
+			<linearGradient id="paint0_linear_195_2" x1="172.5" y1="51" x2="172.5" y2="302" gradientUnits="userSpaceOnUse">
+			<stop offset="0.0569271" stop-color="#D9D9D9" stop-opacity="0.5"></stop>
+			<stop offset="0.998202" stop-color="#D9D9D9" stop-opacity="0"></stop>
+			</linearGradient>
+			<linearGradient id="paint1_linear_195_2" x1="185.5" y1="0" x2="185.5" y2="354" gradientUnits="userSpaceOnUse">
+			<stop offset="0.0569271" stop-color="#D9D9D9" stop-opacity="0.2"></stop>
+			<stop offset="0.998202" stop-color="#D9D9D9" stop-opacity="0"></stop>
+			</linearGradient>
+			</defs>
+		</svg>
+	</figure>
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 end-0 me-n9 mt-n7 d-none d-md-block">
+		<svg class="fill-white" width="768.8px" height="1386px" viewBox="0 0 768.8 1386" style="enable-background:new 0 0 768.8 1386; opacity: 0.07;" xml:space="preserve">
+			<path d="M647.6,748.4c1.9,6,3.3,12.2,3.8,18.4c2.2,18.9-0.7,38.9-9.1,61.5c-15.6,41.9-47.8,85.3-81.6,131.5 c-46.1,63.1-94.5,128.4-108.1,199.1c-15.7,80.6,17.2,154.5,101.1,226.1l-0.4,0.4c-188.1-160.7-84.4-301.8,7.3-426.2 c33.9-46,65.8-89.6,81.4-131.2c17.5-46.8,11.8-84.9-18-119.6c-39.6-46.6-86.5-86.9-135.7-129.3C339.1,450.3,184.9,317.3,240.6,4.6 l0.6,0.1C185.7,317,339.7,450.1,488.7,578.7c49.3,42.7,95.8,82.8,135.8,129.6C635.5,721,643.1,734.2,647.6,748.4z"></path>
+			<path d="M636.2,722.3c23.4,73.7-25.2,149.2-76.5,228.7c-40.8,63.5-83,129.1-91.9,198.3c-9.9,78.2,25.9,150,109.6,219 l-0.4,0.7c-45-37.1-75.4-74-93.5-112.7c-15.9-34.5-21.2-69.5-16.5-106.8c8.9-69.5,51-135.1,91.9-198.6 C616.4,861.3,671,776.5,622,694.1c-39.6-66.6-102.4-118.8-169-174.2c-68.7-57.3-140-116.4-188.1-195.3 c-25.9-42.6-42.9-86.9-51.5-135.2c-9.8-54.6-9.2-112.9,2-177.9l0.6,0.1c-46.5,271.4,97.9,391.7,237.5,507.9 c66.7,55.4,129.4,107.7,169.1,174.5C628.8,702.7,633.1,712.6,636.2,722.3z"></path>
+			<path d="M624.6,687.5c11.7,37,10.5,76.9-3.8,121.9c-13.7,43.3-38.1,87.4-61.8,130.2c-35.7,64.2-72.5,130.4-76.3,198.6 c-4.4,76.5,34.5,146.1,118.7,213.3l-0.6,0.8c-188.5-150.2-114.3-284-42.6-413.2c49.3-88.7,95.7-172.7,62.4-260.6 c-31.5-83-108.5-141.7-189.7-204C363,422.5,293.2,369,244.9,298c-26.1-38.5-43.3-78.4-53-121.8C181.2,127,180.6,75,190.2,16.8l0.9,0 C151,259.3,293.5,368.3,431.2,473.7c81.5,62.2,158.3,121.3,190.1,204.2C622.6,681.2,623.6,684.4,624.6,687.5z"></path>
+			<path d="M614.6,642.5c2.2,6.8,4.1,13.7,5.4,20.8c18.1,91.8-22.3,177.4-61.1,260.2c-32.2,68.8-62.8,133.6-62.1,201.3 c0.8,76.3,41.6,143,128.7,209.2l-0.6,0.8c-46.1-35.1-78.8-70-100.3-106.8c-19.1-32.9-28.6-66.6-28.9-103.1 c-0.6-67.6,29.8-132.7,62.3-201.6c38.8-82.7,79-168.2,60.9-259.8c-19.1-96.7-109.2-158.6-204.5-224.2 c-68.3-47.1-139.2-95.6-188.9-160.4c-56.1-73.2-75.8-157-60.3-255.8l0.9,0c-34.9,220.7,109.1,319.7,248.6,415.2 C503.4,499.3,587.6,557.2,614.6,642.5z"></path>
+			<path d="M610.8,603.9c4.4,13.9,7.1,28.7,7.8,44.6c3.6,91.5-28.4,172.7-59.3,251.2c-28.5,72.3-55.1,140.5-50.2,208.8 c5.2,76.6,49.9,143,140.1,208.8l-0.4,0.7c-90.5-66-135.2-132.4-140.8-209.2c-5-68.6,21.9-136.9,50.3-209.4 c30.9-78.5,62.6-159.6,59.1-250.9c-4.2-109-107.3-171.8-216.8-238.5c-70.1-42.7-142.8-87-194.2-146.1 c-58.1-66.8-79.9-143.6-66-234.6l1,0.3c-30.7,202.9,117.1,292.9,259.8,379.6C494.9,466.2,584.1,520.8,610.8,603.9z"></path>
+			<path d="M610.7,570.7c6.1,19.2,8.4,40.1,6,62.8c-8.3,84.1-33.8,160.3-55.9,227.3c-27.6,83.2-51.4,154.9-42.7,226 c9.5,78.4,58.7,146,155,213l-0.6,0.8c-96.5-66.7-145.8-134.6-155.4-213.2c-8.8-71.4,15.2-143.4,42.8-226.7 c22.3-67.1,47.6-143.3,55.9-227.3c12-120.7-104.2-182.9-227.6-248.9c-72.3-38.6-147.1-78.7-200.6-132.7 c-60.6-61-84.2-131.8-72-216.2l1.2,0.2C89.9,223.5,242,305,389.1,383.7C488.9,437.2,584.6,488.6,610.7,570.7z"></path>
+			<path d="M613,540.8c7.3,23.1,8.5,48.7,1.9,77.9c-14,63.3-31.8,122.1-47.4,173.8c-30,99.3-56,185.2-45,263.4 c11.7,84.3,67.2,156.6,174.2,227.2l-0.5,1c-56.6-37.2-98.1-74.3-126.8-113.1c-26.6-35.7-42.3-73.2-47.9-114.7 c-11.1-78.8,14.9-164.4,45.1-264c15.7-51.7,33.4-110.5,47.5-173.6C643.5,486.7,513.4,426,375.8,361.9 c-74.9-34.9-152.2-71-207.6-120.1c-63-55.7-88.3-121-78-199.6l1.1-0.1c-10.5,78.1,14.8,143.1,77.7,198.6 c55.4,49.1,132.7,85.3,207.5,119.9C484,410.7,587.1,458.9,613,540.8z"></path>
+			<path d="M617.2,512.9c8.3,26.2,8,56.1-3.5,90.9c-5.6,17.1-11.2,33.9-16.5,50c-47.8,143.4-85.7,256.4-76.5,351.9 c9.7,99.7,71.5,180,200.4,260.4l-0.5,1c-67.3-41.9-115.6-83.2-148.1-126.6c-30.9-41-48.1-85.2-52.8-134.8 c-9.3-95.8,28.8-208.9,76.6-352.3c5.6-16.2,10.9-32.9,16.5-50c47.5-143.5-96.3-201.6-248.6-263.1c-77.7-31.1-157.6-63.5-215.4-108.2 C83.3,181.7,56.1,121.4,65.2,48l1.2,0.2c-9,72.7,18.1,132.8,83.1,183c57.8,44.6,137.6,76.8,214.8,108.1 C480.2,386,591.2,431,617.2,512.9z"></path>
+			<path d="M622.4,486.7c9.6,30.2,6.1,63.9-10.3,102.3C465,933,463,1084.4,745.1,1249l-0.8,1.1 c-143.5-83.6-211.5-162.5-227.9-263.5c-17.4-106.8,25.3-236.4,94.5-398.1c18.6-43.4,20.4-80.4,6-113.1 C583.7,401.1,471.1,362,351.5,320.8C189.7,265,22.7,207.3,40,54.3l1.2,0.2C23.8,206.4,190.5,263.8,351.7,319.6 C471.4,361,584.6,400,617.6,475C619.7,478.9,621.2,482.8,622.4,486.7z"></path>
+			<path d="M628.6,461.4c10.3,32.5,4.4,69.6-18,112.8c-93.9,182.2-122.9,308.3-94.5,408.8c26.1,92.5,101.7,167,252.8,249 l-0.8,1.1c-151.5-82.5-227.2-157.2-253.6-249.9c-28.5-100.7,0.5-227.1,94.5-409.9c24.3-47.3,29-87.1,14.3-121.5 c-32.7-76-155.1-112-284.6-149.7C172.6,253.7,0.1,203.5,15.1,60.4l1.2,0.2c-14.6,141.8,157,191.9,323.2,240.6 c129.9,37.9,252.4,73.9,285.3,150.4C626.2,454.9,627.5,458,628.6,461.4z"></path>
+		</svg>
+	</figure>
+
+	<div class="container pb-6 position-relative">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-sm-5">
+			<span class="text-primary fw-bold text-uppercase">Features</span>
+			<h2 class="mb-0 mt-3">Powerful SaaS features for your agency</h2>
+		</div>
+
+		<!-- Tabs and content START -->
+		<div class="row">
+			<!-- Tabs -->
+			<div class="col-lg-10 col-xl-8 col-xxl-6 mx-auto mb-6 mb-xl-8">
+				<div class="bg-light rounded-pill p-2">
+					<ul class="nav nav-pills nav-pills-primary nav-responsive justify-content-between" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link rounded-pill active" id="pills-analytics-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab" aria-controls="pills-analytics" aria-selected="true"><i class="bi bi-funnel me-2"></i>Analytics</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link rounded-pill" id="pills-collaboration-tab" data-bs-toggle="pill" data-bs-target="#pills-collaboration" type="button" role="tab" aria-controls="pills-collaboration" aria-selected="false" tabindex="-1"><i class="bi bi-basket me-2"></i>Collaboration</button>
+						</li>
+						<li class="nav-item position-relative" role="presentation">
+							<!-- Badge -->
+							<span class="badge text-bg-danger position-absolute top-0 start-100 translate-middle mt-n2 ms-n5 d-none d-lg-block">Coming soon</span>
+							<button class="nav-link rounded-pill" id="pills-automation-tab" aria-selected="false" tabindex="-1" role="tab"><i class="bi bi-gear me-2"></i>Automation</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link rounded-pill" id="pills-scalability-tab" aria-selected="false" tabindex="-1" role="tab"><i class="bi bi-pie-chart me-2"></i>Scalability</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Tabs content -->
+			<div class="col-11 mx-auto">
+				<div class="tab-content" id="pills-tabContent">
+					<!-- Content item -->
+					<div class="tab-pane fade show active" id="pills-analytics" role="tabpanel" aria-labelledby="pills-analytics-tab" tabindex="0">
+						<div class="row align-items-center">
+							<!-- Info -->
+							<div class="col-lg-6 mb-6 mb-lg-0">
+								<span class="bg-primary bg-opacity-10 text-primary text-uppercase rounded small px-3 py-2">Analytics</span>
+								<h3 class="my-4">Comprehensive data analytics and reporting</h3>
+								<p>Gain valuable insights into your digital campaigns with our comprehensive data analytics and reporting feature.</p>
+								<!-- List -->
+								<ul class="list-group list-group-borderless mb-4">
+									<li class="list-group-item heading-color mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Actionable recommendations</li>
+									<li class="list-group-item heading-color mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Cross-channel analysis</li>
+									<li class="list-group-item heading-color mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>User-friendly interface</li>
+								</ul>
+								<!-- Button -->
+								<a class="btn btn-white icon-link icon-link-hover" href="#">Explore analytics<i class="bi bi-arrow-right"></i> </a>
+							</div>
+
+							<!-- image and decoration -->
+							<div class="col-lg-4 position-relative ms-auto">
+								<!-- SVG decoration -->
+								<figure class="position-absolute top-0 start-0 ms-n5 mt-n5">
+									<svg class="opacity-2" width="148" height="140" viewBox="0 0 148 140" xmlns="http://www.w3.org/2000/svg">
+										<path class="fill-primary" d="m9.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<circle class="fill-primary" cx="25.86" cy="131.41" r="2.95"></circle>
+										<circle class="fill-primary" cx="44.71" cy="131.41" r="2.95"></circle>
+										<circle class="fill-primary" cx="63.57" cy="131.41" r="2.95"></circle>
+										<circle class="fill-primary" cx="82.43" cy="131.41" r="2.95"></circle>
+										<circle class="fill-primary" cx="101.29" cy="131.41" r="2.95"></circle>
+										<circle class="fill-primary" cx="120.14" cy="131.41" r="2.95"></circle>
+										<path class="fill-primary" d="m141.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<circle class="fill-primary" cx="25.86" cy="113.61" r="2.95"></circle>
+										<circle class="fill-primary" cx="44.71" cy="113.61" r="2.95"></circle>
+										<circle class="fill-primary" cx="63.57" cy="113.61" r="2.95"></circle>
+										<circle class="fill-primary" cx="82.43" cy="113.61" r="2.95"></circle>
+										<circle class="fill-primary" cx="101.29" cy="113.61" r="2.95"></circle>
+										<circle class="fill-primary" cx="120.14" cy="113.61" r="2.95"></circle>
+										<path class="fill-primary" d="m141.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<circle class="fill-primary" cx="25.86" cy="95.81" r="2.95"></circle>
+										<circle class="fill-primary" cx="44.71" cy="95.81" r="2.95"></circle>
+										<circle class="fill-primary" cx="63.57" cy="95.81" r="2.95"></circle>
+										<circle class="fill-primary" cx="82.43" cy="95.81" r="2.95"></circle>
+										<circle class="fill-primary" cx="101.29" cy="95.81" r="2.95"></circle>
+										<circle class="fill-primary" cx="120.14" cy="95.81" r="2.95"></circle>
+										<path class="fill-primary" d="m141.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m28.8 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m47.66 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m66.52 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m85.37 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m104.23 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m123.09 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m141.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m28.8 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m47.66 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m66.52 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m85.37 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m104.23 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m123.09 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m141.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m28.8 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m47.66 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m66.52 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m85.37 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m104.23 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m123.09 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m141.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<circle class="fill-primary" cx="25.86" cy="24.62" r="2.95"></circle>
+										<circle class="fill-primary" cx="44.71" cy="24.62" r="2.95"></circle>
+										<circle class="fill-primary" cx="63.57" cy="24.62" r="2.95"></circle>
+										<circle class="fill-primary" cx="82.43" cy="24.62" r="2.95"></circle>
+										<circle class="fill-primary" cx="101.29" cy="24.62" r="2.95"></circle>
+										<circle class="fill-primary" cx="120.14" cy="24.62" r="2.95"></circle>
+										<path class="fill-primary" d="m141.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+										<path class="fill-primary" d="m9.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95c0-1.62 1.32-2.94 2.95-2.94s2.95 1.32 2.95 2.94z"></path>
+										<circle class="fill-primary" cx="25.86" cy="6.82" r="2.95"></circle>
+										<circle class="fill-primary" cx="44.71" cy="6.82" r="2.95"></circle>
+										<circle class="fill-primary" cx="63.57" cy="6.82" r="2.95"></circle>
+										<circle class="fill-primary" cx="82.43" cy="6.82" r="2.95"></circle>
+										<circle class="fill-primary" cx="101.29" cy="6.82" r="2.95"></circle>
+										<circle class="fill-primary" cx="120.14" cy="6.82" r="2.95"></circle>
+										<path class="fill-primary" d="m141.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+									</svg>
+								</figure>
+
+								<!-- SVG decoration -->
+								<figure class="position-absolute bottom-0 end-0 z-index-1 mb-n6 me-n6 d-none d-lg-block">
+									<svg width="167" height="107" viewBox="0 0 167 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path class="fill-white" clip-rule="evenodd" d="M87.1132 1.04286L87.1128 1.04337C86.6896 1.55271 86.2787 2.04727 85.826 2.5C84.8049 3.40765 83.7918 4.32334 82.78 5.23795L82.7799 5.23803L82.7798 5.23811L82.7796 5.23823C80.2242 7.54807 77.6764 9.85101 75.026 12C61.626 22.5 48.226 33 34.926 43.5L9.12598 63.9L9.12586 63.9001C8.7259 64.2001 8.32595 64.5 8.02598 64.8C7.32598 65.4 6.52598 65.8 5.62598 65C4.82598 64.3 5.02598 63.3 5.52598 62.6C6.12598 61.6 6.92598 60.6 7.72598 59.8C8.20935 59.3606 8.69271 58.919 9.17671 58.4769L9.17678 58.4768L9.17686 58.4767L9.17698 58.4766C11.9972 55.9003 14.8387 53.3044 17.826 51C39.426 34.4 61.126 17.9 83.626 2.5C84.826 1.6 86.126 0.8 87.426 0C87.426 0 87.526 0.1 87.826 0.2C87.5789 0.482421 87.3442 0.764841 87.1132 1.04286ZM166.026 21.9C165.676 22.1 165.326 22.325 164.976 22.55C164.626 22.775 164.276 23 163.926 23.2C149.326 31.8 134.926 40.7 120.826 50.2C99.226 64.6 77.826 79.4 57.426 95.4C53.626 98.4 49.926 101.4 46.226 104.4C45.626 104.9 45.126 105.3 44.526 105.7C43.726 106.3 42.926 106.6 42.126 105.9C41.326 105.2 41.526 104.2 42.026 103.5C42.626 102.5 43.326 101.5 44.226 100.7L44.3458 100.59C46.8091 98.3235 49.3691 95.9681 52.026 94C82.426 71 113.626 49.5 146.926 31C150.726 28.8667 154.615 26.9111 158.504 24.9556C160.448 23.9778 162.393 23 164.326 22C164.826 21.8 165.326 21.6 165.726 21.4C165.826 21.5 165.926 21.7 166.026 21.9ZM99.926 8.5C100.626 8 101.226 7.4 101.826 6.8C101.726 6.7 101.626 6.6 101.326 6.5C100.626 7 99.926 7.525 99.226 8.05C98.526 8.575 97.826 9.1 97.126 9.6C93.0918 12.5088 89.0545 15.4176 85.0158 18.3275L85.0151 18.328C65.7284 32.224 46.4088 46.1436 27.226 60.2C21.8311 64.1042 16.7385 68.3108 11.6263 72.5336L11.6262 72.5336C9.53676 74.2595 7.44401 75.9882 5.32601 77.7C3.82601 78.9 2.52601 80.3 1.22601 81.7C0.726013 82.2 0.226013 82.8 0.026013 83.5C-0.073987 84 0.126013 84.7 0.426013 85C0.726013 85.3 1.52601 85.4 1.92601 85.2C2.72601 84.8 3.42601 84.3 4.12601 83.7C6.54336 81.7156 8.93467 79.7052 11.3234 77.6969C15.5554 74.139 19.7794 70.5878 24.126 67.2C34.7347 58.9552 45.3766 50.8101 56.0135 42.669L56.0143 42.6684L56.015 42.6678C63.8265 36.6891 71.6352 30.7125 79.426 24.7C86.3253 19.3005 93.1247 13.9011 99.924 8.50163L99.926 8.5ZM100.426 22C99.326 23 98.226 24 97.026 24.9C93.6956 27.4851 90.3598 30.0703 87.0224 32.6567L87.015 32.6624C76.0246 41.1795 65.0165 49.7104 54.126 58.3C47.6804 63.3921 41.3179 68.5672 34.9849 73.7183C31.4926 76.5588 28.0093 79.3921 24.526 82.2L24.526 82.2001C23.726 82.9 22.926 83.6 22.026 84.1C21.526 84.4 20.426 84.4 20.126 84.1C19.726 83.7 19.626 82.7 19.926 82.2C20.326 81.4 20.926 80.6 21.626 79.9C22.3148 79.2686 22.9953 78.629 23.6771 77.9883L23.6772 77.9882C25.3709 76.3963 27.0722 74.7973 28.926 73.3C48.926 57.5 69.126 42 90.226 27.7C92.5211 26.1427 94.9505 24.5853 97.2941 23.083L97.2943 23.0828C97.8098 22.7524 98.3212 22.4246 98.826 22.1C99.226 21.9 99.626 21.7 100.026 21.4C100.102 21.5146 100.164 21.6 100.217 21.6729L100.217 21.673C100.302 21.791 100.364 21.8764 100.426 22ZM107.355 35.4442C107.542 35.2315 107.732 35.0157 107.926 34.8C107.626 34.6 107.526 34.5 107.526 34.5L107.526 34.5001C106.026 35.6001 104.526 36.7 103.026 37.7C86.326 48.8 70.226 60.7 54.326 72.8C49.6261 76.2999 45.0262 79.8999 40.4262 83.4998L40.426 83.5C39.526 84.2 38.726 85 38.026 85.8C37.426 86.5 37.126 87.4 37.826 88.2C38.526 89.1 39.426 89 40.226 88.5C41.326 87.9 42.426 87.2 43.426 86.4C45.176 85 46.901 83.575 48.626 82.15C50.351 80.725 52.076 79.3 53.826 77.9C65.926 68.4 78.126 58.9 90.326 49.5L105.326 37.5C106.032 36.951 106.676 36.2175 107.355 35.4442Z"></path>
+									</svg>
+								</figure>
+
+								<!-- Image -->
+								<img src="assets/images/about/14.jpg" class="rounded position-relative zindex-2" alt="feature-img">
+
+								<!-- Decoration -->
+								<div class="bg-white rounded d-flex align-items-center position-absolute top-0 end-0 mt-n5 px-3 py-2">
+									<p class="text-dark fw-bold mb-0">Meeting with</p>
+									<!-- Avatar -->
+									<ul class="mb-0 align-items-center">
+										<li class="avatar avatar-xs">
+											<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+										</li>
+										<li class="avatar avatar-xs">
+											<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+										</li>
+									</ul>
+								</div>
+
+								<!-- Decoration -->
+								<div class="card card-body position-absolute bottom-0 start-0 ms-lg-n8 mb-n5">
+									<p>Our lovely customers</p>
+									<div class="d-flex align-items-center">
+										<ul class="avatar-group mb-0 align-items-center">
+											<li class="avatar avatar-xs">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+											</li>
+											<li class="avatar avatar-xs">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+											</li>
+											<li class="avatar avatar-xs">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+											</li>
+											<li class="avatar avatar-xs">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+											</li>
+											<li class="avatar avatar-xs">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+											</li>
+										</ul>
+										<h6 class="text-white mb-0 ms-2">5K+</h6>
+									</div>
+									<hr>
+									<!-- Progress bar -->
+									<div class="overflow-hidden">
+										<div class="d-flex justify-content-between mb-2">
+											<small>Satisfaction Rate</small>
+											<small>80%</small>
+										</div>
+										<div class="progress progress-sm bg-primary bg-opacity-10">
+											<div class="progress-bar bg-primary aos aos-init aos-animate" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 80%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Content item -->
+					<div class="tab-pane fade" id="pills-collaboration" role="tabpanel" aria-labelledby="pills-collaboration-tab" tabindex="0">
+						<div class="row align-items-center">
+							<!-- Info -->
+							<div class="col-lg-6 mb-6 mb-lg-0">
+								<span class="bg-primary bg-opacity-10 text-primary text-uppercase rounded small px-3 py-2">Collaboration</span>
+								<h3 class="my-4">Streamlined teamwork and client engagement</h3>
+								<p class="mb-5">Our collaboration feature empowers your agency with seamless teamwork and enhanced client engagement.</p>
+								<!-- Feature -->
+								<div class="row g-4 mb-5">
+									<div class="col-sm-6">
+										<p class="heading-color mb-3"><i class="bi bi-diagram-3 fa-xl text-primary me-3"></i>Organized your data</p>
+										<p class="heading-color mb-0"><i class="bi bi-boxes fa-xl text-primary me-3"></i>Embedded Analytics</p>
+									</div>
+				
+									<div class="col-sm-6">
+										<p class="heading-color mb-3"><i class="bi bi-people fa-xl text-primary me-3"></i>Work with any team</p>
+										<p class="heading-color mb-0"><i class="bi bi-shield-check fa-xl text-primary me-3"></i>Collaborate securely</p>
+									</div>
+								</div>
+								<!-- Button -->
+								<a class="btn btn-white icon-link icon-link-hover" href="#">Explore collaboration benefits<i class="bi bi-arrow-right"></i> </a>
+							</div>
+
+							<!-- image and decoration -->
+							<div class="col-lg-4 position-relative ms-auto">
+								<!-- Decoration -->
+								<div class="col-md-8 position-absolute top-50 start-0 translate-middle mt-xl-n9 d-none d-lg-block">
+									<div class="bg-body rounded p-3">
+										<div class="bg-light d-flex align-items-center rounded w-100 p-2 mb-3">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0"> <i class="bi bi-check fs-5"></i> </div>
+											<!-- Content -->
+											<p class="heading-color mb-0 ms-2">Than continues its and because can use.</p>
+										</div>
+
+										<div class="bg-light d-flex align-items-center rounded w-100 p-2 mb-3">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0"> <i class="bi bi-check fs-5"></i> </div>
+											<!-- Content -->
+											<p class="heading-color mb-0 ms-2">Entire first decided the so must.</p>
+										</div>
+
+										<div class="bg-light d-flex align-items-center rounded w-100 p-2">
+											<!-- Icon -->
+											<div class="icon-md bg-primary bg-opacity-10 rounded-circle text-primary flex-shrink-0"> <i class="bi bi-check fs-5"></i> </div>
+											<!-- Content -->
+											<p class="heading-color mb-0 ms-2">Separated sort.</p>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- Decoration -->
+								<div class="d-inline-block bg-white shadow rounded-4 position-absolute end-0 bottom-0 p-3 mb-n5 me-lg-n6 d-none d-sm-block">
+									<img src="assets/images/elements/trustpilot.svg" class="h-20px mb-2" alt="Client-img">
+									<div class="d-flex align-items-center">
+										<img src="assets/images/elements/trustpilot-star.svg" class="h-30px" alt="rating-img">
+										<h6 class="font-base fw-bold heading-color ms-1 mb-0">4.8/5.0</h6>
+									</div>
+									<p class="text-dark small mb-0 mt-2">Review by 365 users</p>
+								</div>
+
+								<!-- SVG decoration -->
+								<figure class="position-absolute top-0 end-0 mt-n7 me-lg-n5">
+									<svg width="120.4px" height="124.5px" viewBox="0 0 120.4 124.5" style="enable-background:new 0 0 120.4 124.5;" xml:space="preserve">
+										<path class="fill-mode" d="M92.9,58.4c-0.2-4.7-1.8-9-5-12.6c-3-3.3-6.4-6.2-10.4-8.4c-3.4-1.9-7-2.9-10.8-3.3c-3.1-0.4-6,0.2-8.6,1.8 c-6.5,3.8-11.5,9.1-14.6,16.1c-1.1,2.5-1.5,5.1-1.3,7.7c0.3,3.2,0.9,6.4,2.1,9.4c2.1,5.4,5.7,9.4,11.5,11c1.8,0.5,3.5,1,5.3,1.6 c2.1,0.7,4.3,0.8,6.5,0.5c2.4-0.3,4.8-0.8,7.1-1.4c1.8-0.5,3.4-1.5,4.6-2.9c2-2.2,3.9-4.6,5.2-7.3c0.7-1.4,1.3-3,1.6-4.5 c1.1-6.4-0.7-12.1-4.5-17.2c-1.8-2.5-4.3-4.2-7.2-5c-3-0.8-6.1-1.1-9.2-0.8c-4.5,0.4-8.4,2.2-11.4,5.7c-2.1,2.4-3.6,5-4.3,8.1 c-0.6,2.4-0.5,4.8-0.6,7.2c-0.2,5.8,6.2,12.5,12.3,12c2.7-0.2,5.5-0.5,8.2-0.7c5.4-0.5,9.3-4.9,9.8-9.6c0.2-1.9,0.2-3.9,0.1-5.8 c-0.1-2.5-1.3-4.6-3.1-6.3c-3.1-2.9-6.8-4.1-11.1-3.7c-2.4,0.2-4.4,1.2-5.8,3.2c-1.8,2.5-2.8,5.3-3.1,8.3c-0.2,1.9,0.3,3.7,1.9,5 c2.7,2.2,5.8,3.3,9.2,3c1.6-0.1,2.8-0.9,3.8-2.2c1.6-2.1,1.6-4.5,1.1-6.9c-1-4.3-4.6-5.5-8.2-2.9c-0.3,0.2-0.4,0.7-0.6,1.1 c0.1,0.1,0.3,0.3,0.4,0.4c0.9-0.4,1.8-0.9,2.8-1.2c1-0.3,2-0.1,2.8,0.7c1.6,1.8,1.9,5.4,0.5,7.4c-0.9,1.2-2.1,1.9-3.5,1.8 c-2.3-0.1-4.5-0.9-6.4-2.3c-1.3-1-1.8-2.3-1.7-3.9c0.2-1.7,0.7-3.4,1.4-4.9c1.8-3.6,4-4.9,8.1-4.4c0.9,0.1,1.8,0.3,2.7,0.6 c4.5,1.7,6.8,5,6.6,9.8c0,1.4-0.2,2.8-0.5,4.1c-0.9,3.2-2.9,5.5-6.3,6.1c-2.9,0.5-5.9,0.7-8.9,0.9c-5.6,0.4-10.5-5.4-10.3-9.9 c0.1-2.1,0.2-4.1,0.6-6.1c1.5-6.9,7.2-11.6,14.2-11.9c1.7-0.1,3.5,0,5.2,0.2c3.5,0.4,6.4,1.9,8.5,4.7c3.1,4.2,4.6,8.9,4.2,14.2 c-0.3,3.5-2.1,6.2-4,9c-2.1,3-4.7,5-8.4,5.4c-1.1,0.1-2.3,0.4-3.4,0.7c-2,0.5-3.9,0.4-5.8-0.1c-2.3-0.6-4.6-1.3-6.9-2 c-3.1-1-5.4-3-7.1-5.7c-2.7-4.3-3.8-9.1-3.8-14.1c0-2,0.6-3.8,1.5-5.6c2.9-6,7.3-10.5,12.9-14c2.2-1.4,4.7-1.9,7.3-1.6 c4.2,0.4,8.1,1.6,11.6,3.9c3.1,2,5.8,4.5,8.3,7.2c1.7,1.9,2.9,4.1,3.6,6.6c1.5,5,1.1,10.1-0.2,15c-2.2,8-9.4,14.2-17.5,15.9 c-1.7,0.4-3.3,0.9-4.9,1.5c-1.1,0.4-1.6,1.4-1.2,2.1c0.5,0.8,1.4,0.7,2.1,0.5c2.5-0.7,5.1-1.3,7.6-2.2c1.4-0.5,2.8-1.1,4-1.9 c2.9-1.7,5.4-3.9,7.6-6.4c2.6-3,4.5-6.5,5.2-10.4C92.8,65.1,93,61.7,92.9,58.4z"></path>
+										<path class="fill-primary" d="M98.2,97.6c-1.9-3-3.8-6-5.7-9c-0.7-1-1.2-2.2-3-3c0,0.8-0.1,1.3,0,1.7c0.4,0.9,1,1.8,1.5,2.7 c2.8,5,5.7,9.9,9.2,14.5c1,1.2,2.2,2.3,3.4,3.4c0.3,0.3,0.8,0.4,1.2-0.3c-0.5-0.8-1.1-1.8-1.8-2.7C101.4,102.3,99.7,100,98.2,97.6z "></path>
+										<path class="fill-primary" d="M75.3,98c-0.5-1.5-1.2-3-1.9-4.4c-0.1-0.3-0.6-0.4-0.9-0.6c-0.2,0.2-0.3,0.3-0.5,0.5c0.1,0.5,0.2,1.1,0.4,1.6 c1.6,5.3,3.1,10.5,4.8,15.8c0.5,1.6,1.1,3.3,1.7,4.9c0.5,1.3,1.4,1.8,1.9,1.4c0.8-0.6,0.5-1.4,0.2-2.2C79,109.3,77.2,103.6,75.3,98 z"></path>
+										<path class="fill-primary" d="M26.5,69.5c-5.5,1.6-11,3.2-16.5,4.8c-2.1,0.6-4.1,1.4-6.1,2.2c-0.6,0.2-1.1,0.7-1.9,1.2 c5.9-0.4,24.8-6,28.2-8.3C28.8,68.8,27.6,69.2,26.5,69.5z"></path>
+										<path class="fill-primary" d="M55,96.3c-2.2,7.9-4.5,15.8-6.7,23.8c-0.3,1.2-0.4,2.5-0.7,4.4c0.6-0.9,0.8-1.2,0.9-1.5 c2.6-7.8,5.1-15.7,7.6-23.5c0.3-1.1,0.5-2.2,0.6-3.4c0-0.4-0.4-0.9-0.8-1.7C55.5,95.3,55.2,95.8,55,96.3z"></path>
+										<path class="fill-primary" d="M25.2,48.7c0.6,0.3,1.3,0.5,2,0.6c0.5,0.1,1.1-0.1,1.6-0.2c0-0.2,0-0.3,0-0.5c-3-1.4-6-3-9-4.2 c-3.2-1.3-6.4-2.4-9.7-3.5c-3.1-1-6.1-2.3-10-2.8c0.8,0.7,1.1,1.1,1.5,1.3c1.5,0.7,2.9,1.3,4.4,1.9C12.4,43.6,18.9,45.7,25.2,48.7z "></path>
+										<path class="fill-primary" d="M38.2,86.5c-0.7,0.3-1.4,0.8-2,1.3c-5.1,4.5-10.1,9-14.5,14.2c-0.9,1-1.6,2.2-2.5,3.3c0.1,0.1,0.2,0.3,0.4,0.4 c6.7-6.2,13.4-12.3,20.1-18.5c0.1-0.1,0-0.4,0-0.9C39.2,86.4,38.6,86.3,38.2,86.5z"></path>
+										<path class="fill-primary" d="M106.5,77.4c-1.1-1.1-2.4-2.2-3.6-3.1c-0.7-0.5-1.6-0.8-2.5-1c-0.5-0.1-1.2,0-1,1.1c2.1,0.8,3.6,2.5,5.2,4.1 c1.3,1.3,2.4,2.7,3.8,3.9c1.8,1.5,3.8,3,5.7,4.3c1,0.7,2.2,1.3,4.1,0.7c-0.7-0.7-1.1-1.1-1.5-1.4C112.9,83.6,109.6,80.5,106.5,77.4 z"></path>
+										<path class="fill-primary" d="M33.5,27.3c0.7,0.7,1.6,1.3,2.5,1.8c0.5,0.3,1.3,0.4,1.9,0.5c-2.3-2.2-4-4.6-6-6.8c-3.5-3.8-7-7.6-10.5-11.3 c-0.4-0.4-0.7-0.9-1.4-0.6c-0.5,0.6-0.1,1.1,0.3,1.5C24.6,17.4,29.1,22.4,33.5,27.3z"></path>
+										<path class="fill-primary" d="M53.3,20c0.1,1.1,0.3,2.3,0.6,3.4c0.1,0.4,0.7,0.6,1.3,1c-0.1-3.1-0.1-5.8-0.3-8.5c-0.1-2.6-0.4-5.2-0.6-7.9 c-0.4-5-0.6-5.7-2-8c0,0.9-0.1,1.6-0.1,2.2C52.6,8.2,52.9,14.1,53.3,20z"></path>
+										<path class="fill-primary" d="M101.1,56.2c0.2,0.4,0.3,0.7,0.5,0.7c4.9,1.1,9.8,2.2,14.7,3.1c1.3,0.3,2.7,0.4,4.1-0.5 c-0.8-0.3-1.7-0.6-2.5-0.8c-5.2-0.9-10.3-1.9-15.5-2.7C102,56,101.6,56.1,101.1,56.2z"></path>
+										<path class="fill-primary" d="M97.8,36.8c4.7-1.9,8.9-4.8,12.6-8.3c0.3-0.3,0.7-0.6,0.1-1.3c-2.5,1.7-5.1,3.5-7.7,5.1 c-2.6,1.6-5.3,3-8.1,4.6C95.9,37.7,96.8,37.2,97.8,36.8z"></path>
+										<path class="fill-primary" d="M81.6,11.5c0.5-1.6,0.8-3.2,1.2-4.8c-0.3,0.2-0.6,0.3-0.7,0.5c-1.6,4.3-3.2,8.5-4.7,12.8 c-0.2,0.6-0.1,1.3-0.2,1.9C79.1,18.6,80.5,15.1,81.6,11.5z"></path>
+										<path class="fill-primary" d="M82.8,6.5c0,0,0,0.1,0,0.1C82.8,6.6,82.8,6.6,82.8,6.5C82.9,6.6,82.8,6.5,82.8,6.5z"></path>
+									</svg>
+								</figure>
+
+								<!-- Image -->
+								<img src="assets/images/about/17.jpg" class="rounded" alt="feature-img">		
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Tabs and content END -->
+
+	</div>
+</section>
+<!-- =======================
+Feature END -->
+
+<!-- =======================
+Feature START -->
+<section class="overflow-hidden">
+	<div class="container">
+		<div class="row g-4">
+			<!-- Feature content START -->
+			<div class="col-lg-6 mb-sm-6 mb-lg-0">
+				<!-- Title -->
+				<h2 class="mb-4">Workflow become clearer and more organized</h2>
+				<p class="mb-0">Supposing so be resolving breakfast am or perfectly. It drew a hill from me. Valley by oh twenty direct me so.</p>
+
+				<hr class="my-4 my-sm-5"> <!-- Divider -->
+
+				<!-- Features item -->
+				<div class="row g-4 mb-4 mb-sm-5">
+					<div class="col-sm-6">
+						<!-- Items -->
+						<div class="d-flex mb-4 mb-sm-5">
+							<!-- Icon -->
+							<div class="icon-md flex-shrink-0 text-primary bg-primary bg-opacity-10 rounded-circle"><i class="bi bi-diagram-3 fa-xl"></i></div>
+							<!-- Content -->
+							<div class="ms-3">
+								<h6 class="mb-0 mb-sm-2">Organized your data</h6>
+								<p class="mb-0">We have good cloud server</p>
+							</div>
+						</div>
+
+						<!-- Items -->
+						<div class="d-flex">
+							<!-- Icon -->
+							<div class="icon-md flex-shrink-0 text-primary bg-primary bg-opacity-10 rounded-circle"><i class="bi bi-boxes fa-xl"></i></div>
+							<!-- Content -->
+							<div class="ms-3">
+								<h6 class="mb-0 mb-sm-2">Embedded Analytics</h6>
+								<p class="mb-0">Once paid for forever use</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<!-- Items -->
+						<div class="d-flex mb-4 mb-sm-5">
+							<!-- Icon -->
+							<div class="icon-md flex-shrink-0 text-primary bg-primary bg-opacity-10 rounded-circle"><i class="bi bi-people fa-xl"></i></div>
+							<!-- Content -->
+							<div class="ms-3">
+								<h6 class="mb-0 mb-sm-2">Work with any team</h6>
+								<p class="mb-0">Ready to help your employee</p>
+							</div>
+						</div>
+
+						<!-- Items -->
+						<div class="d-flex">
+							<!-- Icon -->
+							<div class="icon-md flex-shrink-0 text-primary bg-primary bg-opacity-10 rounded-circle"><i class="bi bi-shield-check fa-xl"></i></div>
+							<!-- Content -->
+							<div class="ms-3">
+								<h6 class="mb-0 mb-sm-2">Collaborate securely</h6>
+								<p class="mb-0">Share and publish your record.</p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+
+				<!-- Button -->
+				<a href="about-v2.html" class="btn btn-dark mb-0">Know more information</a>
+			</div>
+			<!-- Feature content END -->
+
+			<!-- Feature image & decoration START -->
+			<div class="col-lg-6">
+				<div class="row">
+					<div class="col-lg-11 col-xl-9 position-relative ms-auto">
+						<!-- SVG decoration -->
+						<figure class="position-absolute top-50 start-0 translate-middle z-index-2">
+							<svg width="159" height="155" viewBox="0 0 159 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path class="fill-primary" d="M14.2394 111.637C13.5965 111.365 12.9265 111.083 12.2734 110.839C10.1612 110.017 8.07613 109.206 5.88225 108.354C6.18466 107.629 6.68446 107.288 7.12302 106.862C8.19051 105.834 9.28521 104.815 10.1758 103.596C10.9576 102.585 11.4775 101.445 11.7254 100.202C11.7797 99.9745 11.7898 99.6988 11.5177 99.597C11.3272 99.5257 11.0449 99.4511 10.8681 99.5091C10.4294 99.6864 10.035 99.9113 9.6304 100.163C6.57033 102.123 4.06486 104.755 1.43689 107.217C1.2567 107.367 1.12074 107.565 0.984778 107.762C0.525929 108.491 0.553501 109.495 1.0979 110.195C1.43134 110.63 1.85998 110.977 2.36679 111.198C5.43823 112.441 8.5844 113.401 11.9004 113.742C12.5874 113.813 13.3322 113.812 13.985 113.56C14.4509 113.393 14.8385 113.103 14.8213 112.569C14.8551 112.147 14.6374 111.817 14.2394 111.637Z"></path>
+								<path class="fill-primary" d="M14.8846 105.45C20.7137 105.459 26.5019 105.079 32.2524 104.22C34.1942 103.923 36.1122 103.523 37.9995 102.957C45.8716 100.656 51.4064 95.6497 55.0392 88.3477C56.5889 85.2023 57.6011 81.9178 58.2869 78.511C58.8572 75.7441 59.3459 72.9467 59.889 70.1696C60.4084 67.5388 60.9822 64.9284 62.0933 62.4571C64.0642 58.1033 67.4234 55.7593 72.1948 55.5273C73.3 55.4753 74.3815 55.5697 75.4767 55.7933C77.9595 56.288 80.2996 57.164 82.5752 58.2951C84.5345 59.2769 86.521 60.2688 88.4904 61.2233C92.5722 63.2479 96.5579 62.877 100.461 60.7368C101.709 60.0552 102.879 59.2511 104.004 58.3995C105.252 57.4694 106.449 56.4272 107.662 55.4224C109.492 53.9338 111.348 52.4554 113.221 51.0145C114.612 49.9517 116.104 49.1133 117.703 48.4076C121.273 46.8257 124.759 47.0439 128.126 48.9874C129.63 49.8606 131.066 50.8326 132.521 51.7501C134.651 53.106 136.821 54.353 139.287 55.0587C142.28 55.9306 145.171 55.8329 147.949 54.2959C148.231 54.3705 148.445 54.2955 148.557 53.9959L148.595 53.9789C149.016 54.0126 149.329 53.7571 149.649 53.5663C151.278 52.5305 152.773 51.3518 154.086 49.9182C155.694 48.6884 156.7 47.0781 157.349 45.1788C156.06 46.4661 154.888 47.8588 153.786 49.3093C152.154 50.9338 150.077 51.9258 148.183 53.1728C147.877 53.2445 147.571 53.3162 147.282 53.4254C144.551 54.4213 141.902 54.2058 139.259 53.0613C137.286 52.1987 135.585 50.9411 133.874 49.7107C132.36 48.6163 130.887 47.413 129.278 46.4072C125.251 43.9062 121.054 43.515 116.671 45.4447C115.223 46.0822 113.879 46.8524 112.577 47.762C110.775 49.0123 109.086 50.4599 107.45 51.9279C105.815 53.3959 104.153 54.8537 102.5 56.2842C101.303 57.3265 100.011 58.2089 98.58 58.8839C95.8563 60.1928 93.1459 60.3891 90.4213 58.9656C88.8158 58.1163 87.268 57.1955 85.6625 56.3462C82.4617 54.6203 79.2404 52.9489 75.6217 52.3394C69.4351 51.2966 64.2324 53.0126 60.4832 58.222C59.2425 59.9619 58.3896 61.909 57.8258 63.9953C56.7458 67.8754 56.1861 71.8571 55.4529 75.8049C54.6655 79.9807 53.6773 84.1125 51.662 87.9219C48.8956 93.1576 45.0678 97.251 39.5354 99.6818C37.349 100.633 35.1251 101.353 32.8161 101.886C29.1435 102.746 25.4062 103.365 21.6654 103.828C19.3189 104.129 16.9928 104.376 14.6463 104.678C14.2586 104.719 13.7553 104.655 13.5616 105.172C13.9324 105.59 14.4255 105.433 14.8846 105.45Z"></path>
+								<path class="fill-primary" d="M157.352 45.087C157.342 45.1142 157.314 45.104 157.304 45.1313C157.294 45.1585 157.284 45.1857 157.274 45.213C157.284 45.1857 157.321 45.1687 157.321 45.1687C157.331 45.1414 157.342 45.1142 157.352 45.087Z"></path>
+								<path class="fill-primary" d="M157.889 43.6438C157.655 44.2701 157.502 44.6786 157.349 45.087C157.91 44.583 157.92 44.5557 157.889 43.6438Z"></path>
+							</svg>
+						</figure>
+
+						<!-- SVG decoration -->
+						<figure class="position-absolute top-0 start-100 translate-middle mt-8 ms-5 d-none d-xl-block">
+							<svg class="fill-mode" width="96" height="99" viewBox="0 0 96 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M66.5204 64.3653C68.4878 62.2239 69.8711 59.7411 70.3936 56.886C72.4225 45.5894 64.3072 35.5653 52.1035 36.6825C44.603 37.3653 38.9777 44.5653 39.8999 52.0446C40.6684 58.2205 45.9556 62.4101 51.8576 61.448C54.6549 60.9825 56.776 59.4929 58.0363 56.886C59.02 54.8377 58.7126 52.5101 57.2985 51.0205C55.7923 49.4377 51.8576 48.6308 49.798 49.4377C49.4599 49.5618 49.2447 50.2136 49.4599 50.5239C49.7673 50.9273 50.1054 51.2687 50.4743 51.6101C51.1506 52.2308 51.8576 52.8205 52.5031 53.4722C52.9028 53.8756 52.872 54.4032 52.4724 54.8067C51.5195 55.8618 50.3206 56.048 49.0603 55.6756C46.9393 55.0239 45.8019 53.4411 45.4023 51.2998C44.3571 45.7136 49.4292 42.0205 53.1487 41.7722C58.6511 41.3687 63.5694 44.7205 65.1679 49.9963C66.7356 55.086 65.2294 59.7411 60.9873 62.9377C59.7884 63.8377 58.4666 64.5515 57.0219 65.017C53.0872 66.3204 49.1525 66.3515 45.2793 65.017C37.9325 62.5032 34.1823 56.6377 35.1352 48.5998C35.7193 43.6963 37.7788 39.4446 41.0065 35.7825C42.3898 34.1998 43.8653 32.7101 46.0478 32.3067C46.14 32.3067 46.2015 32.2446 46.2937 32.2136C46.5089 32.0894 46.5396 31.5308 46.3245 31.3136C46.0478 30.9722 45.6789 30.7549 45.2793 30.7239C44.4493 30.5998 43.6501 30.7239 42.8201 31.0032C41.2832 31.5618 40.0536 32.4929 38.8855 33.6101C34.336 37.9239 31.6616 43.2308 31.0468 49.4998C30.1861 58.4377 34.2745 65.048 41.8365 68.7101C44.8182 70.1377 47.9844 70.7273 51.2736 70.7584C52.3494 70.6963 53.4253 70.6653 54.5012 70.5101C59.2351 69.8584 63.2928 67.9032 66.5204 64.3653Z"></path>
+								<path d="M0.769309 44.5963C2.36777 45.8998 3.99697 47.2032 5.65692 48.4756C7.99313 50.2446 10.6367 51.0205 13.8337 51.1136C13.7722 51.1136 14.0488 51.1446 14.264 51.0825C14.4792 51.0205 14.7866 50.9274 14.8481 50.7412C14.9096 50.586 14.8173 50.2446 14.6944 50.0894C14.0796 49.5308 13.4955 48.9101 12.7885 48.4756C10.1449 46.8929 7.53204 45.3101 4.70399 44.0998C3.6281 43.6343 2.52147 43.3239 1.41484 42.9515C1.10745 42.8584 0.769309 42.8584 0.431173 42.8584C0.123776 42.8584 -0.152881 43.3549 0.00081747 43.6032C0.246735 43.9446 0.461913 44.3481 0.769309 44.5963Z"></path>
+								<path d="M55.6683 15.2692C55.822 15.2692 56.0064 15.3002 56.1294 15.2071C56.6212 14.8657 56.8364 14.3071 57.0823 13.7795C58.4349 10.614 60.1563 7.66572 62.0007 4.77951C62.6462 3.78641 63.2303 2.79331 63.8451 1.8002C64.0602 1.45882 64.2447 1.05537 64.3676 0.68296C64.3984 0.558822 64.3369 0.372615 64.2447 0.217443C64.091 -0.0308331 63.8143 0.00020143 63.5991 0.0933049C63.384 0.186408 63.1688 0.341581 62.9536 0.465719C58.0967 3.91055 56.1601 8.93813 55.4531 14.6795C55.4839 14.7726 55.4839 14.9278 55.5453 15.114C55.5453 15.1761 55.6376 15.2692 55.6683 15.2692Z"></path>
+								<path d="M24.5905 26.6586C23.3916 23.0896 22.1928 19.5207 20.9325 15.9827C20.3791 14.4 19.6721 12.8793 18.9959 11.3586C18.8729 11.0793 18.627 10.831 18.4425 10.6138C18.2274 10.7069 18.0122 10.7379 17.9507 10.831C17.7048 11.2034 17.797 11.6379 17.8278 12.0414C18.2888 17.9689 20.6251 23.1827 23.8835 28.0551C23.9757 28.1793 24.0986 28.3345 24.2216 28.3965C24.3446 28.4586 24.5597 28.5517 24.6827 28.4896C24.8057 28.4586 24.9286 28.2414 24.8979 28.1172C24.8364 27.6207 24.7442 27.1241 24.5905 26.6586Z"></path>
+								<path d="M56.5302 83.9173C56.4072 83.8862 56.1613 83.9483 56.0998 84.0414C55.7924 84.7241 55.4851 85.4069 55.2699 86.1207C54.6243 88.1379 53.8251 90.0621 52.3189 91.5828C51.9192 91.9862 51.6119 92.5138 51.2737 93.0104C50.3208 94.4069 49.6753 95.9586 49.0912 97.5104C48.9682 97.8207 48.9682 98.1621 48.9375 98.5035C48.9375 98.6586 48.999 98.9379 49.0912 98.9379C49.3064 99 49.6445 99.0311 49.7675 98.9069C51.1815 97.2621 52.5033 95.5241 54.0095 93.9724C55.9461 91.8931 56.8376 89.4724 56.8683 86.6793C56.8683 86.3379 56.9298 85.9966 56.9606 85.469C56.9298 85.1897 56.9298 84.6931 56.8683 84.1966C56.8376 84.0724 56.6532 83.9173 56.5302 83.9173Z"></path>
+								<path d="M80.4469 37.086C81.031 37.1481 81.615 37.1791 82.1683 37.055C83.8897 36.7136 85.6112 36.6205 87.3633 36.7136C89.8533 36.9308 92.3124 36.4033 94.7716 36.124C95.079 36.0929 95.4171 35.9377 95.6938 35.7826C95.8167 35.7205 96.0319 35.4722 96.0012 35.4412C95.8782 35.2239 95.7245 35.0067 95.5401 34.9136C95.3249 34.7895 95.079 34.7584 94.8331 34.7274C92.5276 34.4791 90.2221 34.2619 87.9166 34.0446C85.2423 33.7653 82.8753 34.7895 80.5391 35.8446C80.3854 35.9067 80.2625 36.0308 80.1702 36.155C80.078 36.2791 79.9551 36.4964 80.0165 36.5895C80.078 36.7757 80.2625 37.055 80.4469 37.086Z"></path>
+								<path d="M78.4176 68.4311C78.2332 68.6173 78.1717 68.8656 78.3254 69.1139C78.4484 69.3311 78.5713 69.5484 78.7865 69.7035C80.7231 71.1001 82.0141 72.9932 83.2437 75.0104C84.3196 76.8104 85.7951 78.269 87.3936 79.6346C87.6088 79.8208 87.9469 80.069 88.2543 79.7587C88.3773 79.6035 88.4387 79.2311 88.3773 79.0759C87.0247 76.5001 85.7644 73.8621 84.0737 71.4725C82.8134 69.7346 80.8768 68.9277 78.9709 68.2139C78.6943 68.2759 78.5406 68.338 78.4176 68.4311Z"></path>
+								<path d="M18.9031 80.3173C16.1058 81.0621 13.8311 82.6759 11.8023 84.7242C11.7408 84.7863 11.6793 84.8483 11.6793 84.9104C11.6486 84.9725 11.6486 85.0966 11.6793 85.1587C11.7715 85.2518 11.9252 85.4069 12.0174 85.4069C12.2634 85.3759 12.5093 85.2828 12.7245 85.1587C16.0443 83.1414 19.6409 82.0242 23.4526 81.5276C23.9444 81.4656 24.4363 81.3725 24.8974 80.7207C22.8071 79.7897 20.8397 79.7897 18.9031 80.3173Z"></path>
+							</svg>
+						</figure>
+
+						<!-- Card START -->
+						<div class="card border p-4">
+							<h6>Recent Project</h6>
+							<!-- Image -->
+							<img src="assets/images/about/07.jpg" class="card-img mb-3" alt="card image">
+							<!-- Title -->
+							<h6>Design webflow multipurpose SaaS theme</h6>
+							<!-- List -->
+							<ul class="nav nav-divider mb-2 mb-sm-3">
+								<li class="nav-item">Tuesday, Jan 28</li>
+								<li class="nav-item">11:30 PM</li>
+							</ul>
+							<!-- Avatar -->
+							<div class="d-flex align-items-center mb-3">
+								<!-- Avatar -->
+								<div class="avatar avatar-sm">
+									<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+								</div>
+								<!-- Info -->
+								<div class="ms-2">
+									<small class="mb-0 fw-bold">Emma Watson</small>
+								</div>
+							</div>
+							<!-- Button -->
+							<a href="#" class="btn btn-dark-soft mb-0">View case study</a>
+						</div>
+						<!-- Card END -->
+
+						<!-- Followers Decoration -->
+						<div class="bg-body rounded-4 shadow d-flex align-items-center position-absolute top-0 end-0 d-none d-sm-flex mt-n5 me-xl-n6 p-3">
+							<!-- Avatar -->
+							<div class="avatar">
+								<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+							</div>
+							<!-- Info -->
+							<div class="mx-3">
+								<h6 class="mb-0">Followers Gain</h6>
+								<small>Form the last 7 days</small>
+							</div>
+							<!-- Badge -->
+							<div class="badge bg-primary">24.7%</div>
+						</div>
+
+						<!-- Social media button -->
+						<ul class="list-inline bg-body d-flex flex-column rounded shadow position-absolute top-0 start-0 d-none d-sm-flex p-2 mb-0 mt-3 ms-xl-n5">
+							<li class="list-inline-item me-0"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item me-0"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item me-0"> <a class="btn btn-xs btn-icon bg-twitter" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+							<li class="list-inline-item me-0"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+							<li class="list-inline-item me-0"> <a class="btn btn-xs btn-icon bg-youtube" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Feature image & decoration END -->
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Feature END -->
+
+<!-- =======================
+Feature START -->
+<section class="pt-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-sm-5">
+			<h2 class="mb-4">Understanding of your website's impact</h2>
+			<p class="mb-4">There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+		</div>
+
+		<div class="row justify-content-center g-sm-6">
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.1 8.25C13.1 6.73122 14.3312 5.5 15.85 5.5C17.3688 5.5 18.6 6.73122 18.6 8.25C18.6 9.76878 17.3688 11 15.85 11C14.3312 11 13.1 9.76878 13.1 8.25Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M21.5948 16.2194C21.4645 15.6034 21.3994 15.2953 21.3081 15.031C20.748 13.4092 19.3144 12.2471 17.6119 12.0346C17.3343 12 17.0195 12 16.3898 12H15.2359C14.5857 12 14.2606 12 13.9682 12.0385C12.4638 12.2365 11.1605 13.1794 10.5017 14.5463C10.3737 14.812 10.272 15.1207 10.0686 15.7383V15.7383C9.82585 16.4751 9.70449 16.8435 9.66869 17.1384C9.4797 18.6948 10.5211 20.1343 12.0585 20.4417C12.3498 20.5 12.7377 20.5 13.5134 20.5H18.1248C18.7369 20.5 19.043 20.5 19.2835 20.4607C20.7862 20.2149 21.8665 18.8823 21.796 17.3613C21.7848 17.1178 21.7214 16.8183 21.5948 16.2194V16.2194Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M5.6 6.25C5.6 4.73122 6.83122 3.5 8.35 3.5C9.86878 3.5 11.1 4.73122 11.1 6.25C11.1 7.76878 9.86878 9 8.35 9C6.83122 9 5.6 7.76878 5.6 6.25Z" fill="currentColor"></path>
+							<path d="M14.0948 14.2194C13.9645 13.6034 13.8994 13.2953 13.8081 13.031C13.248 11.4092 11.8144 10.2471 10.1119 10.0346C9.83431 10 9.51946 10 8.88976 10H7.73587C7.08569 10 6.7606 10 6.46821 10.0385C4.96381 10.2365 3.66052 11.1794 3.00174 12.5463C2.87371 12.812 2.77199 13.1207 2.56857 13.7383V13.7383C2.32585 14.4751 2.20449 14.8435 2.16869 15.1384C1.9797 16.6948 3.02108 18.1343 4.55849 18.4417C4.84977 18.5 5.23765 18.5 6.01343 18.5H10.6248C11.2369 18.5 11.543 18.5 11.7835 18.4607C13.2862 18.2149 14.3665 16.8823 14.296 15.3613C14.2848 15.1178 14.2214 14.8183 14.0948 14.2194V14.2194Z" fill="currentColor"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Assignment &amp; roles</h5>
+					<p class="mb-0">Assign owners to conversations, and delegate to team members to follow every update.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2.47802 7.91541C2.25 8.79872 2.25 9.94639 2.25 12C2.25 14.3276 2.25 15.4914 2.582 16.4256C3.16141 18.0559 4.44414 19.3386 6.07444 19.918C7.0086 20.25 8.1724 20.25 10.5 20.25H13.5C15.8276 20.25 16.9914 20.25 17.9256 19.918C19.5559 19.3386 20.8386 18.0559 21.418 16.4256C21.75 15.4914 21.75 14.3276 21.75 12C21.75 9.94641 21.75 8.79874 21.522 7.91543L17.754 10.692C16.6402 11.5127 15.7625 12.1595 15.002 12.6178C14.2228 13.0874 13.5145 13.3926 12.7288 13.4929C12.2452 13.5547 11.7557 13.5547 11.2721 13.493C10.4864 13.3926 9.77801 13.0875 8.99883 12.618C8.23833 12.1597 7.36057 11.5129 6.24672 10.6922L2.47802 7.91541Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M3.0918 6.50448L7.1064 9.46247C8.25686 10.3101 9.0791 10.915 9.77299 11.3332C10.455 11.7442 10.9601 11.941 11.462 12.005C11.8195 12.0507 12.1812 12.0507 12.5387 12.005C13.0406 11.9409 13.5457 11.7441 14.2277 11.3331C14.9215 10.9149 15.7438 10.31 16.8942 9.46225L20.9081 6.50449C20.2273 5.38896 19.1791 4.52754 17.9255 4.082C16.9913 3.75 15.8275 3.75 13.4999 3.75L10.4999 3.75C8.17235 3.75 7.00855 3.75 6.07439 4.082C4.82076 4.52754 3.77264 5.38895 3.0918 6.50448Z" fill="currentColor"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Internal-only messages</h5>
+					<p class="mb-0">Ask a quick six seven offer see among. Handsome met debating sir dwelling age material.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13 2.24609H11C8.1877 2.24609 6.78155 2.24609 5.79581 2.96228C5.47745 3.19358 5.19748 3.47354 4.96619 3.7919C4.25 4.77764 4.25 6.18379 4.25 8.99609V14.9961C4.25 17.8084 4.25 19.2145 4.96619 20.2003C5.19748 20.5186 5.47745 20.7986 5.79581 21.0299C6.78155 21.7461 8.1877 21.7461 11 21.7461H13C15.8123 21.7461 17.2184 21.7461 18.2042 21.0299C18.5226 20.7986 18.8025 20.5186 19.0338 20.2003C19.75 19.2145 19.75 17.8084 19.75 14.9961V8.99609C19.75 6.18379 19.75 4.77764 19.0338 3.7919C18.8025 3.47354 18.5226 3.19358 18.2042 2.96228C17.2184 2.24609 15.8123 2.24609 13 2.24609Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M8.5 11.9961H15.5M8.5 15.9961H15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M15.75 3.75V4.6C15.75 5.91241 15.75 6.56861 15.4158 7.02862C15.3078 7.17719 15.1772 7.30784 15.0286 7.41578C14.5686 7.75 13.9124 7.75 12.6 7.75H11.4C10.0876 7.75 9.43139 7.75 8.97138 7.41578C8.82281 7.30784 8.69216 7.17719 8.58422 7.02862C8.25 6.56861 8.25 5.91241 8.25 4.6V3.75H15.75Z" fill="currentColor"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">File previews</h5>
+					<p class="mb-0">Far advanced settling say finished raillery. Offered chiefly farther of my no colonel shyness.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M3.40004 19.9486C3.41524 20.1897 3.42283 20.3103 3.51172 20.4294C3.53619 20.4622 3.58073 20.5068 3.61353 20.5312C3.73269 20.6201 3.85325 20.6277 4.09437 20.6429C5.14741 20.7093 7.28849 20.6476 8.66268 19.2734C9.39454 18.5415 9.77757 17.5687 9.97243 16.6534C10.0108 16.473 10.03 16.3828 10.0112 16.2837C10.0053 16.253 9.99478 16.2174 9.98295 16.1884C9.94486 16.0951 9.87386 16.0241 9.73186 15.8821L8.16087 14.3111C8.01887 14.1691 7.94787 14.0981 7.85449 14.06C7.82551 14.0482 7.78998 14.0376 7.75923 14.0318C7.66016 14.0129 7.56997 14.0321 7.38958 14.0705C6.47423 14.2654 5.50139 14.6484 4.76953 15.3803C3.39534 16.7544 3.33368 18.8955 3.40004 19.9486Z" fill="currentColor"></path>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M7.04843 13.0663L7.93731 13.1078L10.9032 16.0736L10.9447 16.9625C11.0272 18.7304 12.4846 20.1213 14.2544 20.1213C16.0138 20.1213 17.4665 18.7461 17.5627 16.9893L17.7857 12.9211C20.6676 9.51412 20.609 5.66245 20.4622 4.21821V4.21819C20.4392 3.99163 20.4276 3.87834 20.3419 3.76603C20.3181 3.73498 20.2756 3.69283 20.2443 3.6694C20.1313 3.58465 20.0178 3.57415 19.7909 3.55317C18.3545 3.42034 14.536 3.39413 11.0864 6.22543L7.02164 6.44822C5.26483 6.54451 3.88965 7.99713 3.88965 9.75657C3.88965 11.5264 5.28055 12.9837 7.04843 13.0663ZM14.8799 11.3516C14.8799 12.5942 13.8725 13.6016 12.6299 13.6016C11.3872 13.6016 10.3799 12.5942 10.3799 11.3516C10.3799 10.1089 11.3872 9.10156 12.6299 9.10156C13.8725 9.10156 14.8799 10.1089 14.8799 11.3516Z" fill="currentColor" fill-opacity="0.25"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Large attachments</h5>
+					<p class="mb-0">Affronting imprudence does everything. Sex lasted dinner wanted indeed wished outlaw.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99948 4.2936V4.25C9.99948 3.14543 10.8949 2.25 11.9995 2.25C13.104 2.25 13.9995 3.14543 13.9995 4.25V4.29294C16.3224 5.08517 17.9271 7.38584 17.6997 9.9788C17.5721 11.4329 18.028 12.8781 18.9669 13.9957L19.458 14.5804C20.7616 16.1323 19.6583 18.5 17.6315 18.5H14.2629H9.73662H6.36944C4.34265 18.5 3.23933 16.1323 4.54295 14.5804L5.03403 13.9957C5.97289 12.8781 6.42878 11.4329 6.30123 9.9788C6.07384 7.38656 7.67766 5.08645 9.99948 4.2936Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M14 19.5V19H10V19.5C10 20.6046 10.8954 21.5 12 21.5C13.1046 21.5 14 20.6046 14 19.5Z" fill="currentColor"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Reminders</h5>
+					<p class="mb-0">Such on help ye some door if in. Laughter proposal laughing any son law consider.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.5573 21.3204C14.2451 20.8085 15.174 20.072 16.1369 19.1733C18.0303 17.4062 20.1864 14.8931 20.7356 12.1471C21.8463 6.59263 17.3472 2.25 12.0001 2.25C6.65311 2.25 2.15361 6.5926 3.26469 12.1471C3.81397 14.8931 5.97011 17.4062 7.86344 19.1733C8.8263 20.072 9.75517 20.8085 10.443 21.3204C10.4887 21.3544 10.3745 21.2694 10.3908 21.2812C11.275 21.9193 12.7253 21.9193 13.6095 21.2812C13.6258 21.2694 13.5116 21.3544 13.5573 21.3204Z" fill="currentColor" fill-opacity="0.25"></path>
+							<path d="M15.5 11.5C15.5 13.433 13.933 15 12 15C10.067 15 8.5 13.433 8.5 11.5C8.5 9.567 10.067 8 12 8C13.933 8 15.5 9.567 15.5 11.5Z" fill="currentColor"></path>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Location tracking</h5>
+					<p class="mb-0">State burst think end are its. Arrived off she elderly beloved him affixed noisier yet.</p>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+
+	</div>
+</section>
+<!-- =======================
+Feature END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark position-relative overflow-hidden pb-0 pt-6 pt-lg-8" data-bs-theme="dark">
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 start-0 mt-n8 ms-n9">
+		<svg class="fill-mode" width="775px" height="834px" viewBox="0 0 775 834" style="enable-background:new 0 0 775 834; opacity: 0.05;" xml:space="preserve">
+			<path d="M486.1,564.4c-3.6,2.5-7.4,4.8-11.3,6.4c-12,5.5-25.7,7.9-42.2,7.4c-30.6-1.1-65.6-12.5-102.8-24.4 c-50.7-16.2-103.3-33.4-152.5-27c-56.1,7.2-97.9,44.4-128,114l-0.4-0.2c67.5-156.1,181-119.5,281.1-87.1c37,12,72,23.2,102.5,24.3 c34.3,1.2,58.1-10.7,74.9-37.4C530.1,505,547.1,466,565,425.1C619.4,301,675.6,172.7,892.1,141.3l0.1,0.4 c-216.2,31.4-272.5,159.5-326.8,283.5c-18.1,41.1-35,79.7-57.7,115.6C501.6,550.7,494.5,558.5,486.1,564.4z"></path>
+			<path d="M500.9,551.4c-43.7,31-103,15.8-165.5-0.2c-49.9-12.7-101.5-25.8-148.7-16.7c-53.3,10.5-93.2,49-121.6,118 l-0.5-0.1c15.3-37.1,33.3-64.7,55.1-84.7c19.5-17.7,41.3-28.6,66.7-33.7c47.4-9.2,99,3.9,148.9,16.6 c70.4,17.9,137.1,34.9,181.3-14.4c35.7-39.9,57.3-91.7,80.2-146.7c23.8-56.7,48.2-115.5,90.2-163.6c22.7-25.9,48.4-46.4,78.4-62.4 c33.9-18.1,72.2-30.3,117.1-37.1l0.1,0.4C695,155.3,645.2,274.5,597.1,389.7c-22.9,55-44.5,106.8-80.4,146.8 C512.3,542.4,506.6,547.3,500.9,551.4z"></path>
+			<path d="M521.3,536.4c-21.9,15.5-48.4,23.4-80.8,23.8c-31.2,0.5-65.1-5.8-97.9-11.9c-49.3-9.2-100.2-18.7-145.7-6.5 c-51.1,13.7-88.9,53.7-116,122.6l-0.6-0.2c60.5-154.1,163.3-135,262.6-116.5c68.1,12.7,132.6,24.6,183.6-15.8 c48.1-38.2,71.1-100.6,95.6-166.5c20.3-55,41.4-111.6,78.3-158.1c20-25.1,42.7-44.9,69.2-60.5c30.1-17.5,64.2-29.1,104.3-35.4 l0.2,0.6c-167.2,26.3-210,141.9-251.4,253.5C598.3,431.5,575,493.8,527,532.2C525.1,533.8,523.2,535.1,521.3,536.4z"></path>
+			<path d="M548.9,520.3c-4,2.9-8.2,5.6-12.6,8c-56.6,31.5-120.9,23.8-183,16.6c-51.7-6-100.4-11.8-144.6,3.2 c-49.9,16.9-85.5,57.7-111.3,128.2l-0.6-0.2c13.7-37.3,30.1-66,49.9-87.8c17.8-19.4,37.9-32.8,61.8-40.9 c44.3-15,93.1-9.3,144.9-3.2c62.1,7.2,126.3,14.8,182.8-16.6c59.6-33.2,82-104.7,105.9-180.4c17.1-54.3,34.7-110.5,67.2-156.6 c36.7-52,87.8-82.8,155.7-94l0.2,0.6c-151.9,25-187.8,139.3-222.3,250C620.4,417.6,599.4,484.5,548.9,520.3z"></path>
+			<path d="M573.5,509.5c-8.2,5.8-17.4,10.7-27.7,14.6c-59.3,22-119.1,18.8-176.8,15.8c-53.2-2.8-103.3-5.3-147.1,12.5 C172.6,572.3,138.1,615.5,113,688l-0.5-0.1c25.1-72.7,59.6-115.9,108.9-136c44-18,94.2-15.3,147.6-12.6 c57.7,3,117.4,6.1,176.6-15.9c70.7-26.2,91.1-106.3,112.8-191.4c13.9-54.5,28.3-111,56.7-156.9C747,123.2,793,92.6,855.6,82l0,0.7 C716.3,106.5,687,221.4,658.9,332.2C640.4,405,622.6,474.4,573.5,509.5z"></path>
+			<path d="M595.2,502.3c-11.3,8-24.6,14-40,17.4c-56.8,12.7-112,12.7-160.5,12.9c-60.2,0.1-112,0.2-157,21.1 c-49.5,23-84,69.3-108.5,146l-0.6-0.2c24.3-76.7,58.9-123.1,108.6-146.3c45.1-21.1,97.2-21.1,157.4-21.2 c48.6,0,103.6-0.1,160.5-12.9c81.6-18.3,99-106.7,117.4-200.6c10.7-55,22-112,46.6-158.2C747,108,788.6,77.5,846.5,67.2l0.1,0.8 C718,91.2,695.2,206.9,673.2,318.9C658.3,394.9,643.8,467.8,595.2,502.3z"></path>
+			<path d="M615.3,497.4c-13.7,9.7-30.2,16-50.8,18c-44.4,4.6-86.5,5.8-123.6,6.8c-71.2,2-132.8,3.7-182,27.7 C206,575.6,169.8,627,145,711.3l-0.8-0.1c13-44.6,29-79.3,48.6-106.3c18.1-24.9,39.5-43.1,65.6-55.7 c49.5-24.1,110.9-25.8,182.4-27.7c37.1-1,79.3-2.2,123.5-6.7c92.6-9.4,106.2-106.5,120.5-209.2c7.8-55.9,15.9-113.6,37-160 c23.8-52.7,61.6-83.1,115.3-93.4l0.3,0.7c-53.4,10.1-91,40.4-114.6,92.9c-21.1,46.4-29.2,104.1-36.8,159.9 C674.6,386,663.8,463,615.3,497.4z"></path>
+			<path d="M634.4,494c-15.5,11-35.2,17.2-60.4,17.3c-12.3,0.1-24.5,0.1-36.1,0.1c-103.7,0-185.5-0.1-246.4,26.4 c-63.5,27.7-103.7,85-130.5,185.5l-0.8-0.1c13.9-52.5,31.3-92.6,53.2-122.9c20.7-28.8,46.2-49.4,77.8-63.2 c61-26.6,142.9-26.4,246.6-26.4c11.7,0.1,23.8,0,36.1-0.1c103.8-0.2,112.9-105.6,122.5-217.2c4.7-56.9,9.9-115.5,27.5-162.4 c20-53.1,54.1-83.7,104.1-93.7l0.1,0.8c-49.5,9.8-83.5,40.3-103.3,93.1c-17.6,46.9-22.7,105.4-27.6,162 C690.1,378.2,682.9,459.6,634.4,494z"></path>
+			<path d="M652.7,491.8c-17.9,12.7-40.7,17.7-69.2,15.4C328,486.2,228.3,517.5,177.2,735.2l-0.9-0.3 c25.9-110.7,64-171.6,127-204c66.6-34.2,160.2-34.6,280.3-24.7c32.2,2.6,56.9-4.1,75.4-20.5c42.1-37.4,45.1-118.6,48-204.7 c4-116.5,8.1-236.8,112.1-258.6l0.1,0.8C715.9,44.8,711.8,164.8,707.8,280.9c-3.1,86.3-5.8,167.7-48.3,205.2 C657.3,488.3,655,490.1,652.7,491.8z"></path>
+			<path d="M670.6,490.3c-19.3,13.7-44.8,17.9-77.7,12.7c-138.5-21.4-227.1-13-287.3,27 c-55.4,36.8-89.1,101.7-112.4,216.9l-0.9-0.3C215.8,631,249.6,566,305.1,528.9c60.3-40.1,149.1-48.6,288.1-27.3 c35.9,5.5,63,0,82.6-16.9c43.2-37.5,42.2-124.3,40.9-216.1C714.9,151,713,28.8,809.9,7.7l0.1,0.8c-96,21.1-94.3,142.7-92.7,260.6 c1.3,92.1,2.4,179-41.1,216.7C674.3,487.4,672.6,488.9,670.6,490.3z"></path>
+		</svg>
+	</figure>
+
+	<!-- SVG decoration -->
+	<div class="position-absolute top-0 end-0 mt-n3 me-n4">
+		<img src="assets/images/elements/decoration-pattern-2.svg" style="opacity:0.05;" alt="">
+	</div>
+
+	<div class="container position-relative mt-5">
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-3">
+				<!-- logo -->
+				<a class="me-0" href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-8 col-xxl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms & condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-4">
+						<h6 class="mb-2 mb-md-4">App available on</h6>
+						<div class="row g-2 mt-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<!-- Language selector -->
+			<div class="dropdown dropup text-center text-md-end mt-3 mt-md-0">
+				<a class="dropdown-toggle btn btn-sm btn-light mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-globe me-2"></i>Language
+				</a>
+				<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vendors -->
+<script src="assets/vendor/aos/aos.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

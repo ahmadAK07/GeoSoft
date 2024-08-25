@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute" data-bs-theme="dark">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item active" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="bg-dark position-relative overflow-hidden pt-xl-9" data-bs-theme="dark">
+	<div class="container position-relative mt-5">
+		<!-- Main hero -->
+		<div class="row align-items-center">
+			<!-- Left side -->
+			<div class="col-xl-5 mb-7 mb-xl-0">
+				<span class="heading-color d-inline-block bg-light small rounded-pill px-3 py-2 mb-4 mb-sm-5"><span class="badge text-bg-white rounded-pill me-1">New</span> World's #1 SaaS agency 🌍</span>
+				<h1 class="display-5 mb-4 mb-sm-5">Deliver the perfect <span class="text-primary">solution</span> for your client</h1>
+				<p class="mb-4 mb-sm-5">Our friendly team members are always willing to help you with requirements and provide suggestions on your future needs.</p>
+
+				<!-- Buttons -->
+				<div class="d-flex gap-3 gap-sm-4 flex-wrap mb-4 mb-sm-5">
+					<button class="btn btn-lg btn-primary-soft" type="button">Get started</button>
+					<a class="btn btn-lg btn-outline-white" href="https://www.youtube.com/embed/tXHviS-4ygo" data-glightbox="" data-gallery="course-video"><i class="bi bi-play-circle me-2"></i>Watch a demo</a>
+				</div>
+
+				<!-- List -->
+				<ul class="list-inline d-sm-flex gap-4">
+					<li class="list-inline-item heading-color"> <i class="bi bi-patch-check text-primary me-2"></i>Run faster</li>
+					<li class="list-inline-item heading-color"> <i class="bi bi-patch-check text-primary me-2"></i>Lower costs</li>
+					<li class="list-inline-item heading-color"> <i class="bi bi-patch-check text-primary me-2"></i>Never breaks</li>
+				</ul>
+			</div>
+
+			<!-- Right Side -->
+			<div class="col-lg-10 col-xl-6 ms-xl-auto position-relative">
+				<div class="position-relative z-index-2">
+					<!-- Main image -->
+					<img src="assets/images/bg/06.jpg" class="rounded-3 ps-sm-8" alt="Main-img">
+	
+					<!-- Decoration image -->
+					<img src="assets/images/elements/saas-decoration/05.png" class="rounded-3 shadow position-absolute bottom-0 start-0 z-index-2 ms-n6 mb-n6 d-none d-sm-block" alt="decoration-img">
+					
+					<!-- Decoration -->
+					<div class="bg-dark border border-opacity-25 rounded-4 d-flex align-items-center position-absolute top-0 start-0 mt-n5 p-3">
+						<img src="assets/images/elements/gicon.svg" alt="google-icon">
+						<div class="ms-3">
+							<ul class="list-inline mb-1">
+								<li class="list-inline-item me-0 text-white fw-bold">4.8/5.0</li>
+								<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-warning"></i></li>
+								<li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-warning"></i></li>
+							</ul>
+							<small class="text-white">500+ reviews on Google </small>
+						</div>
+					</div>
+
+					<!-- Decoration -->
+					<div class="bg-dark d-inline-block text-white rounded position-absolute top-50 end-0 me-sm-n7 px-4 py-3">
+						<span class="h5 text-white">15M ❤️</span>
+						<p class="mb-0">Happy customers</p>
+					</div>
+
+					<!-- SVG decoration -->
+					<figure class="position-absolute end-0 bottom-0 mb-n2 me-n2">
+						<svg class="fill-dark" width="124" height="88" viewBox="0 0 124 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M61.0323 10C61.0323 4.47715 56.5551 0 51.0323 0H10C4.47715 0 0 4.47715 0 9.99999V36.8387C0 42.3616 4.47715 46.8387 10 46.8387H29.7419C35.2648 46.8387 39.7419 51.3159 39.7419 56.8387V78C39.7419 83.5228 44.2191 88 49.7419 88H113.484C119.007 88 123.484 83.5228 123.484 78V34.129C123.484 28.6062 119.007 24.129 113.484 24.129H71.0323C65.5094 24.129 61.0323 19.6519 61.0323 14.129V10Z"/>
+							</svg>
+					</figure>
+
+					<!-- SVG decoration -->
+					<figure class="position-absolute top-50 start-0 translate-middle ms-n5 d-none d-xl-block">
+						<svg width="144" height="166" viewBox="0 0 144 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path class="fill-mode" d="M113.199 50.9244C112.596 46.339 111.938 41.4066 111.26 36.313C112.477 36.3608 113.16 36.4563 113.239 37.7452C113.369 39.8372 113.688 41.9264 113.989 44.0007C114.229 45.6329 114.566 47.2491 114.897 49.0506C117.03 47.6646 117.874 46.1495 117.754 43.8625C117.641 41.7025 118.148 39.5274 118.187 37.3447C118.221 35.5034 117.932 33.6609 117.853 31.811C117.829 31.3058 118.035 30.7983 118.146 30.2141C119.83 30.6233 119.847 31.8334 119.855 32.9165C119.897 35.9832 119.846 39.0464 119.837 42.1101C119.837 42.3492 119.859 42.5836 119.875 42.8375C122.111 41.9771 122.784 40.9163 122.955 38.5496C123.128 36.2147 123.525 33.8969 123.718 31.5671C123.824 30.3267 123.712 29.0814 123.71 27.8129C125.609 27.9977 125.795 28.2023 125.63 29.7908C125.378 32.1883 125.114 34.5929 124.879 37.0052C124.83 37.4706 124.935 37.945 124.983 38.5602C126.484 38.2771 127.287 37.8324 127.854 36.2239C128.914 33.2062 129.092 30.0932 129.676 27.0238C129.805 26.33 129.876 25.621 130.006 24.6052C130.829 24.9658 131.427 25.2262 131.756 25.364C131.26 28.4149 130.848 31.1862 130.345 33.9443C130.06 35.5121 130.568 36.5179 131.95 37.3262C134.454 38.8228 136.874 40.4429 139.316 42.0169C139.513 42.1411 139.64 42.3718 139.879 42.6526C139.608 43.091 139.335 43.5392 139.074 43.9802C138.723 43.8885 138.454 43.8806 138.277 43.7615C136.522 42.5855 134.718 41.4798 133.055 40.1926C130.88 38.5119 128.793 38.5274 126.425 40.2157C128.777 43.1693 132.676 43.9498 135.203 46.7932C134.962 47.1564 134.722 47.5196 134.379 48.0328C130.718 46.4208 127.533 44.1018 124.116 41.5972C122.968 42.721 121.793 43.8689 120.334 45.3063C123.046 46.8053 125.495 48.1525 127.944 49.4997C128.508 49.8134 129.18 50.0307 129.603 50.4843C129.954 50.8566 130.013 51.5061 130.36 52.4906C125.841 51.569 122.873 48.6621 118.973 47.2059C118.045 48.2834 117.073 49.4117 115.864 50.8104C118.379 51.9876 120.706 53.0846 123.041 54.1525C123.403 54.32 123.991 54.2241 124.184 54.4824C124.526 54.9254 124.654 55.5513 124.866 56.0952C124.383 56.2703 123.817 56.6835 123.432 56.562C122.211 56.1702 121.037 55.6033 119.87 55.0487C117.99 54.1518 116.123 53.2063 114.36 52.3401C101.683 64.3771 98.5715 79.9025 96.6302 95.9314C98.838 96.7685 100.8 97.4687 102.733 98.2442C105.629 99.3964 107.415 101.766 109.175 104.159C112.643 108.818 113.566 114.173 113.972 119.829C114.177 122.71 112.879 124.366 111.236 126.109C109.163 128.301 106.714 129.781 103.514 129.432C100.468 129.093 98.4789 127.419 97.3542 124.631C95.5645 120.203 95.1947 115.523 95.0572 110.83C94.951 107.372 95.1356 103.918 95.1638 100.464C95.1655 99.8203 95.0939 99.1779 95.0524 98.4603C93.7898 97.9119 92.5297 98.0709 91.25 98.2249C85.6593 98.8938 80.6937 101.275 75.9535 104.068C71.1493 106.907 66.5711 110.117 63.3385 114.833C62.6662 115.811 62.0884 116.865 61.467 117.888C63.1573 118.673 64.6318 119.526 66.2098 120.063C68.5452 120.85 70.6979 122.058 72.4806 123.605C73.9072 124.84 74.7815 126.794 75.68 128.536C76.2551 129.643 76.4419 130.96 76.7886 132.183C77.2903 134.009 76.8058 135.265 75.2357 136.33C70.9711 139.217 66.3749 137.516 63.3267 134.515C59.5648 130.819 57.9099 126.354 58.8783 121.056C58.9376 120.75 58.8995 120.418 58.9114 119.735C56.044 119.827 53.2131 119.7 50.4457 120.047C39.6355 121.399 29.0725 123.678 19.2226 128.607C15.317 130.558 11.2246 132.149 7.23048 133.921C6.44252 134.266 5.70244 134.707 4.77628 135.182C8.44174 136.14 11.7953 137.017 15.2073 137.909C15.1894 139.172 14.7731 139.729 13.5952 139.494C12.8832 139.349 12.1639 139.192 11.4442 139.077C8.9676 138.71 6.49146 138.301 4.00173 138.025C2.4322 137.853 0.871129 137.809 0.406275 135.723C2.35553 129.622 4.3726 123.342 6.45539 116.85C7.20773 117.119 7.83587 117.346 8.51997 117.597C6.46861 122.933 3.95908 127.911 3.54167 133.809C5.90092 132.753 8.06434 131.728 10.2659 130.797C16.6519 128.122 22.9218 125.094 29.4786 122.921C35.9446 120.777 42.5734 118.966 49.4688 118.565C51.1413 118.462 52.8063 118.149 54.486 118.058C56.0899 117.978 57.7044 118.058 59.7423 118.071C62.8516 111.556 68.2989 106.775 74.7006 103.044C80.9918 99.378 87.3981 95.9081 95.2331 96.3353C95.5427 94.036 95.8141 91.6437 96.1881 89.2573C97.7904 78.8668 100.196 68.7487 106.203 59.9151C108.283 56.8625 110.728 54.0824 113.199 50.9244ZM96.5665 98.087C96.4799 99.374 96.3642 100.414 96.3387 101.468C96.1764 107.745 95.9505 114.026 97.1035 120.252C97.2721 121.2 97.4403 122.19 97.8642 123.039C98.8148 124.94 99.834 126.817 102.03 127.662C106.876 129.521 112.689 124.576 112.545 120.547C112.401 116.675 112.304 112.824 110.609 109.19C107.868 103.339 103.835 99.1664 96.5665 98.087ZM60.8018 120.073C59.5762 123.526 60.0775 126.827 61.4557 129.921C62.583 132.46 64.8013 134.173 67.2834 135.436C69.8578 136.743 72.7973 136.534 74.5229 134.834C74.9303 134.431 75.3948 133.69 75.2872 133.225C74.4812 129.616 73.8495 125.938 70.0607 123.897C67.1494 122.325 64.3622 120.557 60.8018 120.073Z" fill="#202124"></path>
+						</svg>
+					</figure>
+
+					<!-- SVG decoration -->
+					<figure class="position-absolute top-0 start-100 translate-middle ms-n3">
+						<svg class="fill-primary" width="120" height="105" viewBox="0 0 120 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M107.952 83.3619C107.182 83.9654 106.82 84.8398 106.665 85.8227C106.58 86.3649 106.085 86.439 105.713 86.5343C105.39 86.6171 105.093 86.6279 104.832 86.8938C104.725 87.004 104.388 87.028 104.247 86.9418C103.795 86.6664 103.311 86.4651 102.894 86.0977C101.426 84.8054 100.349 83.207 99.3413 81.5763C98.3132 79.9124 97.2371 78.2664 96.4497 76.4617C96.2049 75.9001 96.195 75.9046 96.8113 75.4685C97.3125 76.4215 97.7797 77.3891 98.3207 78.3136C98.7498 79.0472 99.2688 79.7273 99.7915 80.4948C99.9145 80.1858 99.9116 79.9878 99.7207 79.7124C98.681 78.2105 97.694 76.6746 96.9112 74.9159C97.0362 74.8343 97.1874 74.7353 97.3378 74.6376C97.3726 74.6674 97.45 74.7345 97.5826 74.8492V74.223C97.9541 74.1488 98.2909 74.0821 98.7291 73.9951C99.0708 74.1546 99.2332 74.7593 99.7957 74.8343C99.7774 75.4461 100.312 75.7509 100.581 76.1979C100.914 76.7521 101.366 77.2346 101.686 77.6443C102.047 77.5962 102.317 77.5457 102.59 77.5266C103.547 77.4595 103.523 77.4898 104.119 78.0154C104.782 78.5994 105.235 79.4166 106.089 79.7878C106.144 79.8114 106.205 79.895 106.208 79.9534C106.235 80.5681 106.579 80.7914 107.156 80.9405C107.64 81.066 107.778 81.5763 107.801 82.0783C107.818 82.4631 107.889 82.8454 107.952 83.3619"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M22.5369 11.9698C23.222 12.3128 23.222 12.3128 23.5906 11.595C24.0591 11.4342 24.6253 11.7577 25.049 11.3274C25.5257 11.4463 25.9963 11.6078 26.4801 11.6745C27.2612 11.7818 27.6647 12.3861 28.1058 12.8947C28.4053 13.2402 28.7188 13.5868 28.9926 13.9621C29.3128 14.4012 29.6955 14.7938 30.0169 15.2316C30.3081 15.6284 30.557 16.0571 30.8155 16.4771C30.8872 16.5939 30.9791 16.736 30.9688 16.8586C30.941 17.185 31.0541 17.405 31.286 17.639C31.7321 18.0888 31.6973 18.749 31.8522 19.3107C31.996 19.8342 31.9135 20.4311 31.8672 20.9907C31.8498 21.2044 31.8216 21.6605 31.3511 21.3241C31.3179 21.3001 31.1535 21.4753 31.0404 21.5416C30.9211 21.6112 30.7173 21.7441 30.6751 21.7073C30.1789 21.2715 30.0579 21.583 29.8309 22.0138C29.4971 22.6479 29.2933 22.6011 28.397 22.4412C27.8515 22.3435 27.2733 22.3265 26.9539 21.8531C26.0903 20.5732 25.2056 19.302 25.0859 17.6659C25.0382 17.0102 24.8551 16.326 24.3142 15.8546C23.8482 15.4483 23.5388 14.8676 22.9026 14.641C22.7108 14.5726 22.5704 14.344 22.4213 14.1754C22.1044 13.8159 21.9342 13.4162 21.9259 12.9105C21.9172 12.3852 22.3322 12.2676 22.5369 11.9698"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M95.7508 54.7488C95.1916 54.1897 94.7223 53.6421 94.1752 53.1881C92.6058 51.8859 91.8606 50.0435 90.922 48.3287C90.5004 47.5587 90.6209 46.6939 90.6392 45.8609C90.6425 45.7164 90.8421 45.5759 90.9589 45.4243C91.1184 45.74 91.2679 46.0357 91.4862 46.4673V44.9252C91.8147 44.7625 92.139 44.6738 92.3602 44.4725C92.6348 44.2227 92.945 44.272 93.1968 44.3354C93.4901 44.4091 93.7403 44.6539 94.0352 44.8412C93.8625 45.6505 94.181 46.3281 94.5757 47.0343C94.929 46.9387 95.3461 47.1897 95.6999 46.8268C95.7748 46.7498 96.0209 46.7436 96.1269 46.8074C96.9934 47.3288 98.0567 47.6055 98.4949 48.6758C98.5736 48.8688 98.661 49.1182 98.8192 49.2039C99.0578 49.3332 98.8436 49.7366 99.2533 49.7523C99.5905 49.7652 99.3751 50.109 99.4355 50.2962C99.5105 50.5281 99.6128 50.7551 99.6534 50.9929C99.6907 51.2107 99.6613 51.4402 99.6613 51.6664C98.7939 52.4103 98.2364 53.358 97.809 54.4138C97.1152 54.5264 96.411 54.6412 95.7508 54.7488"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M1.67152 2.08481C1.87737 1.8044 2.03767 1.57079 2.21536 1.35043C2.28039 1.27049 2.38063 1.21416 2.47382 1.16197C2.73933 1.01327 2.92903 1.43369 3.22601 1.25061C3.45879 1.1073 3.73134 0.978481 3.99684 0.9528C4.2172 0.931676 4.544 1.19718 4.66246 1.11185C4.92631 0.921735 5.08412 0.864575 5.31359 1.12179C5.35625 1.16901 5.5124 1.13339 5.60974 1.10978C6.32962 0.936232 6.32921 0.934161 6.71442 1.63375C6.76702 1.48215 6.81258 1.35126 6.89542 1.11227C7.00933 1.42043 7.12116 1.63955 7.16838 1.8715C7.22637 2.15481 7.24045 2.44848 7.25371 2.73842C7.26737 3.03002 7.2566 3.32286 7.42021 3.62316L7.52956 2.53712C7.56808 2.53546 7.60702 2.53381 7.64595 2.53256C7.66708 2.72475 7.70436 2.91694 7.7056 3.10955C7.71181 4.08623 7.66584 5.0654 7.72134 6.03878C7.77063 6.89742 7.62359 7.67487 7.13856 8.38481C6.95672 8.21085 6.78442 7.947 6.57731 8.36783C6.35075 8.82759 5.98791 8.7928 5.51903 8.58197C5.44116 9.08191 5.40595 9.67132 4.57797 9.48286V8.23073C4.52288 8.21996 4.46737 8.20878 4.41229 8.19759C4.28098 8.62463 4.1501 9.05168 4.01507 9.49114C3.64518 9.24345 3.34199 8.98002 3.40205 8.45895C3.41862 8.31274 3.24797 8.15286 3.19288 7.98966C2.95471 7.27972 2.95844 7.27807 2.36903 7.26108C2.25637 7.25777 2.14371 7.26067 2.03104 7.26067H1.72163C1.43584 6.97487 1.1782 6.70026 0.902759 6.44511C0.315836 5.90292 0.129031 5.18511 0.0350071 4.43913C-0.0113834 4.06925 0.0685574 3.6828 0.0159539 3.31458C-0.0420343 2.90866 0.167137 2.60878 0.351871 2.32298C0.720096 1.75345 0.920983 1.73688 1.67152 2.08481"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M67.5463 11.0251C67.0646 11.3524 66.6007 11.6804 66.1173 11.9757C66.0705 12.0043 65.9024 11.8341 65.7209 11.7073C65.6099 11.9066 65.5346 12.0892 65.4169 12.2383C65.2786 12.4144 65.1009 12.5593 64.9439 12.7213C64.6258 13.0489 64.3193 13.4138 63.8492 12.916C63.8131 12.8783 63.7038 12.9156 63.6296 12.9077C63.1015 12.8505 62.5983 12.9822 62.0669 12.5573C61.639 12.2151 61.0943 11.9786 60.6921 11.5586C60.3152 11.1643 59.925 10.794 59.662 10.2937C59.2586 9.52531 58.8601 8.76567 59.0038 7.86395C59.0399 7.6378 59.1952 7.43028 59.3356 7.1275C59.6198 7.36028 59.812 7.51768 60.0364 7.702C60.2204 7.09188 60.1827 6.38277 60.748 5.84514C60.9696 6.01082 61.1838 6.1707 61.4509 6.37034V5.5465C62.1932 5.41975 62.8675 5.1646 63.6114 5.20934C64.038 5.23502 64.4067 5.37005 64.6767 5.62892C65.0238 5.96111 65.4488 6.19886 65.7321 6.62466C65.9881 7.00987 66.3381 7.33212 66.6069 7.72892C67.048 8.38129 67.1972 9.14384 67.5198 9.83804C67.6739 10.169 67.5463 10.6312 67.5463 11.0251"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M19.7064 32.6202V35.0441C19.9313 34.4315 19.8923 33.8127 19.9114 33.1972C19.9188 32.9495 19.8016 32.6413 20.1019 32.4935C20.4122 32.3402 20.7398 32.1886 21.0745 32.1393C21.1896 32.1224 21.4087 32.3949 21.4742 32.5734C21.5446 32.7652 21.4903 33.0025 21.4903 33.2444C21.6775 33.1661 21.789 33.0754 21.8888 33.0866C22.0951 33.1098 22.3784 33.3008 22.484 33.2237C23.0709 32.7917 23.7142 33.0754 24.321 33.0415C24.5956 33.0261 25.011 33.2096 25.1428 33.4325C25.4658 33.9813 26.1178 34.149 26.4595 34.7948C26.4707 35.0706 26.5071 35.4115 26.7938 35.7785C27.1694 36.2594 27.49 36.8567 27.3736 37.5604C27.3194 37.8876 27.3641 38.231 27.3641 38.6299C26.5941 39.0867 25.793 39.5308 25.0251 40.0261C24.2216 40.5447 23.4905 40.1964 22.8067 39.8381C22.3075 39.5763 21.6378 39.4537 21.4692 38.7566C20.3533 38.2546 20.1549 37.0787 19.5593 36.1902C19.1588 35.5929 19.1712 34.8979 19.0577 34.2658C18.9641 33.7435 19.3328 33.1384 19.4968 32.5701C19.5668 32.5867 19.6368 32.6037 19.7064 32.6202"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M41.5633 44.843C41.0878 44.3675 40.5838 43.8634 40.0163 43.296C40.0163 42.9203 39.9774 42.4725 40.0362 42.038C40.0585 41.8765 40.2917 41.7133 40.4653 41.6185C40.5312 41.582 40.7006 41.7353 40.824 41.8028C40.988 41.478 41.0841 41.0386 41.6387 41.1454C41.7419 41.1657 41.8881 41.1719 41.9585 41.1152C42.2348 40.8915 42.5355 40.6633 42.8888 40.7615C43.5221 40.9379 44.2279 41.0411 44.7216 41.478C45.6975 42.3425 46.6253 43.2819 47.1112 44.5303C47.4007 45.2746 47.662 46.0434 47.802 46.8254C47.8629 47.1675 47.7706 47.6372 47.3808 47.9098C46.7392 48.3592 46.1216 48.8446 45.4659 49.2721C45.2427 49.4174 44.9279 49.5181 44.6674 49.4953C43.0259 49.3532 41.8562 48.5808 41.3712 46.7268C41.3003 46.4567 41.1309 46.1755 41.1674 45.9228C41.2204 45.5571 41.42 45.2121 41.5633 44.843"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M44.3797 85.654C44.335 85.4274 44.2902 85.2012 44.2455 84.9747C44.2426 85.8735 43.2937 86.2098 43.087 86.974C43.0132 87.2474 42.609 87.3692 42.4416 87.2172C42.1687 86.9703 41.9827 87.1505 41.8286 87.2507C41.419 87.5175 41.0711 87.4918 40.6527 87.2474C39.447 86.5424 38.2031 85.8946 37.4924 84.6023C36.6358 84.1388 36.3852 83.1973 35.8529 82.4816C35.5941 82.1337 35.5116 81.6544 35.3311 81.1872C35.6458 80.7287 36.1031 80.8501 36.6561 81.1259C36.6027 80.8654 36.6171 80.6256 36.5078 80.4777C36.3566 80.2743 36.5182 80.1944 36.6039 80.1583C36.9932 79.9956 37.3958 79.8763 37.7164 79.5689C37.7947 79.4936 38.0163 79.5234 38.1538 79.5648C38.3995 79.6394 38.6099 79.7963 38.8828 79.5743C38.9603 79.5118 39.2121 79.6369 39.3703 79.7065C40.7302 80.3037 41.9608 81.0526 42.766 82.3781C42.8745 82.557 43.1189 82.7467 43.3015 82.9169C43.8255 83.4036 43.9237 84.1127 44.3292 84.6375C44.5984 84.9867 44.5396 85.2932 44.3797 85.654"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M112.947 32.9885C112.976 32.7802 113.006 32.5714 113.039 32.342C113.121 32.4016 113.194 32.4252 113.213 32.4712C113.503 33.1795 113.864 33.8583 114.034 34.6159C114.141 35.0923 114.277 35.5483 113.816 35.9194C113.502 36.1721 113.821 36.8978 113.114 36.8572C112.781 37.3919 112.248 37.3385 111.738 37.302C111.622 37.6599 111.551 38.0086 111.4 38.3197C111.231 38.6701 110.69 38.7691 110.109 38.6034C109.977 38.5657 109.849 38.4369 109.727 38.4477C108.787 38.5297 108.789 38.5367 108.393 37.7953C108.196 37.4254 107.957 37.0721 107.804 36.6849C107.617 36.2127 107.328 35.9178 106.851 35.714C106.143 35.4112 105.683 34.7973 105.561 34.0671C105.45 33.406 105.76 32.7996 106.35 32.3233C106.642 32.7052 106.934 33.0859 107.343 33.6194C107.343 33.0734 107.337 32.706 107.345 32.3391C107.352 31.9741 107.392 32.0487 107.969 31.7886C108.382 31.6026 108.979 31.8279 109.217 31.2555C109.624 31.2398 110.031 31.2249 110.439 31.2091C111.192 31.1793 111.859 31.2613 112.21 32.098C112.349 32.4294 112.683 32.6795 112.947 32.9885"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M1.5815 38.4769C0.690137 38.2838 0.377001 37.6518 0.295817 37.0963C0.191853 36.386 -0.0487983 35.6897 0.00877567 34.9388C0.0833319 33.9666 0.0779473 32.9804 0.00504786 32.0083C-0.0301592 31.5365 0.272622 31.1873 0.26558 30.7462C0.263924 30.6315 0.423391 30.4095 0.498776 30.414C1.08031 30.4472 1.35659 29.8176 1.96629 29.8138C2.37014 29.8118 2.77191 29.4332 3.22505 29.1963C3.67156 29.6428 4.62132 29.0906 4.98333 30.0752C4.74641 30.7669 5.33665 31.3746 5.5367 32.0832C5.56446 32.1822 5.66842 32.2705 5.66925 32.3641C5.67878 33.4803 5.67505 34.5962 5.67505 35.8086C5.49446 35.6483 5.41617 35.5791 5.22191 35.4064C5.2828 35.6686 5.2712 35.8695 5.36067 35.9374C5.45594 36.0103 5.65682 35.9295 5.79185 35.9747C5.85315 35.995 5.88588 36.1569 5.8925 36.2572C5.89582 36.3031 5.79599 36.4046 5.75954 36.3972C5.48617 36.3437 5.21653 36.2692 4.9212 36.1954C4.71949 36.632 4.5041 37.098 4.34339 37.4463C4.03564 37.4235 3.85173 37.4095 3.66824 37.3958C3.99008 37.7205 3.6202 37.8373 3.48641 38.037C3.35014 38.2395 3.25031 38.4665 3.14221 38.6682C2.43144 38.5912 2.16635 38.1331 1.97623 37.5263C1.84162 37.851 1.72025 38.1422 1.5815 38.4769"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M84.7326 90.4235C84.1482 90.407 83.5952 90.2491 83.3128 90.897C82.8356 90.2682 82.7793 89.8221 83.2651 89.3226C83.6006 88.978 83.8218 88.5476 84.2493 88.2498C84.6233 87.9889 84.7608 87.4119 85.0831 87.0445C85.3307 86.762 85.7027 86.588 86.0196 86.3664C86.1186 86.4629 86.2254 86.5681 86.394 86.7334C86.2151 86.8606 86.0394 86.9857 85.8634 87.1103C85.8829 87.1555 85.9028 87.2006 85.9222 87.2458C86.1799 87.2052 86.4371 87.1646 86.7266 87.119C86.8036 87.2346 86.8931 87.5312 87.0849 87.631C88.2368 88.2307 88.972 89.2319 89.672 90.2595C89.9019 90.5967 89.981 91.0328 90.1657 91.406C90.6217 92.3284 90.7394 92.4987 90.6006 93.337C90.5004 93.943 90.3898 94.5891 89.9139 95.0829C89.7258 95.2775 89.5254 95.5588 89.5154 95.8081C89.4906 96.4377 89.1447 96.5384 88.6361 96.5061C88.494 96.497 88.3436 96.5152 88.2053 96.5525C87.3181 96.791 87.2265 96.7662 86.7842 96.0861C86.1289 95.0791 85.8158 93.9277 85.4347 92.8085C85.1655 92.0178 84.96 91.2047 84.7326 90.4235"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M70.3682 78.0307C69.7407 77.6744 69.1053 77.3626 68.5938 76.8469C67.6407 75.8843 66.6176 74.9826 65.7383 73.957C64.8138 72.8788 63.835 71.816 63.2771 70.5518C63.3359 70.0527 63.9862 70.5829 63.9986 69.9939C64.0024 69.8257 64.4145 69.6634 64.6431 69.5039C65.2106 69.1079 65.5275 69.0417 65.9408 69.4815C66.3488 69.916 66.8206 70.0718 67.3545 70.1849C68.1792 70.3597 68.7483 70.993 69.4541 71.3827C70.2092 71.7994 70.7472 72.4704 71.3607 73.0532C71.6783 73.3547 72.0731 73.5863 72.346 73.9201C72.6206 74.256 72.8729 74.6599 72.9702 75.0728C73.0291 75.3243 72.8402 75.7037 72.648 75.9278C72.4107 76.204 72.2984 76.6029 71.883 76.7367C71.6427 76.8137 71.6767 77.0821 71.6299 77.3033C71.576 77.5572 71.5052 77.8662 71.0645 77.5473C70.7563 77.3249 70.497 77.6405 70.3682 78.0307"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M115.845 71.4973C114.558 70.9671 114.004 69.9813 113.454 69.0232C112.971 68.1812 112.53 67.3043 112.171 66.4026C111.812 65.5021 111.187 64.6489 111.466 63.5156C112.28 64.0831 112.213 65.1679 112.995 65.8931C112.852 64.7458 112.256 63.8594 111.959 62.6508C112.37 62.8761 112.519 62.9577 112.702 63.0575C112.737 62.8608 112.774 62.6545 112.81 62.449C113.151 62.3844 113.487 62.3206 113.883 62.2453C113.989 62.4134 114.126 62.6619 114.291 62.8922C114.93 63.7882 114.934 63.784 116.095 64.197C116.225 64.2434 116.346 64.3187 116.464 64.3933C117.363 64.9616 118.182 65.6019 118.677 66.5898C118.86 66.9551 119.11 67.6261 119.099 68.0151C119.096 68.1062 119.172 68.2131 119.239 68.2901C119.408 68.486 119.331 68.6529 119.157 68.7519C118.649 69.0382 118.429 69.6015 117.979 69.9386C117.786 70.0824 117.752 70.2737 117.717 70.5111C117.669 70.8341 117.035 71.2529 116.741 71.185C116.558 71.1427 116.44 70.8072 116.191 71.0545C116.06 71.1845 115.961 71.3461 115.845 71.4973"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M79.2642 45.1725C79.067 45.2052 78.8604 45.2391 78.575 45.2864C78.6876 45.4976 78.768 45.6476 78.8521 45.8049C78.3157 46.3413 77.7573 46.8997 77.1816 47.4758C77.0888 47.4758 76.9753 47.4589 76.8685 47.4783C75.6014 47.7128 74.7577 46.9937 74.054 46.1268C73.5043 45.4496 73.0317 44.7036 72.6639 43.8897C72.4344 43.3815 72.2294 42.9134 72.3934 42.2229C72.7778 43.0679 73.1204 43.8201 73.4629 44.5727C73.5238 44.5528 73.5847 44.5334 73.646 44.5135C73.6182 44.3702 73.6141 44.2165 73.5586 44.0848C73.3295 43.5405 73.069 43.0087 72.8532 42.4599C72.7575 42.2167 72.5525 41.9139 73.0748 41.8009C73.2359 41.7661 73.3304 41.4186 73.4534 41.2127C73.5611 41.0321 73.6654 40.8494 73.7508 40.7036C74.2789 40.6552 74.2839 41.117 74.6131 41.3076C74.5365 41.0168 74.4599 40.726 74.3588 40.3433C74.5278 40.2095 74.7536 40.0306 74.9793 39.8512C75.1218 39.9929 75.3107 40.2186 75.4859 39.8023C75.676 39.3525 75.9568 39.1773 76.412 39.4726C76.4534 39.4996 76.5392 39.5203 76.5665 39.4979C77.0938 39.0634 77.4044 39.4963 77.6484 39.8284C78.2308 40.6225 78.505 41.576 78.8537 42.4831C78.9357 42.696 79.1143 43.1959 78.5137 43.2199C78.4797 43.2212 78.4536 43.408 78.4242 43.5082C78.5493 43.5384 78.7415 43.6354 78.7891 43.5873C79.1259 43.2497 79.3073 43.6905 79.2741 43.7679C79.0716 44.2438 79.5409 44.7036 79.2642 45.1725"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M75.1738 21.0679C75.3064 21.2004 75.4393 21.3334 75.6411 21.5347C75.6779 21.2154 75.7086 20.9519 75.7421 20.6645C76.2069 20.5671 76.6861 20.4445 77.1728 20.3725C77.4669 20.329 77.7775 20.3302 78.0708 20.3754C78.2944 20.4102 78.1188 20.8268 78.5359 20.8633C78.8055 20.8869 79.0127 21.345 79.2044 21.6639C79.3602 21.9228 79.127 22.4832 79.7184 22.4497C79.7387 22.8162 79.759 23.1832 79.7802 23.5498C79.7818 23.5854 79.7901 23.6206 79.7955 23.6562L81.4738 25.3346C81.6536 25.3346 81.8441 25.3114 82.026 25.34C82.3064 25.3851 82.6083 25.6631 82.4646 25.8354C82.1448 26.2185 82.7181 26.4832 82.4907 26.7959C81.6171 27.0577 81.3417 27.0867 80.6309 26.9624C80.809 27.3472 80.964 27.6827 81.1586 28.1044C81.0451 28.2133 80.8956 28.4788 80.7482 28.478C79.8174 28.4709 78.8379 28.707 78.0082 28.0464C77.7833 27.867 77.5116 27.7266 77.3368 27.5075C76.9379 27.008 76.5809 26.4749 76.2168 25.948C76.0374 25.6883 75.8842 25.41 75.7119 25.1449C75.4451 24.7344 75.5242 24.1429 75.0351 23.8493C75.1092 23.3514 74.8284 22.9749 74.649 22.5454C74.4051 21.9618 74.5563 21.4034 75.1738 21.0679"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M40.3117 4.32349C40.752 4.32349 41.0532 4.32307 41.3539 4.32349C41.7569 4.32432 42.1931 4.2568 42.2854 4.83917C42.2954 4.90379 42.4461 5.00278 42.5182 4.99242C42.9954 4.9216 43.1192 5.37266 43.4112 5.57106C44.2036 6.10952 44.3204 6.99633 44.5184 7.81645C44.6315 8.28408 44.4803 8.61958 43.948 8.9381C43.3507 9.29556 42.6031 9.51757 42.1931 10.167C41.831 10.1741 41.5349 10.7403 41.112 10.2872C41.0507 10.2217 40.9148 10.1998 40.8142 10.2014C39.3885 10.2288 38.4963 9.41029 37.7512 8.31887C37.373 7.7655 36.8996 7.27094 36.7513 6.58958C36.6904 6.31 36.6548 6.02337 36.6349 5.73799C36.6278 5.64438 36.6829 5.48201 36.7484 5.4584C37.322 5.25337 37.7391 4.7642 38.2954 4.56497C38.9813 4.31976 39.7149 4.24603 40.3117 4.32349"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M38.5009 59.1168C38.6662 59.3765 38.7876 59.5678 39.0237 59.9394C39.0767 59.5459 39.097 59.4113 39.1123 59.2762C39.162 58.8285 39.1612 58.8293 39.727 58.7717C39.7978 58.7643 39.9067 58.7738 39.932 58.7336C40.1901 58.3269 40.5931 58.213 40.9998 58.3356C41.4608 58.4743 41.9558 58.6483 42.3145 58.9507C43.7141 60.1303 44.5375 61.7113 45.177 63.3888C45.2856 63.675 45.1924 64.0379 45.1924 64.361C45.0246 64.3423 44.8929 64.3278 44.7608 64.3129C44.7893 64.718 44.6978 65.0183 44.224 65.114C44.0819 65.143 43.8876 65.355 43.8735 65.4979C43.8259 65.9859 43.3247 65.7481 43.1499 66.002C42.8708 65.5576 42.3903 66.0956 42.0763 65.7779C41.7756 65.4739 41.3639 65.2395 41.1651 64.8824C40.7273 64.0959 40.3081 63.2774 40.0517 62.4208C39.9208 61.9826 39.7266 61.6914 39.389 61.4926C38.841 61.1708 38.4152 60.7628 38.1476 60.1829C37.9244 59.6987 37.9148 59.7033 38.5009 59.1168"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M59.6719 45.9786C59.6719 45.8664 59.645 45.7102 59.6814 45.5702C59.7059 45.4766 59.8662 45.4128 59.8803 45.3229C59.8956 45.2248 59.7804 45.1121 59.7792 45.0052C59.7784 44.9104 59.9117 44.794 59.8857 44.724C59.838 44.5952 59.7312 44.4759 59.6214 44.3864C59.5485 44.3268 59.4271 44.326 59.2772 44.2854C59.3476 44.5302 59.4043 44.7273 59.4615 44.9249C59.0626 44.6817 58.6194 44.4879 58.8145 43.9018C58.9794 43.9722 59.1413 44.0422 59.3422 44.1284C59.4068 43.423 58.7528 43.79 58.501 43.4561C58.8696 43.4996 59.1152 43.2457 59.4859 43.295C59.6578 43.3178 59.8815 42.9525 60.1449 42.7031C60.5107 43.0017 60.9207 43.336 61.4004 43.7274C61.4472 43.4412 61.4807 43.2374 61.5213 42.9893C62.0635 42.8845 62.6194 42.7773 63.1814 42.6687C63.4701 43.0374 63.6959 43.3737 63.9709 43.6632C64.2095 43.9134 64.5375 44.0803 64.7674 44.3367C65.4161 45.0607 65.7101 45.9749 65.9769 46.8791C66.0726 47.2026 66.1778 47.7145 65.5594 47.8011C65.5623 48.3951 64.936 48.4837 64.6535 48.8602C64.2994 49.3316 63.6731 49.4128 62.9971 49.1398C61.9848 48.731 61.3196 47.9407 60.673 47.1711C60.3496 46.7855 59.9863 46.4218 59.6719 45.9786"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M78.2878 60.6276C78.4701 60.6897 78.6461 60.7493 78.8478 60.8181C78.8888 59.8679 77.9068 59.6016 77.7701 58.7268C77.9689 58.8146 78.1308 58.8519 78.2481 58.9451C78.4361 59.095 78.5943 59.2814 78.8288 59.5158C78.7488 59.0395 78.6958 58.9302 78.4241 58.6042C79.0181 57.886 79.0181 57.886 79.7193 57.8835C80.1049 58.318 80.4342 58.8904 80.9283 59.1919C81.4739 59.5254 81.6346 60.0945 82.0368 60.5025C82.4211 60.8931 82.6763 61.4249 82.931 61.924C83.071 62.1974 83.1899 62.5465 83.1443 62.834C83.0863 63.1973 82.9314 63.7312 82.6746 63.8343C82.2521 64.0045 82.3466 64.3032 82.2136 64.56C82.0314 64.9108 81.782 65.2521 81.3247 65.3275C81.0576 65.3714 80.7395 65.5752 80.5436 65.487C80.0668 65.272 79.5743 64.9982 79.2218 64.6225C78.5566 63.9134 77.9618 63.1335 77.3927 62.3432C77.2498 62.1452 77.3157 61.7973 77.2734 61.4058C77.4631 61.5591 77.5385 61.6196 77.6984 61.7484C77.6156 61.1722 78.1192 60.9747 78.2878 60.6276"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M72.349 102.057C72.0404 101.887 71.8917 101.806 71.7475 101.726C71.4936 102.644 71.4307 102.691 70.6806 102.361C70.8785 102.822 71.0372 103.19 71.2099 103.591C71.014 103.705 70.8135 103.821 70.611 103.939C70.2448 103.573 69.8733 103.202 69.4674 102.796C69.223 103.346 69.8956 103.6 69.8294 104.132C69.2259 104.216 68.8759 103.805 68.5284 103.428C68.3387 103.221 68.2359 102.933 68.0404 102.735C67.169 101.85 66.3861 100.894 65.6563 99.8911C65.5909 99.8013 65.5001 99.7292 65.419 99.6513C64.9791 99.2317 64.5181 98.8262 64.4854 98.1424C64.9244 97.8736 65.1576 98.2878 65.4562 98.5442C65.7598 98.0417 65.0574 97.9746 65.0888 97.6043C65.1158 97.1578 65.9653 97.7274 65.7495 96.9975H66.9726C67.3226 97.244 67.6776 97.4879 68.0255 97.741C68.3747 97.9949 68.6054 98.3598 69.0329 98.5665C69.4479 98.7678 69.7229 99.2425 70.0883 99.5643C70.3264 99.7743 70.4776 100.063 70.8583 100.157C71.1337 100.225 71.2807 100.643 71.6991 100.589C71.8155 100.574 72.0255 100.785 72.0847 100.934C72.1978 101.219 72.2326 101.534 72.349 102.057"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M64.5875 26.5067C64.976 26.5324 65.2444 26.3315 65.5998 26.5879C65.4192 26.65 65.2883 26.6952 65.1455 26.7444C65.2788 27.1972 65.4271 27.647 65.536 28.1059C65.5638 28.2236 65.5021 28.4559 65.4205 28.4903C64.9673 28.6817 64.8302 29.1692 64.4773 29.4363C64.3212 29.5548 64.0872 29.5933 63.883 29.6165C63.7807 29.6277 63.6601 29.4732 63.5578 29.484C63.4331 29.4972 63.3188 29.6062 63.1875 29.6807C62.9937 28.9956 63.0036 28.9679 62.2402 28.7078C61.7834 28.552 61.6885 28.103 61.3646 27.8205C61.2921 27.975 61.2221 28.1242 61.1439 28.2915C61.0299 28.1722 60.8382 28.0637 60.8386 27.956C60.8444 26.6102 60.8431 26.58 60.2289 25.7736C59.8826 26.382 60.5462 26.7341 60.5822 27.3293C60.4178 27.3036 60.1721 27.3227 60.1436 27.2527C59.8549 26.551 59.415 25.8883 59.866 25.0466C60.006 24.7853 60.0313 24.6482 60.3457 24.6428C60.5395 24.6399 60.7479 24.526 60.9206 24.4166C61.3683 24.1337 61.7995 23.8256 62.2779 23.4996C62.3873 23.6628 62.4883 23.814 62.4639 23.7771C62.8412 24.0401 63.2347 23.3318 63.2977 24.0704C63.3159 24.28 63.7844 23.78 63.7844 24.3288C63.7844 24.5409 64.1741 24.7534 64.3701 24.9493C64.3001 25.1307 64.2338 25.3039 64.1671 25.477C64.2226 25.5155 64.2781 25.554 64.334 25.5926C64.4322 25.4057 64.5304 25.2189 64.6542 24.9841C64.8559 25.3271 64.9731 25.5255 65.1268 25.786C64.9599 26.0088 64.7739 26.2578 64.5875 26.5067"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M26.6178 60.2475C26.3576 59.9195 26.1518 59.6598 25.9232 59.3707C25.8068 59.6088 25.7326 59.76 25.6361 59.9572C25.2016 59.7534 24.9092 59.4171 24.6603 59.0662C24.1102 58.2904 23.6848 57.4347 23.1273 56.6576C22.7843 56.1801 22.764 55.5799 22.8995 54.9586C23.4143 54.8542 23.5258 55.4594 23.9549 55.6122V54.5125C24.7659 54.3982 25.5475 54.288 26.264 54.1873C27.0158 54.8625 27.5108 55.5919 27.8616 56.4344C28.0621 56.9144 28.475 57.2748 28.6005 57.824C28.6503 58.0411 28.3719 58.3331 28.7145 58.4946C28.7203 58.4971 28.6126 58.7614 28.6092 58.7601C28.0501 58.5584 27.862 59.3694 27.324 59.2394C27.2892 59.2307 27.1939 59.4386 27.1405 59.5525C27.0813 59.6776 27.0547 59.8209 26.9818 59.936C26.928 60.0222 26.8236 60.076 26.6178 60.2475"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M51.6375 73.9093C51.799 74.2829 51.9166 74.555 52.0848 74.9431C52.1917 74.6602 52.2409 74.5306 52.2931 74.3931C52.3437 74.4241 52.4265 74.4457 52.4373 74.4863C52.5392 74.8735 52.7231 75.2045 53.0027 75.4986C53.17 75.6746 53.2909 75.9012 53.4048 76.1195C53.6057 76.5059 53.8907 76.7698 54.3521 76.8518C54.4246 76.7051 54.4992 76.5535 54.534 76.4831C54.7477 76.643 54.9801 76.8174 55.1532 76.947C55.1532 77.0879 55.1681 77.1483 55.1511 77.1595C54.9465 77.2925 54.7373 77.418 54.5464 77.5348C54.6019 77.8434 54.6516 78.123 54.7266 78.5417C54.3882 78.3773 54.203 78.287 53.9363 78.1569C53.7884 78.4543 53.6401 78.7534 53.4806 79.0748C53.3291 79.0918 53.1514 79.1125 52.9339 79.1369V79.6389C52.3664 80.0639 51.9021 80.0067 51.4101 79.5582C50.8741 79.0694 50.2698 78.6564 49.723 78.0745C49.9529 77.9225 50.1749 77.7759 50.4185 77.6151C50.2942 77.1595 50.0709 76.7528 49.7491 76.3551C49.4273 75.9571 49.2508 75.441 49.0193 74.9928C49.3502 74.5848 49.6116 74.8868 49.9152 75.0144C49.928 74.9005 49.9806 74.7791 49.9446 74.6971C49.718 74.1876 49.8162 73.9358 50.2963 73.9138C50.7469 73.8927 51.1992 73.9093 51.6375 73.9093"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M19.488 78.3759C19.6773 78.6559 19.8318 78.8849 20.0248 79.1703C20.0749 79.0142 20.1437 78.9135 20.1279 78.8294C20.0509 78.4215 19.9511 78.018 19.8467 77.5578H20.5032C20.56 77.6759 20.6295 77.8205 20.7671 78.1067V77.1838C20.8955 77.1387 21.0048 77.125 21.0814 77.0683C21.2566 76.9378 21.5342 76.6416 21.5627 76.6648C21.8498 76.9009 22.2043 76.7584 22.4827 76.8653C22.8977 77.0244 23.292 77.3019 23.2866 77.8312C23.285 77.9894 23.0754 78.1655 23.1069 78.2984C23.1326 78.4065 23.4225 78.4306 23.5091 78.5528C23.5799 78.6526 23.5857 78.9202 23.5128 78.9786C23.22 79.2122 23.2846 79.5145 23.3045 79.7978C23.3297 80.1516 23.1748 80.3665 22.8608 80.4556C22.5253 80.5509 22.4471 80.7658 22.3766 81.0868C22.2768 81.5404 21.9658 81.8419 21.4397 81.8196C21.2579 81.8121 21.0694 81.8163 20.893 81.8548C20.444 81.9529 19.8782 81.8452 19.7382 81.516C19.3965 80.7124 18.9019 79.9532 18.9939 79.0076C19.0299 78.6389 19.2519 78.5341 19.488 78.3759"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M55.7132 58.0535C55.994 58.136 56.2872 58.2217 56.6476 58.3273C56.8004 57.9632 56.8456 57.6137 56.5233 57.2885C56.9193 56.9286 57.1827 57.4712 57.5708 57.4124C57.6069 57.2164 57.6454 57.0102 57.6827 56.808C57.9867 56.4825 58.2609 57.0831 58.6283 56.7998C59.004 56.5098 59.0988 57.1357 59.4182 57.2073C59.5975 57.2475 59.7653 57.4343 59.8933 57.5917C60.3174 58.1119 60.3837 58.848 60.9549 59.3024C61.0916 59.4109 61.0187 59.7841 61.0493 60.1159C60.416 59.8048 60.3775 60.8096 59.7674 60.5715C59.5797 60.8751 59.757 61.4256 59.0707 61.4914C58.9982 61.368 58.8847 61.1746 58.7232 60.8987C58.5856 61.1857 58.519 61.3249 58.4506 61.4682C58.0662 61.5593 57.8902 61.228 57.7639 61.0172C57.3443 60.3151 56.8008 59.7779 56.0979 59.3579C55.6655 59.0994 55.4282 58.6782 55.7132 58.0535"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M50.217 28.042C49.6839 28.4595 49.2909 28.7676 48.7835 29.1657H47.8345C47.4651 28.6314 47.345 27.9285 46.8003 27.4874C46.7431 26.7434 46.2287 26.2824 45.7818 25.7639C45.6397 25.5986 45.6703 25.2846 45.6099 24.9773C45.7731 24.9317 45.9346 24.935 46.0191 24.8559C46.886 24.0453 47.7028 24.501 48.3937 25.0539C48.9835 25.5257 49.4814 26.1499 49.8993 26.7853C50.1363 27.1452 50.13 27.665 50.217 28.042"/>
+						</svg>
+					</figure>
+				</div>
+
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-50 start-100 translate-middle ms-n8 mt-5 d-none d-sm-block">
+					<svg class="fill-light opacity-7" width="1019" height="403" viewBox="0 0 1019 403" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="1019" height="403" rx="30"/>
+					</svg>
+				</figure>
+			</div>
+		</div>
+
+		<hr class="mt-8 mb-7"> <!-- Divider line -->
+
+		<!-- Rating and client -->
+		<div class="row">
+			<!-- Rating -->
+			<div class="col-lg-6 col-xl-5 mb-5 mb-lg-0">
+				<div class="row">
+					<div class="col-sm-6 mb-4 mb-sm-0">
+						<div class=" card card-body bg-light text-center p-5 h-100">
+							<span class="h2 mb-0">250K</span>
+							<!-- Heart -->
+							<ul class="list-inline d-flex justify-content-center gap-3 my-3">
+								<li class="list-inline-item me-0"><i class="bi bi-suit-heart-fill text-danger"></i></li>
+								<li class="list-inline-item me-0"><i class="bi bi-suit-heart-fill text-danger"></i></li>
+								<li class="list-inline-item me-0"><i class="bi bi-suit-heart-fill text-danger"></i></li>
+								<li class="list-inline-item me-0"><i class="bi bi-suit-heart-fill text-danger"></i></li>
+								<li class="list-inline-item me-0"><i class="bi bi-suit-heart-fill text-danger"></i></li>
+							</ul>	
+							<p class="heading-color fs-6 mb-0">Total users</p>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class=" card card-body bg-light text-center p-5 h-100">
+							<span class="h2 mb-0">4.9</span>
+							<!-- Heart -->
+							<ul class="list-inline d-flex justify-content-center gap-3 my-3">
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+							</ul>	
+							<p class="heading-color fs-6 mb-0">150K Reviews</p>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="col-12">
+						<div class="text-center border rounded px-5 py-3 mt-4 mt-lg-5">
+							<span class="heading-color">Join our community?</span> <a class="ms-2" href="contact-v2.html">Contact us now<span class="bi-chevron-right small ms-1"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Content and client -->
+			<div class="col-lg-6 ms-auto">
+				<h3 class="mb-5">Easy project management that helps you win</h3>
+				<p class="mb-5">Our passion for customer excellence is just one reason why we are the market leader. We've always worked very hard to give our customers the best experience.</p>
+				
+				<!-- Client slider START -->
+				<div class="swiper" data-swiper-options='{
+					"slidesPerView": 2, 
+					"spaceBetween": 40,
+					"breakpoints": { 
+						"576": {"slidesPerView": 3},
+						"768": {"slidesPerView": 5},
+						"992": {"slidesPerView": 3},
+						"1200": {"slidesPerView": 4}
+					}}'>
+
+					<!-- Slider items -->
+					<div class="swiper-wrapper align-items-center">
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/05.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/01.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/07.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/02.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/03.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/04.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/06.svg" class="grayscale" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/07.svg" class="grayscale" alt="client-img">
+						</div>
+					</div>
+				</div>
+				<!-- Client slider END -->
+			
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Feature START -->
+<section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container text-center mb-4 mb-sm-5">
+			<h2 class="mb-4">Expert solution for your growth</h2>
+			<p class="mb-0">There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+		</div>
+
+		<div class="row justify-content-center g-4 g-md-6">
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card bg-light border border-secondary border-opacity-10 overflow-hidden p-0 h-100">
+					<!-- Card body -->
+					<div class="card-body px-sm-5 pt-sm-5">
+						<!-- Number -->
+						<h5 class="mb-3">Multiple integrations</h5>
+						<p class="mb-3">Multiple integrations play a vital role in modern business operations by connecting diverse systems.</p>
+						<a href="integrations.html" class="btn btn-sm btn-dark mb-0">View integrations</a>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<img src="assets/images/elements/saas-decoration/07.png" alt="">
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card bg-light border border-secondary border-opacity-10 overflow-hidden p-0 h-100">
+					<!-- Card body -->
+					<div class="card-body px-sm-5 pt-sm-5">
+						<!-- Number -->
+						<h5 class="mb-3">High Conversions</h5>
+						<p class="mb-3">Each row should represent a distinct record, while columns hold various attributes or variables.</p>
+
+						<p class="mb-0">
+							<span class="fw-bold heading-color">4.5 <i class="fa-solid fa-star text-warning me-2"></i>|</span>
+							<a href="customer-stories.html" class="text-primary-hover ms-2">View 256 reviews</a>
+						</p>
+
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<img src="assets/images/elements/saas-decoration/08.png" alt="">
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card bg-light border border-secondary border-opacity-10 overflow-hidden p-0 h-100">
+					<!-- Card body -->
+					<div class="card-body px-sm-5 pt-sm-5">
+						<!-- Number -->
+						<h5 class="mb-3">Real-time analytics</h5>
+						<p class="mb-3">A unified customer view enables personalized interactions across various touchpoints.</p>
+						<a href="portfolio-showcase.html" class="icon-link icon-link-hover">Read our case study<i class="bi bi-arrow-right"></i> </a>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<img src="assets/images/elements/saas-decoration/09.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Feature END -->
+
+<!-- =======================
+L&R section START -->
+<section class="pb-0">
+	<div class="container">
+		<div class="row g-4">
+			<div class="col-xl-7 position-relative pe-xl-4 order-2">
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-0 end-50 me-6 mt-4">
+					<svg class="opacity-2" width="148" height="140" viewBox="0 0 148 140" xmlns="http://www.w3.org/2000/svg">
+						<path class="fill-primary" d="m9.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="131.41" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="113.61" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="95.81" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="24.62" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95c0-1.62 1.32-2.94 2.95-2.94s2.95 1.32 2.95 2.94z"></path>
+						<circle class="fill-primary" cx="25.86" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="6.82" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+					</svg>
+				</figure>
+
+				<!-- Svg decoration -->
+				<figure class="position-absolute end-0 bottom-0 me-8">
+					<svg width="120.4px" height="124.5px" viewBox="0 0 120.4 124.5" style="enable-background:new 0 0 120.4 124.5;" xml:space="preserve">
+						<path class="fill-mode" d="M92.9,58.4c-0.2-4.7-1.8-9-5-12.6c-3-3.3-6.4-6.2-10.4-8.4c-3.4-1.9-7-2.9-10.8-3.3c-3.1-0.4-6,0.2-8.6,1.8 c-6.5,3.8-11.5,9.1-14.6,16.1c-1.1,2.5-1.5,5.1-1.3,7.7c0.3,3.2,0.9,6.4,2.1,9.4c2.1,5.4,5.7,9.4,11.5,11c1.8,0.5,3.5,1,5.3,1.6 c2.1,0.7,4.3,0.8,6.5,0.5c2.4-0.3,4.8-0.8,7.1-1.4c1.8-0.5,3.4-1.5,4.6-2.9c2-2.2,3.9-4.6,5.2-7.3c0.7-1.4,1.3-3,1.6-4.5 c1.1-6.4-0.7-12.1-4.5-17.2c-1.8-2.5-4.3-4.2-7.2-5c-3-0.8-6.1-1.1-9.2-0.8c-4.5,0.4-8.4,2.2-11.4,5.7c-2.1,2.4-3.6,5-4.3,8.1 c-0.6,2.4-0.5,4.8-0.6,7.2c-0.2,5.8,6.2,12.5,12.3,12c2.7-0.2,5.5-0.5,8.2-0.7c5.4-0.5,9.3-4.9,9.8-9.6c0.2-1.9,0.2-3.9,0.1-5.8 c-0.1-2.5-1.3-4.6-3.1-6.3c-3.1-2.9-6.8-4.1-11.1-3.7c-2.4,0.2-4.4,1.2-5.8,3.2c-1.8,2.5-2.8,5.3-3.1,8.3c-0.2,1.9,0.3,3.7,1.9,5 c2.7,2.2,5.8,3.3,9.2,3c1.6-0.1,2.8-0.9,3.8-2.2c1.6-2.1,1.6-4.5,1.1-6.9c-1-4.3-4.6-5.5-8.2-2.9c-0.3,0.2-0.4,0.7-0.6,1.1 c0.1,0.1,0.3,0.3,0.4,0.4c0.9-0.4,1.8-0.9,2.8-1.2c1-0.3,2-0.1,2.8,0.7c1.6,1.8,1.9,5.4,0.5,7.4c-0.9,1.2-2.1,1.9-3.5,1.8 c-2.3-0.1-4.5-0.9-6.4-2.3c-1.3-1-1.8-2.3-1.7-3.9c0.2-1.7,0.7-3.4,1.4-4.9c1.8-3.6,4-4.9,8.1-4.4c0.9,0.1,1.8,0.3,2.7,0.6 c4.5,1.7,6.8,5,6.6,9.8c0,1.4-0.2,2.8-0.5,4.1c-0.9,3.2-2.9,5.5-6.3,6.1c-2.9,0.5-5.9,0.7-8.9,0.9c-5.6,0.4-10.5-5.4-10.3-9.9 c0.1-2.1,0.2-4.1,0.6-6.1c1.5-6.9,7.2-11.6,14.2-11.9c1.7-0.1,3.5,0,5.2,0.2c3.5,0.4,6.4,1.9,8.5,4.7c3.1,4.2,4.6,8.9,4.2,14.2 c-0.3,3.5-2.1,6.2-4,9c-2.1,3-4.7,5-8.4,5.4c-1.1,0.1-2.3,0.4-3.4,0.7c-2,0.5-3.9,0.4-5.8-0.1c-2.3-0.6-4.6-1.3-6.9-2 c-3.1-1-5.4-3-7.1-5.7c-2.7-4.3-3.8-9.1-3.8-14.1c0-2,0.6-3.8,1.5-5.6c2.9-6,7.3-10.5,12.9-14c2.2-1.4,4.7-1.9,7.3-1.6 c4.2,0.4,8.1,1.6,11.6,3.9c3.1,2,5.8,4.5,8.3,7.2c1.7,1.9,2.9,4.1,3.6,6.6c1.5,5,1.1,10.1-0.2,15c-2.2,8-9.4,14.2-17.5,15.9 c-1.7,0.4-3.3,0.9-4.9,1.5c-1.1,0.4-1.6,1.4-1.2,2.1c0.5,0.8,1.4,0.7,2.1,0.5c2.5-0.7,5.1-1.3,7.6-2.2c1.4-0.5,2.8-1.1,4-1.9 c2.9-1.7,5.4-3.9,7.6-6.4c2.6-3,4.5-6.5,5.2-10.4C92.8,65.1,93,61.7,92.9,58.4z"></path>
+						<path class="fill-primary" d="M98.2,97.6c-1.9-3-3.8-6-5.7-9c-0.7-1-1.2-2.2-3-3c0,0.8-0.1,1.3,0,1.7c0.4,0.9,1,1.8,1.5,2.7 c2.8,5,5.7,9.9,9.2,14.5c1,1.2,2.2,2.3,3.4,3.4c0.3,0.3,0.8,0.4,1.2-0.3c-0.5-0.8-1.1-1.8-1.8-2.7C101.4,102.3,99.7,100,98.2,97.6z "></path>
+						<path class="fill-primary" d="M75.3,98c-0.5-1.5-1.2-3-1.9-4.4c-0.1-0.3-0.6-0.4-0.9-0.6c-0.2,0.2-0.3,0.3-0.5,0.5c0.1,0.5,0.2,1.1,0.4,1.6 c1.6,5.3,3.1,10.5,4.8,15.8c0.5,1.6,1.1,3.3,1.7,4.9c0.5,1.3,1.4,1.8,1.9,1.4c0.8-0.6,0.5-1.4,0.2-2.2C79,109.3,77.2,103.6,75.3,98 z"></path>
+						<path class="fill-primary" d="M26.5,69.5c-5.5,1.6-11,3.2-16.5,4.8c-2.1,0.6-4.1,1.4-6.1,2.2c-0.6,0.2-1.1,0.7-1.9,1.2 c5.9-0.4,24.8-6,28.2-8.3C28.8,68.8,27.6,69.2,26.5,69.5z"></path>
+						<path class="fill-primary" d="M55,96.3c-2.2,7.9-4.5,15.8-6.7,23.8c-0.3,1.2-0.4,2.5-0.7,4.4c0.6-0.9,0.8-1.2,0.9-1.5 c2.6-7.8,5.1-15.7,7.6-23.5c0.3-1.1,0.5-2.2,0.6-3.4c0-0.4-0.4-0.9-0.8-1.7C55.5,95.3,55.2,95.8,55,96.3z"></path>
+						<path class="fill-primary" d="M25.2,48.7c0.6,0.3,1.3,0.5,2,0.6c0.5,0.1,1.1-0.1,1.6-0.2c0-0.2,0-0.3,0-0.5c-3-1.4-6-3-9-4.2 c-3.2-1.3-6.4-2.4-9.7-3.5c-3.1-1-6.1-2.3-10-2.8c0.8,0.7,1.1,1.1,1.5,1.3c1.5,0.7,2.9,1.3,4.4,1.9C12.4,43.6,18.9,45.7,25.2,48.7z "></path>
+						<path class="fill-primary" d="M38.2,86.5c-0.7,0.3-1.4,0.8-2,1.3c-5.1,4.5-10.1,9-14.5,14.2c-0.9,1-1.6,2.2-2.5,3.3c0.1,0.1,0.2,0.3,0.4,0.4 c6.7-6.2,13.4-12.3,20.1-18.5c0.1-0.1,0-0.4,0-0.9C39.2,86.4,38.6,86.3,38.2,86.5z"></path>
+						<path class="fill-primary" d="M106.5,77.4c-1.1-1.1-2.4-2.2-3.6-3.1c-0.7-0.5-1.6-0.8-2.5-1c-0.5-0.1-1.2,0-1,1.1c2.1,0.8,3.6,2.5,5.2,4.1 c1.3,1.3,2.4,2.7,3.8,3.9c1.8,1.5,3.8,3,5.7,4.3c1,0.7,2.2,1.3,4.1,0.7c-0.7-0.7-1.1-1.1-1.5-1.4C112.9,83.6,109.6,80.5,106.5,77.4 z"></path>
+						<path class="fill-primary" d="M33.5,27.3c0.7,0.7,1.6,1.3,2.5,1.8c0.5,0.3,1.3,0.4,1.9,0.5c-2.3-2.2-4-4.6-6-6.8c-3.5-3.8-7-7.6-10.5-11.3 c-0.4-0.4-0.7-0.9-1.4-0.6c-0.5,0.6-0.1,1.1,0.3,1.5C24.6,17.4,29.1,22.4,33.5,27.3z"></path>
+						<path class="fill-primary" d="M53.3,20c0.1,1.1,0.3,2.3,0.6,3.4c0.1,0.4,0.7,0.6,1.3,1c-0.1-3.1-0.1-5.8-0.3-8.5c-0.1-2.6-0.4-5.2-0.6-7.9 c-0.4-5-0.6-5.7-2-8c0,0.9-0.1,1.6-0.1,2.2C52.6,8.2,52.9,14.1,53.3,20z"></path>
+						<path class="fill-primary" d="M101.1,56.2c0.2,0.4,0.3,0.7,0.5,0.7c4.9,1.1,9.8,2.2,14.7,3.1c1.3,0.3,2.7,0.4,4.1-0.5 c-0.8-0.3-1.7-0.6-2.5-0.8c-5.2-0.9-10.3-1.9-15.5-2.7C102,56,101.6,56.1,101.1,56.2z"></path>
+						<path class="fill-primary" d="M97.8,36.8c4.7-1.9,8.9-4.8,12.6-8.3c0.3-0.3,0.7-0.6,0.1-1.3c-2.5,1.7-5.1,3.5-7.7,5.1 c-2.6,1.6-5.3,3-8.1,4.6C95.9,37.7,96.8,37.2,97.8,36.8z"></path>
+						<path class="fill-primary" d="M81.6,11.5c0.5-1.6,0.8-3.2,1.2-4.8c-0.3,0.2-0.6,0.3-0.7,0.5c-1.6,4.3-3.2,8.5-4.7,12.8 c-0.2,0.6-0.1,1.3-0.2,1.9C79.1,18.6,80.5,15.1,81.6,11.5z"></path>
+						<path class="fill-primary" d="M82.8,6.5c0,0,0,0.1,0,0.1C82.8,6.6,82.8,6.6,82.8,6.5C82.9,6.6,82.8,6.5,82.8,6.5z"></path>
+					</svg>
+				</figure>
+
+				<!-- Images -->
+				<div class="row position-relative">
+					<div class="col-sm-6 col-xl-5 mt-auto">
+						<img src="assets/images/elements/saas-decoration/decoration-5.png" class="d-none d-sm-block" alt="Decoration-img">
+					</div>
+					<div class="col-sm-6">
+						<img src="assets/images/about/14.jpg" class="shadow rounded-4" alt="About-img">
+					</div>
+				</div>
+				
+				<!-- Images -->
+				<div class="row mt-4 position-relative">
+					<div class="col-7 mt-auto">
+						<img src="assets/images/elements/saas-decoration/decoration.png" class="shadow rounded-4" alt="Decoration-img">
+					</div>
+					<div class="col-5 col-xl-4">
+						<img src="assets/images/elements/saas-decoration/decoration-6.png" class="shadow rounded-4" alt="Decoration-img">
+					</div>
+				</div>					
+			</div>
+
+			<!-- Content -->
+			<div class="col-xl-5 order-1 order-xl-2 ms-auto">
+				<h2 class="mb-4 mb-xl-5">See how can Mizzle help your business</h2>
+				<p class="mb-4 mb-xl-5">With a track record of success, we're here to guide you through the ever-evolving digital landscape. </p>
+
+				<!-- Counter -->
+				<div class="row row-cols-1 row-cols-sm-2 g-4 align-items-center">
+					<!-- Item -->
+					<div class="col">
+						<div class="bg-light p-4 rounded-3">
+							<div class="d-flex">
+								<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="150"	data-purecounter-delay="300">0</h4>
+								<span class="h4 text-primary mb-0">+</span>
+							</div>
+							<p class="mb-0">Total Project in year</p>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+						<div class="bg-light p-4 rounded-3">
+							<div class="d-flex">
+								<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="120"	data-purecounter-delay="300">0</h4>
+								<span class="h4 text-primary mb-0">+</span>
+							</div>
+							<p class="mb-0">Total hour spent</p>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+						<div class="bg-light p-4 rounded-3">
+							<div class="d-flex">
+								<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="300">0</h4>
+								<span class="h4 text-primary mb-0">M+</span>
+							</div>
+							<p class="mb-0">Positive user reviews</p>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="col">
+						<div class="bg-light p-4 rounded-3">
+							<div class="d-flex">
+								<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="600"	data-purecounter-delay="300">0</h4>
+								<span class="h4 text-primary mb-0">+</span>
+							</div>
+							<p class="mb-0">Happy customers</p>
+						</div>
+					</div>
+				</div>
+
+				<hr class="my-5"> <!-- Divider -->
+				
+				<!-- Quote -->
+				<div class="d-flex align-items-sm-center">
+					<!-- Avatar -->
+					<div class="avatar avatar-xl flex-shrink-0">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+					</div>
+					<div class="ms-3">
+						<!-- Content -->
+						<p class="fs-6 fw-normal heading-color mb-4">"We believe that it takes great people to deliver a great product"</p>
+						<div class="blockquote-footer mb-0">
+							By Carolyn Ortiz
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+L&R section END -->
+
+<!-- =======================
+Feature and integration START -->
+<section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-sm-5">
+			<h2 class="mb-4">Understanding of your website's impact</h2>
+			<p class="mb-4">There is nothing that can stop you from achieving what you want, except yourself. If you devote yourself to it you will achieve your goal.</p>
+			<a href="integrations.html" class="btn btn-dark mb-0">View all integrations</a>
+		</div>
+
+		<!-- Image -->
+		<img src="assets/images/elements/integration-2.svg" class="mt-5" alt="">
+
+		<!-- Feature -->
+		<div class="row justify-content-center g-sm-6 mt-6">
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.1 8.25C13.1 6.73122 14.3312 5.5 15.85 5.5C17.3688 5.5 18.6 6.73122 18.6 8.25C18.6 9.76878 17.3688 11 15.85 11C14.3312 11 13.1 9.76878 13.1 8.25Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M21.5948 16.2194C21.4645 15.6034 21.3994 15.2953 21.3081 15.031C20.748 13.4092 19.3144 12.2471 17.6119 12.0346C17.3343 12 17.0195 12 16.3898 12H15.2359C14.5857 12 14.2606 12 13.9682 12.0385C12.4638 12.2365 11.1605 13.1794 10.5017 14.5463C10.3737 14.812 10.272 15.1207 10.0686 15.7383V15.7383C9.82585 16.4751 9.70449 16.8435 9.66869 17.1384C9.4797 18.6948 10.5211 20.1343 12.0585 20.4417C12.3498 20.5 12.7377 20.5 13.5134 20.5H18.1248C18.7369 20.5 19.043 20.5 19.2835 20.4607C20.7862 20.2149 21.8665 18.8823 21.796 17.3613C21.7848 17.1178 21.7214 16.8183 21.5948 16.2194V16.2194Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M5.6 6.25C5.6 4.73122 6.83122 3.5 8.35 3.5C9.86878 3.5 11.1 4.73122 11.1 6.25C11.1 7.76878 9.86878 9 8.35 9C6.83122 9 5.6 7.76878 5.6 6.25Z" fill="currentColor"/>
+							<path d="M14.0948 14.2194C13.9645 13.6034 13.8994 13.2953 13.8081 13.031C13.248 11.4092 11.8144 10.2471 10.1119 10.0346C9.83431 10 9.51946 10 8.88976 10H7.73587C7.08569 10 6.7606 10 6.46821 10.0385C4.96381 10.2365 3.66052 11.1794 3.00174 12.5463C2.87371 12.812 2.77199 13.1207 2.56857 13.7383V13.7383C2.32585 14.4751 2.20449 14.8435 2.16869 15.1384C1.9797 16.6948 3.02108 18.1343 4.55849 18.4417C4.84977 18.5 5.23765 18.5 6.01343 18.5H10.6248C11.2369 18.5 11.543 18.5 11.7835 18.4607C13.2862 18.2149 14.3665 16.8823 14.296 15.3613C14.2848 15.1178 14.2214 14.8183 14.0948 14.2194V14.2194Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Assignment & roles</h5>
+					<p class="mb-0">Assign owners to conversations, and delegate to team members to follow every update.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2.47802 7.91541C2.25 8.79872 2.25 9.94639 2.25 12C2.25 14.3276 2.25 15.4914 2.582 16.4256C3.16141 18.0559 4.44414 19.3386 6.07444 19.918C7.0086 20.25 8.1724 20.25 10.5 20.25H13.5C15.8276 20.25 16.9914 20.25 17.9256 19.918C19.5559 19.3386 20.8386 18.0559 21.418 16.4256C21.75 15.4914 21.75 14.3276 21.75 12C21.75 9.94641 21.75 8.79874 21.522 7.91543L17.754 10.692C16.6402 11.5127 15.7625 12.1595 15.002 12.6178C14.2228 13.0874 13.5145 13.3926 12.7288 13.4929C12.2452 13.5547 11.7557 13.5547 11.2721 13.493C10.4864 13.3926 9.77801 13.0875 8.99883 12.618C8.23833 12.1597 7.36057 11.5129 6.24672 10.6922L2.47802 7.91541Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M3.0918 6.50448L7.1064 9.46247C8.25686 10.3101 9.0791 10.915 9.77299 11.3332C10.455 11.7442 10.9601 11.941 11.462 12.005C11.8195 12.0507 12.1812 12.0507 12.5387 12.005C13.0406 11.9409 13.5457 11.7441 14.2277 11.3331C14.9215 10.9149 15.7438 10.31 16.8942 9.46225L20.9081 6.50449C20.2273 5.38896 19.1791 4.52754 17.9255 4.082C16.9913 3.75 15.8275 3.75 13.4999 3.75L10.4999 3.75C8.17235 3.75 7.00855 3.75 6.07439 4.082C4.82076 4.52754 3.77264 5.38895 3.0918 6.50448Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Internal-only messages</h5>
+					<p class="mb-0">Ask a quick six seven offer see among. Handsome met debating sir dwelling age material.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13 2.24609H11C8.1877 2.24609 6.78155 2.24609 5.79581 2.96228C5.47745 3.19358 5.19748 3.47354 4.96619 3.7919C4.25 4.77764 4.25 6.18379 4.25 8.99609V14.9961C4.25 17.8084 4.25 19.2145 4.96619 20.2003C5.19748 20.5186 5.47745 20.7986 5.79581 21.0299C6.78155 21.7461 8.1877 21.7461 11 21.7461H13C15.8123 21.7461 17.2184 21.7461 18.2042 21.0299C18.5226 20.7986 18.8025 20.5186 19.0338 20.2003C19.75 19.2145 19.75 17.8084 19.75 14.9961V8.99609C19.75 6.18379 19.75 4.77764 19.0338 3.7919C18.8025 3.47354 18.5226 3.19358 18.2042 2.96228C17.2184 2.24609 15.8123 2.24609 13 2.24609Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M8.5 11.9961H15.5M8.5 15.9961H15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M15.75 3.75V4.6C15.75 5.91241 15.75 6.56861 15.4158 7.02862C15.3078 7.17719 15.1772 7.30784 15.0286 7.41578C14.5686 7.75 13.9124 7.75 12.6 7.75H11.4C10.0876 7.75 9.43139 7.75 8.97138 7.41578C8.82281 7.30784 8.69216 7.17719 8.58422 7.02862C8.25 6.56861 8.25 5.91241 8.25 4.6V3.75H15.75Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">File previews</h5>
+					<p class="mb-0">Far advanced settling say finished raillery. Offered chiefly farther of my no colonel shyness.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M3.40004 19.9486C3.41524 20.1897 3.42283 20.3103 3.51172 20.4294C3.53619 20.4622 3.58073 20.5068 3.61353 20.5312C3.73269 20.6201 3.85325 20.6277 4.09437 20.6429C5.14741 20.7093 7.28849 20.6476 8.66268 19.2734C9.39454 18.5415 9.77757 17.5687 9.97243 16.6534C10.0108 16.473 10.03 16.3828 10.0112 16.2837C10.0053 16.253 9.99478 16.2174 9.98295 16.1884C9.94486 16.0951 9.87386 16.0241 9.73186 15.8821L8.16087 14.3111C8.01887 14.1691 7.94787 14.0981 7.85449 14.06C7.82551 14.0482 7.78998 14.0376 7.75923 14.0318C7.66016 14.0129 7.56997 14.0321 7.38958 14.0705C6.47423 14.2654 5.50139 14.6484 4.76953 15.3803C3.39534 16.7544 3.33368 18.8955 3.40004 19.9486Z" fill="currentColor"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M7.04843 13.0663L7.93731 13.1078L10.9032 16.0736L10.9447 16.9625C11.0272 18.7304 12.4846 20.1213 14.2544 20.1213C16.0138 20.1213 17.4665 18.7461 17.5627 16.9893L17.7857 12.9211C20.6676 9.51412 20.609 5.66245 20.4622 4.21821V4.21819C20.4392 3.99163 20.4276 3.87834 20.3419 3.76603C20.3181 3.73498 20.2756 3.69283 20.2443 3.6694C20.1313 3.58465 20.0178 3.57415 19.7909 3.55317C18.3545 3.42034 14.536 3.39413 11.0864 6.22543L7.02164 6.44822C5.26483 6.54451 3.88965 7.99713 3.88965 9.75657C3.88965 11.5264 5.28055 12.9837 7.04843 13.0663ZM14.8799 11.3516C14.8799 12.5942 13.8725 13.6016 12.6299 13.6016C11.3872 13.6016 10.3799 12.5942 10.3799 11.3516C10.3799 10.1089 11.3872 9.10156 12.6299 9.10156C13.8725 9.10156 14.8799 10.1089 14.8799 11.3516Z" fill="currentColor" fill-opacity="0.25"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Large attachments</h5>
+					<p class="mb-0">Affronting imprudence does everything. Sex lasted dinner wanted indeed wished outlaw.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M9.99948 4.2936V4.25C9.99948 3.14543 10.8949 2.25 11.9995 2.25C13.104 2.25 13.9995 3.14543 13.9995 4.25V4.29294C16.3224 5.08517 17.9271 7.38584 17.6997 9.9788C17.5721 11.4329 18.028 12.8781 18.9669 13.9957L19.458 14.5804C20.7616 16.1323 19.6583 18.5 17.6315 18.5H14.2629H9.73662H6.36944C4.34265 18.5 3.23933 16.1323 4.54295 14.5804L5.03403 13.9957C5.97289 12.8781 6.42878 11.4329 6.30123 9.9788C6.07384 7.38656 7.67766 5.08645 9.99948 4.2936Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M14 19.5V19H10V19.5C10 20.6046 10.8954 21.5 12 21.5C13.1046 21.5 14 20.6046 14 19.5Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Reminders</h5>
+					<p class="mb-0">Such on help ye some door if in. Laughter proposal laughing any son law consider.</p>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-sm-6 col-lg-4 mb-5 mb-sm-0">
+				<div class="card card-body text-center bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-4">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13.5573 21.3204C14.2451 20.8085 15.174 20.072 16.1369 19.1733C18.0303 17.4062 20.1864 14.8931 20.7356 12.1471C21.8463 6.59263 17.3472 2.25 12.0001 2.25C6.65311 2.25 2.15361 6.5926 3.26469 12.1471C3.81397 14.8931 5.97011 17.4062 7.86344 19.1733C8.8263 20.072 9.75517 20.8085 10.443 21.3204C10.4887 21.3544 10.3745 21.2694 10.3908 21.2812C11.275 21.9193 12.7253 21.9193 13.6095 21.2812C13.6258 21.2694 13.5116 21.3544 13.5573 21.3204Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M15.5 11.5C15.5 13.433 13.933 15 12 15C10.067 15 8.5 13.433 8.5 11.5C8.5 9.567 10.067 8 12 8C13.933 8 15.5 9.567 15.5 11.5Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<!-- Title -->
+					<h5 class="mb-3">Location tracking</h5>
+					<p class="mb-0">State burst think end are its. Arrived off she elderly beloved him affixed noisier yet.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Feature and integration END -->
+
+<!-- =======================
+Pricing and download -->
+<section class="pb-0">
+	<div class="container">
+		<div class="row g-4 g-sm-6 g-xl-7">
+			<!-- Download box -->
+			<div class="col-lg-6">
+				<div class="card bg-light overflow-hidden p-0 h-100">
+					<!-- Pattern -->
+					<figure class="position-absolute top-0 end-0 mt-n6 me-n6">
+						<svg class="fill-primary opacity-2" width="220px" height="209px" viewBox="0 0 220 209" style="enable-background:new 0 0 220 209;" xml:space="preserve">
+							<path d="M84.3,120.6c-1.1-0.3-1.9-0.8-2.4-1.6c-1-1.4-0.7-3.3,0.8-5.2l15.9-21.1c2.2-2.9,6.5-5.3,10.6-5.8 c2.3-0.3,4.2,0,5.4,1l14.9,11.6c1,0.8,1.4,1.9,1.2,3.2c-0.6,3.1-4.6,6.5-9.3,8l-30.9,9.5C88.2,121,85.9,121.1,84.3,120.6z  M112.7,87.7c-1-0.3-2.1-0.3-3.4-0.1c-3.9,0.5-8.1,2.8-10.1,5.6l-15.9,21.1c-1.3,1.7-1.6,3.3-0.8,4.5c1.2,1.7,4.3,2,8,0.9 l30.8-9.5c5.2-1.6,8.4-5,8.9-7.5c0.2-1.1-0.1-2-1-2.6l-14.9-11.6C113.8,88.1,113.3,87.9,112.7,87.7z"></path>
+							<path d="M82.9,123.4c-1-0.3-1.8-0.7-2.4-1.4c-1.1-1.4-1-3.3,0.4-5.4l15.2-23.5c3.5-5.4,12.9-8.9,17-6.3l17.8,11.1 c1.2,0.8,1.8,1.9,1.6,3.3c-0.3,3.3-4.4,7.2-9.4,9l-32.9,12.4C87.5,123.6,84.9,123.9,82.9,123.4z M111.6,86.7 c-4.3-1.1-11.9,2.1-14.9,6.7l-15.2,23.5c-1.2,1.9-1.4,3.5-0.5,4.7c1.4,1.8,5.1,1.9,9,0.4l32.9-12.4c5.5-2.1,8.7-5.9,9-8.5 c0.1-1.2-0.3-2.1-1.4-2.7l-17.8-11.1C112.5,87,112.1,86.9,111.6,86.7z"></path>
+							<path d="M81.7,126.3c-0.9-0.3-1.7-0.7-2.3-1.3c-1.3-1.3-1.3-3.3,0-5.6l14.1-25.9c3.3-6,13.2-10.4,18-8l20.8,10.3 c1.4,0.7,2.2,1.9,2.2,3.5c-0.1,3.5-4,7.8-9.3,10.2l-34.9,15.6C87,126.5,83.9,126.9,81.7,126.3z M110.3,85.8 c-4.8-1.3-13.4,2.9-16.2,8.1l-14.1,25.9c-1.1,2-1.1,3.7-0.1,4.9c1.4,1.5,5.1,2.1,10.1-0.1l34.9-15.6c5.7-2.6,8.9-6.8,8.9-9.6 c0-1.3-0.6-2.3-1.8-2.9l-20.8-10.3C111,86,110.6,85.9,110.3,85.8z"></path>
+							<path d="M80.7,129.6c-0.9-0.2-1.6-0.6-2.2-1.2c-1.4-1.3-1.6-3.4-0.5-5.8l12.7-28.4c2.9-6.6,13.4-11.9,18.9-9.8 l24.1,9.3c1.7,0.7,2.7,1.9,2.8,3.6c0.2,3.7-3.6,8.4-9.1,11.3l-36.8,19.1C86.9,129.6,83.2,130.2,80.7,129.6z M108.8,84.8 c-5.3-1.4-14.9,3.7-17.5,9.7l-12.7,28.4c-1,2.1-0.8,4,0.4,5.1c1.7,1.6,5.9,2,11.3-0.8L127,108c5.9-3.1,9-7.8,8.8-10.7 c-0.1-1.4-0.9-2.5-2.4-3L109.3,85C109.2,84.9,109,84.9,108.8,84.8z"></path>
+							<path d="M79.9,133c-0.8-0.2-1.5-0.5-2.1-1c-1.6-1.3-2-3.4-1.1-5.9l10.8-30.9c2.5-7.1,13.4-13.6,19.7-11.8l27.5,7.9 c2,0.6,3.2,1.9,3.4,3.7c0.5,3.8-3.2,9.1-8.8,12.4l-38.3,23C87,132.9,82.8,133.8,79.9,133z M107,84c-6-1.6-16.5,4.7-18.8,11.4 l-10.8,30.9c-0.8,2.3-0.5,4.1,0.9,5.3c2.4,2,7.6,1.3,12.5-1.7l38.3-23c6.1-3.7,8.9-8.7,8.5-11.8c-0.2-1.6-1.2-2.7-3-3.2L107.2,84 C107.1,84,107.1,84,107,84z"></path>
+							<path d="M79.5,136.8c-0.7-0.2-1.3-0.5-1.9-0.9c-1.8-1.3-2.4-3.4-1.7-6.1l8.5-33.4c2-7.7,13.2-15.4,20.4-14l31.2,6.2 c2.3,0.5,3.8,1.8,4.2,3.8c0.8,4.1-2.6,9.6-8.4,13.6L92,133.3C87.5,136.4,82.8,137.7,79.5,136.8z M136.2,89.4 c-0.1,0-0.3-0.1-0.5-0.1l-31.2-6.2c-6.8-1.3-17.8,6.2-19.6,13.5L76.4,130c-0.6,2.4-0.1,4.3,1.5,5.4c2.9,2,8.6,0.9,13.8-2.6 l39.7-27.2c6.2-4.3,8.8-9.7,8.1-12.9C139.1,91,138,89.9,136.2,89.4z"></path>
+							<path d="M79.3,140.7c-0.6-0.2-1.1-0.4-1.6-0.7c-2-1.2-2.9-3.4-2.4-6.2L80.9,98c1.3-8.2,12.8-17.2,20.9-16.3l35.1,4.1 c2.7,0.3,4.5,1.7,5.1,3.9c1.2,4.2-2,10.3-7.8,14.7l-40.7,31.8C88.5,140,83,141.7,79.3,140.7z M136.7,86.2l0,0.3l-35.1-4.1 c-7.6-0.9-18.9,7.9-20.2,15.7l-5.6,35.8c-0.4,2.6,0.3,4.5,2.1,5.6c3.4,2,9.6,0.5,15-3.8l40.7-31.7c5.6-4.3,8.7-10.1,7.6-14.1 c-0.5-2-2.1-3.2-4.6-3.4L136.7,86.2z"></path>
+							<path d="M79.5,144.9c-0.4-0.1-0.9-0.3-1.3-0.5c-2.3-1.1-3.4-3.3-3.3-6.3l2.2-38.2c0.5-8.8,12.2-19.1,21.2-18.8 l39.1,1.6c3.1,0.1,5.3,1.5,6.1,3.9c1.5,4.3-1.4,10.8-7,15.9l-41.3,36.6C90,143.8,83.8,146,79.5,144.9z M137.4,83.1l0,0.3 l-39.1-1.6c-8.5-0.3-20,9.8-20.5,18.2l-2.2,38.2c-0.2,2.7,0.8,4.7,2.9,5.7c4,1.9,10.7-0.2,16.3-5.1l41.3-36.6 c5.5-4.9,8.3-11.1,6.8-15.2c-0.8-2.2-2.7-3.4-5.5-3.5L137.4,83.1z"></path>
+							<path d="M80.2,149.2c-0.3-0.1-0.6-0.2-0.8-0.3c-2.6-1-4.1-3.2-4.2-6.3l-1.8-40.4c-0.2-4.1,2-9,6.1-13.3 c4.5-4.8,10.3-7.9,15.1-8.1l43.2-1.3c3.5-0.1,6.1,1.3,7.3,3.9c2,4.5-0.5,11.3-6.1,17l-41.4,41.8C92,147.8,85.1,150.5,80.2,149.2z  M140.6,80.4c-0.8-0.2-1.7-0.3-2.7-0.3l-43.2,1.3c-4.7,0.1-10.3,3.1-14.7,7.9c-3.9,4.2-6.1,9-5.9,12.9l1.8,40.4 c0.1,2.8,1.4,4.8,3.8,5.7c4.6,1.8,11.8-0.9,17.5-6.6l41.4-41.8c5.3-5.4,7.8-12.1,6-16.3C143.8,82.1,142.4,80.9,140.6,80.4z"></path>
+							<path d="M81.4,153.8c-0.1,0-0.1,0-0.2,0c-2.9-0.8-4.8-3.1-5.3-6.3L69.5,105c-0.6-4.2,1.1-9.3,4.8-14 c4.4-5.7,10.6-9.6,16.1-10.1l47.5-4.8c4-0.4,7,1,8.5,3.9c2.4,4.6,0.4,11.9-5,18.1l-41,47.3C94.7,151.8,86.9,155.3,81.4,153.8z  M137.9,76.4l0,0.3l-47.5,4.8c-5.4,0.5-11.4,4.3-15.7,9.9c-3.6,4.6-5.3,9.5-4.7,13.6l6.5,42.5c0.5,3,2.1,5,4.8,5.8 c5.3,1.5,12.9-1.9,18.5-8.3l41-47.2c5.2-6,7.2-13,4.9-17.3c-1.4-2.6-4.2-3.9-7.9-3.5L137.9,76.4z"></path>
+							<path d="M83.2,158.5c-3-0.8-5-2.9-5.9-6.1l-11.8-44.3c-1.1-4.2,0.1-9.6,3.5-14.7c4.2-6.6,10.7-11.3,16.9-12.4 l51.8-8.7c4.5-0.8,8.1,0.6,10,3.7c2.9,4.7,1.4,12.3-3.7,19.1L104,148.1c-5.6,7.4-13.9,11.7-20.1,10.5 C83.6,158.6,83.4,158.5,83.2,158.5z M142.6,73.1c-1.4-0.4-3.1-0.4-4.9-0.1l-51.8,8.7c-6,1-12.4,5.6-16.5,12.1 c-3.2,5-4.5,10.2-3.4,14.2l11.8,44.3c0.9,3.2,2.9,5.2,6.1,5.8c6,1.2,14-3,19.5-10.2l39.9-52.9c4.9-6.5,6.4-13.9,3.7-18.4 C146.1,74.7,144.5,73.6,142.6,73.1z"></path>
+							<path d="M85.6,163.2c-2.9-0.8-5.1-2.8-6.3-5.7l-18-45.7c-1.7-4.2-0.9-9.8,2-15.4c3.9-7.3,10.7-13.1,17.5-14.7 l56.1-13.2c5-1.2,9.3,0.1,11.7,3.5c3.4,4.8,2.5,12.7-2.2,20L108.2,151c-5.3,8.1-13.8,13.3-20.8,12.6 C86.7,163.5,86.2,163.4,85.6,163.2z M137,68.8l0.1,0.3L80.9,82.3c-6.6,1.6-13.3,7.2-17,14.4c-2.8,5.4-3.5,10.8-1.9,14.9l18,45.7 c1.3,3.3,3.9,5.3,7.5,5.6c6.8,0.7,15.1-4.4,20.2-12.3l38.1-58.9c4.6-7.1,5.5-14.7,2.3-19.3c-2.3-3.2-6.2-4.4-11-3.2L137,68.8z"></path>
+							<path d="M88.7,168.1c-2.9-0.8-5.1-2.6-6.6-5.3L57.3,116c-2.3-4.3-2.1-10.2,0.4-16.2C61,91.7,68,85,75.3,82.7 l60.3-18.2c5.6-1.7,10.5-0.5,13.5,3.1c4,4.8,3.7,13.1-0.5,20.9l-35.4,65c-4.8,8.8-13.5,14.9-21.2,14.9 C90.8,168.5,89.7,168.3,88.7,168.1z M135.8,65.1L75.5,83.3c-7.2,2.2-14,8.7-17.3,16.7c-2.4,5.8-2.6,11.5-0.4,15.6l24.9,46.8 c1.8,3.5,5.1,5.4,9.2,5.4c7.5,0,16-6,20.7-14.6l35.4-65c4.2-7.6,4.4-15.6,0.6-20.2C145.8,64.6,141.1,63.5,135.8,65.1z"></path>
+							<path d="M92.6,172.9c-2.8-0.7-5.1-2.4-6.8-4.8l-32.6-47.4c-3-4.3-3.5-10.5-1.4-17c2.8-8.9,9.7-16.5,17.6-19.4 l64.4-23.9c6.2-2.3,11.8-1.3,15.5,2.6c4.6,4.9,5.1,13.2,1.4,21.7L118.9,156c-4.3,9.6-12.8,16.5-21.3,17.3 C95.8,173.4,94.1,173.3,92.6,172.9z M143.5,60.2c-2.8-0.8-6.1-0.5-9.5,0.7L69.6,84.9c-7.7,2.9-14.5,10.3-17.2,19 c-2,6.3-1.5,12.3,1.3,16.4l32.6,47.4c2.5,3.6,6.5,5.4,11.2,5c8.2-0.7,16.6-7.6,20.7-16.9l31.8-71.3c3.7-8.2,3.2-16.3-1.2-21 C147.4,61.9,145.6,60.8,143.5,60.2z"></path>
+							<path d="M97.3,177.7c-2.6-0.7-5-2.1-6.8-4.3l-41.2-47.4c-3.8-4.3-5-10.8-3.4-17.8C48,98.6,54.8,90,63.1,86.4 l68.3-30.1c6.7-3,13.2-2.3,17.7,1.9c5.3,4.9,6.6,13.5,3.5,22.4l-27.1,77.6c-3.5,10.1-11.9,18.1-20.9,19.8 C102,178.3,99.5,178.3,97.3,177.7z M131.5,56.5l0.1,0.3L63.3,86.9c-8.1,3.6-14.7,12-16.8,21.3c-1.5,6.8-0.3,13.1,3.3,17.3 L90.9,173c3.3,3.8,8.1,5.3,13.5,4.3c8.8-1.7,17-9.5,20.4-19.4L152,80.3c3-8.7,1.8-17.1-3.4-21.8c-4.3-4-10.5-4.6-17-1.7 L131.5,56.5z"></path>
+							<path d="M102.9,182.3c-2.5-0.7-4.7-1.9-6.7-3.7l-50.6-46.8c-4.7-4.3-6.7-11.2-5.7-18.8c1.4-10.1,7.8-19.5,16.5-24 L128.2,52c7.3-3.7,14.6-3.4,20,0.9c6.1,4.8,8.3,13.7,6,23.1L133,159.7c-2.7,10.7-10.6,19.4-20.1,22.2 C109.3,183,105.9,183.1,102.9,182.3z M128.4,52.2l0.1,0.3L56.6,89.6c-8.5,4.4-14.8,13.6-16.2,23.5c-1,7.4,1,14.1,5.5,18.2 l50.6,46.8c4.2,3.9,10,5.1,16.1,3.3c9.3-2.7,17-11.3,19.6-21.8l21.3-83.8c2.3-9.2,0.1-17.7-5.7-22.4c-5.2-4.2-12.3-4.5-19.3-0.8 L128.4,52.2z"></path>
+							<path d="M109.3,186.7c-2.2-0.6-4.3-1.6-6.2-3l-61-45.4c-5.7-4.3-8.8-11.5-8.3-19.8c0.6-10.7,6.5-20.7,15.5-26.1 l75.1-44.6c7.7-4.6,16.1-4.7,22.5-0.3c7,4.7,10.3,13.5,8.7,23.6l-14.1,90c-1.7,11-9.1,20.7-18.7,24.6 C118.1,187.4,113.4,187.8,109.3,186.7z M124.4,48l0.2,0.3L49.5,92.9c-8.8,5.2-14.6,15-15.2,25.6c-0.4,8.1,2.5,15.1,8.1,19.3 l61,45.4c5.3,3.9,12.2,4.6,19,1.9c9.4-3.9,16.7-13.3,18.4-24.2l14.1-90c1.5-9.8-1.6-18.3-8.4-22.9c-6.2-4.2-14.4-4.1-21.9,0.4 L124.4,48z"></path>
+							<path d="M116.6,190.8c-1.9-0.5-3.7-1.3-5.5-2.3l-72.2-43.1c-7-4.2-11.1-11.8-11.4-20.9c-0.3-11.1,5.1-21.8,14.2-28 l77.8-52.8c8.1-5.5,17.5-6.2,25.1-1.9c8,4.5,12.4,13.4,11.8,23.9l-5.5,95.9c-0.7,11.4-7.1,21.7-16.9,26.9 C128.2,191.5,122.2,192.2,116.6,190.8z M119.6,43.9l0.2,0.3L42,97c-8.9,6-14.2,16.6-13.9,27.5c0.3,8.9,4.3,16.3,11.1,20.4 l72.2,43.1c6.6,3.9,14.7,4,22.2,0c9.6-5.1,15.9-15.2,16.6-26.4l5.5-95.9c0.6-10.2-3.7-18.9-11.5-23.3c-7.4-4.2-16.6-3.5-24.5,1.9 L119.6,43.9z"></path>
+							<path d="M124.9,194.4c-1.5-0.4-2.9-0.9-4.3-1.6L36.2,153c-8.4-4-13.9-12-15-22c-1.3-11.4,3.6-22.8,12.6-29.8 l79.8-61.7c8.4-6.5,18.8-7.9,27.7-3.8c9.1,4.2,14.8,13.2,15.3,24.1l4.6,101.5c0.5,11.6-5.1,22.7-14.6,29 C139.9,195,132.1,196.4,124.9,194.4z M137.2,35c-7.7-2.1-16.1-0.2-23.1,5.2l-79.8,61.7c-8.8,6.8-13.6,18-12.4,29.2 c1.1,9.8,6.4,17.6,14.6,21.5l84.4,39.8c8.2,3.8,17.4,3,25.5-2.4c9.3-6.2,14.8-17.1,14.3-28.5L156.1,60 c-0.5-10.6-6.1-19.5-14.9-23.6C139.9,35.8,138.5,35.3,137.2,35z"></path>
+							<path d="M134,197.6c-0.8-0.2-1.6-0.5-2.5-0.8l-97.4-35.4c-9.9-3.6-17.1-12.2-19.1-23c-2.2-11.7,1.8-23.4,10.8-31.3 l81.1-71.2c8.6-7.6,19.9-9.8,30.3-6.1c10.4,3.8,17.6,12.8,19.3,24.1l16.3,106.6c1.8,11.8-2.6,23.4-11.9,30.9 C153.2,197.8,143.2,200,134,197.6z M134.5,29.6c-9.5-2.5-19.5-0.1-27.2,6.7l-81.1,71.2c-8.8,7.7-12.8,19.2-10.6,30.7 c2,10.6,9,19,18.7,22.5l97.4,35.4c9.7,3.5,20.5,1.6,28.8-5.2c9.1-7.4,13.4-18.7,11.6-30.3L155.9,54c-1.7-11.1-8.8-19.9-18.9-23.6 C136.2,30.1,135.3,29.8,134.5,29.6z"></path>
+							<path d="M144,200.1L32.8,170.3C21,167.1,12,158.2,8.9,146.4c-3.2-11.8,0.1-24,8.7-32.6L99,32.4 c8.7-8.6,20.9-11.9,32.7-8.7c11.8,3.2,20.8,12.1,23.9,23.9l29.8,111.1c3.2,11.8-0.1,24-8.7,32.6C168,200,155.8,203.3,144,200.1z  M99.2,32.6l0.2,0.2L18,114.2c-8.5,8.5-11.7,20.5-8.6,32c3.1,11.6,11.9,20.3,23.5,23.5l111.2,29.8c11.6,3.1,23.6-0.1,32.1-8.6 c8.5-8.5,11.7-20.5,8.6-32L155,47.7c-3.1-11.6-11.9-20.4-23.5-23.5c-11.6-3.1-23.6,0.1-32.1,8.6L99.2,32.6z"></path>
+						</svg>
+					</figure>
+
+					<!-- Card body -->
+					<div class="card-body position-relative p-sm-6 pb-lg-0">
+						<h2 class="mb-4">Anywhere, Any Time, Any Platform</h2>
+						<p class="heading-color mb-4">Download the app for free and get access to accurate plant diagnoses with no extra charges.</p>
+						<!-- Download button -->
+						<div class="row g-2">
+							<!-- Google play store button -->
+							<div class="col-6 col-sm-4 col-lg-6 col-xl-4">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition" alt="google-store"> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-6 col-sm-4 col-lg-6 col-xl-4">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" alt="app-store"> </a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent p-0">
+						<img src="assets/images/elements/saas-screen.png" class="ms-5" alt="">
+					</div>
+				</div>
+			</div>
+
+			<!-- Pricing -->
+			<div class="col-lg-6">
+				<div class="card bg-dark overflow-hidden p-sm-4 h-100" data-bs-theme="dark">
+					<!-- Pattern -->
+					<div class="position-absolute end-0 bottom-0 mb-n3 me-n3">
+						<img src="assets/images/elements/pattern.svg" class="opacity-1" alt="">
+					</div>
+
+					<!-- Card header -->
+					<div class="card-header text-center bg-transparent position-relative">
+						<!-- Logo -->
+						<img src="assets/images/logo-icon.svg" class="mb-4" alt="logo-icon">
+						<h3 class="mb-2">Affordable pricing pack</h3>
+						<p>Our essential plan is self-service solution for businesses to handle website messaging and personalization</p>
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body bg-light border rounded mx-2 mx-sm-4 position-relative">
+						<h6 class="mb-3">Quick look at all the features</h6>
+						<!-- List -->
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Unlimited monthly visitors</li>
+							<li class="list-group-item mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Dedicated SEO strategists</li>
+							<li class="list-group-item mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Google Docs style editors</li>
+							<li class="list-group-item mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Basic chat and email support</li>
+							<li class="list-group-item mb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>AI powered product recommendation engine</li>
+						</ul>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer text-center bg-transparent position-relative mt-3">
+						<!-- Price -->
+						<div class="mb-4 heading-color"><span class="h2">$299</span> /month</div>
+						<!-- Button -->
+						<a href="#" class="btn btn-lg btn-primary w-100 mb-0">Get 1 year access</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Pricing and download -->
+
+<!-- =======================
+Testimonials START -->
+<section>
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Title and content -->
+			<div class="col-lg-5 mb-5 mb-sm-0">
+				<h2 class="mb-4">Success stories in their own words</h2>
+				<p class="mb-4">Read what our satisfied clients have to say about their experiences with our platform.</p>
+				<a class="btn btn-lg btn-primary icon-link icon-link-hover mb-4 mb-lg-8" href="customer-stories.html">View all reviews<i class="bi bi-arrow-right"></i> </a>
+
+				<h6 class="mb-2">Trusted by 50K+ customers</h6>
+				<div class="d-flex">
+					<!-- Rating star -->
+					<ul class="list-inline">
+						<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item small me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+						<li class="list-inline-item heading-color fw-normal me-0">4.4/5.0</li>
+					</ul>
+					<span class="text-secondary mx-2 mx-sm-3">|</span>
+					<p class="mb-0">3,857 Reviews</p>
+				</div>
+			</div>
+
+			<!-- Testimonials -->
+			<div class="col-lg-7 ps-xl-6">
+				<div class="row g-4">
+					<div class="col-md-6">
+						<!-- Review item -->
+						<div class="card card-body card-hover-shadow border p-4 mb-4">
+							<!-- Star -->
+							<ul class="list-inline mb-5">
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+							</ul>
+
+							<!-- Content -->
+							<p class="heading-color mb-4">"Frequently partiality possession resolution at or appearance unaffected me. Ye goodness felicity do disposal dwelling no."</p>
+							
+							<!-- Avatar info -->
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar flex-shrink-0">
+									<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+								</div>
+								<!-- Info -->
+								<div class="ms-2">
+									<h6 class="mb-0">Jacqueline Miller</h6>
+									<p class="mb-0 small">Ceo of Blogzine</p>
+								</div>
+							</div>
+							
+						</div>
+
+						<!-- Review item -->
+						<div class="card card-body card-hover-shadow border p-4">
+							<!-- Star -->
+							<ul class="list-inline mb-5">
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+							</ul>
+
+							<!-- Content -->
+							<p class="heading-color mb-4">"Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal. "</p>
+							
+							<!-- Avatar info -->
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar flex-shrink-0">
+									<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+								</div>
+								<!-- Info -->
+								<div class="ms-2">
+									<h6 class="mb-0">Emma Watson</h6>
+									<p class="mb-0 small">Co-Founder</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="col-md-6 mt-md-7">
+						<!-- Review item -->
+						<div class="card card-body card-hover-shadow border p-4 mb-4">
+							<!-- Star -->
+							<ul class="list-inline mb-5">
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+							</ul>
+
+							<!-- Content -->
+							<p class="heading-color mb-4">"Two before narrow not relied on how except moment myself Dejection assurance Mrs led certainly So gate at no only none open Betrayed."</p>
+							
+							<!-- Avatar info -->
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar flex-shrink-0">
+									<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+								</div>
+								<!-- Info -->
+								<div class="ms-2">
+									<h6 class="mb-0">Louis Ferguson</h6>
+									<p class="mb-0 small">Web Developer</p>
+								</div>
+							</div>
+							
+						</div>
+
+						<!-- Review item -->
+						<div class="card card-body card-hover-shadow border p-4">
+							<!-- Star -->
+							<ul class="list-inline mb-5">
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star text-warning"></i></li>
+								<li class="list-inline-item small me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+							</ul>
+
+							<!-- Content -->
+							<p class="heading-color mb-4">"Our passion for customer excellence is just one reason why we are the market leader. We've always worked very hard to give our customers the best experience."</p>
+							
+							<!-- Avatar info -->
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar flex-shrink-0">
+									<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+								</div>
+								<!-- Info -->
+								<div class="ms-2">
+									<h6 class="mb-0">Samuel Bishop</h6>
+									<p class="mb-0 small">Product designer</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Testimonials START -->
+
+<!-- =======================
+CTA START -->
+<section class="bg-primary bg-opacity-10">
+	<div class="container">
+		<div class="row g-sm-6 align-items-center">
+			<!-- Content -->
+			<div class="col-lg-6 mb-5 mb-sm-0">
+				<!-- Title -->
+				<h2 class="mb-0">Join <span class="text-primary">4,500+ </span> Startups growing with Mizzle </h2>
+
+				<!-- List -->
+				<div class="row mt-4">
+					<div class="col-md-6">
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>30 days free trial</li>
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Personalization onboarding</li>
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Access to all features</li>
+						</ul>
+					</div>
+
+					<div class="col-md-6">
+						<ul class="list-group list-group-borderless">
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Web + mobile app</li>
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Very easy customization</li>
+							<li class="list-group-item heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Cloud-based</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Newsletter -->
+				<form class="row g-2 align-items-center mt-4">
+					<div class="col-md-8 col-lg-6 col-xxl-8">
+						<input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+					</div>
+					<div class="col-md-4 col-lg-6 col-xxl-4">
+						<button type="submit" class="btn btn-lg btn-dark m-0">Subscribe for free</button>
+					</div>
+					<div class="small mt-2">By subscribing you agree to our 
+						<a href="#" class="text-decoration-underline">Privacy Policy</a>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="col-lg-6 position-relative">
+				<!-- Image -->
+				<img src="assets/images/elements/comming-soon.png" class="position-relative z-index-2" alt="CTA-image">
+
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-0 start-0 mt-n5">
+					<svg width="96" height="99" viewBox="0 0 96 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path class="fill-mode" d="M66.5204 64.3653C68.4878 62.2239 69.8711 59.7411 70.3936 56.886C72.4225 45.5894 64.3072 35.5653 52.1035 36.6825C44.603 37.3653 38.9777 44.5653 39.8999 52.0446C40.6684 58.2205 45.9556 62.4101 51.8576 61.448C54.6549 60.9825 56.776 59.4929 58.0363 56.886C59.02 54.8377 58.7126 52.5101 57.2985 51.0205C55.7923 49.4377 51.8576 48.6308 49.798 49.4377C49.4599 49.5618 49.2447 50.2136 49.4599 50.5239C49.7673 50.9273 50.1054 51.2687 50.4743 51.6101C51.1506 52.2308 51.8576 52.8205 52.5031 53.4722C52.9028 53.8756 52.872 54.4032 52.4724 54.8067C51.5195 55.8618 50.3206 56.048 49.0603 55.6756C46.9393 55.0239 45.8019 53.4411 45.4023 51.2998C44.3571 45.7136 49.4292 42.0205 53.1487 41.7722C58.6511 41.3687 63.5694 44.7205 65.1679 49.9963C66.7356 55.086 65.2294 59.7411 60.9873 62.9377C59.7884 63.8377 58.4666 64.5515 57.0219 65.017C53.0872 66.3204 49.1525 66.3515 45.2793 65.017C37.9325 62.5032 34.1823 56.6377 35.1352 48.5998C35.7193 43.6963 37.7788 39.4446 41.0065 35.7825C42.3898 34.1998 43.8653 32.7101 46.0478 32.3067C46.14 32.3067 46.2015 32.2446 46.2937 32.2136C46.5089 32.0894 46.5396 31.5308 46.3245 31.3136C46.0478 30.9722 45.6789 30.7549 45.2793 30.7239C44.4493 30.5998 43.6501 30.7239 42.8201 31.0032C41.2832 31.5618 40.0536 32.4929 38.8855 33.6101C34.336 37.9239 31.6616 43.2308 31.0468 49.4998C30.1861 58.4377 34.2745 65.048 41.8365 68.7101C44.8182 70.1377 47.9844 70.7273 51.2736 70.7584C52.3494 70.6963 53.4253 70.6653 54.5012 70.5101C59.2351 69.8584 63.2928 67.9032 66.5204 64.3653Z"></path>
+						<path class="fill-primary" d="M0.769309 44.5963C2.36777 45.8998 3.99697 47.2032 5.65692 48.4756C7.99313 50.2446 10.6367 51.0205 13.8337 51.1136C13.7722 51.1136 14.0488 51.1446 14.264 51.0825C14.4792 51.0205 14.7866 50.9274 14.8481 50.7412C14.9096 50.586 14.8173 50.2446 14.6944 50.0894C14.0796 49.5308 13.4955 48.9101 12.7885 48.4756C10.1449 46.8929 7.53204 45.3101 4.70399 44.0998C3.6281 43.6343 2.52147 43.3239 1.41484 42.9515C1.10745 42.8584 0.769309 42.8584 0.431173 42.8584C0.123776 42.8584 -0.152881 43.3549 0.00081747 43.6032C0.246735 43.9446 0.461913 44.3481 0.769309 44.5963Z"></path>
+						<path class="fill-primary" d="M55.6683 15.2692C55.822 15.2692 56.0064 15.3002 56.1294 15.2071C56.6212 14.8657 56.8364 14.3071 57.0823 13.7795C58.4349 10.614 60.1563 7.66572 62.0007 4.77951C62.6462 3.78641 63.2303 2.79331 63.8451 1.8002C64.0602 1.45882 64.2447 1.05537 64.3676 0.68296C64.3984 0.558822 64.3369 0.372615 64.2447 0.217443C64.091 -0.0308331 63.8143 0.00020143 63.5991 0.0933049C63.384 0.186408 63.1688 0.341581 62.9536 0.465719C58.0967 3.91055 56.1601 8.93813 55.4531 14.6795C55.4839 14.7726 55.4839 14.9278 55.5453 15.114C55.5453 15.1761 55.6376 15.2692 55.6683 15.2692Z"></path>
+						<path class="fill-primary" d="M24.5905 26.6586C23.3916 23.0896 22.1928 19.5207 20.9325 15.9827C20.3791 14.4 19.6721 12.8793 18.9959 11.3586C18.8729 11.0793 18.627 10.831 18.4425 10.6138C18.2274 10.7069 18.0122 10.7379 17.9507 10.831C17.7048 11.2034 17.797 11.6379 17.8278 12.0414C18.2888 17.9689 20.6251 23.1827 23.8835 28.0551C23.9757 28.1793 24.0986 28.3345 24.2216 28.3965C24.3446 28.4586 24.5597 28.5517 24.6827 28.4896C24.8057 28.4586 24.9286 28.2414 24.8979 28.1172C24.8364 27.6207 24.7442 27.1241 24.5905 26.6586Z"></path>
+						<path class="fill-primary" d="M56.5302 83.9173C56.4072 83.8862 56.1613 83.9483 56.0998 84.0414C55.7924 84.7241 55.4851 85.4069 55.2699 86.1207C54.6243 88.1379 53.8251 90.0621 52.3189 91.5828C51.9192 91.9862 51.6119 92.5138 51.2737 93.0104C50.3208 94.4069 49.6753 95.9586 49.0912 97.5104C48.9682 97.8207 48.9682 98.1621 48.9375 98.5035C48.9375 98.6586 48.999 98.9379 49.0912 98.9379C49.3064 99 49.6445 99.0311 49.7675 98.9069C51.1815 97.2621 52.5033 95.5241 54.0095 93.9724C55.9461 91.8931 56.8376 89.4724 56.8683 86.6793C56.8683 86.3379 56.9298 85.9966 56.9606 85.469C56.9298 85.1897 56.9298 84.6931 56.8683 84.1966C56.8376 84.0724 56.6532 83.9173 56.5302 83.9173Z"></path>
+						<path class="fill-primary" d="M80.4469 37.086C81.031 37.1481 81.615 37.1791 82.1683 37.055C83.8897 36.7136 85.6112 36.6205 87.3633 36.7136C89.8533 36.9308 92.3124 36.4033 94.7716 36.124C95.079 36.0929 95.4171 35.9377 95.6938 35.7826C95.8167 35.7205 96.0319 35.4722 96.0012 35.4412C95.8782 35.2239 95.7245 35.0067 95.5401 34.9136C95.3249 34.7895 95.079 34.7584 94.8331 34.7274C92.5276 34.4791 90.2221 34.2619 87.9166 34.0446C85.2423 33.7653 82.8753 34.7895 80.5391 35.8446C80.3854 35.9067 80.2625 36.0308 80.1702 36.155C80.078 36.2791 79.9551 36.4964 80.0165 36.5895C80.078 36.7757 80.2625 37.055 80.4469 37.086Z"></path>
+						<path class="fill-primary" d="M78.4176 68.4311C78.2332 68.6173 78.1717 68.8656 78.3254 69.1139C78.4484 69.3311 78.5713 69.5484 78.7865 69.7035C80.7231 71.1001 82.0141 72.9932 83.2437 75.0104C84.3196 76.8104 85.7951 78.269 87.3936 79.6346C87.6088 79.8208 87.9469 80.069 88.2543 79.7587C88.3773 79.6035 88.4387 79.2311 88.3773 79.0759C87.0247 76.5001 85.7644 73.8621 84.0737 71.4725C82.8134 69.7346 80.8768 68.9277 78.9709 68.2139C78.6943 68.2759 78.5406 68.338 78.4176 68.4311Z"></path>
+						<path class="fill-primary" d="M18.9031 80.3173C16.1058 81.0621 13.8311 82.6759 11.8023 84.7242C11.7408 84.7863 11.6793 84.8483 11.6793 84.9104C11.6486 84.9725 11.6486 85.0966 11.6793 85.1587C11.7715 85.2518 11.9252 85.4069 12.0174 85.4069C12.2634 85.3759 12.5093 85.2828 12.7245 85.1587C16.0443 83.1414 19.6409 82.0242 23.4526 81.5276C23.9444 81.4656 24.4363 81.3725 24.8974 80.7207C22.8071 79.7897 20.8397 79.7897 18.9031 80.3173Z"></path>
+					</svg>
+				</figure>
+
+				<!-- SVG decoration -->
+				<figure class="position-absolute end-0 bottom-0 mb-5">
+					<svg class="fill-dark" width="78" height="86" viewBox="0 0 78 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M58.1663 52.6936C57.2433 52.922 56.3362 53.183 55.4053 53.3705C49.0479 54.6836 43.0644 57.0976 37.1287 59.6911C34.0096 61.053 30.986 62.5537 28.1057 64.405C24.7877 66.5417 21.788 69.0862 19.0032 71.8836C15.4465 75.4475 11.9694 79.1012 8.50824 82.763C7.64095 83.6765 6.94872 84.7612 5.99391 86.0008C5.5722 84.8509 5.66768 84.125 6.25648 83.4236C7.16355 82.339 7.99901 81.1727 8.96973 80.1533C12.7253 76.2386 16.4809 72.324 20.3161 68.4909C22.8463 65.9627 25.8142 64.0053 28.9014 62.2927C35.7362 58.5085 42.9132 55.5073 50.3607 53.2319C52.1192 52.6936 53.9572 52.3919 55.7793 52.0983C56.559 51.9759 57.3786 52.1472 58.1743 52.188C58.1743 52.3592 58.1742 52.5224 58.1663 52.6936Z"></path>
+						<path d="M0.00390625 83.4154C1.49182 81.2949 3.07521 79.2316 4.43582 77.0215C5.40654 75.4393 6.11469 73.6858 6.87854 71.9813C8.15162 69.1351 9.40083 66.2806 10.5943 63.4017C11.0717 62.26 11.3741 61.0529 11.7799 59.8867C12.7665 57.0649 13.785 54.2512 14.7716 51.4294C15.7901 48.5016 16.2118 45.4596 16.4107 42.3686C16.4425 41.9119 16.3869 41.4063 16.5778 41.0311C16.7449 40.6967 17.1984 40.5092 17.5247 40.2563C17.7475 40.5907 18.0498 40.9088 18.1692 41.2839C18.2646 41.5694 18.1373 41.9282 18.1214 42.2545C17.8668 46.8949 16.5221 51.2745 14.9387 55.5806C13.2917 60.0498 11.6128 64.5109 9.75888 68.8986C7.77765 73.5961 5.50202 78.1551 2.05675 81.9637C1.48386 82.5998 0.823452 83.1544 0.210782 83.7498C0.139171 83.6274 0.0675602 83.5214 0.00390625 83.4154Z"></path>
+						<path d="M34.957 48.3875C34.1852 47.2294 34.3602 46.5117 34.7819 45.8103C35.4821 44.6359 36.1982 43.4697 36.9064 42.2953C38.9751 38.8292 41.0677 35.3794 43.0808 31.8889C44.0993 30.1191 45.0939 28.3167 45.8657 26.4328C46.3988 25.1361 46.542 23.6681 46.8523 22.2735C46.8762 22.1512 46.8046 22.0125 46.8125 21.882C46.8682 21.042 47.4809 20.3325 47.9185 20.6506C48.3084 20.936 48.7221 21.6292 48.6505 22.0451C48.4437 23.1869 48.1174 24.3613 47.6082 25.3889C45.6668 29.3036 43.6935 33.2019 41.6088 37.035C40.1209 39.7753 38.4182 42.3932 36.8348 45.0845C36.4767 45.688 36.2539 46.3731 35.9197 47.001C35.681 47.4088 35.3707 47.784 34.957 48.3875Z"></path>
+						<path d="M68.3681 68.0586C67.3019 68.1402 66.8802 67.7324 66.8563 66.8353C66.7847 63.9972 66.2675 61.2325 65.3843 58.5411C65.1536 57.8479 65.1377 57.1547 66.0129 57.0079C66.7052 56.8856 66.9996 57.4157 67.111 58.0763C67.5645 60.8573 68.0578 63.6302 68.4875 66.4194C68.567 66.9576 68.4079 67.5367 68.3681 68.0586Z"></path>
+						<path d="M61.1509 56.4287C60.9997 56.9588 60.944 57.5215 60.6894 57.9619C59.1696 60.6206 57.5862 63.2386 56.0506 65.8891C55.5732 66.7047 55.1594 67.561 54.6343 68.5478C53.8307 67.7404 53.4408 67.1043 54.1728 66.248C56.4484 63.5729 57.7693 60.3026 59.4402 57.2524C59.7823 56.6326 60.0926 56.1514 61.1509 56.4287Z"></path>
+						<path d="M12.2033 36.2847C12.4818 38.0544 12.458 38.0707 11.3042 38.5519C9.01269 39.5143 6.73706 40.4929 4.45348 41.4716C3.44297 41.9038 3.31566 41.8223 2.92578 40.4848C5.97322 39.1065 9.00474 37.7364 12.2033 36.2847Z"></path>
+						<path d="M31.7987 34.001C31.5998 34.5882 31.377 35.2407 31.194 35.7708C28.8627 35.0776 26.8019 34.4659 24.7411 33.8624C24.3751 33.7564 23.9215 33.7645 23.6669 33.5362C23.3805 33.2752 23.2611 32.8103 23.0781 32.4352C23.4441 32.2884 23.8579 31.9459 24.1841 32.0111C26.5393 32.5086 28.8866 33.0876 31.2338 33.6504C31.3452 33.6748 31.4486 33.7727 31.7987 34.001Z"></path>
+						<path d="M69.3222 55.915C69.8473 56.91 70.3009 57.8479 70.834 58.7368C71.5023 59.8378 72.1707 60.947 72.9743 61.9501C73.4438 62.5373 73.4517 63.0593 73.0459 63.4997C72.5765 64.0135 71.8843 63.8667 71.5501 63.3284C70.3327 61.3303 69.1392 59.3077 68.073 57.2281C67.6194 56.3391 68.2639 55.9314 69.3222 55.915Z"></path>
+						<path d="M52.9551 28.8386C51.873 28.3493 51.7457 27.6316 51.7059 26.8079C51.5786 24.5162 51.4354 22.2245 50.4487 20.0959C50.2259 19.6229 50.2419 19.0928 50.8307 19.0276C51.133 18.9949 51.6423 19.3375 51.7855 19.6392C52.1435 20.3977 52.4538 21.2214 52.5971 22.0533C52.9153 23.9209 53.1461 25.8048 53.3609 27.6887C53.3848 28.0068 53.1222 28.3656 52.9551 28.8386Z"></path>
+						<path d="M69.9609 53.24C71.5045 53.4928 72.8731 53.6967 74.2417 53.9332C75.1726 54.0963 76.0876 54.3328 77.0265 54.447C77.8699 54.553 78.0848 55.0179 77.9813 55.7845C77.8699 56.5919 77.2493 56.7958 76.7162 56.5348C74.8384 55.6377 72.8492 55.3523 70.8282 55.1321C70.0405 55.0505 70.0485 54.9853 69.9609 53.24Z"></path>
+						<path d="M20.6819 40.1992C21.5094 41.2431 22.321 42.1565 22.9973 43.1515C23.7293 44.2199 24.4056 45.3372 24.9706 46.4953C25.1377 46.8378 24.8671 47.4087 24.8035 47.8817C24.3738 47.7268 23.8168 47.6941 23.5543 47.3924C23.1007 46.8623 22.87 46.1446 22.4801 45.5492C21.7401 44.4238 21.0161 43.2657 20.1567 42.2299C19.4884 41.4225 19.4884 40.9087 20.6819 40.1992Z"></path>
+						<path d="M20.5234 20.0959C21.5101 20.2509 21.4146 21.0175 21.3271 21.4905C20.8019 24.3613 20.1813 27.2157 19.5845 30.1109C18.6695 30.3964 17.9295 30.1436 18.2399 29.1812C19.0833 26.547 19.3697 23.823 19.8551 21.1235C19.9187 20.7402 20.3086 20.414 20.5234 20.0959Z"></path>
+						<path d="M56.9658 14.5664C58.4538 14.86 59.9576 15.0884 61.4216 15.4554C62.3685 15.6919 62.6947 16.2954 62.3923 16.956C62.0661 17.6818 61.4057 17.5921 60.9204 17.3393C59.2813 16.4911 57.5626 16.2546 55.7644 16.3606C55.5257 16.3769 55.2154 16.3117 55.0483 16.1567C54.8414 15.9692 54.6107 15.6266 54.6345 15.382C54.6663 15.1454 54.9926 14.8111 55.2233 14.7785C55.7803 14.6887 56.3611 14.7458 56.9261 14.7458C56.942 14.6887 56.9499 14.6235 56.9658 14.5664Z"></path>
+						<path d="M28.1863 44.5381C27.7168 44.1874 27.1678 43.902 26.7859 43.4697C25.5526 42.0588 24.3909 40.5827 23.1815 39.1554C22.7836 38.6824 22.6484 38.1686 23.1417 37.8098C23.3804 37.6385 24.0488 37.7282 24.2636 37.9647C25.7038 39.449 27.1121 40.966 28.425 42.5645C28.7273 42.9315 28.6239 43.641 28.7114 44.1874C28.5284 44.3016 28.3534 44.4158 28.1863 44.5381Z"></path>
+						<path d="M60.49 47.9877C60.0603 47.8491 59.5113 47.8409 59.3283 47.5718C57.9915 45.59 56.1297 44.2525 53.9336 42.9476C54.4508 42.3604 54.8407 41.92 55.2146 41.4878C59.9569 45.223 60.6013 45.9978 60.49 47.9877Z"></path>
+						<path d="M13.0865 32.6066C12.6488 32.3049 12.1953 32.0357 11.7816 31.7014C10.4528 30.633 9.13196 29.5483 7.83501 28.4392C7.47695 28.1292 6.91998 27.6725 6.96772 27.3626C7.03138 26.9141 7.56448 26.5308 7.83501 26.1882C9.70484 27.7459 11.4474 29.1405 13.0944 30.633C13.4525 30.9592 13.4684 31.6851 13.6355 32.2233C13.4604 32.3538 13.2774 32.4843 13.0865 32.6066Z"></path>
+						<path d="M49.1122 8.72714C48.8576 8.28674 48.3563 7.83003 48.3882 7.4141C48.5632 5.20396 48.8497 2.99381 49.1441 0.791818C49.1759 0.547153 49.526 0.343264 49.8363 0.000732422C50.2341 0.685796 50.5365 1.21591 50.8468 1.75417C50.7513 1.75417 50.6479 1.76233 50.5524 1.76233C50.2898 4.02956 50.0193 6.2968 49.7567 8.55588C49.5419 8.61296 49.3271 8.67005 49.1122 8.72714Z"></path>
+						<path d="M51.2461 58.9816C53.3546 57.4076 55.4791 55.8254 57.5797 54.2595C58.4867 54.6591 58.3992 55.2463 57.9457 55.8335C57.6751 56.1761 57.2853 56.437 56.9272 56.7062C55.5507 57.7419 54.1662 58.7695 52.7738 59.7971C51.9781 60.3843 51.7792 60.2783 51.2461 58.9816Z"></path>
+						<path d="M68.8047 50.9075C69.2105 50.2958 69.5924 49.5618 70.1176 48.9665C71.2235 47.7105 72.433 46.5525 73.5549 45.3047C73.9527 44.8643 74.3744 44.5707 74.8677 44.9132C75.5361 45.3781 75.1542 46.0142 74.812 46.4464C74.3744 46.9929 73.7856 47.4169 73.2764 47.9063C72.2579 48.8931 71.2474 49.8962 70.2369 50.8912C69.8709 51.2664 69.5049 51.6986 68.8047 50.9075Z"></path>
+						<path d="M42.977 16.271C40.1763 16.32 38.1075 14.5013 35.625 13.8651C36.4127 12.1851 36.4048 12.2504 37.5664 12.7968C39.0146 13.4737 40.5025 14.0772 42.0143 14.6155C42.7065 14.852 43.1919 15.0885 42.977 16.271Z"></path>
+						<path d="M38.3477 8.30308C39.4298 6.71275 39.6923 6.79431 40.6631 8.25414C41.2917 9.19203 42.2783 9.88525 43.1138 10.6845C43.3843 10.9455 43.7662 11.1412 43.9333 11.4593C44.0447 11.6795 43.9651 12.1362 43.798 12.3401C43.6469 12.5195 43.1774 12.6337 42.9864 12.5276C42.326 12.1362 41.6815 11.6958 41.1246 11.1738C40.2016 10.2849 39.3422 9.32252 38.3477 8.30308Z"></path>
+						<path d="M15.1309 39.0085C14.192 42.0097 11.9562 44.0486 10.4524 46.691C9.64076 46.0222 9.93516 45.3535 10.2296 44.8478C11.3276 42.9639 12.5052 41.1289 13.6351 39.2613C13.9613 38.7312 14.3273 38.5273 15.1309 39.0085Z"></path>
+						<path d="M52.6367 18.106C52.9072 17.7879 53.0584 17.4699 53.2971 17.3802C53.5438 17.2823 53.9416 17.3149 54.1405 17.4617C54.427 17.6901 54.5623 18.0978 54.8089 18.3914C55.5568 19.2722 56.3287 20.1204 57.0766 20.9931C57.5619 21.5558 57.4744 22.5345 56.8697 22.8362C56.265 23.138 55.8592 22.9178 55.4852 22.2898C54.8964 21.2948 54.1485 20.3977 53.4881 19.4517C53.2016 19.0357 52.955 18.6035 52.6367 18.106Z"></path>
+						<path d="M26.6668 24.6467C27.2556 25.8374 27.3034 26.4083 26.4997 27.0689C25.2266 28.121 24.1047 29.3688 22.959 30.5758C22.3861 31.1793 21.9325 31.1467 21.3438 30.4698C22.959 28.4554 24.7333 26.6367 26.6668 24.6467Z"></path>
+						<path d="M38.871 21.7271C38.4732 21.197 38.1708 20.7893 37.7969 20.2836C38.1231 20.0063 38.3698 19.6312 38.6721 19.5659C40.2714 19.2397 41.8787 18.9869 43.4859 18.7177C43.6133 18.6933 43.7406 18.7096 43.8679 18.7014C44.4408 18.6851 44.9341 18.8646 44.9341 19.5251C44.9341 20.145 44.5283 20.4549 43.9156 20.3896C42.1492 20.2102 40.534 20.6669 38.871 21.7271Z"></path>
+						<path d="M63.9457 39.4002C63.9457 42.0263 63.9457 44.6605 63.9457 47.2213C63.0943 47.6291 62.6407 47.4578 62.6407 46.626C62.6407 44.6116 62.6328 42.5971 62.7442 40.5909C62.7681 40.1097 63.2216 39.6612 63.4762 39.1963C63.6274 39.2615 63.7865 39.3268 63.9457 39.4002Z"></path>
+						<path d="M69.0926 41.0229C68.5674 43.5267 68.0502 46.0222 67.533 48.5097C67.3898 48.5423 67.2466 48.5668 67.1034 48.5994C66.9204 48.1916 66.5305 47.7675 66.5782 47.3924C66.809 45.4595 67.1591 43.5348 67.4614 41.602C67.6047 40.6559 68.1537 40.6641 69.0926 41.0229Z"></path>
+						<path d="M57.0229 3.83393C55.901 5.49765 54.7791 7.15323 53.5856 8.93113C53.0286 8.79249 52.3205 8.7354 52.7899 7.75673C53.3946 6.49263 54.0312 5.23668 54.7314 4.02966C55.2883 3.05915 55.6623 3.04284 57.0229 3.83393Z"></path>
+						<path d="M60.7625 9.07794C60.5 9.53465 60.3408 10.1545 59.9509 10.4073C58.7654 11.1658 57.4844 11.7611 56.259 12.4462C55.71 12.7561 55.2008 12.7072 54.9939 12.1444C54.9064 11.8998 55.2644 11.337 55.5588 11.1331C56.7205 10.342 57.922 9.61621 59.1473 8.93114C59.4974 8.73541 59.9669 8.75172 60.3727 8.67017C60.5 8.80065 60.6352 8.9393 60.7625 9.07794Z"></path>
+						<path d="M14.238 22.9829C14.6438 23.929 14.8905 24.4346 15.0735 24.9565C15.4952 26.1717 15.8612 27.4114 16.2829 28.6265C16.5853 29.5073 16.5693 30.1761 15.169 30.2739C14.5642 28.4471 13.88 26.5877 13.3628 24.6793C13.2673 24.3367 13.8004 23.7985 14.238 22.9829Z"></path>
+						<path d="M62.9977 64.6905C61.836 64.3398 61.653 63.8097 61.7883 63.0593C62.0508 61.5832 62.2418 60.0989 62.5521 58.6391C62.6237 58.2884 63.0216 58.0111 63.2682 57.7012C63.491 58.0355 63.9366 58.3944 63.9048 58.688C63.6581 60.6698 63.3239 62.6353 62.9977 64.6905Z"></path>
+						<path d="M56.4428 48.3221C56.3552 49.3497 56.0767 49.9451 55.1219 49.5862C54.1194 49.2111 53.1248 48.787 52.162 48.3221C51.5812 48.0448 50.9287 47.637 51.3823 46.8296C51.7164 46.2261 52.2973 46.2751 52.8861 46.5768C54.0716 47.1885 55.2731 47.7594 56.4428 48.3221Z"></path>
+						<path d="M46.5422 10.4317C46.1921 10.2359 45.6829 10.1381 45.5078 9.8363C44.8952 8.78423 44.378 7.66693 43.8528 6.56593C43.5744 5.97873 43.8051 5.44862 44.3541 5.32629C44.6246 5.2692 45.1577 5.66882 45.301 5.98689C45.8977 7.31624 46.391 8.69452 46.9241 10.0565C46.8048 10.1788 46.6695 10.3012 46.5422 10.4317Z"></path>
+						<path d="M6.95703 34.0093C8.46881 33.4874 9.84533 33.6423 11.2059 33.7483C11.3969 33.7647 11.6436 34.1806 11.7072 34.4497C11.747 34.621 11.5003 35.0532 11.3889 35.0532C10.084 35.0451 8.77117 35.0043 7.47422 34.8901C7.30713 34.8738 7.17982 34.4089 6.95703 34.0093Z"></path>
+					</svg>
+				</figure>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+CTA END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6" data-bs-theme="dark">
+	<div class="container position-relative mt-sm-5">
+
+		<!-- CTA -->
+		<div class="bg-light border rounded p-4 p-sm-5 mb-7">
+			<div class="d-md-flex align-items-center">
+				<!-- Icon -->
+				<div class="icon-lg bg-dark text-white rounded flex-shrink-0"><i class="bi bi-cursor fa-xl"></i></div>
+				<!-- Content -->
+				<div class="ms-md-4 my-4 my-md-0">
+					<h5>Join our awesome community!</h5>
+					<p class="mb-0">Share work, seek support, vote on components, stay updated and network with others.</p>
+				</div>
+				<!-- Button -->
+				<a href="#" class="btn btn-white mb-0 ms-auto flex-shrink-0">Join now</a>
+			</div>
+		</div>
+
+		<!-- Widgets -->
+		<div class="row g-4 justify-content-between">
+			<!-- Widget 1 START -->
+			<div class="col-lg-5">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+				<!-- Social icon -->
+				<ul class="list-inline mb-0 mt-4">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-6 col-xxl-4">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms &amp; condition</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<div class="nav mt-2 mt-lg-0">
+				<ul class="list-inline mx-auto mb-0">
+					<li class="list-inline-item me-0"><a class="nav-link py-0" href="#">Privacy policy</a></li>
+					<li class="list-inline-item me-0"><a class="nav-link py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

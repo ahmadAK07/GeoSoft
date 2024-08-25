@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item active" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms &amp; Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown dropdown-fullwidth">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+						<div class="dropdown-menu py-0">
+							<div class="row p-2 p-sm-4">
+								<!-- Dropdown column item -->
+								<div class="col-md-6 col-xl-4 col-xxl-3">
+									<div class="d-md-flex gap-4 h-100">
+										<!-- Links -->
+										<ul class="list-unstyled w-100">
+											<li class="dropdown-header h6 mb-2">Useful links</li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-file-text fa-fw me-2"></i>Guides</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-chat-left fa-fw me-2"></i>Supports</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-calendar3-week fa-fw me-2"></i>Community &amp; events</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-blockquote-right fa-fw me-2"></i>Blogs</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-lock fa-fw me-2"></i>Security</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-star fa-fw me-2"></i>Tutorials</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-question-circle fa-fw me-2"></i>Help center</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-envelope fa-fw me-2"></i>Developer newsletter</a> </li>
+										</ul>
+										<!-- Divider line -->
+										<div class="vr ms-2 ms-auto d-none d-md-block"></div>
+									</div>
+								</div>
+
+								<!-- Dropdown column item -->
+								<div class="col-md-6 col-xl-4 col-xxl-5 h-100">
+									<span class="dropdown-header h6 mb-2">Key features</span>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi-file-earmark-text heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="docs/index.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-stickies heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Mizzle</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-bullseye heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement. See how changes are made.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="docs/changelog.html" target="_blank"><i class="bi bi-box-arrow-up-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-mask heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<a class="stretched-link heading-color fw-bold mb-0" href="#">Playwright tips</a>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Feature resources card -->
+								<div class="col-lg-4">
+									<span class="dropdown-header h6 mb-2">Feature resources</span>
+
+									<!-- Feature card -->
+									<div class="card bg-transparent px-3">
+										<!-- Image -->
+										<img src="assets/images/blog/02.jpg" class="rounded mb-3" alt="feature-img">
+										<div class="card-body p-0">
+											<h6><a href="#">Featured title here</a></h6>
+											<p class="mb-2">Departure defective arranging rapturous did believe him all had supported.</p>
+											<a class="icon-link icon-link-hover stretched-link z-index-2" href="#">Check it out<i class="bi bi-arrow-right"></i> </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+							<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+								<div class="row g-xl-3">
+									<!-- Work -->
+									<div class="col-xl-8 d-none d-xl-block">
+										<div class="d-flex gap-4">
+											<!-- Card -->
+											<div class="card bg-transparent">
+												<!-- Image -->
+												<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+												<!-- Card body -->
+												<div class="card-body px-0 text-start pb-0">
+													<h6><a href="#">Ceremony Worthy of Time</a></h6>
+													<p class="mb-2 small">We help our customers better manage their web presence.</p>
+													<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												</div>
+											</div>
+
+											<!-- Card -->
+											<div class="card bg-transparent">
+												<!-- Image -->
+												<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+												<!-- Card body -->
+												<div class="card-body px-0 text-start pb-0">
+													<h6><a href="#">Brushstrokes and Beyond</a></h6>
+													<p class="mb-2 small">We help our customers better manage their web presence.</p>
+													<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												</div>
+											</div>
+
+											<!-- Divider line -->
+											<div class="vr ms-2"></div>
+										</div>
+									</div>
+
+									<!-- Index nav links -->
+									<div class="col-xl-4">
+										<ul class="list-unstyled">
+											<li class="dropdown-header h6">Portfolio Pages</li>
+											<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link text-warning mb-0 px-2 lh-1" id="bs-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-lg-end" aria-labelledby="bs-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-xl-8 pb-0 position-relative">
+	<!-- background pattern -->
+	<div class="position-absolute top-0 start-50 translate-middle-x mt-8">
+		<img src="assets/images/elements/bg-pattern-5.png" alt="">
+	</div>
+
+	<div class="container pt-5 position-relative">
+		<!-- Title and contents -->
+		<div class="row">
+			<div class="col-lg-8 mx-auto text-center">
+				<!-- Pre info -->
+				<span class="heading-color fw-semibold">Trusted by happy customers</span>
+				<ul class="avatar-group mb-0 align-items-center justify-content-center mt-2">
+					<li class="avatar avatar-xs">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+					</li>
+					<li class="avatar avatar-xs">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+					</li>
+					<li class="avatar avatar-xs">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+					</li>
+					<li class="avatar avatar-xs">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+					</li>
+					<li class="avatar avatar-xs">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+					</li>
+				</ul>
+
+				<!-- Title -->
+				<h1 class="my-4">Empower your <span class="text-primary">finances</span> for a brighter tomorrow</h1>
+				<p class="mb-5">Whether you're planning for retirement, investing in your future, or seeking expert advice, our team is here to provide tailored solutions to meet your unique needs.</p>
+
+				<!-- Button -->
+				<div class="d-flex gap-1 gap-sm-3 flex-wrap justify-content-center">
+					<a class="btn btn-lg btn-primary" href="#"><i class="bi bi-telephone-fill me-2"></i>Book a call</a>
+					<button class="btn btn-lg btn-light border" type="button">Start Your Journey</button>
+				</div>
+			</div>
+			<!-- Image -->
+			<div class="col-12 mt-6 mt-xl-8">
+				<img src="assets/images/bg/11.jpg" class="rounded" alt="">
+			</div>
+
+		</div>
+		
+		<!-- Card and images -->
+		<div class="row g-4 justify-content-between align-items-center mt-5 mt-md-7 pt-2 d-none">
+			<!-- Image -->
+			<div class="col-md-6 col-lg-3 order-2">
+				<img src="assets/images/about/19.jpg" class="rounded" alt="">
+			</div>
+
+			<!-- Finance card -->
+			<div class="col-md-6 col-lg-5 order-1 order-md-2">
+				<div class="card card-body bg-dark overflow-hidden p-4" data-bs-theme="dark">
+					<!-- Decoration -->
+					<figure class="position-absolute bottom-0 start-0 mb-n7">
+						<svg opacity="0.05" width="235" height="201" viewBox="0 0 235 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0.205078 64.3935C15.4403 56.5767 32.7667 52.1455 51.039 52.1455C112.826 52.1455 182.914 122.233 182.914 184.02C182.914 189.596 182.465 195.123 181.669 200.5H233.812C234.31 195.073 234.559 189.547 234.559 184.02C234.559 82.6509 152.408 0.5 51.039 0.5C33.4139 0.5 16.3365 2.98942 0.205078 7.66953V64.3935Z" fill="#fff"/>
+							</svg>
+					</figure>
+					<!-- name and img -->
+					<div class="d-flex justify-content-between align-items-center mb-4">
+						<h6 class="mb-0 text-primary">Mizzle bank</h6>
+						<img src="assets/images/elements/mastercard.svg" class="w-40px" alt="">
+					</div>
+					<!-- Chip image -->
+					<img src="assets/images/elements/Chip.svg" class="w-50px mb-7" alt="">
+
+					<!-- Account and Valid date -->
+					<div class="d-flex justify-content-between mt-3">
+						<!-- Account number -->
+						<div>
+							<span class="text-light small">Account number</span>
+							<h4 class="mb-0">**** **** **** 7899</h4>
+						</div>
+
+						<!-- Account number -->
+						<div class="text-end">
+							<span class="text-light small">Valid date</span>
+							<h5 class="mb-0">29/05</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Chart image -->
+			<div class="col-md-6 col-lg-3 d-none d-lg-block order-md-3">
+				<img src="assets/images/elements/saas-decoration/24.png" class="rounded shadow" alt="">
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Rating START -->
+<Section class="pb-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-10 mx-auto">
+				<div class="rounded border bg-light p-4 p-lg-5">
+					<div class="row g-4">
+						<!-- Apple rating -->
+						<div class="col-md-4">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<img src="assets/images/elements/apple.svg" class="icon-lg" alt="">
+		
+								<!-- Content -->
+								<div class="ms-2">
+									<!-- Rating -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+									</ul>
+									<span>4.8 stars on apple store</span>
+								</div>
+							</div>
+						</div>
+		
+						<!-- Google rating -->
+						<div class="col-md-4 border-end">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<img src="assets/images/elements/gicon.svg" class="icon-lg" alt="">
+		
+								<!-- Content -->
+								<div class="ms-2">
+									<!-- Rating -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+									</ul>
+									<span>4.8 stars on Google store</span>
+								</div>
+							</div>
+						</div>
+		
+						<div class="col-md-4">
+							<h6>8,000+ satisfied customers</h6>
+							<a class="icon-link icon-link-hover" href="#">See all reviews<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Section>
+<!-- =======================
+Rating END -->
+
+<!-- =======================
+Service START -->
+<Section class="pb-0">
+	<div class="container">
+
+		<!-- Title -->
+		<div class="row mb-4 mb-md-6">
+			<div class="col-md-6">
+				<h2 class="mb-0">Tailored solutions for your financial needs</h2>
+			</div>
+
+			<div class="col-md-4 ms-auto">
+				<p>We offer a comprehensive range of financial services designed to address your specific goals and aspirations. </p>
+
+				<!-- Slider arrow -->
+				<div class="d-flex gap-3 position-relative mt-3">
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-prev-team"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-next-team"><i class="bi bi-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Service box START -->
+		<div class="swiper mt-2 mt-md-4" data-swiper-options='{
+			"spaceBetween": 40,
+			"loop": false,
+			"navigation":{
+				"nextEl":".swiper-button-next-team",
+				"prevEl":".swiper-button-prev-team"
+			},
+			"breakpoints": { 
+				"768": {"slidesPerView": 2},
+				"992": {"slidesPerView": 2},
+				"1200": {"slidesPerView": 3}
+			}}'>
+			
+			<div class="swiper-wrapper">
+				<!-- Service item -->
+				<div class="swiper-slide">
+					<div class="card border p-4">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0 pb-4">
+							<figure class="text-primary">
+								<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C16.567 21.75 20.4006 18.6099 21.4597 14.371C21.6257 13.7068 21.7086 13.3746 21.5327 13.0378C21.4825 12.9418 21.3914 12.8252 21.3104 12.7532C21.0263 12.5009 20.6322 12.5009 19.844 12.5009H13.3C12.5501 12.5009 12.1751 12.5009 11.9122 12.3099C11.8273 12.2482 11.7527 12.1736 11.691 12.0887C11.5 11.8258 11.5 11.4508 11.5 10.7009V4.15582C11.5 3.36765 11.5 2.97356 11.2477 2.68947C11.1758 2.60848 11.0591 2.51736 10.9631 2.4672C10.6263 2.29125 10.2942 2.37418 9.63002 2.54005C5.39056 3.59874 2.25 7.43262 2.25 12Z" fill="currentColor" fill-opacity="0.25"></path>
+									<path d="M12.8 9.4V4.25994C12.8 3.42978 12.8 3.0147 13.0698 2.72637C13.1465 2.64435 13.2702 2.55404 13.3717 2.50592C13.7284 2.33679 14.0733 2.44702 14.7632 2.6675C17.8775 3.66283 20.3372 6.12259 21.3326 9.23688C21.553 9.92672 21.6633 10.2716 21.4941 10.6284C21.446 10.7299 21.3557 10.8536 21.2737 10.9303C20.9853 11.2 20.5703 11.2 19.7401 11.2H14.6C13.8501 11.2 13.4751 11.2 13.2123 11.009C13.1274 10.9473 13.0527 10.8727 12.991 10.7878C12.8 10.5249 12.8 10.1499 12.8 9.4Z" fill="currentColor"></path>
+								</svg>
+							</figure>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Title and desc -->
+							<h5>Financial planning</h5>
+
+							<!-- List -->
+							<ul class="list-group list-group-borderless mb-5">
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Personalized Financial Assessment</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Customized Goal Setting</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Tailored Financial Roadmap</li>
+							</ul>
+						</div>
+
+						<!-- Card footer -->
+						<div class="card-footer bg-transparent p-0">
+							<a class="icon-link icon-link-hover stretched-link" href="#">Know more<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Service item -->
+				<div class="swiper-slide">
+					<div class="card border p-4">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0 pb-4">
+							<figure class="text-primary">
+								<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8 18V15M12 13V18M16 18V11M6.5 11.5L7.9646 9.7913C8.91547 8.68195 10.3837 8.16067 11.8212 8.42204V8.42204C13.812 8.78401 15.8538 8.14622 17.2846 6.71542L17.5 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+									<path d="M13.2 2.25H10.8C7.23775 2.25 5.45663 2.25 4.20802 3.15717C3.80477 3.45015 3.45015 3.80477 3.15717 4.20802C2.25 5.45663 2.25 7.23775 2.25 10.8V13.2C2.25 16.7622 2.25 18.5434 3.15717 19.792C3.45015 20.1952 3.80477 20.5499 4.20802 20.8428C5.45663 21.75 7.23775 21.75 10.8 21.75H13.2C16.7622 21.75 18.5434 21.75 19.792 20.8428C20.1952 20.5499 20.5499 20.1952 20.8428 19.792C21.75 18.5434 21.75 16.7622 21.75 13.2V10.8C21.75 7.23775 21.75 5.45663 20.8428 4.20802C20.5499 3.80477 20.1952 3.45015 19.792 3.15717C18.5434 2.25 16.7622 2.25 13.2 2.25Z" fill="currentColor" fill-opacity="0.25"></path>
+								</svg>
+							</figure>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Title and desc -->
+							<h5>Retirement planning</h5>
+
+							<!-- List -->
+							<ul class="list-group list-group-borderless mb-5">
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Income and Expense Analysis</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Tailored Investment Strategy</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Retirement Goal Setting</li>
+							</ul>
+						</div>
+
+						<!-- Card footer -->
+						<div class="card-footer bg-transparent p-0">
+							<a class="icon-link icon-link-hover stretched-link" href="#">Know more<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Service item -->
+				<div class="swiper-slide">
+					<div class="card border p-4">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0 pb-4">
+							<figure class="text-primary">
+								<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M14.0729 6.64442C16.9491 5.41176 20.8136 4.6875 25.0003 4.6875C29.1871 4.6875 33.0516 5.41176 35.9278 6.64442C37.3631 7.25956 38.6245 8.03216 39.5497 8.96966C40.4816 9.91388 41.1462 11.1087 41.1462 12.5V14.4432C40.5602 14.7678 39.8947 15.082 39.1514 15.3793C35.6079 16.7967 30.6054 17.7083 25.0003 17.7083C19.3953 17.7083 14.3928 16.7967 10.8492 15.3793C10.106 15.082 9.44045 14.7678 8.85449 14.4432V12.5C8.85449 11.1087 9.51905 9.91388 10.4509 8.96966C11.3762 8.03216 12.6375 7.25956 14.0729 6.64442Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M8.85449 17.9286V23.2973C9.44045 23.622 10.106 23.9362 10.8492 24.2335C14.3928 25.6509 19.3953 26.5625 25.0003 26.5625C30.6054 26.5625 35.6079 25.6509 39.1514 24.2335C39.8947 23.9362 40.5602 23.622 41.1462 23.2973V17.9286C40.8741 18.0499 40.5958 18.1673 40.312 18.2808C36.3154 19.8795 30.9012 20.8333 25.0003 20.8333C19.0995 20.8333 13.6853 19.8795 9.68864 18.2808C9.40482 18.1673 9.12658 18.0499 8.85449 17.9286Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M8.85449 32.1515V26.7828C9.12658 26.904 9.40482 27.0214 9.68864 27.135C13.6853 28.7336 19.0995 29.6875 25.0003 29.6875C30.9012 29.6875 36.3154 28.7336 40.312 27.135C40.5958 27.0214 40.8741 26.904 41.1462 26.7828V32.1515C40.5602 32.4762 39.8947 32.7904 39.1514 33.0876C35.6079 34.5051 30.6054 35.4167 25.0003 35.4167C19.3953 35.4167 14.3928 34.5051 10.8492 33.0876C10.106 32.7904 9.44045 32.4762 8.85449 32.1515Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M8.85449 35.6369V37.5C8.85449 38.8913 9.51905 40.0861 10.4509 41.0303C11.3762 41.9678 12.6375 42.7404 14.0729 43.3556C16.9491 44.5882 20.8136 45.3125 25.0003 45.3125C29.1871 45.3125 33.0516 44.5882 35.9278 43.3556C37.3631 42.7404 38.6245 41.9678 39.5497 41.0303C40.4816 40.0861 41.1462 38.8913 41.1462 37.5V35.6369C40.8741 35.7582 40.5958 35.8756 40.312 35.9891C36.3154 37.5878 30.9012 38.5417 25.0003 38.5417C19.0995 38.5417 13.6853 37.5878 9.68864 35.9891C9.40482 35.8756 9.12658 35.7582 8.85449 35.6369Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M14.0729 6.64442C16.9491 5.41176 20.8136 4.6875 25.0003 4.6875C29.1871 4.6875 33.0516 5.41176 35.9278 6.64442C37.3631 7.25956 38.6245 8.03216 39.5497 8.96966C40.4816 9.91388 41.1462 11.1087 41.1462 12.5V14.4432C40.5602 14.7678 39.8947 15.082 39.1514 15.3793C35.6079 16.7967 30.6054 17.7083 25.0003 17.7083C19.3953 17.7083 14.3928 16.7967 10.8492 15.3793C10.106 15.082 9.44045 14.7678 8.85449 14.4432V12.5C8.85449 11.1087 9.51905 9.91388 10.4509 8.96966C11.3762 8.03216 12.6375 7.25956 14.0729 6.64442Z" fill="currentColor"/>
+								</svg>
+							</figure>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Title and desc -->
+							<h5>Tax planning and optimization</h5>
+
+							<!-- List -->
+							<ul class="list-group list-group-borderless mb-5">
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Strategic Tax Planning Strategies</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Tax-Efficient Investment Guidance</li>
+							</ul>
+						</div>
+
+						<!-- Card footer -->
+						<div class="card-footer bg-transparent p-0">
+							<a class="icon-link icon-link-hover stretched-link" href="#">Know more<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Service item -->
+				<div class="swiper-slide">
+					<div class="card border p-4">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0 pb-4">
+							<figure class="text-primary">
+								<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12.5 19.792V36.9795M20.8333 19.792V36.9795M29.1667 19.792V36.9795M37.5 19.792V36.9795" stroke="currentColor" stroke-width="3.125" stroke-linejoin="round"/>
+									<path d="M9.17947 36.9787C8.36251 36.9787 7.95402 36.9787 7.61704 37.1524C7.50671 37.2093 7.40355 37.2792 7.30975 37.3605C7.02325 37.6088 6.87154 37.9881 6.56813 38.7466L5.4848 41.455C4.86852 42.9956 4.56039 43.766 4.8107 44.358C4.8901 44.5458 5.00551 44.7162 5.15039 44.8597C5.6071 45.312 6.43678 45.312 8.09614 45.312H41.9036C43.5629 45.312 44.3926 45.312 44.8493 44.8597C44.9942 44.7162 45.1096 44.5458 45.189 44.358C45.4393 43.766 45.1312 42.9956 44.5149 41.455L43.4316 38.7466C43.1281 37.9881 42.9764 37.6088 42.6899 37.3605C42.5961 37.2792 42.493 37.2093 42.3827 37.1524C42.0457 36.9787 41.6372 36.9787 40.8202 36.9787H9.17947Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M26.4469 4.77471C25.822 4.39977 25.5095 4.2123 25.1684 4.17528C25.0564 4.16313 24.9433 4.16313 24.8313 4.17528C24.4902 4.2123 24.1777 4.39977 23.5528 4.77471L7.23239 14.567C4.14084 16.4219 2.59506 17.3494 2.60409 18.2444C2.60684 18.5169 2.6808 18.7839 2.81863 19.019C3.2714 19.7912 5.07406 19.7912 8.6794 19.7912H41.3203C44.9256 19.7912 46.7283 19.7912 47.1811 19.019C47.3189 18.7839 47.3929 18.5169 47.3956 18.2444C47.4046 17.3494 45.8589 16.4219 42.7673 14.567L26.4469 4.77471Z" fill="currentColor" fill-opacity="0.18"/>
+								</svg>
+							</figure>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Title and desc -->
+							<h5>Estate planning</h5>
+
+							<!-- List -->
+							<ul class="list-group list-group-borderless mb-5">
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Wills and Trusts</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Asset Protection Strategies</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Succession Planning</li>
+							</ul>
+						</div>
+
+						<!-- Card footer -->
+						<div class="card-footer bg-transparent p-0">
+							<a class="icon-link icon-link-hover stretched-link" href="#">Know more<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Service item -->
+				<div class="swiper-slide">
+					<div class="card border p-4">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0 pb-4">
+							<figure class="text-primary">
+								<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M25 45.3127C36.2183 45.3127 45.3125 36.2185 45.3125 25.0002C45.3125 13.782 36.2183 4.68774 25 4.68774C13.7817 4.68774 4.6875 13.782 4.6875 25.0002C4.6875 36.2185 13.7817 45.3127 25 45.3127Z" fill="currentColor" fill-opacity="0.18"/>
+									<path d="M30.2087 20.8337V20.8337C30.2087 18.5325 28.3432 16.667 26.042 16.667H25.0003M25.0003 16.667H23.9587C21.6575 16.667 19.792 18.5325 19.792 20.8337V20.8337C19.792 23.1348 21.6575 25.0003 23.9587 25.0003H25.0003M25.0003 16.667V13.542M25.0003 16.667V25.0003M25.0003 25.0003H26.042C28.3432 25.0003 30.2087 26.8658 30.2087 29.167V29.167C30.2087 31.4682 28.3432 33.3337 26.042 33.3337H25.0003M25.0003 25.0003V33.3337M25.0003 33.3337H23.9587C21.6575 33.3337 19.792 31.4682 19.792 29.167V29.167M25.0003 33.3337V36.4587" stroke="currentColor" stroke-width="3.125" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</figure>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Title and desc -->
+							<h5>Management and insurance</h5>
+
+							<!-- List -->
+							<ul class="list-group list-group-borderless mb-5">
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Risk Assessment and Analysis</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Customized Insurance</li>
+								<li class="list-group-item pb-0 d-flex mb-0"><i class="bi bi-patch-check me-2"></i>Claims Management Support</li>
+							</ul>
+						</div>
+
+						<!-- Card footer -->
+						<div class="card-footer bg-transparent p-0">
+							<a class="icon-link icon-link-hover stretched-link" href="#">Know more<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Service box END -->
+	</div>
+</Section>
+<!-- =======================
+Service END -->
+
+<!-- =======================
+About START -->
+<Section class="pb-0">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Image and decoration -->
+			<div class="col-lg-6 col-xl-5">
+				<div class="position-relative mb-5 mb-lg-0">
+					<!-- Image -->
+					<img src="assets/images/about/19.jpg" class="rounded" alt="">
+
+					<!-- Decoration -->
+					<div class="bg-body rounded-pill d-flex align-items-center gap-3 position-absolute top-0 start-0 p-2 m-4">
+						<!-- Avatar -->
+						<div class="avatar flex-shrink-0">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar">
+						</div>
+						<!-- Text -->
+						<div class="me-3">
+							<h6 class="mb-0">Dennis Barrett</h6>
+							<p class="mb-0 small">Ceo and manager of Blogzine</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Content -->
+			<div class="col-lg-6 ms-auto">
+				<h2 class="mb-4">Empowering financial futures together</h2>
+				<p class="mb-4"> With a commitment to integrity, expertise, and personalized service, we strive to build lasting relationships based on trust and mutual success.</p>
+				<a href="about-v1.html" class="btn btn-dark mb-0">Know more about us</a>
+				<!-- Divider -->
+				<hr class="my-5 my-xl-7">
+
+				<!-- Counter -->
+				<div class="d-flex flex-wrap gap-4 gap-xl-7">
+					<div>
+						<h3 class="mb-0">99<span class="text-primary">%</span></h3>
+						<p>Client satisfaction</p>
+					</div>
+
+					<div>
+						<h3 class="mb-0">1.5<span class="text-primary">x</span></h3>
+						<p>Company growth</p>
+					</div>
+
+					<div>
+						<h3 class="mb-0">120<span class="text-primary">+</span></h3>
+						<p>Weekly new users</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</Section>
+<!-- =======================
+About END -->
+
+<!-- =======================
+Why us START -->
+<Section class="pb-0">
+	<div class="container">
+		<div class="bg-light rounded position-relative p-4 p-sm-7 overflow-hidden">
+			<!-- Decoration -->
+			<figure class="position-absolute top-100 start-100 translate-middle mt-n8 ms-n5">
+				<svg class="text-primary opacity-2" width="510" height="500" viewBox="0 0 510 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M309.5 317.5C309.5 377.619 259.646 426.375 198.125 426.375C136.604 426.375 86.75 377.619 86.75 317.5C86.75 257.381 136.604 208.625 198.125 208.625C259.646 208.625 309.5 257.381 309.5 317.5Z" stroke="currentColor"/>
+					<path d="M380.125 300C380.125 391.185 304.389 465.125 210.938 465.125C117.486 465.125 41.75 391.185 41.75 300C41.75 208.815 117.486 134.875 210.938 134.875C304.389 134.875 380.125 208.815 380.125 300Z" stroke="currentColor"/>
+					<path d="M508.875 250C508.875 387.786 395.08 499.5 254.688 499.5C114.295 499.5 0.5 387.786 0.5 250C0.5 112.214 114.295 0.5 254.688 0.5C395.08 0.5 508.875 112.214 508.875 250Z" stroke="currentColor"/>
+				</svg>
+			</figure>
+
+			<div class="row position-relative">
+				<!-- Feature list -->
+				<div class="col-lg-6 h-100 order-2">
+					<!-- Features -->
+					<div class="row g-4 g-lg-6">
+						<!-- Item -->
+						<div class="col-sm-6">
+							<!-- Icon -->
+							<div class="icon-lg bg-body heading-color border rounded-circle mb-3">
+								<i class="bi bi-rocket-takeoff fa-lg"></i>
+							</div>
+							<h6>Personalized approach</h6>
+							<p class="mb-0">Receive tailored financial solutions your needs and goals.</p>
+						</div>
+			
+						<!-- Item -->
+						<div class="col-sm-6">
+							<!-- Icon -->
+							<div class="icon-lg bg-body heading-color border rounded-circle mb-3">
+								<i class="bi bi-gem fa-lg"></i>
+							</div>
+							<h6>Expert guidance</h6>
+							<p class="mb-0">Benefit from the expertise of seasoned a deep understanding.</p>
+						</div>
+			
+						<!-- Item -->
+						<div class="col-sm-6">
+							<!-- Icon -->
+							<div class="icon-lg bg-body heading-color border rounded-circle mb-3">
+								<i class="bi bi-cup-straw fa-lg"></i>
+							</div>
+							<h6>Client-centric focus</h6>
+							<p class="mb-0">Enjoy exceptional service focused long-term relationships.</p>
+						</div>
+			
+						<!-- Item -->
+						<div class="col-sm-6">
+							<!-- Icon -->
+							<div class="icon-lg bg-body heading-color border rounded-circle mb-3">
+								<i class="bi bi-bug fa-lg"></i>
+							</div>
+							<h6>Comprehensive solutions</h6>
+							<p class="mb-0">Access a wide range of services under one investment </p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Content -->
+				<div class="col-lg-5 ms-auto order-1 order-lg-2 mb-6 mb-lg-0">
+					<div class="h-100 d-flex flex-column">
+						<h2 class="mb-4">Choose us for your financial journey</h2>
+						<!-- Button -->
+						<div class="mt-auto">
+							<a class="btn btn-primary" href="https://www.youtube.com/embed/tXHviS-4ygo" data-glightbox="" data-gallery="course-video"><i class="bi bi-play-fill fa-xl me-2"></i>Watch demo video</a>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</Section>
+<!-- =======================
+Why us END -->
+
+<!-- =======================
+Growth & client START -->
+<Section>
+	<div class="inner-container mx-auto text-center">
+		<span class="fs-1 fw-semibold text-primary">$3,058,886</span>
+		<h4 class="my-4 fw-semibold">Witness your business flourish and sparkle</h4>
+		<p class="w-75 mx-auto mb-4">With our expert guidance and support, you can watch your business bloom and glow, achieving new heights of success and radiating prosperity.</p>
+		<a class="btn btn-lg btn-dark icon-link icon-link-hover" href="#">Calculate growth<i class="bi bi-arrow-right"></i> </a>
+
+		<!-- Clients -->
+		<div class="position-relative my-6 w-75 mx-auto">
+			<hr>
+			<p class="position-absolute heading-color fw-semibold top-50 start-50 translate-middle bg-body px-4">Our Investors</p>
+		</div>
+
+
+		<!-- Slider START -->
+		<div class="swiper" data-swiper-options='{
+			"slidesPerView": 2, 
+			"spaceBetween": 50,
+			"breakpoints": { 
+				"576": {"slidesPerView": 4}, 
+				"992": {"slidesPerView": 4}, 
+				"1200": {"slidesPerView": 5}
+			}}'>
+
+			<!-- Slider items -->
+			<div class="swiper-wrapper align-items-center">
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/01.svg" class="grayscale" alt="client-img">
+				</div>
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/02.svg" class="grayscale" alt="client-img">
+				</div>
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/03.svg" class="grayscale" alt="client-img">
+				</div>
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/04.svg" class="grayscale" alt="client-img">
+				</div>
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/05.svg" class="grayscale" alt="client-img">
+				</div>
+				<!-- Image -->
+				<div class="swiper-slide">
+					<img src="assets/images/client/01.svg" class="grayscale" alt="client-img">
+				</div>
+			</div>
+		</div>
+		<!-- Slider END -->
+	</div>
+</Section>
+<!-- =======================
+Growth & client END -->
+
+<!-- =======================
+Newsletter START -->
+<section class="position-relative z-index-2 pt-0">
+	<div class="container position-relative">
+
+		<div class="bg-dark rounded position-relative overflow-hidden p-4 p-sm-6" data-bs-theme="dark">
+			<!-- Decoration -->
+			<figure class="position-absolute top-0 start-0 mt-n5 ms-n5">
+				<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g opacity="0.5">
+					<circle cx="70" cy="70" r="70" fill="url(#paint0_linear_266_284)"></circle>
+					<circle cx="70" cy="70" r="70" fill="url(#paint1_linear_266_284)"></circle>
+					</g>
+					<defs>
+					<linearGradient id="paint0_linear_266_284" x1="28.5" y1="22" x2="124" y2="123" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="white" stop-opacity="0.6"></stop>
+					<stop offset="1" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+					<linearGradient id="paint1_linear_266_284" x1="28.5" y1="22" x2="124" y2="123" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="white" stop-opacity="0.6"></stop>
+					<stop offset="1" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+					</defs>
+					</svg>
+					
+			</figure>
+
+			<!-- Decoration -->
+			<figure class="position-absolute top-0 start-100 translate-middle opacity-5 mt-7 ms-n5">
+				<svg width="290" height="290" viewBox="0 0 290 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle opacity="0.5" cx="145.313" cy="145.313" r="144.5" transform="rotate(39.2153 145.313 145.313)" fill="url(#paint0_linear_266_283)"></circle>
+					<defs>
+					<linearGradient id="paint0_linear_266_283" x1="59.6452" y1="46.2275" x2="256.785" y2="254.72" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="white" stop-opacity="0.6"></stop>
+					<stop offset="1" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+					</defs>
+				</svg>
+			</figure>
+
+			<div class="row align-items-center position-relative">
+				<!-- Title and content -->
+				<div class="col-md-6 col-xl-7 mb-4 mb-xl-0">
+					<h2>Never miss a beat with our insights</h2>
+					<p class="mb-0">Join the Mizzle revolution today and be part of the millions who've already embraced a brighter future!</p>
+				</div>
+	
+				<!-- Input -->
+				<form class="col-md-6 col-xl-4 ms-xl-auto">
+					<input class="form-control form-control-lg mb-3" type="email" placeholder="Enter your email address">
+					<a href="#" class="btn btn-primary mb-0 d-grid">Subscribe now!</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Newsletter END -->
+
+<!-- =======================
+Contact form START -->
+<section class="pt-0">
+	<div class="container">
+
+		<!-- Title -->
+		<div class="inner-container-small mx-auto">
+			<div class="text-center mb-6">
+				<h2 class="mb-">We've been waiting for you</h2>
+				<p class="mb-0">You can watch your business bloom and glow, achieving new heights of success and radiating prosperity.</p>
+			</div>
+		</div>	
+
+		<!-- Form and pricing -->
+		<div class="row">
+			<div class="col-lg-8 mx-auto">
+				<!-- Contact form START -->
+				<form class="row g-4">
+					<div class="col-md-6">
+						<label class="form-label heading-color">Your name *</label>
+						<input type="text" class="form-control form-control-lg" placeholder="Full name">
+					</div>
+		
+					<div class="col-md-6">
+						<label class="form-label heading-color">Email address *</label>
+						<input type="email" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com">
+					</div>
+		
+					<div class="col-md-6">
+						<label class="form-label heading-color">Phone number *</label>
+						<input type="text" class="form-control form-control-lg" placeholder="(xxx) xx xxxx">
+					</div>
+		
+					<div class="col-md-6">
+						<label class="form-label heading-color">Company *</label>
+						<input type="text" class="form-control form-control-lg" placeholder="Company name">
+					</div>
+		
+					<div class="col-12">
+						<label class="form-label heading-color">Message *</label>
+						<textarea class="form-control" placeholder="Write your message here...." id="floatingTextarea2" style="height: 150px"></textarea>
+					</div>
+					<!-- Button -->
+					<div class="col-12 d-grid">
+						<button class="btn btn-lg btn-primary mb-0">Send a message</button>
+					</div>
+				</form>
+				<!-- Contact form END -->
+
+				<!-- Pricing START -->
+				<div class="bg-light border rounded py-4 px-5 mt-6">
+					<div class="row align-items-center">
+						<div class="col-md-7 text-center text-md-start">
+							<h5>Need finance guidance?</h5>
+							<p class="mb-3 mb-md-0">We've always worked very hard to give our customers the best experience.</p>
+						</div>
+
+						<div class="col-md-4 ms-auto text-end">
+							<div class="mb-2 text-center"> <span class="heading-color fs-3 fw-bold">$20</span> /per hour</div>
+							<a href="#" class="btn btn-white border mb-0 w-100">Book call!</a>
+						</div>
+					</div>
+				</div>
+				<!-- Pricing END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Contact form START -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark position-relative overflow-hidden pt-6" data-bs-theme="dark">
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 start-0 mt-n8 ms-n9">
+		<svg class="fill-mode" width="775px" height="834px" viewBox="0 0 775 834" style="enable-background:new 0 0 775 834; opacity: 0.05;" xml:space="preserve">
+			<path d="M486.1,564.4c-3.6,2.5-7.4,4.8-11.3,6.4c-12,5.5-25.7,7.9-42.2,7.4c-30.6-1.1-65.6-12.5-102.8-24.4 c-50.7-16.2-103.3-33.4-152.5-27c-56.1,7.2-97.9,44.4-128,114l-0.4-0.2c67.5-156.1,181-119.5,281.1-87.1c37,12,72,23.2,102.5,24.3 c34.3,1.2,58.1-10.7,74.9-37.4C530.1,505,547.1,466,565,425.1C619.4,301,675.6,172.7,892.1,141.3l0.1,0.4 c-216.2,31.4-272.5,159.5-326.8,283.5c-18.1,41.1-35,79.7-57.7,115.6C501.6,550.7,494.5,558.5,486.1,564.4z"></path>
+			<path d="M500.9,551.4c-43.7,31-103,15.8-165.5-0.2c-49.9-12.7-101.5-25.8-148.7-16.7c-53.3,10.5-93.2,49-121.6,118 l-0.5-0.1c15.3-37.1,33.3-64.7,55.1-84.7c19.5-17.7,41.3-28.6,66.7-33.7c47.4-9.2,99,3.9,148.9,16.6 c70.4,17.9,137.1,34.9,181.3-14.4c35.7-39.9,57.3-91.7,80.2-146.7c23.8-56.7,48.2-115.5,90.2-163.6c22.7-25.9,48.4-46.4,78.4-62.4 c33.9-18.1,72.2-30.3,117.1-37.1l0.1,0.4C695,155.3,645.2,274.5,597.1,389.7c-22.9,55-44.5,106.8-80.4,146.8 C512.3,542.4,506.6,547.3,500.9,551.4z"></path>
+			<path d="M521.3,536.4c-21.9,15.5-48.4,23.4-80.8,23.8c-31.2,0.5-65.1-5.8-97.9-11.9c-49.3-9.2-100.2-18.7-145.7-6.5 c-51.1,13.7-88.9,53.7-116,122.6l-0.6-0.2c60.5-154.1,163.3-135,262.6-116.5c68.1,12.7,132.6,24.6,183.6-15.8 c48.1-38.2,71.1-100.6,95.6-166.5c20.3-55,41.4-111.6,78.3-158.1c20-25.1,42.7-44.9,69.2-60.5c30.1-17.5,64.2-29.1,104.3-35.4 l0.2,0.6c-167.2,26.3-210,141.9-251.4,253.5C598.3,431.5,575,493.8,527,532.2C525.1,533.8,523.2,535.1,521.3,536.4z"></path>
+			<path d="M548.9,520.3c-4,2.9-8.2,5.6-12.6,8c-56.6,31.5-120.9,23.8-183,16.6c-51.7-6-100.4-11.8-144.6,3.2 c-49.9,16.9-85.5,57.7-111.3,128.2l-0.6-0.2c13.7-37.3,30.1-66,49.9-87.8c17.8-19.4,37.9-32.8,61.8-40.9 c44.3-15,93.1-9.3,144.9-3.2c62.1,7.2,126.3,14.8,182.8-16.6c59.6-33.2,82-104.7,105.9-180.4c17.1-54.3,34.7-110.5,67.2-156.6 c36.7-52,87.8-82.8,155.7-94l0.2,0.6c-151.9,25-187.8,139.3-222.3,250C620.4,417.6,599.4,484.5,548.9,520.3z"></path>
+			<path d="M573.5,509.5c-8.2,5.8-17.4,10.7-27.7,14.6c-59.3,22-119.1,18.8-176.8,15.8c-53.2-2.8-103.3-5.3-147.1,12.5 C172.6,572.3,138.1,615.5,113,688l-0.5-0.1c25.1-72.7,59.6-115.9,108.9-136c44-18,94.2-15.3,147.6-12.6 c57.7,3,117.4,6.1,176.6-15.9c70.7-26.2,91.1-106.3,112.8-191.4c13.9-54.5,28.3-111,56.7-156.9C747,123.2,793,92.6,855.6,82l0,0.7 C716.3,106.5,687,221.4,658.9,332.2C640.4,405,622.6,474.4,573.5,509.5z"></path>
+			<path d="M595.2,502.3c-11.3,8-24.6,14-40,17.4c-56.8,12.7-112,12.7-160.5,12.9c-60.2,0.1-112,0.2-157,21.1 c-49.5,23-84,69.3-108.5,146l-0.6-0.2c24.3-76.7,58.9-123.1,108.6-146.3c45.1-21.1,97.2-21.1,157.4-21.2 c48.6,0,103.6-0.1,160.5-12.9c81.6-18.3,99-106.7,117.4-200.6c10.7-55,22-112,46.6-158.2C747,108,788.6,77.5,846.5,67.2l0.1,0.8 C718,91.2,695.2,206.9,673.2,318.9C658.3,394.9,643.8,467.8,595.2,502.3z"></path>
+			<path d="M615.3,497.4c-13.7,9.7-30.2,16-50.8,18c-44.4,4.6-86.5,5.8-123.6,6.8c-71.2,2-132.8,3.7-182,27.7 C206,575.6,169.8,627,145,711.3l-0.8-0.1c13-44.6,29-79.3,48.6-106.3c18.1-24.9,39.5-43.1,65.6-55.7 c49.5-24.1,110.9-25.8,182.4-27.7c37.1-1,79.3-2.2,123.5-6.7c92.6-9.4,106.2-106.5,120.5-209.2c7.8-55.9,15.9-113.6,37-160 c23.8-52.7,61.6-83.1,115.3-93.4l0.3,0.7c-53.4,10.1-91,40.4-114.6,92.9c-21.1,46.4-29.2,104.1-36.8,159.9 C674.6,386,663.8,463,615.3,497.4z"></path>
+			<path d="M634.4,494c-15.5,11-35.2,17.2-60.4,17.3c-12.3,0.1-24.5,0.1-36.1,0.1c-103.7,0-185.5-0.1-246.4,26.4 c-63.5,27.7-103.7,85-130.5,185.5l-0.8-0.1c13.9-52.5,31.3-92.6,53.2-122.9c20.7-28.8,46.2-49.4,77.8-63.2 c61-26.6,142.9-26.4,246.6-26.4c11.7,0.1,23.8,0,36.1-0.1c103.8-0.2,112.9-105.6,122.5-217.2c4.7-56.9,9.9-115.5,27.5-162.4 c20-53.1,54.1-83.7,104.1-93.7l0.1,0.8c-49.5,9.8-83.5,40.3-103.3,93.1c-17.6,46.9-22.7,105.4-27.6,162 C690.1,378.2,682.9,459.6,634.4,494z"></path>
+			<path d="M652.7,491.8c-17.9,12.7-40.7,17.7-69.2,15.4C328,486.2,228.3,517.5,177.2,735.2l-0.9-0.3 c25.9-110.7,64-171.6,127-204c66.6-34.2,160.2-34.6,280.3-24.7c32.2,2.6,56.9-4.1,75.4-20.5c42.1-37.4,45.1-118.6,48-204.7 c4-116.5,8.1-236.8,112.1-258.6l0.1,0.8C715.9,44.8,711.8,164.8,707.8,280.9c-3.1,86.3-5.8,167.7-48.3,205.2 C657.3,488.3,655,490.1,652.7,491.8z"></path>
+			<path d="M670.6,490.3c-19.3,13.7-44.8,17.9-77.7,12.7c-138.5-21.4-227.1-13-287.3,27 c-55.4,36.8-89.1,101.7-112.4,216.9l-0.9-0.3C215.8,631,249.6,566,305.1,528.9c60.3-40.1,149.1-48.6,288.1-27.3 c35.9,5.5,63,0,82.6-16.9c43.2-37.5,42.2-124.3,40.9-216.1C714.9,151,713,28.8,809.9,7.7l0.1,0.8c-96,21.1-94.3,142.7-92.7,260.6 c1.3,92.1,2.4,179-41.1,216.7C674.3,487.4,672.6,488.9,670.6,490.3z"></path>
+		</svg>
+	</figure>
+
+	<!-- SVG decoration -->
+	<div class="position-absolute top-0 end-0 mt-n3 me-n4">
+		<img src="assets/images/elements/decoration-pattern-2.svg" style="opacity:0.05;" alt="">
+	</div>
+
+	<div class="container position-relative mt-5">
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-3">
+				<!-- logo -->
+				<a class="me-0" href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-8 col-xxl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms &amp; condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-4">
+						<h6 class="mb-2 mb-md-4">App available on</h6>
+						<div class="row g-2 mt-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<!-- Language selector -->
+			<div class="dropdown dropup text-center text-md-end mt-3 mt-md-0">
+				<a class="dropdown-toggle btn btn-sm btn-light mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-globe me-2"></i>Language
+				</a>
+				<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

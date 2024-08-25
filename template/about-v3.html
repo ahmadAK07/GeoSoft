@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-7 pt-md-8 pt-xl-9">
+	<div class="container pt-5 pt-md-0">
+		<div class="row">
+			<!-- Hero left START -->
+			<div class="col-lg-6 col-xl-5 mb-6 mb-lg-0">
+				<div class="d-flex flex-column h-100">
+					<h1 class="mb-4">Exploring the Heart of <span class="text-primary">Mizzle </span></h1>
+					<p class="mb-5 mb-xl-0">We transform ideas into solutions that exceed your expectations. Dive into our story to understand how.</p>
+
+					<!-- Quote and location -->
+					<div class="mt-auto">
+						<ul class="list-inline mb-3">
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+							<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+						</ul>
+						<q class="h6 fw-semibold mb-0">Using the Mizzle theme has been a seamless journey from beginning to end!</q>
+						<p class="mb-0 mt-3 text-body-secondary"><span class="heading-color fw-normal">Dennis Barrett</span> CEO of company</p>
+
+						<!-- Location -->
+						<div class="row row-cols-sm-2 mt-3">
+							<div class="cols">
+								<hr class="mb-4">
+								<!-- Icon -->
+								<figure class="text-primary mb-2">
+									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2.47802 7.91504C2.25 8.79835 2.25 9.94603 2.25 11.9996C2.25 14.3272 2.25 15.491 2.582 16.4252C3.16141 18.0555 4.44414 19.3382 6.07444 19.9176C7.0086 20.2496 8.1724 20.2496 10.5 20.2496H13.5C15.8276 20.2496 16.9914 20.2496 17.9256 19.9176C19.5559 19.3382 20.8386 18.0555 21.418 16.4252C21.75 15.491 21.75 14.3272 21.75 11.9996C21.75 9.94605 21.75 8.79838 21.522 7.91506L17.754 10.6916C16.6402 11.5123 15.7625 12.1591 15.002 12.6175C14.2228 13.087 13.5145 13.3922 12.7288 13.4926C12.2452 13.5543 11.7557 13.5543 11.2721 13.4926C10.4864 13.3923 9.77801 13.0871 8.99883 12.6176C8.23833 12.1593 7.36057 11.5125 6.24672 10.6918L2.47802 7.91504Z" fill="currentColor" fill-opacity="0.25"/>
+										<path d="M3.09186 6.50448L7.10646 9.46247C8.25692 10.3101 9.07916 10.915 9.77305 11.3332C10.4551 11.7442 10.9602 11.941 11.4621 12.005C11.8195 12.0507 12.1813 12.0507 12.5387 12.005C13.0406 11.9409 13.5457 11.7441 14.2277 11.3331C14.9216 10.9149 15.7438 10.31 16.8942 9.46225L20.9082 6.50449C20.2273 5.38896 19.1792 4.52754 17.9256 4.082C16.9914 3.75 15.8276 3.75 13.5 3.75L10.5 3.75C8.17241 3.75 7.00861 3.75 6.07445 4.082C4.82082 4.52754 3.7727 5.38895 3.09186 6.50448Z" fill="currentColor"/>
+									</svg>
+								</figure>
+								<p class="heading-color mb-0">1421 Coburn Hollow Road Metamora, IL 61548.</p>
+							</div>
+
+							<div class="cols">
+								<hr class="mb-4">
+								<!-- Icon -->
+								<figure class="text-primary mb-2">
+									<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M13.5573 21.3204C14.2451 20.8085 15.174 20.072 16.1369 19.1733C18.0303 17.4062 20.1864 14.8931 20.7356 12.1471C21.8463 6.59263 17.3472 2.25 12.0001 2.25C6.65311 2.25 2.15361 6.5926 3.26469 12.1471C3.81397 14.8931 5.97011 17.4062 7.86344 19.1733C8.8263 20.072 9.75517 20.8085 10.443 21.3204C10.4887 21.3544 10.3745 21.2694 10.3908 21.2812C11.275 21.9193 12.7253 21.9193 13.6095 21.2812C13.6258 21.2694 13.5116 21.3544 13.5573 21.3204Z" fill="currentColor" fill-opacity="0.25"/>
+										<path d="M15.5 11.1504C15.5 13.0834 13.933 14.6504 12 14.6504C10.067 14.6504 8.5 13.0834 8.5 11.1504C8.5 9.21739 10.067 7.65039 12 7.65039C13.933 7.65039 15.5 9.21739 15.5 11.1504Z" fill="currentColor"/>
+									</svg>
+								</figure>
+								<a href="#" class="heading-color text-primary-hover text-decoration-underline mb-0">example@gmail.com</a>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<!-- Hero left END -->
+
+			<!-- Image START -->
+			<div class="col-lg-6 col-xl-6 ms-auto h-100">
+				<div class="row align-items-center">
+					<div class="col-6 me-sm-n7">
+						<div class="position-relative">
+							<!-- SVG decoration -->
+							<figure class="text-primary position-absolute top-0 start-0 mt-n5 ms-n5">
+								<svg width="111" height="71" viewBox="0 0 111 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M92.4335 8.12935C92.4029 8.01892 92.3733 7.90798 92.3427 7.79755C90.075 8.424 87.8078 9.04993 85.5395 9.67638C85.5762 9.80665 85.6125 9.93744 85.6482 10.0687C87.9103 9.42244 90.1719 8.77564 92.4335 8.12935M15.3001 60.9486C14.1257 60.2652 12.7044 59.8799 13.0538 58.1808C13.2768 57.1004 13.4645 55.963 13.9574 54.9982C15.4792 52.0166 16.8904 48.9301 18.8086 46.2106C21.3559 42.6001 24.9726 40.2261 29.5203 40.048C33.8593 39.8775 38.2167 40.1039 42.5649 40.2144C48.5375 40.3655 54.5352 40.8866 60.0899 37.8445C63.654 35.8924 66.6809 33.5194 68.5935 29.7735C70.7557 25.5375 73.0407 21.3412 75.6013 17.3367C79.1705 11.7552 84.2074 8.11866 90.9418 7.16806C91.6239 7.07188 92.4901 6.78384 92.9687 7.07646C93.7773 7.57161 94.4518 8.39448 94.9538 9.21888C95.1293 9.50641 94.7742 10.4463 94.4079 10.6631C93.6243 11.1277 92.6524 11.2626 91.8014 11.6326C91.1259 11.9257 90.5147 12.3669 89.877 12.7455C89.7592 12.8152 89.6398 12.9755 89.5357 12.9643C87.2639 12.7104 86.2364 14.6976 84.6605 15.6747C81.0188 17.9336 78.8394 21.4399 76.8645 25.0851C74.9993 28.5277 73.2244 32.0192 71.3235 35.4415C70.7817 36.4175 70.0588 37.3656 69.2134 38.0893C66.7595 40.192 64.2479 42.0591 61.1179 43.3451C55.0484 45.8386 48.9523 45.1313 42.7613 44.7669C38.9274 44.541 35.047 44.3303 31.237 44.6702C26.401 45.1013 23.0507 48.1505 20.3718 52.0247C19.6667 53.044 18.5959 53.8104 17.8827 54.8251C17.4102 55.4979 17.3128 56.4225 16.9817 57.2067C16.4649 58.4342 15.893 59.6382 15.3001 60.9486" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M14.2538 29.9021C14.3216 30.0239 14.3899 30.1462 14.4571 30.268C15.6065 29.6346 16.7563 29.0011 17.9061 28.3677C17.8297 28.2296 17.7532 28.0915 17.6768 27.9534C16.5361 28.6031 15.3944 29.2524 14.2538 29.9021M47.9832 29.8797C48.0133 29.9918 48.0434 30.104 48.0734 30.2161C49.474 29.8369 50.8741 29.4583 52.2747 29.0791C52.2446 28.9685 52.2151 28.8585 52.1855 28.7479C50.7849 29.1255 49.3843 29.5026 47.9832 29.8797M78.1082 0.896364C77.8503 1.11448 77.5924 1.3331 77.1938 1.67047H78.4716C79.3809 3.33742 78.806 4.55693 77.5613 5.62916C76.4767 6.56329 75.4727 7.62736 73.8672 7.57691C73.7015 7.57182 73.4253 7.63959 73.3794 7.74916C72.7693 9.19953 71.7005 9.13888 70.5461 8.61755C70.4794 9.30502 70.567 10.0047 70.3163 10.549C70.0466 11.135 69.4773 11.5927 69.0089 12.0773C66.299 14.8792 65.2419 18.5041 63.8831 22.0164C62.6334 25.2458 60.8913 28.2352 57.7925 30.1248C57.3873 30.3715 56.8608 30.4199 56.0912 30.6492C55.5917 31.4651 54.8552 32.4747 53.2701 32.624C52.3481 32.7111 51.499 33.5168 50.5734 33.6264C48.025 33.9276 45.4246 34.3501 42.8992 34.1223C40.5572 33.9108 38.226 33.0811 35.9956 32.2423C31.1445 30.4184 26.1848 30.1396 21.2114 31.2292C18.4494 31.8346 15.8888 33.1515 14.0091 35.4768C13.4403 36.1806 12.6636 36.7121 12.0117 37.3527C8.83693 40.4716 6.33646 44.0577 4.58266 48.1545C4.04189 49.4189 3.5266 50.6945 2.98788 51.9603C2.73355 52.5556 2.44456 52.8511 1.73509 52.3731C-0.0110662 51.1964 -0.275079 50.4269 0.224405 48.2605C2.22897 39.5619 7.51075 33.2325 14.6865 28.3137C17.8659 26.134 21.5952 25.6897 25.3133 25.7931C27.8214 25.8634 30.3433 26.341 32.805 26.8817C35.1006 27.3857 37.3126 28.2561 39.5822 28.8895C42.3406 29.6591 45.0939 29.1474 47.8303 28.6847C54.7329 27.5171 59.004 23.4193 61.1095 16.8331C63.4438 9.52976 68.1343 4.24607 75.0894 1.02173C75.9513 0.6227 76.9772 0.579383 77.9273 0.37146C77.9879 0.546258 78.0481 0.721056 78.1082 0.896364" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M90.5433 31.653C90.0089 32.2353 89.4658 32.81 88.9435 33.4024C88.7191 33.6568 88.3095 34.1157 88.3694 34.1961C89.1835 35.2898 88.3278 36.2024 87.7359 36.6203C86.2178 37.6933 86.7147 39.2165 86.5046 40.5702C86.3792 41.3751 85.3706 42.6368 84.6306 42.7754C84.5702 42.4081 84.5113 42.0494 84.4529 41.6908C84.1281 41.8496 83.7459 41.9467 83.4911 42.181C83.0525 42.5846 82.6927 43.0738 82.1826 43.6617C82.714 43.7654 83.0769 43.8362 83.4586 43.9101C83.5322 44.3719 83.6033 44.8166 83.6738 45.2562C82.2856 45.7677 80.8872 46.0135 79.8238 47.2018C79.2457 47.8484 78.4453 48.1509 78.9026 49.2183C78.9417 49.3088 78.3889 49.8193 78.2991 49.7727C76.1353 48.6517 74.9592 50.6489 74.3009 51.6946C73.7578 52.5561 73.1244 53.018 72.4249 53.3468C71.8884 53.5987 71.0758 53.2552 70.3834 53.1986C70.2109 53.1844 70.0317 53.2547 69.7647 53.3018C69.7962 53.713 69.8246 54.0854 69.8515 54.4486C68.612 54.9742 68.612 54.9742 65.7985 54.1957C65.5488 55.7457 64.287 56.2678 62.6536 55.4244C62.5612 55.733 62.4739 56.0264 62.4617 56.0669C60.773 56.03 59.0072 54.3363 57.554 56.8182C56.2754 55.4118 54.9491 56.0153 53.4984 56.7514C52.8183 57.0959 51.8986 57.0423 51.0869 57.0478C47.7725 57.0701 44.5133 57.2906 41.2892 58.2498C39.7096 58.7198 38.3712 59.6769 36.8814 60.1114C33.6639 61.0504 32.1879 63.896 29.9322 65.8573C28.8739 66.7775 28.3349 68.284 27.5354 69.5087C27.0476 70.2554 26.838 71.4341 25.4224 70.7355C24.3265 70.1952 23.9134 69.5037 24.4209 68.1767C26.7796 62.0126 30.5941 57.2239 36.8809 54.528C41.6146 52.4994 46.5467 52.4731 51.5194 52.3386C54.7334 52.2516 57.9428 52.0254 61.1562 51.8818C61.6531 51.86 62.5003 51.4098 62.2749 52.5839L62.2805 52.5612L61.6592 52.7964C61.6542 52.8687 61.6496 52.9411 61.6445 53.0134C61.9557 53.0417 62.2739 53.1237 62.5754 53.0842C62.9302 53.0382 63.2743 52.7837 63.617 52.7964C66.3843 52.8971 68.7161 51.561 71.0321 50.398C73.4929 49.1621 75.7881 47.5873 78.1042 46.0823C78.8097 45.6245 79.3467 44.9087 79.9609 44.3107L79.9203 44.3446C80.3746 43.9854 80.8278 43.6258 81.5684 43.0394C80.7319 42.9873 80.3071 42.961 79.635 42.9195C80.5446 41.8147 81.3024 40.765 82.1998 39.8509C82.7942 39.2448 83.2043 39.5094 83.6276 40.5859C84.3052 40.5389 84.958 40.4938 85.7402 40.4392C85.3645 39.9338 85.0478 39.5069 84.824 39.2069C84.2301 39.1583 83.4941 39.2721 83.3733 39.0511C83.1505 38.6443 83.2048 38.0251 83.2972 37.5223C83.4276 36.813 83.6469 36.1073 83.9281 35.4421C84.0971 35.0424 84.4555 34.7227 84.8641 34.191C84.5976 33.0938 85.0595 31.9642 87.0147 29.4575C87.2817 29.5895 87.5634 29.7282 87.9116 29.9002C87.737 28.2029 87.9105 27.9297 88.745 27.999V29.7378L88.7166 29.6988C89.0089 30.2958 89.3008 30.8922 89.6262 31.5584C89.7038 31.5372 89.9921 31.4573 90.2809 31.3768C90.3682 31.4689 90.456 31.561 90.5433 31.653" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M91.05 30.6099C90.964 30.5189 90.8775 30.4279 90.7915 30.3369C90.9735 28.4059 90.893 28.3199 89.2505 28.6784L89.2785 28.7169C89.874 28.1504 90.4695 27.5834 91.1385 26.9459C90.717 26.6759 90.314 26.4179 89.698 26.0234C90.224 25.7174 90.6 25.4874 90.9885 25.2804C91.117 25.2119 91.3395 25.2544 91.4145 25.1614C94.349 21.5449 98.2415 19.3599 102.545 17.8789C104.536 17.1939 106.637 16.8294 108.692 16.3369C108.986 16.2664 109.304 16.2954 109.61 16.2784L109.739 16.7114C107.162 17.4684 104.584 18.2254 102.007 18.9824C102.04 19.1079 102.073 19.2334 102.106 19.3594C104.782 18.6204 107.457 17.8809 110.107 17.1489C111.038 19.2034 110.894 19.4559 108.979 20.2784C106.467 21.3584 103.996 22.5329 101.497 23.6449C101 23.8659 100.529 24.2159 99.9335 23.6049C99.691 23.3574 98.983 23.5644 98.3565 23.5644V22.6369C97.762 23.0134 97.2515 23.3364 96.4335 23.8544C97.1575 23.9409 97.5115 23.9829 97.852 24.0239C97.852 24.1599 97.8865 24.2669 97.8475 24.3164C97.4145 24.8639 96.7665 25.1309 96.822 26.1504C96.86 26.8489 95.937 26.8254 95.5255 26.1679C95.154 26.5799 94.7805 26.9944 94.222 27.6134C94.3215 28.8909 93.3995 29.6384 91.681 29.1314C91.745 29.5474 91.8975 29.9319 91.815 30.2559C91.7715 30.4279 91.3185 30.4954 91.05 30.6099" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M74 47.3765C72.0934 48.234 70.1858 49.0911 68.2787 49.9486C68.1856 49.82 68.0931 49.6914 68 49.5629C68.2614 49.3936 68.5055 49.1993 68.7858 49.0587C70.1138 48.3931 71.4413 47.7261 72.7943 47.0989C73.0854 46.9643 73.4799 46.9944 73.8274 46.9486C73.8847 47.0911 73.9426 47.234 74 47.3765" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M62 51.9486C62.9157 50.1567 64.5931 50.4906 66 49.9486C65.9333 50.9163 64.7375 51.4739 62.0101 51.9147C62.0058 51.9236 62 51.9486 62 51.9486" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M80 43.8445C79.4723 43.9225 78.9099 43.9279 78.4273 44.0993C77.9537 44.2675 77.5613 44.6045 77 44.9486C77.1311 43.9131 78.3455 42.8058 79.1308 42.9637C79.4702 43.0315 79.6842 43.5573 79.9565 43.875C79.958 43.8745 80 43.8445 80 43.8445" fill="currentColor"/>
+								</svg>
+							</figure>
+
+							<img src="assets/images/about/17.jpg" class="rounded-4" alt="">
+						</div>
+
+					</div>
+					<div class="col-6 position-relative">
+						<!-- Video image -->
+						<div class="card card-body overflow-hidden p-0 mb-4 mb-sm-7">
+							<img src="assets/images/about/18.jpg" class="card-img" alt="video-img">
+							<div class="bg-overlay bg-dark opacity-3"></div>
+							<div class="card-img-overlay d-flex p-3">
+								<!-- Video button and link -->
+								<div class="m-auto">
+									<a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg btn-white btn-round stretched-link mb-0" data-glightbox="" data-gallery="course-video">
+										<i class="fas fa-play text-danger"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<img src="assets/images/about/14.jpg" class="rounded-4" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- Image END -->
+		</div> <!-- Row END -->
+
+		<!-- Client-Slider START -->
+		<div class="row mt-6 mt-lg-8">
+			<div class="col-md-10 text-center mx-auto">
+				<p class="heading-color fw-semibold mb-4">Used by the world best companies</p>
+
+				<div class="swiper" data-swiper-options='{
+					"loop": false, 
+					"slidesPerView": 2, 
+					"spaceBetween": 30,
+					"breakpoints": { 
+						"576": {"slidesPerView": 2}, 
+						"768": {"slidesPerView": 3}, 
+						"992": {"slidesPerView": 4}, 
+						"1200": {"slidesPerView": 6}
+					}}'>
+
+					<!-- Slider items -->
+					<div class="swiper-wrapper align-items-center">
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/03.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/07.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/05.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/04.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/01.svg" class="grayscale px-sm-3" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/02.svg" class="grayscale px-sm-3" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/03.svg" class="grayscale px-sm-3" alt="client-img">
+						</div>
+						<!-- Image -->
+						<div class="swiper-slide">
+							<img src="assets/images/client/06.svg" class="grayscale px-sm-3" alt="client-img">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Client-Slider END -->
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+About content START -->
+<section class="pt-0">
+		<div class="container">
+			<div class="bg-dark rounded-3 position-relative overflow-hidden p-5 p-md-7" data-bs-theme="dark">
+				<!-- SVG decoration -->
+				<figure class="position-absolute bottom-0 start-0 mb-n5 ms-n7">
+					<svg class="fill-white" width="177" height="187" viewBox="0 0 177 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M145.997 54.7907C146.303 55.9483 147.111 56.7781 148.142 57.4275C148.71 57.7851 148.555 58.3776 148.482 58.842C148.419 59.2452 148.287 59.5844 148.46 60.0065C148.532 60.1801 148.397 60.5706 148.231 60.6875C147.703 61.0627 147.243 61.5096 146.628 61.801C144.465 62.8271 142.147 63.2656 139.827 63.6105C137.458 63.9623 135.087 64.3768 132.677 64.3899C131.927 64.3937 131.928 64.407 131.735 63.5032C133.049 63.4002 134.363 63.3426 135.664 63.1811C136.697 63.0532 137.712 62.7983 138.828 62.5815C138.54 62.2938 138.316 62.2013 137.914 62.2829C135.722 62.7261 133.518 63.0936 131.162 63.1237C131.131 62.9437 131.093 62.7258 131.055 62.5095C131.106 62.4847 131.219 62.4301 131.412 62.3365L130.707 62.0338C130.804 61.5801 130.891 61.1692 131.005 60.6343C131.35 60.3272 132.108 60.4369 132.465 59.8406C133.144 60.1569 133.745 59.7031 134.378 59.6166C135.162 59.5101 135.923 59.235 136.538 59.0732C136.659 58.644 136.732 58.316 136.843 57.9997C137.23 56.8911 137.253 56.9328 138.132 56.5166C139.109 56.0533 140.247 55.939 141.077 55.158C141.13 55.1076 141.254 55.0794 141.321 55.1043C142.025 55.371 142.442 55.0921 142.889 54.5154C143.264 54.0318 143.905 54.1232 144.48 54.34C144.921 54.5069 145.385 54.6119 145.997 54.7907Z"></path>
+						<path d="M24.428 116.334C25.1448 115.73 25.1448 115.73 24.5158 114.968C24.5615 114.364 25.1989 113.883 24.9199 113.199C25.284 112.72 25.6931 112.269 26.002 111.757C26.5002 110.931 27.3748 110.769 28.1599 110.519C28.6932 110.349 29.2345 110.164 29.7889 110.038C30.4375 109.89 31.0639 109.649 31.7116 109.499C32.2986 109.364 32.901 109.291 33.4982 109.203C33.6642 109.179 33.8684 109.145 34.0013 109.216C34.3549 109.405 34.657 109.384 35.0322 109.236C35.7537 108.952 36.4793 109.31 37.1858 109.407C37.844 109.499 38.4753 109.88 39.0822 110.203C39.3141 110.325 39.8134 110.578 39.2077 110.944C39.1647 110.97 39.2822 111.239 39.3021 111.399C39.3227 111.566 39.3736 111.86 39.3118 111.89C38.5819 112.237 38.8737 112.524 39.2484 112.987C39.8001 113.669 39.649 113.875 39.0359 114.806C38.6624 115.372 38.3638 116.014 37.677 116.145C35.8203 116.497 33.9632 116.877 32.0655 116.221C31.3051 115.958 30.4472 115.833 29.6556 116.213C28.9735 116.541 28.1709 116.608 27.6086 117.214C27.4389 117.397 27.114 117.444 26.8523 117.53C26.2949 117.713 25.7631 117.711 25.1905 117.476C24.5955 117.232 24.6639 116.708 24.428 116.334Z"></path>
+						<path d="M107.925 54.6811C107.026 55.0396 106.183 55.3027 105.408 55.6985C103.185 56.8338 100.753 56.7813 98.3713 57.0078C97.3016 57.1097 96.3873 56.5562 95.4595 56.133C95.2986 56.0594 95.2371 55.767 95.123 55.5624C95.5551 55.5356 95.9599 55.5105 96.5508 55.4736L94.8167 54.7282C94.7925 54.2801 94.8495 53.8726 94.7301 53.5265C94.5819 53.097 94.7873 52.772 94.9803 52.5195C95.2049 52.2253 95.6012 52.0623 95.9543 51.8212C96.7809 52.4066 97.6969 52.376 98.6818 52.2735C98.7451 51.83 99.2289 51.4823 98.9919 50.909C98.9415 50.7875 99.0535 50.5078 99.1765 50.4194C100.182 49.6971 101.007 48.6351 102.422 48.6597C102.677 48.6645 103 48.6868 103.173 48.5503C103.434 48.3445 103.784 48.7803 103.999 48.3272C104.177 47.9543 104.459 48.3627 104.699 48.3852C104.996 48.413 105.301 48.4077 105.588 48.477C105.851 48.5403 106.095 48.6843 106.349 48.7937C106.766 50.1287 107.562 51.2137 108.543 52.2046C108.334 53.0393 108.123 53.8866 107.925 54.6811Z"></path>
+						<path d="M3.22725 135.018C3.01142 134.651 2.82621 134.358 2.6643 134.052C2.60584 133.94 2.59095 133.8 2.57731 133.67C2.53843 133.299 3.1029 133.289 3.04058 132.867C2.99194 132.536 2.97883 132.167 3.07829 131.856C3.16105 131.598 3.61758 131.359 3.57889 131.185C3.49264 130.796 3.50464 130.591 3.90481 130.457C3.97853 130.432 4.01395 130.239 4.03446 130.118C4.18727 129.225 4.18475 129.224 5.15765 129.129C5.0126 128.997 4.88744 128.882 4.65873 128.674C5.06032 128.695 5.36079 128.675 5.64444 128.734C5.99106 128.805 6.32811 128.932 6.66056 129.057C6.99508 129.182 7.31918 129.336 7.73596 129.297L6.56754 128.649C6.58429 128.605 6.60126 128.561 6.61867 128.516C6.845 128.585 7.07915 128.636 7.29634 128.728C8.39764 129.193 9.47652 129.718 10.5979 130.126C11.5873 130.486 12.3905 131.027 12.9544 131.916C12.6709 132.036 12.2909 132.102 12.664 132.539C13.0715 133.016 12.857 133.407 12.3933 133.832C12.9178 134.161 13.5636 134.486 12.9514 135.326L11.5434 134.721C11.5047 134.777 11.4652 134.834 11.426 134.891C11.8428 135.245 12.2597 135.599 12.6887 135.963C12.2313 136.259 11.7885 136.473 11.2316 136.153C11.0752 136.064 10.8129 136.179 10.6028 136.162C9.68931 136.086 9.68926 136.081 9.38524 136.736C9.32706 136.861 9.27587 136.989 9.22141 137.116L9.07184 137.464C8.61231 137.647 8.17897 137.804 7.7589 137.99C6.86549 138.388 5.968 138.251 5.08368 137.997C4.64531 137.87 4.24938 137.593 3.80988 137.474C3.32539 137.343 3.08927 136.963 2.85718 136.617C2.39472 135.928 2.4732 135.694 3.22725 135.018Z"></path>
+						<path d="M45.1232 65.2617C45.2584 65.9616 45.403 66.6418 45.5014 67.3281C45.5109 67.3946 45.2383 67.5014 45.0079 67.6442C45.1784 67.8653 45.3473 68.0383 45.4581 68.2427C45.5893 68.4833 45.6663 68.7532 45.7726 69.0081C45.9873 69.5241 46.2494 70.0452 45.4624 70.3332C45.4026 70.3556 45.3917 70.4965 45.3469 70.5761C45.0273 71.1423 44.9322 71.7719 44.1975 72.164C43.6059 72.4798 43.0766 72.978 42.4099 73.2273C41.7843 73.4605 41.1793 73.7203 40.4896 73.7742C39.4305 73.8564 38.3836 73.9374 37.4391 73.3399C37.2022 73.19 37.0439 72.915 36.7713 72.6108C37.1705 72.4037 37.4404 72.2637 37.7561 72.1004C37.159 71.5986 36.3433 71.2982 36.012 70.4027C36.3054 70.2335 36.5888 70.07 36.9424 69.8661L36.0159 69.4679C36.2322 68.5719 36.2712 67.6903 36.6811 66.8754C36.9162 66.4081 37.2463 66.0587 37.6679 65.8802C38.2092 65.6505 38.682 65.2875 39.2978 65.1747C39.8547 65.073 40.3863 64.8352 40.9624 64.7248C41.9093 64.5441 42.8389 64.7449 43.7755 64.7177C44.2221 64.7044 44.6802 65.0713 45.1232 65.2617Z"></path>
+						<path d="M46.2804 129.498L49.0061 130.67C48.426 130.121 47.7113 129.866 47.0284 129.547C46.7534 129.419 46.3502 129.401 46.3291 128.992C46.3067 128.569 46.2946 128.127 46.4009 127.727C46.4376 127.59 46.8499 127.475 47.0823 127.488C47.332 127.501 47.5726 127.677 47.8446 127.794C47.8471 127.546 47.799 127.376 47.8598 127.269C47.9856 127.049 48.3374 126.822 48.3017 126.666C48.0996 125.798 48.7296 125.211 48.9848 124.513C49.1002 124.196 49.5073 123.818 49.8217 123.777C50.595 123.68 51.0987 123.027 51.9901 122.955C52.3057 123.076 52.7066 123.2 53.2579 123.055C53.9802 122.865 54.8069 122.793 55.5419 123.264C55.8837 123.483 56.2915 123.599 56.74 123.792C56.8815 124.879 56.9937 125.994 57.1795 127.097C57.3743 128.251 56.6292 128.905 55.8957 129.501C55.36 129.936 54.8984 130.629 54.033 130.482C52.9291 131.494 51.5109 131.149 50.2239 131.389C49.3586 131.551 48.583 131.201 47.8174 131.023C47.1848 130.876 46.6825 130.169 46.1228 129.71C46.1753 129.639 46.2282 129.568 46.2804 129.498Z"></path>
+						<path d="M70.5926 110.828C69.8281 111.133 69.0176 111.456 68.1052 111.82C67.6827 111.638 67.1604 111.466 66.7002 111.189C66.5294 111.086 66.4586 110.745 66.4359 110.504C66.4267 110.412 66.6809 110.296 66.8165 110.19C66.5305 109.848 66.0829 109.528 66.471 108.956C66.5438 108.85 66.6214 108.688 66.5917 108.582C66.4737 108.163 66.3624 107.714 66.6436 107.365C67.1481 106.738 67.6053 105.994 68.3353 105.65C69.7792 104.97 71.284 104.381 72.9227 104.438C73.8997 104.472 74.8905 104.55 75.8376 104.771C76.2517 104.868 76.7353 105.198 76.8534 105.769C77.0486 106.707 77.2959 107.636 77.4597 108.58C77.5152 108.902 77.4763 109.304 77.3247 109.586C76.3715 111.363 74.9375 112.305 72.6182 111.955C72.2802 111.904 71.8821 111.958 71.6155 111.795C71.2299 111.559 70.9384 111.168 70.5926 110.828Z"></path>
+						<path d="M117.847 127.388C117.571 127.329 117.295 127.27 117.018 127.211C118.028 127.648 117.947 128.878 118.706 129.48C118.978 129.695 118.92 130.208 118.668 130.323C118.258 130.511 118.371 130.807 118.409 131.029C118.511 131.618 118.314 131.997 117.837 132.349C116.462 133.364 115.132 134.45 113.335 134.625C112.4 135.364 111.22 135.191 110.158 135.443C109.642 135.566 109.063 135.427 108.45 135.404C108.087 134.829 108.444 134.373 109.022 133.885C108.703 133.819 108.44 133.687 108.221 133.738C107.919 133.81 107.907 133.589 107.908 133.476C107.913 132.959 107.974 132.449 107.783 131.94C107.736 131.815 107.877 131.58 107.99 131.446C108.193 131.206 108.471 131.045 108.353 130.631C108.32 130.513 108.583 130.291 108.737 130.146C110.066 128.906 111.503 127.884 113.383 127.619C113.637 127.584 113.968 127.401 114.248 127.277C115.048 126.923 115.893 127.156 116.679 126.953C117.202 126.82 117.519 127.034 117.847 127.388Z"></path>
+						<path d="M91.7672 24.8247C91.547 24.6914 91.3267 24.5567 91.0847 24.4087C91.1914 24.3453 91.2532 24.2747 91.3141 24.2755C92.2508 24.2918 93.1886 24.214 94.1227 24.389C94.7102 24.499 95.2887 24.5664 95.4832 25.2642C95.6155 25.7395 96.5858 25.7315 96.1984 26.507C96.6387 27.1399 96.321 27.7134 96.0335 28.2693C96.3799 28.5727 96.7377 28.8211 97.0145 29.1413C97.3269 29.5007 97.1767 30.157 96.7095 30.7302C96.6033 30.8604 96.3966 30.9421 96.3498 31.0845C95.9876 32.1812 95.9964 32.1824 94.9713 32.2693C94.4601 32.312 93.9473 32.41 93.4379 32.3949C92.8165 32.3769 92.3452 32.5594 91.8854 32.9972C91.2027 33.647 90.29 33.8676 89.4099 33.6518C88.6128 33.4571 88.0808 32.8153 87.8304 31.9216C88.401 31.7779 88.9702 31.6335 89.7678 31.4315C89.1539 31.1676 88.7378 30.9967 88.3291 30.8104C87.922 30.6261 88.0252 30.6171 88.0117 29.8426C88.0021 29.2882 88.5441 28.7258 88.0154 28.1815C88.1945 27.7162 88.3745 27.2513 88.554 26.7849C88.8844 25.9237 89.299 25.2133 90.4096 25.223C90.8495 25.2269 91.2921 24.9722 91.7672 24.8247Z"></path>
+						<path d="M44.107 152.712C43.459 153.621 42.5969 153.667 41.933 153.49C41.084 153.264 40.1846 153.198 39.3681 152.77C38.3108 152.216 37.1992 151.745 36.0708 151.357C35.5233 151.169 35.277 150.66 34.7775 150.454C34.6477 150.401 34.4752 150.114 34.5167 150.032C34.8351 149.394 34.2607 148.779 34.5511 148.091C34.7441 147.636 34.5125 147.001 34.4652 146.377C35.1831 146.091 35.0212 144.756 36.3034 144.825C36.9667 145.426 37.9354 145.056 38.829 145.173C38.9537 145.19 39.1033 145.116 39.2089 145.16C40.4687 145.689 41.7218 146.232 43.0851 146.818C42.8176 146.944 42.7019 146.999 42.4138 147.134C42.7381 147.192 42.9584 147.302 43.078 147.234C43.206 147.162 43.2123 146.897 43.3284 146.767C43.3808 146.708 43.5787 146.75 43.6947 146.791C43.7479 146.809 43.8138 146.971 43.7879 147.008C43.5956 147.289 43.3815 147.557 43.1557 147.853C43.5492 148.291 43.9691 148.758 44.2831 149.108C44.1087 149.443 44.004 149.643 43.8999 149.842C44.4206 149.637 44.3732 150.11 44.5331 150.357C44.6949 150.608 44.9019 150.83 45.0765 151.049C44.6463 151.811 44.0031 151.888 43.2288 151.808C43.5289 152.116 43.7977 152.394 44.107 152.712Z"></path>
+						<path d="M142.716 84.3152C142.415 84.9644 141.971 85.5099 142.563 86.1407C141.625 86.3733 141.096 86.221 140.769 85.4333C140.544 84.8894 140.167 84.4326 140.038 83.808C139.926 83.2613 139.343 82.8277 139.086 82.2877C138.888 81.8727 138.872 81.3703 138.776 80.9068C138.933 80.8421 139.103 80.7729 139.37 80.6632C139.426 80.9259 139.482 81.1839 139.537 81.442C139.598 81.442 139.658 81.4414 139.718 81.4414C139.797 81.132 139.876 80.8232 139.964 80.4756C140.132 80.4449 140.508 80.4876 140.713 80.3201C141.944 79.3147 143.426 78.9719 144.92 78.6814C145.41 78.5859 145.939 78.7078 146.448 78.6805C147.705 78.6135 147.954 78.5635 148.829 79.1248C149.462 79.5304 150.135 79.9671 150.461 80.741C150.589 81.0465 150.808 81.4079 151.083 81.5396C151.779 81.8718 151.726 82.3095 151.443 82.8658C151.364 83.0212 151.312 83.1991 151.287 83.3727C151.127 84.4857 151.054 84.5767 150.076 84.7453C148.627 84.9954 147.181 84.791 145.738 84.6785C144.719 84.599 143.705 84.4371 142.716 84.3152Z"></path>
+						<path d="M121.835 94.4787C121.131 95.0122 120.474 95.576 119.647 95.9019C118.103 96.5084 116.595 97.223 115.016 97.716C113.357 98.2345 111.689 98.8214 109.998 98.8377C109.465 98.5303 110.375 98.0553 109.719 97.7567C109.532 97.6711 109.548 97.1292 109.479 96.7951C109.308 95.9655 109.387 95.5771 110.082 95.3249C110.767 95.0762 111.171 94.6209 111.556 94.0752C112.151 93.2323 113.138 92.8985 113.918 92.2932C114.751 91.6455 115.766 91.3648 116.718 90.9566C117.21 90.7452 117.662 90.4132 118.169 90.2677C118.679 90.1213 119.256 90.0328 119.767 90.1229C120.078 90.1783 120.414 90.5741 120.573 90.8986C120.769 91.2989 121.163 91.618 121.113 92.1498C121.083 92.4573 121.401 92.5488 121.627 92.7083C121.887 92.8917 122.2 93.1206 121.628 93.4621C121.229 93.7011 121.459 94.1453 121.835 94.4787Z"></path>
+						<path d="M136.472 40.1805C135.254 41.3715 133.878 41.518 132.535 41.6733C131.354 41.8095 130.155 41.8815 128.967 41.8493C127.781 41.8178 126.52 42.1082 125.38 41.2466C126.412 40.6056 127.599 41.2053 128.793 40.6764C127.433 40.2827 126.149 40.5244 124.646 40.2742C125.098 39.9209 125.262 39.7928 125.462 39.6353C125.258 39.5008 125.044 39.3595 124.83 39.2197C124.923 38.805 125.013 38.3963 125.12 37.9146C125.36 37.8766 125.706 37.8427 126.045 37.7685C127.361 37.483 127.358 37.4765 128.384 36.3706C128.499 36.2468 128.642 36.1471 128.783 36.0505C129.857 35.3143 130.973 34.7028 132.323 34.6237C132.822 34.5945 133.697 34.6377 134.13 34.8381C134.231 34.8855 134.388 34.8517 134.506 34.8136C134.808 34.7182 134.959 34.8855 134.986 35.129C135.063 35.8387 135.59 36.3584 135.751 37.0273C135.82 37.3139 136.018 37.4446 136.268 37.5987C136.608 37.8088 136.773 38.7242 136.554 39.022C136.418 39.2073 135.984 39.1778 136.142 39.5774C136.225 39.7875 136.359 39.977 136.472 40.1805Z"></path>
+						<path d="M89.1868 68.5912C89.1283 68.8288 89.0665 69.0775 88.9818 69.4213C89.2737 69.3968 89.4812 69.3789 89.6988 69.3603C90.0427 70.2228 90.4007 71.1207 90.7703 72.0465C90.7254 72.1509 90.6515 72.2704 90.6217 72.3998C90.2729 73.9381 89.0565 74.5392 87.7415 74.9115C86.7142 75.2023 85.6469 75.3732 84.5538 75.3933C83.8714 75.4058 83.2459 75.41 82.5487 74.8918C83.6848 74.868 84.6962 74.8464 85.7081 74.825C85.7152 74.7469 85.7228 74.669 85.73 74.5905C85.5555 74.5525 85.3806 74.4828 85.2057 74.4815C84.4829 74.4761 83.7589 74.5119 83.0375 74.4893C82.7178 74.4794 82.2782 74.5636 82.4035 73.9216C82.4423 73.7236 82.0972 73.4494 81.9251 73.2115C81.7741 73.0031 81.6191 72.7975 81.4964 72.631C81.6972 72.0138 82.2189 72.2314 82.5924 71.9533C82.2284 71.8989 81.8643 71.8444 81.3851 71.7731C81.3163 71.5184 81.2243 71.178 81.1317 70.8375C81.3599 70.7457 81.705 70.6424 81.3216 70.2442C80.9076 69.813 80.8464 69.4125 81.3985 69.0434C81.4488 69.0099 81.5136 68.9234 81.5016 68.8819C81.2679 68.0789 81.9048 67.9389 82.3962 67.825C83.5707 67.5539 84.7755 67.7065 85.9641 67.7529C86.2432 67.7636 86.8916 67.8044 86.6283 68.4913C86.6133 68.5302 86.8108 68.6498 86.9092 68.7313C87.0037 68.6053 87.2057 68.436 87.1746 68.3592C86.9577 67.8173 87.5411 67.8264 87.6121 67.9011C88.0494 68.3589 88.7933 68.0534 89.1868 68.5912Z"></path>
+						<path d="M60.1016 61.539C60.3147 61.4539 60.5285 61.3688 60.8524 61.2392C60.5112 61.0434 60.2297 60.8815 59.9227 60.7049C60.0379 60.1352 60.1316 59.537 60.2859 58.9549C60.3792 58.6032 60.5307 58.2545 60.7233 57.9465C60.8705 57.7119 61.2541 58.1107 61.4967 57.6593C61.6536 57.3676 62.2689 57.356 62.7202 57.2946C63.0866 57.2445 63.6041 57.7777 63.8523 57.0964C64.2742 57.2508 64.6967 57.4053 65.1192 57.5587C65.16 57.5741 65.2036 57.5818 65.2463 57.5929L67.9449 56.5169C68.0318 56.3148 68.0978 56.0893 68.2179 55.8986C68.4042 55.6051 68.8627 55.4 68.987 55.6448C69.2632 56.1896 69.838 55.6729 70.0797 56.0798C69.9519 57.1887 69.8514 57.5124 69.368 58.2516C69.8868 58.2374 70.339 58.2252 70.9073 58.2103C70.9749 58.3905 71.2012 58.687 71.129 58.8524C70.6711 59.8956 70.4631 61.1112 69.3192 61.7249C69.0088 61.8911 68.7195 62.1288 68.3887 62.2194C67.6341 62.4266 66.8621 62.5703 66.0936 62.7251C65.7148 62.8013 65.3278 62.839 64.9464 62.9046C64.3558 63.0062 63.7289 62.6314 63.1623 63.0394C62.6383 62.7154 62.0791 62.8492 61.5094 62.8433C60.7353 62.8355 60.1804 62.3956 60.1016 61.539Z"></path>
+						<path d="M24.4201 92.6484C24.6329 92.1533 24.778 91.8144 24.9238 91.4764C25.1196 91.0237 25.2545 90.5005 25.954 90.6782C26.0315 90.6982 26.2157 90.5766 26.2389 90.4905C26.3899 89.9196 26.957 89.9985 27.3212 89.766C28.3098 89.1352 29.3635 89.4325 30.3814 89.6063C30.9619 89.7052 31.2661 90.0374 31.367 90.7899C31.4803 91.6344 31.3685 92.5824 31.9007 93.3574C31.7336 93.768 32.2272 94.3747 31.5132 94.6312C31.41 94.6685 31.3196 94.8107 31.2728 94.9246C30.6145 96.5411 29.2628 97.1487 27.6753 97.459C26.8702 97.6168 26.0852 97.9101 25.2473 97.7475C24.9035 97.6809 24.5639 97.5824 24.2334 97.4668C24.1247 97.4295 23.9688 97.2891 23.9739 97.204C24.0206 96.4599 23.6721 95.7544 23.717 95.0325C23.7728 94.1427 24.0445 93.2821 24.4201 92.6484Z"></path>
+						<path d="M85.1622 121.171C85.5341 121.11 85.8079 121.066 86.3399 120.98C85.923 120.73 85.7815 120.643 85.6369 120.56C85.1575 120.288 85.158 120.289 85.3668 119.625C85.3927 119.542 85.456 119.424 85.423 119.376C85.0904 118.889 85.1571 118.381 85.4916 117.983C85.8704 117.531 86.3053 117.059 86.8188 116.802C88.8218 115.798 90.9977 115.636 93.1932 115.728C93.5675 115.744 93.9306 116.025 94.2939 116.181C94.1918 116.36 94.1118 116.501 94.0312 116.643C94.5005 116.807 94.794 117.055 94.6726 117.634C94.6365 117.807 94.781 118.128 94.9349 118.213C95.4606 118.503 94.9509 118.951 95.152 119.271C94.5173 119.37 94.89 120.17 94.381 120.37C93.8938 120.561 93.4312 120.911 92.9335 120.962C91.8375 121.074 90.7144 121.149 89.6272 121.024C89.0712 120.959 88.6498 121.037 88.2631 121.32C87.6363 121.781 86.9717 122.063 86.1902 122.083C85.5378 122.1 85.5384 122.113 85.1622 121.171Z"></path>
+						<path d="M80.624 91.0137C80.4978 90.9595 80.3092 90.9142 80.1693 90.8056C80.0759 90.7328 80.0816 90.5217 79.9874 90.4624C79.8844 90.3978 79.702 90.4728 79.5812 90.4225C79.4742 90.3776 79.4078 90.1714 79.3165 90.1668C79.1486 90.1582 78.9628 90.2206 78.8091 90.3009C78.7068 90.354 78.6473 90.4902 78.5292 90.6391C78.8385 90.6783 79.0875 90.7098 79.3374 90.741C78.8711 91.072 78.4389 91.4767 77.8741 90.974C78.033 90.8226 78.19 90.6744 78.384 90.4901C77.622 90.0765 77.7186 90.9893 77.2214 91.1111C77.4485 90.7176 77.2817 90.3187 77.5163 89.9257C77.625 89.7434 77.3224 89.3152 77.1692 88.8985C77.6818 88.6315 78.256 88.332 78.928 87.9818C78.6288 87.7908 78.4158 87.6546 78.1564 87.489C78.3006 86.8287 78.4488 86.1517 78.5983 85.4672C79.1525 85.3208 79.6398 85.2295 80.0983 85.0602C80.495 84.9128 80.8412 84.6246 81.2407 84.49C82.3684 84.1105 83.5386 84.2218 84.6843 84.3589C85.0944 84.4076 85.7209 84.5368 85.5193 85.274C86.1887 85.5579 85.9856 86.305 86.2724 86.8047C86.6314 87.4307 86.4199 88.1743 85.7862 88.8025C84.8371 89.7432 83.6269 90.1093 82.4489 90.4644C81.859 90.6417 81.2743 90.8744 80.624 91.0137Z"></path>
+						<path d="M106.096 77.1603C106.254 76.9853 106.406 76.8162 106.581 76.6227C105.532 76.1173 104.758 77.0928 103.708 76.8237C103.903 76.6426 104.023 76.4785 104.184 76.3917C104.444 76.2527 104.73 76.1649 105.107 76.0146C104.533 75.8743 104.384 75.881 103.886 76.029C103.366 75.0139 103.366 75.0139 103.702 74.2241C104.377 74.0006 105.18 73.9069 105.758 73.497C106.396 73.0447 107.114 73.1391 107.767 72.884C108.392 72.6407 109.114 72.6108 109.798 72.5656C110.173 72.5403 110.623 72.5754 110.924 72.7656C111.305 73.0064 111.83 73.4387 111.822 73.7773C111.809 74.3347 112.191 74.3728 112.415 74.6465C112.722 75.021 112.985 75.4664 112.849 76.0171C112.769 76.3387 112.844 76.7949 112.651 76.9726C112.178 77.4048 111.632 77.8263 111.04 78.0411C109.921 78.4463 108.756 78.7382 107.592 78.9962C107.301 79.0612 106.941 78.8189 106.48 78.6772C106.745 78.538 106.849 78.4825 107.071 78.3649C106.383 78.1795 106.405 77.5177 106.096 77.1603Z"></path>
+						<path d="M149.811 103.865C149.471 104.129 149.308 104.257 149.148 104.381C150.058 105.11 150.08 105.204 149.346 105.888C149.96 105.888 150.451 105.887 150.985 105.887C151.019 106.162 151.052 106.444 151.087 106.729C150.499 106.964 149.902 107.202 149.249 107.462C149.749 108.003 150.36 107.369 150.926 107.701C150.729 108.42 150.098 108.615 149.506 108.824C149.181 108.937 148.808 108.913 148.491 109.037C147.074 109.59 145.621 110.008 144.14 110.344C144.008 110.374 143.883 110.441 143.756 110.495C143.071 110.787 142.393 111.109 141.608 110.815C141.518 110.192 142.096 110.13 142.529 109.918C142.111 109.333 141.696 110.091 141.294 109.876C140.805 109.63 141.856 108.95 140.931 108.84L141.523 107.465C141.969 107.19 142.415 106.909 142.868 106.64C143.322 106.37 143.844 106.287 144.283 105.906C144.71 105.537 145.377 105.457 145.915 105.202C146.266 105.036 146.664 105.005 146.954 104.622C147.163 104.346 147.704 104.382 147.846 103.886C147.885 103.748 148.224 103.613 148.42 103.619C148.796 103.63 149.167 103.743 149.811 103.865Z"></path>
+						<path d="M61.1012 76.0729C61.3179 75.6484 61.2217 75.2495 61.6818 74.9738C61.6643 75.2069 61.6519 75.3759 61.6382 75.5603C62.2118 75.6293 62.7893 75.6799 63.358 75.7793C63.5038 75.8049 63.7352 75.9866 63.7344 76.095C63.7306 76.6971 64.2125 77.087 64.3423 77.6129C64.4001 77.8457 64.3303 78.1275 64.2577 78.3683C64.2208 78.4888 63.9888 78.5497 63.9515 78.67C63.9061 78.8166 63.9734 78.9978 63.9937 79.1815C63.1296 79.0682 63.1032 79.0437 62.4417 79.7764C62.0457 80.2148 61.4949 80.1045 61.0207 80.3322C61.1594 80.4884 61.2933 80.6392 61.4437 80.808C61.2544 80.8785 61.0397 81.0417 60.9188 80.9892C59.4082 80.3321 59.3736 80.319 58.1699 80.6199C58.6867 81.3034 59.4034 80.7273 60.0901 80.9746C59.9818 81.147 59.8845 81.4325 59.792 81.4307C58.8634 81.4162 57.9055 81.5906 57.177 80.6765C56.9508 80.3928 56.8089 80.2981 56.9548 79.9419C57.0452 79.7226 57.0179 79.4332 56.9783 79.1861C56.8766 78.5459 56.7386 77.9121 56.6032 77.2165C56.8396 77.1724 57.0585 77.1319 57.0052 77.1415C57.4833 76.8443 56.877 76.0595 57.738 76.3456C57.9825 76.4265 57.6467 75.658 58.2639 75.9232C58.5024 76.0258 58.9297 75.6902 59.2448 75.5645C59.4149 75.7309 59.5776 75.8892 59.74 76.0479C59.8102 76.0041 59.8803 75.9603 59.9507 75.9161C59.788 75.7153 59.6254 75.5146 59.4212 75.2619C59.9044 75.2009 60.1842 75.165 60.5514 75.1181C60.7213 75.4134 60.9114 75.743 61.1012 76.0729Z"></path>
+						<path d="M80.6889 135.08C80.1943 135.214 79.8028 135.32 79.3672 135.438C79.5787 135.684 79.7129 135.84 79.888 136.044C79.4488 136.434 78.9292 136.6 78.4143 136.711C77.276 136.954 76.1081 137.019 74.9648 137.27C74.262 137.425 73.5773 137.158 72.9441 136.705C73.0755 136.076 73.81 136.243 74.1893 135.834L72.9526 135.303C73.2161 134.335 73.47 133.403 73.7031 132.549C74.8258 132.03 75.8853 131.826 77.0023 131.838C77.6389 131.845 78.2438 131.555 78.9221 131.679C79.1903 131.728 79.3841 132.182 79.7313 131.875C79.7369 131.87 79.982 132.119 79.9789 132.122C79.4819 132.653 80.3029 133.257 79.8967 133.799C79.8701 133.834 80.0578 134.041 80.1601 134.157C80.2721 134.284 80.4204 134.383 80.5146 134.52C80.5855 134.623 80.5956 134.766 80.6889 135.08Z"></path>
+						<path d="M108.148 113.549C108.646 113.548 109.009 113.547 109.526 113.546C109.26 113.289 109.138 113.171 109.009 113.046C109.068 113.004 109.132 112.921 109.183 112.929C109.668 113.001 110.129 112.954 110.595 112.782C110.873 112.679 111.187 112.653 111.487 112.63C112.019 112.591 112.453 112.398 112.769 111.919C112.639 111.766 112.504 111.609 112.442 111.536C112.725 111.373 113.034 111.196 113.263 111.064C113.421 111.132 113.497 111.144 113.501 111.169C113.552 111.463 113.592 111.759 113.631 112.03C114.004 112.117 114.343 112.196 114.85 112.314C114.502 112.616 114.31 112.78 114.035 113.017C114.298 113.327 114.563 113.639 114.847 113.973C114.793 114.152 114.73 114.362 114.653 114.618L115.217 114.861C115.421 115.704 115.132 116.199 114.39 116.535C113.581 116.902 112.825 117.382 111.906 117.715C111.846 117.383 111.789 117.063 111.726 116.711C111.153 116.631 110.588 116.685 109.985 116.855C109.382 117.024 108.716 116.973 108.1 117.017C107.802 116.448 108.267 116.3 108.558 116.02C108.436 115.951 108.325 115.833 108.215 115.834C107.533 115.842 107.297 115.61 107.504 115.059C107.698 114.542 107.936 114.042 108.148 113.549Z"></path>
+						<path d="M97.6308 151.861C98.0372 151.784 98.3694 151.72 98.7836 151.641C98.6323 151.51 98.5523 151.384 98.4501 151.361C97.9542 151.25 97.4522 151.167 96.8842 151.062L97.2016 150.324C97.3618 150.317 97.558 150.309 97.9464 150.293L96.9086 149.846C96.9199 149.68 96.9573 149.551 96.9306 149.437C96.8685 149.177 96.6696 148.722 96.7095 148.701C97.1138 148.492 97.1249 148.025 97.3797 147.763C97.7592 147.373 98.2618 147.064 98.8544 147.326C99.0316 147.404 99.1283 147.725 99.293 147.754C99.4269 147.777 99.5942 147.463 99.7735 147.425C99.9199 147.393 100.224 147.516 100.254 147.626C100.375 148.069 100.746 148.142 101.075 148.257C101.485 148.399 101.651 148.677 101.6 149.074C101.545 149.497 101.749 149.689 102.076 149.923C102.537 150.255 102.726 150.75 102.447 151.331C102.35 151.532 102.264 151.746 102.222 151.963C102.115 152.515 101.721 153.099 101.283 153.098C100.214 153.093 99.1212 153.283 98.1023 152.722C97.7051 152.503 97.6946 152.203 97.6308 151.861Z"></path>
+						<path d="M92.2876 101.301C92.5161 101.026 92.7542 100.737 93.0472 100.383C92.7116 100.035 92.3404 99.8155 91.8189 100.021C91.6057 99.4014 92.3431 99.3675 92.4646 98.9026C92.2617 98.7673 92.0484 98.6243 91.839 98.4847C91.62 97.9855 92.4279 97.9674 92.2869 97.4173C92.1424 96.8547 92.8921 97.0506 93.127 96.7261C93.2588 96.5439 93.55 96.4455 93.7889 96.3776C94.5789 96.1522 95.4387 96.4334 96.2258 96.0107C96.4139 95.9095 96.7983 96.1718 97.1862 96.2978C96.5302 96.8596 97.6415 97.3886 97.0789 97.9596C97.3296 98.3174 98.0343 98.3841 97.7766 99.1877C97.6028 99.2096 97.3304 99.2437 96.9421 99.2919C97.1983 99.5854 97.3227 99.7276 97.4507 99.8738C97.3674 100.35 96.9097 100.388 96.6116 100.428C95.6193 100.56 94.7525 100.912 93.9404 101.499C93.4407 101.861 92.8523 101.924 92.2876 101.301Z"></path>
+						<path d="M55.8827 92.9763C56.0945 93.7776 56.251 94.3684 56.4534 95.1314L55.9946 96.1986C55.2153 96.3557 54.3668 96.151 53.6074 96.5503C52.7432 96.255 51.9761 96.6106 51.177 96.8626C50.9224 96.9425 50.5841 96.7563 50.2094 96.6756C50.237 96.4701 50.3187 96.2901 50.2706 96.1568C49.7781 94.7901 50.6854 94.0919 51.6411 93.5822C52.4568 93.147 53.3994 92.8889 54.3159 92.7261C54.8352 92.6335 55.4167 92.8919 55.8827 92.9763Z"></path>
+					</svg>
+				</figure>
+
+				<div class="row position-relative">
+					<div class="col-lg-5 position-relative order-1">
+						<!-- Counter item -->
+						<div class="border border-white border-opacity-50 rounded-circle d-flex align-items-center justify-content-center flex-column h-250px w-250px">
+							<div class="d-flex">
+								<h4 class="purecounter text-white mb-0" data-purecounter-start="0" data-purecounter-end="600"	data-purecounter-delay="300">0</h4>
+								<span class="h4 text-primary mb-0">+</span>
+							</div>
+							<p class="text-center text-white mb-0">Happy Customers</p>
+						</div>
+	
+						<!-- Counter item -->
+						<div class="d-flex justify-content-end mt-n6 mt-lg-0 mt-xl-n7 me-n3">
+							<div class="bg-light rounded-circle d-flex align-items-center justify-content-center flex-column h-200px w-200px">
+								<div class="d-flex justify-content-center">
+									<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="25"	data-purecounter-delay="300">0</h4>
+									<span class="h4 text-primary mb-0">+</span>
+								</div>
+								<p class="text-center heading-color mb-0">Completed Projects</p>
+							</div>
+						</div>
+	
+						<!-- Counter item -->
+						<div class="d-flex justify-content-center mt-n6 mt-lg-0">
+							<div class="bg-primary bg-opacity0 rounded-circle d-flex align-items-center justify-content-center flex-column h-200px w-200px">
+								<div class="d-flex justify-content-center">
+									<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="200"	data-purecounter-delay="300">0</h4>
+									<span class="h4 text-primary mb-0">+</span>
+								</div>
+								<p class="text-center heading-color mb-0">Acquired Users</p>
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-lg-6 ms-auto mb-6 mb-lg-0 order-lg-2">
+						<h3 class="mb-4">Shaping Digital Futures</h3>
+						<p class="mb-5">At mizzle, our vision is to pioneer a new era of software solutions. We believe in empowering innovation, enabling businesses to shape their digital futures, and creating a world where software knows no bounds.</p>
+	
+						<!-- Features item -->
+						<div class="d-sm-flex mb-4">
+							<!-- Icon -->
+							<figure class="text-primary mb-2">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M9.24609 17.2586V14.6904H14.7461V17.2586C14.7461 19.1706 14.7461 20.1266 14.5249 20.557C14.0158 21.5475 12.7956 21.9314 11.8111 21.4107C11.3833 21.1845 10.836 20.4007 9.74136 18.833L9.74136 18.833C9.60764 18.6415 9.54079 18.5457 9.48641 18.4451C9.36533 18.2209 9.2882 17.9757 9.25914 17.7226C9.24609 17.609 9.24609 17.4922 9.24609 17.2586Z" fill="currentColor"/>
+									<path d="M17.5114 9.84101C19.375 6.88684 20.3067 5.40976 19.9484 4.21191C19.8359 3.83574 19.6441 3.48802 19.386 3.19214C18.5641 2.25 16.8176 2.25 13.3248 2.25H10.6405C7.12482 2.25 5.36697 2.25 4.54466 3.1974C4.28652 3.49482 4.09526 3.84421 3.98384 4.22194C3.6289 5.42518 4.57619 6.90596 6.47077 9.86751L9.23438 14.1875H14.7695L17.5114 9.84101Z" fill="currentColor" fill-opacity="0.25"/>
+								</svg>
+							</figure>
+							<!-- Content -->
+							<div class="ms-sm-4">
+								<h6>Innovative Solutions</h6>
+								<p class="pb-0">We pride ourselves on crafting innovative software solutions that address real-world challenges and drive digital transformation.</p>
+							</div>
+						</div>
+	
+						<!-- Features item -->
+						<div class="d-sm-flex mb-4">
+							<!-- Icon -->
+							<figure class="text-primary mb-2">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12 2.5C9.79086 2.5 8 4.41878 8 6.78571C8 6.97115 8.01099 7.15383 8.03232 7.33306C8.28317 9.44152 11 10 12 10C13 10 15.7168 9.44152 15.9677 7.33306C15.989 7.15383 16 6.97115 16 6.78571C16 4.41878 14.2091 2.5 12 2.5Z" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M7.24989 7.1053C7.24989 7.05966 7.2505 7.01416 7.25173 6.96883C4.2677 7.95454 2.25 9.97184 2.25 12.1034C2.25 14.0748 3.97605 15.8116 6.59627 16.8293L4.46793 18.9716C4.176 19.2655 4.17756 19.7403 4.47141 20.0323C4.76526 20.3242 5.24013 20.3226 5.53207 20.0288L8.20833 17.3349C9.15517 17.5678 10.1784 17.7162 11.25 17.7636V21C11.25 21.4142 11.5858 21.75 12 21.75C12.4142 21.75 12.75 21.4142 12.75 21V17.7636C13.8164 17.7164 14.8348 17.5693 15.7777 17.3384L18.4697 20.0303C18.7626 20.3232 19.2374 20.3232 19.5303 20.0303C19.8232 19.7374 19.8232 19.2626 19.5303 18.9697L17.3938 16.8331C20.0196 15.816 21.75 14.0773 21.75 12.1034C21.75 9.97178 19.7322 7.95444 16.748 6.96875C16.7493 7.01411 16.7499 7.05963 16.7499 7.1053C16.7499 7.31546 16.7368 7.5225 16.7115 7.72562C16.4136 10.1152 13.1874 10.7482 11.9999 10.7482C10.8124 10.7482 7.58615 10.1152 7.28826 7.72562C7.26294 7.5225 7.24989 7.31546 7.24989 7.1053Z" fill="currentColor" fill-opacity="0.25"/>
+								</svg>
+							</figure>
+							<!-- Content -->
+							<div class="ms-sm-4">
+								<h6>Client-Centric Approach</h6>
+								<p class="pb-0">Our client-centric approach ensures that we understand your unique needs and provide tailored solutions that exceed expectations.</p>
+							</div>
+						</div>
+	
+						<!-- Features item -->
+						<div class="d-sm-flex">
+							<!-- Icon -->
+							<figure class="text-primary mb-2">
+								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M3.40004 19.9484C3.41524 20.1895 3.42283 20.3101 3.51172 20.4292C3.53619 20.462 3.58073 20.5066 3.61353 20.5311C3.73269 20.6199 3.85325 20.6275 4.09437 20.6427C5.14741 20.7091 7.28849 20.6474 8.66268 19.2732C9.39454 18.5414 9.77757 17.5685 9.97243 16.6532C10.0108 16.4728 10.03 16.3826 10.0112 16.2835C10.0053 16.2528 9.99478 16.2173 9.98295 16.1883C9.94486 16.0949 9.87386 16.0239 9.73186 15.8819L8.16087 14.3109C8.01887 14.1689 7.94787 14.0979 7.85449 14.0598C7.82551 14.048 7.78998 14.0375 7.75923 14.0316C7.66016 14.0127 7.56997 14.0319 7.38958 14.0703C6.47423 14.2652 5.50139 14.6482 4.76953 15.3801C3.39534 16.7543 3.33368 18.8954 3.40004 19.9484Z" fill="currentColor"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M7.02164 6.44822C5.26483 6.54451 3.88965 7.99713 3.88965 9.75657C3.88965 11.5264 5.28055 12.9837 7.04843 13.0663L7.85685 13.104C7.90862 13.1064 7.95762 13.1281 7.99427 13.1647L10.8462 16.0167C10.8829 16.0533 10.9045 16.1023 10.9069 16.1541L10.9447 16.9625C11.0272 18.7304 12.4846 20.1213 14.2544 20.1213C16.0138 20.1213 17.4665 18.7461 17.5627 16.9893L17.7857 12.9211C20.8652 9.28048 20.5871 5.1321 20.4317 3.95598C20.4053 3.75678 20.2527 3.60577 20.0532 3.58128C18.883 3.43754 14.774 3.19885 11.0864 6.22543L7.02164 6.44822ZM14.8799 11.3516C14.8799 12.5942 13.8725 13.6016 12.6299 13.6016C11.3872 13.6016 10.3799 12.5942 10.3799 11.3516C10.3799 10.1089 11.3872 9.10156 12.6299 9.10156C13.8725 9.10156 14.8799 10.1089 14.8799 11.3516Z" fill="currentColor" fill-opacity="0.25"/>
+								</svg>
+							</figure>
+							<!-- Content -->
+							<div class="ms-sm-4">
+								<h6>Experienced Team</h6>
+								<p class="pb-0">Our team of experienced professionals is committed to delivering excellence and quality in every project we undertake.</p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</div>
+</section>
+<!-- =======================
+About content END -->
+
+<!-- =======================
+Team START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row">
+			<!-- Title -->
+			<div class="col-md-4 mb-4 mb-md-0">
+				<h2>Meet Our Dedicated Team</h2>
+				<!-- Slider arrow -->
+				<div class="d-flex gap-3 position-relative mt-md-5">
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-prev-team"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-next-team"><i class="bi bi-arrow-right"></i></a>
+				</div>
+			</div>
+
+			<div class="col-md-8">
+				<!-- Slider START -->
+				<div class="swiper mt-2 mt-md-4" data-swiper-options='{
+					"spaceBetween": 40,
+					"navigation":{
+						"nextEl":".swiper-button-next-team",
+						"prevEl":".swiper-button-prev-team"
+					},
+					"breakpoints": { 
+						"576": {"slidesPerView": 2},
+						"992": {"slidesPerView": 3}
+					}}'>
+					
+					<div class="swiper-wrapper">
+						<!-- Team item -->
+						<div class="swiper-slide">
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/01.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Emma Watson</a></h6>
+									<small>Founder</small>
+								</div>
+							</div>
+						</div>
+
+						<!-- Team item -->
+						<div class="swiper-slide">
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/02.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Allen Smith</a></h6>
+									<small>UI/UX designer</small>
+								</div>
+							</div>
+						</div>	
+
+						<!-- Team item -->
+						<div class="swiper-slide">
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/03.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Jacqueline Miller</a></h6>
+									<small>Human Resource</small>
+								</div>
+							</div>
+						</div>	
+						
+						<!-- Team item -->
+						<div class="swiper-slide">
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/04.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Frances Guerrero</a></h6>
+									<small>Software Developer</small>
+								</div>
+							</div>
+						</div>
+
+						<!-- Team item -->
+						<div class="swiper-slide">
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/05.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Samuel Bishop</a></h6>
+									<small>Product designer</small>
+								</div>
+							</div>
+						</div>
+
+						<!-- Team item -->
+						<div class="swiper-slide">	
+							<div class="card card-img-scale bg-transparent overflow-hidden">
+								<div class="card-img-scale-wrapper rounded-3">
+									<!-- Card Image -->              
+									<img src="assets/images/team/4by4/06.jpg" class="img-scale" alt="card image">
+								</div>
+								<!-- Card body -->
+								<div class="card-body text-center px-0 pb-0">
+									<h6 class="mb-0"><a href="#" class="stretched-link">Amanda Reed</a></h6>
+									<small>Content writer</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Slider END -->
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Team END -->
+
+<!-- =======================
+Steps of installation -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 mb-5 mb-lg-0">
+				<!-- Title -->
+				<h2 class="mb-3 mb-lg-5">Effortless Download and Installation of Mizzle</h2>
+				<p class="mb-3 mb-lg-5">Downloading mizzle is a quick and easy process. Follow these simple steps to start enjoying the benefits of our powerful software.</p>
+
+				<!-- Steps -->
+				<div class="d-flex align-items-center gap-3 mb-3">
+					<div class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle fw-bold">01</div>
+					<h6 class="fw-normal mb-0">Navigate to the 'Download' Page</h6>
+				</div>
+
+				<!-- Steps -->
+				<div class="d-flex align-items-center gap-3 mb-3">
+					<div class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle fw-bold">02</div>
+					<h6 class="fw-normal mb-0">Choose Your Plan</h6>
+				</div>
+
+				<!-- Steps -->
+				<div class="d-flex align-items-center gap-3 mb-3">
+					<div class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle fw-bold">03</div>
+					<h6 class="fw-normal mb-0">Create an Account</h6>
+				</div>
+
+				<!-- Steps -->
+				<div class="d-flex align-items-center gap-3">
+					<div class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle fw-bold">04</div>
+					<h6 class="fw-normal mb-0">Sign In and Start Using</h6>
+				</div>
+
+				<!-- Download button -->
+				<div class="row g-2 mt-3 mt-lg-5">
+					<!-- Google play store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+						<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition" alt="google-store"> </a>
+					</div>
+					<!-- App store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3">
+						<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" alt="app-store"> </a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-5 position-relative ms-auto">
+				<!-- Year -->
+				<div class="position-absolute top-50 start-0 translate-middle ms-n2">
+					<h2 class="heading-color opacity-1 display-4 text-uppercase rotate-270">since 2018</h2>
+				</div>
+				<!-- Image -->
+				<img src="assets/images/about/14.jpg" class="rounded-3 position-relative" alt="">
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Steps of installation -->
+
+<!-- =======================
+Testimonials START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="rounded-3 position-relative overflow-hidden p-4 p-md-6" style="background:url(assets/images/bg/05.jpg) no-repeat; background-size:cover; background-position:center;">
+			<!-- Bg overlay -->
+			<div class="bg-overlay bg-dark bg-opacity-75"></div>
+
+			<div class="row position-relative z-index-1">
+				<!-- List -->
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					<div class="d-flex flex-column h-100">
+						<ul class="list-group list-group-borderless mb-4">
+							<li class="list-group-item text-white fs-5 fw-semibold d-flex p-0">Innovate.</li>
+							<li class="list-group-item text-white fs-3 fw-semibold d-flex p-0">Elevate.</li>
+							<li class="list-group-item text-white fs-2 fw-semibold d-flex p-0">Succeed.</li>
+						</ul>
+
+						<!-- Button -->
+						<div class="mt-auto">
+							<a class="btn btn-lg btn-outline-white icon-link icon-link-hover" href="#">Join our community<i class="bi bi-arrow-right"></i> </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonials -->
+				<div class="col-lg-8 col-xl-6 ms-auto">
+					<div class="card p-4 p-sm-5">
+						<!-- Card header -->
+						<div class="card-header bg-transparent p-0">
+							<h5>Here our customers experience</h5>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0 pt-4">
+							<!-- Slider START -->
+							<div class="swiper" data-swiper-options='{
+								"spaceBetween": 30, 
+								"grabCursor": true,
+								"pagination":{
+									"el":".swiper-pagination",
+									"clickable":"true"
+								}}'>
+			
+								<!-- Slider items -->
+								<div class="swiper-wrapper pb-5">
+									<!-- Testimonials item -->
+									<div class="swiper-slide">
+										<!-- Rating star -->
+										<ul class="list-inline mb-3">
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+										</ul>
+			
+										<q class="lead heading-color">Mizzle is the perfect theme for businesses that want to create a stylish and functional website. Supposing so be resolving breakfast am or perfectly.</q>
+			
+										<!-- Avatar and detail -->
+										<div class="d-sm-flex align-items-center mt-4">
+											<!-- Avatar -->
+											<div class="avatar flex-shrink-0">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+											</div>
+											<!-- Info -->
+											<div class="ms-sm-3 mt-2 mt-sm-0">
+												<span class="heading-color fw-semibold mb-0">Dennis Barrett</span>
+												<p class="mb-0 small">CEO and manager of Mizzle</p>
+											</div>
+										</div>
+									</div>
+
+									<!-- Testimonials item -->
+									<div class="swiper-slide">
+										<!-- Rating star -->
+										<ul class="list-inline mb-3">
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+										</ul>
+			
+										<q class="lead heading-color">Webestica helped us create a stunning website that reflects our brand perfectly. At weddings believed laughing</q>
+			
+										<!-- Avatar and detail -->
+										<div class="d-sm-flex align-items-center mt-4">
+											<!-- Avatar -->
+											<div class="avatar flex-shrink-0">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+											</div>
+											<!-- Info -->
+											<div class="ms-sm-3 mt-2 mt-sm-0">
+												<span class="heading-color fw-semibold mb-0">Samuel Bishop</span>
+												<p class="mb-0 small">Manager of Mizzle</p>
+											</div>
+										</div>
+									</div>
+
+									<!-- Testimonials item -->
+									<div class="swiper-slide">
+										<!-- Rating star -->
+										<ul class="list-inline mb-3">
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-fill text-warning"></i></li>
+											<li class="list-inline-item me-0"><i class="bi bi-star-half text-warning"></i></li>
+										</ul>
+			
+										<q class="lead heading-color">The best Bootstrap theme we've ever used - it's easy to customize and comes with all the features we need. Resolving breakfast am or perfectly.</q>
+			
+										<!-- Avatar and detail -->
+										<div class="d-sm-flex align-items-center mt-4">
+											<!-- Avatar -->
+											<div class="avatar flex-shrink-0">
+												<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+											</div>
+											<!-- Info -->
+											<div class="ms-sm-3 mt-2 mt-sm-0">
+												<span class="heading-color fw-semibold mb-0">Amanda Reed</span>
+												<p class="mb-0 small">Content writer</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Slider Pagination -->
+								<div class="swiper-pagination position-absolute bottom-0"></div>
+							</div>	
+							<!-- Slider END -->
+						</div>
+					</div>
+				</div>
+			</div> <!-- Row END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+Testimonials END -->
+
+<!-- =======================
+CTA START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="inner-container-small text-center">
+			<!-- SVG -->
+			<figure class="mb-4">
+				<svg width="223.6px" height="87.2px" viewBox="0 0 223.6 87.2" style="enable-background:new 0 0 223.6 87.2;" xml:space="preserve">
+					<path class="fill-mode" d="M222.9,53.8c-13.2-3-28-3-41,0.9c-5.5,1.7-11,4.3-14.9,8.7c-1.3-0.1-2.6-0.2-3.8-0.1 c-5.8,0.1-11.6,1.5-16.9,3.7c-2.9,1.2-5.7,2.9-8.5,4.4c-3.7,1.9-7.4,3.8-11.3,5.3c-7.3,2.9-16,5-23.5,1.7c-1.5-0.6-2.9-1.5-4.1-2.6 c6.5-2.6,12.2-7.9,13.2-15c0.8-6.6-5.1-12.1-11.6-11.4c-5,0.6-7.5,5.6-8.3,10.1c-0.9,4.9-0.3,10.8,2.7,14.9 c0.2,0.2,0.4,0.5,0.5,0.7c-0.4,0.1-0.8,0.2-1.3,0.3c-6.6,1.5-14.3,0.3-20.3-2.9c-6.1-3.3-10.3-9.1-12.3-15.6 c-0.2-0.7-1.2-0.4-1,0.3c2.1,7.3,6.7,13.4,13.4,17.1c6.8,3.7,15.4,4.5,22.7,2.4c0,0,0.1,0,0.1,0c4.5,4.4,11.2,5.9,17.3,5.4 c8-0.6,15.6-4.1,22.7-7.7c5.6-2.9,10.8-6,17-7.6c3.8-0.9,7.8-1.5,11.8-1.3c-3.3,4.8-4.6,11.1-2.3,16.5c2.8,6.4,11.3,6.7,16.3,2.8 c5.1-4,2.8-12.4-1-16.4c-2.4-2.5-5.7-3.9-9.1-4.5c0.2-0.2,0.3-0.3,0.5-0.4c4.3-4,10.2-6.2,15.9-7.5c11.8-2.8,24.9-2.7,36.7,0 C223.6,56,224.1,54,222.9,53.8z M95.5,71.6c-1.2-2.4-1.7-5.1-1.8-7.8c-0.1-4.5,1.1-11.2,6.1-12.6c2.4-0.7,5.2,0.4,7.2,1.7 c2.9,1.9,3.5,5.5,2.9,8.7c-1.2,6.2-6.8,10.5-12.6,12.6C96.7,73.4,96,72.5,95.5,71.6z M171.5,66.3c5.7,1.8,10.3,7.8,8.5,14 c-1.1,3.9-6.1,5.2-9.6,4.8c-3.5-0.4-5.5-3.4-6.2-6.5c-1.1-4.7,0.6-9.5,3.5-13.1C169,65.7,170.2,65.9,171.5,66.3z"></path>
+					<polygon class="fill-primary" points="65.3,39 61,56.8 0.7,0.7"></polygon>
+					<path class="fill-mode" d="M60.6,57.3L0.2,1.1C0,0.9-0.1,0.5,0.1,0.3C0.3,0,0.7-0.1,1,0.1l64.7,38.3c0.2,0.1,0.4,0.4,0.3,0.7l-4.3,17.8 c-0.1,0.2-0.2,0.4-0.4,0.5c-0.1,0-0.1,0-0.2,0C60.9,57.4,60.7,57.4,60.6,57.3z M5.6,4.3l55.1,51.2l3.9-16.3L5.6,4.3z"></path>
+					<polygon class="fill-primary" points="56.5,42.4 61,56.8 0.7,0.8"></polygon>
+					<path class="fill-mode" d="M60.6,57.3L0.2,1.3C0,1.1-0.1,0.7,0.2,0.4c0.2-0.3,0.6-0.3,0.9-0.1l55.8,41.5c0.1,0.1,0.2,0.2,0.2,0.3 l4.6,14.4c0.1,0.3,0,0.6-0.3,0.8c-0.1,0.1-0.2,0.1-0.4,0.1C60.9,57.4,60.7,57.4,60.6,57.3z M10.1,8.7l49.6,45.9l-3.8-11.8 L10.1,8.7z"></path>
+					<polygon class="fill-primary" points="0.7,0.7 91.5,28.5 65.2,38.8 			"></polygon>
+					<path class="fill-mode" d="M64.9,39.4L0.3,1.2C0,1.1-0.1,0.7,0.1,0.4C0.2,0.1,0.5-0.1,0.9,0l90.9,27.8c0.3,0.1,0.5,0.3,0.5,0.6 c0,0.3-0.2,0.5-0.4,0.6L65.4,39.4c-0.1,0-0.2,0-0.2,0C65.1,39.4,65,39.4,64.9,39.4z M5.8,2.9l59.5,35.2l24.3-9.5L5.8,2.9z"></path>
+					<polygon class="fill-primary" points="56.3,42.4 26.5,57.6 0.7,0.7 			"></polygon>
+					<path class="fill-mode" d="M26.3,58.3c-0.2-0.1-0.3-0.2-0.4-0.3L0.1,0.9c-0.1-0.3,0-0.6,0.2-0.8C0.5,0,0.8,0,1.1,0.1l55.7,41.8 c0.2,0.1,0.3,0.4,0.3,0.6c0,0.2-0.2,0.4-0.4,0.5L26.8,58.2c-0.1,0-0.2,0.1-0.3,0.1C26.5,58.3,26.4,58.3,26.3,58.3z M2.3,2.7 l24.5,54l28.2-14.4L2.3,2.7z"></path>
+				</svg>
+			</figure>
+
+			<!-- Title -->
+			<h2>We're hiring!</h2>
+			<p class="mb-4">Our team is growing faster and we're always looking for a smart people</p>
+
+			<div class="d-grid d-sm-flex justify-content-center gap-2 gap-sm-4">
+				<a href="#" class="btn btn-lg btn-light border mb-0">learn more</a>
+				<a href="career.html" class="btn btn-lg btn-dark border mb-0">View open role</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+CTA END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6" data-bs-theme="dark">
+	<div class="container position-relative mt-sm-5">
+
+		<!-- Footer Widgets -->
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-8 col-xl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms & condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-6">
+						<h6 class="mb-2 mb-md-4">Contact details</h6>
+						<ul class="list-group list-group-borderless">
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-geo-alt"></i>1421 Coburn Hollow Road Metamora, Near Center Point, IL 61548. </li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-headset"></i> (251) 854-6308 </li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-envelope"></i> help@example.com</li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-clock"></i>
+								<p class="mb-0">Mon - Fri: <strong>09:00 - 21:00</strong> <br>Sat - Sun: <strong>Closed</strong></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-3">
+				<h6 class="mb-2 mb-md-4">App available on</h6>
+				<div class="row g-2 mb-4 mb-sm-5">
+					<!-- Google play store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
+						<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+					</div>
+					<!-- App store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
+						<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+					</div>
+				</div>
+
+				<!-- Social buttons -->
+				<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+				<ul class="list-inline mb-0 mt-3">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-youtube" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="opacity-1 mt-4 mb-3">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-3">
+			<!-- Logo -->
+			<a class="navbar-brand" href="index.html">
+				<img class="light-mode-item navbar-brand-item h-40px" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+
+			<!-- Copyright link-->
+			<div class="text-body mt-3 mt-md-0"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- Copyright link-->
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

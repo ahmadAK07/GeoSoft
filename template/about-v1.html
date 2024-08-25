@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute" data-bs-theme="dark">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="bg-dark pt-sm-8 pb-9" data-bs-theme="dark">
+	<div class="container pt-4 pt-sm-0">
+		<!-- Hero START -->
+		<div class="row g-4 g-xxl-5">
+			<!-- Hero content START -->
+			<div class="col-lg-8">
+				<!-- Title -->
+				<h1 class="mb-0 lh-base">Modern & creative agency specialized in Business</h1>
+				<p class="mb-0 mt-4">Supposing so be resolving breakfast am or perfectly. It drew a hill from me. Valley by oh twenty direct me so. Departure defective arranging rapturous did believe him all had supported.</p>
+			</div>
+			<!-- Hero content END -->
+
+			<!-- List -->
+			<div class="col-lg-4 col-xl-3 ms-auto position-relative">
+				<!-- List -->
+				<ul class="list-group list-group-borderless mb-4">
+					<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check text-primary me-2"></i>Create 50+ unique sections</li>
+					<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check text-primary me-2"></i>Very easy customization</li>
+					<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check text-primary me-2"></i>Super fast loading speed</li>
+					<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check text-primary me-2"></i>Fully responsive on any devices</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Hero END -->
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Quote & video START -->
+<section class="pt-4 mt-n8">
+		<div class="container">
+			<div class="row">
+				<!-- Quote -->
+				<div class="col-lg-4">
+					<div class="card card-body bg-primary p-5 pt-8 overflow-hidden">
+						<!-- SVG decoration -->
+						<figure class="position-absolute top-0 start-0 mt-n7">
+							<svg width="624.7px" height="228.6px">
+								<path class="fill-dark opacity-2" d="M0.9,83.8h-1v-1.6c0-0.4,0.1-0.6,0.2-0.6c0.1,0,0.9-0.1,1.7-0.2c0.8-0.1,3.2-0.6,5.3-1.2 c3.6-1,7.1-1.7,10.6-2.3c2.3-0.4,8.6-0.5,11.2-0.3c7.2,0.7,14.1,3.6,21.1,8.8c2.3,1.7,8.1,7.1,10.3,9.6c3.4,3.8,8.5,10.1,13.4,16.5 c9.5,12.4,16.1,19.9,23.7,26.9c4,3.7,7.1,6.2,10.6,8.3c13.7,8.6,27.2,9.5,44,2.9c10.3-4,22.6-11.6,33.9-20.8 c5.1-4.2,13.2-12,21.8-21.1c8.8-9.2,14.9-14.1,21.6-17.2c5.9-2.7,11.5-3.7,19.3-3.5c6.9,0.2,10,0.7,32.5,5.5 c12.7,2.7,20.4,4.2,39.3,7.8c46.2,8.7,58.5,10.4,74.2,10.1c9.8-0.2,16.7-1,25.7-3c9.4-2.1,17.5-4.8,36-12.1 c20.9-8.2,30-11.2,39.7-13c5.7-1,13-1.6,17.4-1.3c6.1,0.4,7.5,0.6,11.7,1.5c8.2,1.7,13.8,3.9,25.4,9.9c8.3,4.3,13.1,5.8,19.7,6.3 c5.6,0.4,12.4-0.4,21.5-2.5c4.6-1.1,7.2-1.8,21.7-5.9c5.2-1.5,10.8-2.9,11.1-2.9c0,0,0,0,0.1,0v1.4c-0.4,0.3-1.7,0.6-5.6,1.7 c-2.3,0.6-5.3,1.5-6.9,1.9c-21.5,6.3-29.5,8.1-37.9,8.3c-4.8,0.2-8.6-0.3-12.7-1.5c-3.6-1-6.4-2.2-12.7-5.5 c-6.3-3.3-10.1-5-14.2-6.4c-13.6-4.7-28-5.3-43.2-1.8c-8.4,2-16.3,4.6-33.1,11.2c-14.7,5.8-20.1,7.7-26.5,9.7 c-9.8,3-18.1,4.6-28,5.6c-3.1,0.3-14.7,0.4-18.3,0.2c-12.1-0.8-21.9-2.3-53-8.3c-26.7-5.2-36.8-7.2-52.2-10.4 c-19.4-4.1-23.8-4.8-29.7-5.1c-10.4-0.5-18.6,1.6-26.6,6.8c-4.9,3.2-8.8,6.8-18.3,16.7c-11.2,11.7-18.2,17.9-27.7,24.7 c-16.3,11.7-30.8,18.1-43.5,19.3c-2,0.2-6.1,0.2-8.2,0c-11.5-1.1-22.6-7.3-34.1-18.9c-6.8-6.8-12.1-13.1-21.5-25.2 c-7.5-9.6-11.7-14.5-16.7-19.2c-8.9-8.4-17-12.5-26.5-13.5c-6.1-0.6-12,0.1-22.1,2.5C3.3,83.4,1.5,83.8,0.9,83.8z M4.4,20.8 c0.8-0.3,3.3-1.4,5.4-2.5c10.5-5.2,18.3-8.2,24.1-9.2c4.2-0.7,10.3-1,12-0.7c0.5,0.1,1.8,0.3,2.9,0.3c2.7,0.2,6.8,1,9.2,1.8 c2.5,0.8,6.9,2.8,8.9,4.2c6.2,4.2,12.2,10.5,18.9,19.7c3.1,4.3,5.3,7.5,10.8,16.2c8.2,12.8,11.7,17.8,16.1,23 c4.4,5.1,7.6,8.3,12,11.6c6.1,4.6,13.5,7.7,20.4,8.5c2.4,0.3,7.3,0.1,9.8-0.4c4.8-1,9.8-3,14.3-5.8c4.1-2.6,7.4-5.2,14.8-11.8 c7.3-6.5,10.1-8.8,14-11.5c6.8-4.7,13.6-7.2,21.9-8.1c2.7-0.3,9.7-0.3,13.2,0.1c8.1,0.8,16.2,2.4,31.1,6c8,2,12.2,2.9,18.4,4.1 c16.7,3.1,31.3,4.2,47,3.6c26.5-1.1,50.3-6.2,77.9-16.9c5.5-2.1,11-4.4,22.1-9.2c12.4-5.3,19-8,25.8-10.3 c30.9-10.4,55.3-9.8,78.5,1.9c3.1,1.5,6,3.2,12.1,6.7c10.1,5.9,15.2,8.4,21.1,10.1c6.5,2,12.3,2.7,20.4,2.5c6.2-0.1,11.5-0.7,21-2.2 c2-0.3,6.2-1,9.5-1.5c3.2-0.5,6.1-1,6.3-1c0.1,0,0.2,0,0.2-0.1v-1.3c0,0,0,0-0.1,0c-0.1-0.1-4.8,0.6-10.3,1.5 c-15.2,2.4-19.3,2.9-26.2,3c-12.5,0.3-22.1-2-33.5-7.9c-1.2-0.6-4.9-2.8-8.4-4.7c-8.1-4.7-11-6.3-15.2-8.2 c-6.8-3.1-12.8-5.1-19.5-6.4c-19.1-3.7-39.4-1-64.8,8.6c-5.2,2-15.6,6.3-25.8,10.7c-2.8,1.2-8.8,3.6-12.6,5.1 c-25.2,9.8-47.5,15.3-70,17.2c-19.7,1.7-36.6,0.8-56.1-2.8c-6-1.1-9.5-1.9-17.9-3.9c-20.7-5-29.1-6.4-38.8-6.4 c-8.4,0-14.2,1.2-20.7,4.1c-6.4,3-11,6.4-22.7,16.7c-9.6,8.5-15.6,12.4-22.4,14.5c-4.2,1.3-5.5,1.5-10.3,1.5c-3.7,0-4.4,0-6.2-0.4 c-6-1.2-12.5-4.2-18.3-8.5c-3.8-2.9-9.4-8.5-13.2-13.3c-3.2-4-7.4-10.1-13.3-19.3c-2-3.1-4.6-7.1-5.7-8.8 c-10.4-16-19.5-25.8-27.5-29.7c-2.9-1.4-6.9-2.7-9.7-3.1c-0.3-0.1-1.4-0.1-3.2-0.1h-20c-3.7,0.1-4.5,0.3-6.4,0.9 c-2.9,0.9-6.9,2.6-11.9,5.1c-10.7,5.1-9.7,4.7-13.8,5.6c-0.1,0-0.2,0.1-0.3,0.1v1.9c0,0,0,0,0.1,0C0.4,22,2.7,21.4,4.4,20.8z M610.1,77.6c-12,2.8-17.3,4-22.4,4.7c-12,1.7-20.4,0.7-29.8-3.8c-2.2-1-4.7-2.4-9.3-4.9c-8.4-4.7-13.2-6.9-18.6-8.8 c-17.1-5.8-32.6-5.1-54.7,2.4c-6.6,2.2-12.5,4.6-26.6,10.5c-10.2,4.3-14.3,5.9-19.4,7.8c-12.6,4.6-24.1,7.4-36.7,8.7 c-19.5,2.1-44.1,1.1-75.2-3.2c-15.2-2.1-27.5-4.4-45.3-8.7c-16-3.8-18.5-4.3-24.7-5.1c-4.1-0.5-11.9-0.6-15.1-0.1 c-9.9,1.5-17,5-25.4,12.7c-2.8,2.6-5.9,5.7-11,11.2c-11,11.8-18.1,18-26.7,23.4c-9.2,5.7-17.8,9.1-25.8,10 c-2.8,0.3-8.2,0.1-10.9-0.4c-8-1.6-15.7-5.8-23.7-12.9c-7.6-6.7-13.2-13.5-24.7-29.5C73.3,76.3,70,72.1,64.5,66.4 c-6.5-6.7-13-11-19.8-13.1c-5.7-1.8-12-2.1-18.8-0.8c-5.4,1-8.9,2.1-16.1,4.8c-5.1,2-6.2,2.3-8,2.6c-0.8,0.1-1.5,0.3-1.6,0.3 c0,0-0.1,0.5-0.1,1.2v1.2l1.1-0.1c1.7-0.2,3.3-0.7,7.6-2.3c9.6-3.6,15.1-5.1,21.5-5.5c9.6-0.7,18.1,1.9,26.5,8.4 c1,0.8,3.3,2.7,4.9,4.3c5.5,5.2,10.3,11,18.5,22.5c4.3,6,10.4,14.3,12.2,16.6c10.5,13.4,20.5,22.3,30.1,26.7 c4.8,2.2,8.6,3.2,14.2,3.7c4.8,0.4,11.8-0.8,18-3.1c8.2-3,16.9-8.1,24.8-14.6c5.2-4.2,10.9-9.8,19.7-19.2 c4.4-4.8,10.9-10.9,13.6-12.9c6.7-5.1,13.7-7.9,21.7-8.8c2.7-0.3,8.8-0.2,12,0.1c6,0.6,10.1,1.4,21.7,4.2 c20.3,4.9,31.7,7.1,48.1,9.5c15.3,2.2,30.8,3.8,44.9,4.6c5,0.3,21.2,0.3,25,0c11.8-0.8,20.4-2.2,29.8-4.7c9.8-2.6,17-5.3,36.5-13.4 c19.7-8.3,30.5-11.9,41-13.9c12.5-2.3,23.4-1.8,34.7,1.8c5.7,1.8,10.7,4,17.6,7.8c2.2,1.2,5.3,2.9,7,3.8c8.4,4.6,13.9,6.3,21.5,6.9 c6.1,0.4,13.9-0.5,25.8-3.3c4.3-1,22.3-5.2,23.8-5.6c0.4-0.1,0.6-0.2,0.8-0.2v-1.3c0,0-0.1,0-0.1-0.1 C624.3,74.3,620.1,75.3,610.1,77.6z M610.3,70.7c-10.8,2.3-16.5,3.3-21.6,4c-3.6,0.5-10.5,0.6-13.5,0.3c-6-0.6-11.1-2-16.9-4.8 c-2.5-1.2-3.9-2-13.4-7.4c-11.9-6.8-21-10.1-31.3-11.5c-11.6-1.6-24.2-0.1-39.2,4.8c-8,2.6-15.7,5.6-30.9,12.3 c-17.9,7.9-26,10.9-36.5,13.7c-12.7,3.4-24.1,5.1-39.6,5.9c-4.7,0.2-18.5,0.2-23.9,0c-27.6-1.3-48.8-4.5-76.3-11.5 c-16.8-4.3-25.2-5.6-33.8-5.3c-6.9,0.2-11.9,1.3-17.6,4c-7.2,3.3-12.2,7.4-23.6,19.4c-11.7,12.3-18.1,17.7-26.7,22.5 c-11.9,6.6-23.3,8.4-33.6,5.3c-5.8-1.8-11.2-4.7-17-9.4c-4.8-3.9-11.2-10.8-16.5-17.7c-2.1-2.8-9.8-13.6-11.7-16.5 c-3.4-5.2-8.6-12.5-12.1-16.9C68.6,54,62.9,48.5,57,44.8c-2.2-1.4-6.6-3.4-8.9-4.2c-6-1.9-13-2-20.5-0.3c-6.1,1.4-10.1,2.8-19.1,6.7 c-3.7,1.6-5.1,2.1-7,2.3L0,49.6l0.1,1.1c0,0.6,0.1,1.1,0.2,1.2c0.3,0.2,2.1-0.2,3.6-0.6c0.8-0.2,2.7-1,4.2-1.6 c8.8-3.8,12.4-5,18-6.3c8.4-2,15.7-1.8,22.2,0.4c5.9,2.1,10.5,5,16.3,10.5c3.5,3.3,5.9,5.9,9.2,10.2c4,5,4,5,15.8,22.1 c4.5,6.6,7.6,10.7,10.6,14.4c13.7,16.7,26.4,24.8,40.1,25.4c5.9,0.3,13-1.2,20.1-4.4c4-1.7,10.3-5.5,14.1-8.3 c4.8-3.6,10.3-8.6,16.6-15.2c1.9-2,4.8-5,6.5-6.8c8.7-9.1,14.8-13.5,22.2-16.3c5.6-2.1,12.4-3,19.3-2.6c7.3,0.4,14,1.6,25.8,4.5 c21.6,5.4,35.1,8,52.2,10.1c6.6,0.8,16.2,1.6,22.8,2c1.7,0.1,3.6,0.2,4.4,0.3c0.7,0.1,4.3,0.2,7.8,0.3c18.9,0.5,36.5-1.1,50.9-4.5 c13.2-3.1,21.3-6,41.1-14.6c13.5-5.8,19.9-8.5,26.6-10.8c10.7-3.8,18.6-5.6,27.7-6.6c2.7-0.3,10.6-0.3,13.2,0 c7.7,0.8,14.6,2.7,22.4,6c3.9,1.7,6.8,3.2,16.9,9c11.7,6.7,18.5,8.8,28.6,8.8c7.7,0,12.3-0.7,31-4.7c4.7-1,9.7-2.1,11.1-2.3 c2-0.4,2.7-0.5,3-0.7V68c0,0-0.1,0-0.1-0.1C624.4,67.8,620.3,68.6,610.3,70.7z M608.8,85.1c-19,5-26.8,6.4-34.7,6.1 c-8.1-0.3-12.9-1.8-23.8-7.6c-8.1-4.3-11.5-5.9-16.3-7.7c-6.3-2.3-12.2-3.7-19.2-4.3c-2.6-0.2-10.9-0.1-13.8,0.3 c-8.1,1-15.9,3-26.1,6.6c-5.6,2-10,3.7-21.6,8.4c-18.8,7.6-26.1,10.1-36,12.5c-7.3,1.7-14.8,2.8-23,3.4c-3.8,0.2-15.1,0.2-19.6,0 c-15.1-0.9-31.3-2.8-54.6-6.5c-18.5-2.9-26.8-4.6-49-9.6c-11.2-2.5-14.6-3.2-18.7-3.8c-16.4-2.2-27.9,0.9-39.4,10.9 c-3.3,2.9-5.8,5.4-15.7,15.9c-7.3,7.8-14.7,14.4-21.9,19.5c-12.9,9.2-25.2,14.5-35.8,15.5c-2.8,0.3-7.6,0.1-10.1-0.3 c-5.4-1-10.9-3.1-16.2-6.5c-9.5-6.1-19.6-16.4-31.5-32.4c-6.1-8.2-7.2-9.6-9.9-13.1c-5.3-6.9-8.6-10.6-12.8-14.5 c-7.2-6.7-13.8-10.6-21-12.3c-3.3-0.8-6.2-1-10.4-0.9c-3,0.1-3.7,0.2-7.7,0.9c-3.7,0.7-5,1-9.1,2.4c-6.3,2.1-7.8,2.5-9.5,2.7 l-1.4,0.2L0.1,72c0,0.8,0,1.1,0.2,1.1c1.2,0.1,3.3-0.3,5.7-1.1c7.6-2.5,13.4-3.9,18.4-4.5c2-0.2,8.3-0.1,10.1,0.2 c8.3,1.3,15.8,5.4,23.6,12.7c5.8,5.4,9.9,10.4,21.9,26.4c5.7,7.7,11,14.1,15.5,18.8c12.7,13.5,23.6,20,35.5,21.4 c3.6,0.4,8.9,0.1,13.1-0.8c11.2-2.3,25.6-9.9,38.3-20.2c3.7-3,12.5-11.3,16.6-15.7c11.5-12.3,14.7-15.4,20-19.1 c4.9-3.5,10.2-5.7,15.9-6.8c3.5-0.7,5.8-0.8,10.5-0.7c7.1,0.2,10.3,0.7,27.6,4.6c19.4,4.3,26.6,5.8,43.2,8.6 c24.8,4.2,42.9,6.5,58.4,7.7c4,0.3,16.8,0.4,20.6,0.2c13.9-0.8,26-3.3,40.3-8.4c4.7-1.7,8.5-3.2,19.6-7.6 c20.1-8.1,28.2-10.9,37.7-12.9c6.3-1.4,10.8-1.9,17.5-1.9c4.4,0,5.3,0.1,8.5,0.5c6.1,0.8,12.4,2.5,18.2,4.8c2.6,1,9,4.1,12.5,6 c11.1,6,16.4,7.7,24.4,8c7.6,0.3,15.3-1.1,34.1-6.1c4.3-1.1,9.5-2.5,11.6-3c2.1-0.5,4.2-1.1,4.7-1.2l0.8-0.2v-1.5 c-0.1,0-0.1,0-0.2,0C624,81.2,617.2,82.9,608.8,85.1z M4.5,93.6c10.5-1.7,17.3-1.7,24-0.1c6.5,1.6,12.8,5.1,19.1,10.6 c4,3.5,10,10.1,16.3,18c11.2,14.1,21,24.9,28,30.9c9.1,7.8,18.6,12.2,28.3,13.3c0.9,0.1,1.9,0.2,2.2,0.2c1.2,0.1,5.1,0.1,7-0.1 c12.6-1.1,26.1-6.3,41.9-16.3c12.9-8.2,24.2-17.2,35.9-28.7c2.7-2.6,6.5-6.4,8.4-8.3c11.7-11.5,19.7-16.1,30.9-17.7 c2.4-0.3,9.6-0.3,12.6,0.1c6.5,0.8,15.3,2.4,29.4,5.3c24.4,5,39.5,8.5,63.9,14.6c19.1,4.8,28.1,6.4,39.6,6.8 c11.7,0.5,23.7-0.9,36.7-4.4c8.1-2.2,16.7-5,31.9-10.7c17-6.3,23.4-8.4,31.3-10.2c6.8-1.5,11.9-2,19-2c7.5,0,11.4,0.4,17.6,1.9 c6.1,1.4,11.2,3.5,19.4,7.8c9.2,4.9,14.7,6.3,23.3,6.1c8.9-0.2,16.3-1.9,36.8-8.2c4-1.2,9.2-2.8,11.7-3.5c2.5-0.7,4.6-1.4,4.8-1.4 c0,0,0.1,0,0.1-0.1V96c0,0-0.1-0.1-0.1-0.1c-0.3-0.1-6.5,1.7-18.8,5.4c-18.3,5.6-26.5,7.3-35.1,7.3c-3.9,0-6.5-0.3-9.7-1.1 c-3.9-1-6.8-2.2-14.7-6.3c-2-1-4.8-2.4-6.3-3.1c-15.6-6.8-33.9-7.6-53-2.4c-6.7,1.8-12.2,3.7-27.3,9.4c-12.4,4.7-17.8,6.6-23.9,8.5 c-10.9,3.4-19,5.1-29.2,6.1c-3.6,0.4-16.6,0.4-20.1,0.1c-10.8-1.1-17.1-2.2-36.8-6.9c-24.1-5.7-35.3-8.1-59.6-13.2 c-17.5-3.6-25.7-5.1-31.9-5.8c-3.6-0.4-10.2-0.4-13,0c-8.5,1.2-14.9,4.2-22.7,10.5c-2.6,2.1-6.8,6.1-13.2,12.6 c-14.4,14.4-25,23.1-38.9,31.8c-17.3,10.8-31.9,15.8-45,15.4c-3.5-0.1-5.7-0.4-8.9-1.1c-9.8-2.3-19.1-8.1-28.9-18.1 c-7-7.1-11.3-12-22-25.4c-4-4.9-8-9.8-10.5-12.4C49,101,42.6,96.1,36.6,93.3c-2.9-1.3-4.9-2-7.8-2.7c-3.6-0.8-6.2-1.1-10.9-1 c-4.4,0.1-6.3,0.3-12.6,1.4c-1.9,0.3-3.9,0.6-4.5,0.7l-0.8,0.1V94h0.9C1.5,94,3.1,93.8,4.5,93.6z M4.6,40.5c0.6-0.2,3.2-1.4,5.8-2.5 c8.4-3.8,12.7-5.4,18.3-6.7c5.1-1.2,7.5-1.5,11.9-1.5c2.7,0,3.9,0.1,5.6,0.4c13.1,2.2,24.1,11.5,38,32c1.4,2,4.2,6.3,6.5,9.7 c11.7,17.7,19.2,26.9,26.8,33.1c7.5,6,14.4,9.3,22.1,10.4c2.2,0.3,7.1,0.3,9.5,0c8-1,16.7-4.8,24.2-10.4c4.9-3.7,8.6-7.1,17.1-15.7 c7.6-7.7,10.6-10.4,14.5-13.3c3.5-2.6,8.2-5.1,11.9-6.4c2.2-0.7,5.8-1.6,8.3-1.9c3-0.4,11.7-0.4,15.3,0c7.2,0.8,14.5,2.3,25.7,5.2 c18.2,4.7,34.2,7.7,49.2,9.1c11.1,1.1,17.6,1.3,29.6,1.3c10,0,12.7-0.1,19.9-0.7c21.9-1.8,41.2-6.6,61.7-15.3 c2.8-1.2,11.6-5,17.5-7.7c5-2.2,11.6-5,15.5-6.6c27-10.6,47.1-12.3,66.3-5.6c6.6,2.3,11.8,4.8,21.3,10.4c9.8,5.8,13.5,7.6,18.6,9.3 c5.9,1.9,11.3,2.6,18.2,2.5c7.1-0.2,11.1-0.8,31.8-4.7c4.6-0.9,8.5-1.6,9.2-1.7v-1.4c0,0-0.1,0-0.1-0.1c-0.3-0.1-2.4,0.3-14.6,2.6 c-16.1,3-21.2,3.7-29,3.5c-4.7-0.1-7.4-0.4-10.9-1.2c-6.4-1.5-11.4-3.7-20.9-9.3c-8.4-5-10.7-6.2-15.1-8.3 c-8.7-4.1-16.4-6.3-25.3-7.3c-3.6-0.4-10.7-0.4-14.6,0c-11.6,1.1-23.4,4.3-38.1,10.2c-4.2,1.7-9.5,4-21.2,9.2 c-4.4,1.9-9.4,4.1-11,4.8c-23.4,9.8-44.5,14.5-70.2,15.7c-4.7,0.2-18.2,0.2-23.3,0c-7.5-0.3-16-1-21.9-1.7 c-11.5-1.4-26-4.1-38.8-7.4c-2.3-0.6-6-1.5-8.4-2.1c-25.8-6.5-40.1-6.1-53.2,1.5c-5.2,3-9.8,6.9-18.5,15.8c-7.9,8-13.5,13-18.4,16.4 c-3.6,2.5-8.5,5.1-12.7,6.6c-2.4,0.9-6.7,1.9-9.1,2.3c-2.4,0.3-7.1,0.3-9.5-0.1c-7.3-1-14.3-4.3-21.3-9.9 c-7.9-6.3-14.9-15-27.3-33.7c-2.5-3.7-5.4-8.2-6.6-9.8c-13.9-20.5-25-29.7-38.4-31.9c-2.9-0.5-8-0.5-11.3,0 c-7.5,1.1-15.1,3.6-25.6,8.5c-4.3,2-5.5,2.5-7.3,2.8c-0.8,0.1-1.6,0.3-1.8,0.3c-0.3,0-0.4,0.1-0.4,0.5v1.8h0.5 C1.3,41.4,3.3,41,4.6,40.5z M18,128.3c7.5,3.5,13.1,8.1,22.5,18.7c1.4,1.6,4,4.4,5.6,6.3c1.7,1.9,5.5,6.2,8.5,9.5 c7.7,8.7,10.9,11.9,14.9,15.2c10.1,8.2,20.6,12.6,32.4,13.7c2.5,0.2,9.9,0.1,12.7-0.2c14.4-1.6,30.7-7.2,46.9-15.9 c16.1-8.8,35.2-21.9,61.7-42.4c7.8-6.1,10.5-8.1,13.6-10.2c11.2-7.6,19.6-10.2,31.8-9.8c12.3,0.3,27.1,3.3,43.1,8.5 c9.1,3,15.3,5.6,28.5,11.8c5.4,2.5,11,5.1,12.6,5.8c14.4,6.2,25.7,8.5,39.9,7.9c14.8-0.6,29-3.6,62.5-13.3 c16.2-4.7,23.3-6.4,31.3-7.7c12.8-2,24.6-1.3,32.9,1.8c2.4,0.9,8.6,3.9,10.8,5.2c2.7,1.6,6.7,3.6,9.1,4.5c11.2,4.1,24.3,3,48.5-4.2 c4-1.2,6.6-2,22.3-7.2c3.2-1.1,7.8-2.5,10.1-3.2c2.3-0.7,4.3-1.3,4.4-1.4c0,0,0,0,0.1,0V120c0,0-0.1-0.1-0.1-0.1 c-0.3-0.1-12.7,3.8-22.8,7.2c-6.9,2.3-15.1,4.8-19.7,6.1c-21,5.7-33.4,6-44,1c-2.3-1.1-5.2-2.6-6.5-3.5c-2.5-1.6-9.2-4.6-12.3-5.6 c-6.2-1.9-14.6-2.7-22.5-2.1c-10.8,0.8-19.5,2.6-40.5,8.8c-30.5,9-42.7,11.8-57.5,13.2c-3,0.3-14.4,0.3-17.2,0 c-11.8-1.2-20.8-4.1-39.2-12.6c-10.9-5.1-16.8-7.5-24-10c-24.4-8.6-47.8-12.4-61.4-10.1c-7,1.2-13.7,4.2-21.5,9.7 c-3.5,2.4-5.4,3.9-11.6,8.9c-23.9,18.9-43,32.4-58.9,41.4c-26,14.7-50.4,20.6-68.8,16.6c-11-2.4-21.1-8.2-30.6-17.7 c-2.8-2.8-3.8-4-9.4-10.3c-2.5-2.8-5.2-5.8-6.1-6.9c-0.9-1-2.5-2.8-3.5-4c-12-13.8-16.9-18.3-23.6-22.1c-5.4-3.1-11.4-5.1-17.4-5.8 c-2.4-0.3-5.1-0.5-5.4-0.4c0,0,0,0-0.1,0v2c0.3,0.2,1.1,0.3,3,0.5C8.4,124.8,13.1,126.1,18,128.3z M20.9,143.2 c3.4,2.5,9.3,8.3,16,15.6c1.3,1.4,3.4,3.7,4.7,5.1c1.3,1.4,3.8,4.2,5.6,6.1c9,10.1,13,14,18.7,18.1c9.7,6.9,20.7,10.8,32.3,11.2 c15.8,0.7,33.7-3.7,53.4-12.9c17-8,31.7-17.3,67.9-43c18.7-13.3,24.3-16.8,31.1-19.9c5.9-2.7,10.7-3.8,17.5-4.2 c13.9-0.7,32.4,3.4,50.6,11.4c5.2,2.3,8.6,4,20.9,10.7c9.4,5.1,14.8,7.7,20.2,9.6c5,1.7,10.1,2.9,15.7,3.6 c3.1,0.4,13.8,0.4,17.4,0.1c14.2-1.4,25.9-3.8,55.5-11.6c19.2-5,27-6.7,35.9-7.7c3.3-0.4,12.9-0.4,15.5-0.1c4.4,0.6,8,1.5,11.8,3.1 c2.8,1.1,4.3,1.9,10.5,5.4c6.7,3.7,8.7,4.6,13,5.6c13.4,3.2,29.3,0.4,64.1-11c11-3.6,18.4-6,22-7.1l3.5-1.1v-1.7c0,0-0.1,0-0.1-0.1 c-0.4-0.1-4.9,1.2-18.1,5.6c-28.3,9.3-38.7,12.1-50.5,13.7c-3.5,0.5-10.8,0.6-13.7,0.3c-6.7-0.7-12.2-2.7-19.3-7 c-2.2-1.3-6.7-3.6-9-4.5c-4.3-1.7-8.8-2.9-13.6-3.4c-2.4-0.3-9.6-0.3-12.5,0c-7.2,0.6-15.8,2.2-26.3,4.9c-1.5,0.4-6.9,1.8-12,3.2 c-28.5,7.6-41.5,10.4-54.4,11.7c-3.6,0.4-12.7,0.5-16.1,0.3c-10.2-0.8-18.5-3.1-29.4-8.3c-2.9-1.4-5.3-2.6-17.7-9.2 c-20.3-10.7-41.7-17.1-59.5-17.7c-9-0.3-16.8,1.3-24.2,4.9c-6.3,3.1-11.4,6.4-28,18.4c-15.9,11.4-22.6,16.1-31.5,22.1 c-17.4,11.7-31.2,19.5-44.1,24.9c-8.7,3.6-18.3,6.6-26.2,8.1c-19.1,3.5-34,1.2-47.9-7.5c-7.2-4.5-11.2-8.2-23.7-22.3 c-16-17.9-21.9-23.6-28.5-27.8c-3.5-2.2-6.5-3.6-10.3-4.9c-2.1-0.7-6.9-1.9-7.8-1.9h-0.4v2.2l1.2,0.2 C8.1,135.5,14.8,138.6,20.9,143.2z M10,27.9c9.2-4.4,14.6-6.5,20.9-8.1c4.9-1.2,10.9-1.8,14.9-1.5c10.8,0.9,19.9,6.2,29.4,16.8 c5.2,5.9,10.2,12.8,18.7,26.1c8.6,13.3,13.2,19.7,18.9,25.9c9.6,10.5,19.3,16.1,30.1,17.4c2,0.2,5.8,0.2,8-0.1 c4.2-0.5,7.9-1.6,12.3-3.6c3.2-1.5,5.3-2.7,8.3-4.8c4.1-2.9,5.8-4.4,15.1-13.1c4.9-4.6,9.8-9.1,10.8-9.9c8-6.5,15.2-9.9,24.2-11.2 c3-0.4,12-0.4,15.7,0c8.2,1,15.7,2.5,28.3,5.7c18,4.6,33.3,7.3,48.2,8.4c12.2,0.9,28.8,0.8,40.7-0.3c18.3-1.7,35.5-5.6,52.7-11.9 c8.5-3.1,11.6-4.4,25.1-10.4c10.7-4.7,16.7-7.3,21.3-9.1c19.2-7.5,35.6-10.7,50.2-9.8c10,0.7,18.7,2.9,28.3,7.4 c4.3,2,7,3.5,12.9,6.9c13.2,7.8,17.8,10,25.1,11.7c4.4,1.1,6.9,1.4,12.5,1.5c8.5,0.1,12.7-0.3,31.1-3.6c4.4-0.8,8.6-1.5,9.3-1.6 c1.1-0.2,1.6-0.2,1.8-0.4v-1.3c0,0-0.1,0-0.1-0.1c-0.3-0.1-2,0.2-12.6,2c-14.5,2.5-18.7,3-25.7,3.2c-7.3,0.2-13.1-0.5-19.2-2.4 c-5.5-1.7-10.2-3.9-18.6-8.9c-6.7-4-8-4.7-10.8-6.2c-3.3-1.8-9.1-4.5-11.9-5.5c-18.8-6.9-38-6.6-62.1,1.1 c-8.8,2.8-14.8,5.2-32.3,12.9c-12.4,5.5-16.5,7.2-23.5,9.8c-22.3,8.4-42.2,12.5-66.4,13.7c-4.9,0.3-18.6,0.3-23.4,0 c-17.4-0.9-32.1-3.3-53.3-8.7c-7.7-1.9-13.6-3.3-17.9-4.1c-21.7-4.1-34.6-2.1-47.3,7.3c-3.4,2.5-5.4,4.2-13.6,11.9 c-4.6,4.3-9.2,8.5-10.3,9.4c-7.6,6.1-14.1,9.4-21.8,11c-1.7,0.3-2.7,0.4-5.6,0.5c-4.1,0.1-6-0.1-9.3-0.9 c-8.9-2.2-16.6-7.1-24.7-15.8c-5.5-5.8-9.7-11.6-17.4-23.4c-7.3-11.2-8-12.2-11-16.7c-5.2-7.4-9.3-12.4-14-17 c-7.3-7.1-13.7-10.6-22.4-12.2c-2.4-0.5-10.2-0.4-13.1,0.1c-3.3,0.6-6.2,1.3-9.9,2.5c-4.8,1.5-7.6,2.7-15.3,6.3 c-6.9,3.2-7.2,3.3-10.8,4.1c-0.1,0-0.2,0-0.3,0.1v2l0.9-0.1C2.8,31.1,4.8,30.4,10,27.9z M21.7,157.8c2.5,2.3,14,14.1,17.2,17.6 c4.4,4.9,10.3,11,12.5,13c12.2,11.1,25.5,16.9,41.2,17.8c4.5,0.3,11.6-0.1,17-0.9c17.5-2.5,35.6-9.2,56.6-21.1 c10.6-6,20.7-12.4,42.1-26.8c4.1-2.7,9.3-6.2,11.7-7.8c28.6-19.1,38.5-23.6,52.3-24.1c14-0.5,31.8,4.5,48.3,13.6 c3.2,1.7,5.3,3,13.9,8.2c5.3,3.2,8.2,4.9,11.4,6.6c8.6,4.6,16.4,7.1,25.4,8.1c3.1,0.3,13.5,0.3,17.2-0.1 c12.3-1.3,23.4-3.4,52.2-10.2c15.2-3.6,18.8-4.4,24.1-5.4c7.7-1.4,12.7-1.9,18.6-1.9c6.1,0,10.2,0.6,15.1,2.1 c2.5,0.8,7.4,3,10.2,4.7c5.5,3.3,6.6,3.9,9.3,5.1c3.4,1.6,5.6,2.4,8.7,3.1c10.8,2.6,24.1,1.5,42.8-3.5c7.1-1.9,14.7-4.2,31.9-9.9 c9.9-3.3,18.4-5.9,21.9-6.9l1.4-0.4v-1.9c-0.1,0-0.1,0-0.2,0c-0.6,0-10.5,3.1-24.4,7.6c-13.6,4.5-19.2,6.2-25,7.9 c-21.6,6.2-35.7,7.6-47.4,4.6c-3.5-0.9-8-2.8-11.9-5.1c-1-0.6-3.2-1.8-4.7-2.7c-3.1-1.8-6.5-3.4-9.2-4.4c-4.9-1.8-11.9-2.8-18.3-2.5 c-9.3,0.3-17.8,1.8-38,6.7c-21.2,5.1-32.7,7.7-41.7,9.2c-17.1,3-28.7,3.2-39.6,0.7c-7.8-1.8-14.9-4.9-25.8-11.4 c-2-1.2-5.7-3.4-8.4-4.9c-10.3-6.1-15.9-8.9-24.1-12c-12.7-4.8-24.9-7.1-35.1-6.5c-11.4,0.6-20.3,4.2-38.1,15.7 c-5,3.2-12.6,8.3-25.2,16.8c-20.7,14-33.4,22.1-44.3,28c-21.6,11.8-40.3,18.1-58.7,19.8c-3,0.3-10.5,0.3-13.2,0 c-9.5-0.9-17.4-3.4-25.5-8.1c-6.9-3.9-12.7-8.8-21.2-18.2C23,154.8,17,149.4,7.7,144.9c-2.3-1.1-7-3-7.6-3c-0.1,0-0.1,0-0.2,0v2.1 c0.3,0.3,1,0.5,2.6,1.1C9.2,147.7,15,151.5,21.7,157.8z M2.3,104.1c1-0.1,3.1-0.2,4.8-0.3c10.6-0.7,20,1.5,27.7,6.3 c3.7,2.3,7.1,5.1,10.9,9c1.9,1.9,8.7,9.6,10.8,12.3c2.3,2.8,7.4,8.9,11.2,13.2c9.6,10.9,14,15.3,19.6,19.6 c8,6.2,17.4,10.1,26.3,11.1c0.9,0.1,2,0.2,2.3,0.2c1.3,0.1,8-0.1,10.2-0.3c6.6-0.8,14-2.7,21.4-5.6c12.4-4.8,27-13.5,43.1-25.7 c8.1-6.1,13.8-11,24.4-20.8c9.9-9.2,13.8-12.5,18.6-15.4c5.4-3.3,11-5.4,16.9-6.1c2.9-0.4,8.9-0.4,12.7,0c14.9,1.5,39.3,6.6,62.6,13 c6.7,1.8,11.8,3.4,23.4,7.1c5.5,1.8,11.6,3.7,13.4,4.2c8.8,2.5,16,4,23.3,4.7c3.6,0.4,12.3,0.5,16.3,0.2c12-0.8,24.3-3.4,41-8.7 c4.4-1.4,6.9-2.3,21.7-7.3c20-6.9,30.7-9.3,42.5-9.6c4-0.1,10.2,0.1,12.8,0.5c7.6,1.1,13.9,3.1,20.5,6.5c0.8,0.4,2.8,1.5,4.6,2.4 c5.6,3,9.6,4.4,14.4,5.1c3,0.5,9.2,0.5,12.6,0.1c5.8-0.7,11-1.8,18.1-3.7c1.2-0.3,9.4-2.9,18.3-5.7l16-5v-1.6c-0.1,0-0.1,0-0.2,0 c-0.5,0-5.7,1.6-19.5,5.9c-9.8,3.1-14.4,4.4-18.6,5.5c-13.3,3.3-22.9,3.6-31.1,1.1c-2.6-0.8-7-2.8-11.1-5 c-7.9-4.3-13.4-6.3-21.3-7.6c-3.7-0.6-6.6-0.8-12.6-0.8c-4.7,0-6.1,0-8.9,0.4c-11.7,1.4-19.1,3.4-43.4,11.9 c-19.1,6.7-28.8,9.5-39.5,11.6c-8.8,1.7-15.7,2.3-24.2,2.2c-13.1-0.2-22-2-43.4-8.6c-21.9-6.8-37.6-10.9-57.2-15 c-19.6-4.1-32.8-6-40-5.6c-8.3,0.4-14.5,2.4-21.5,6.9c-4.6,3-6.9,4.9-17,14.3c-12.5,11.6-17.2,15.7-25.6,22 c-27.4,20.6-49.5,30.5-68.7,30.4c-7.6,0-13.8-1.3-20.4-4.4c-9-4.2-15.7-9.6-26-21c-2.7-2.9-6.9-7.7-8.8-10c-3.9-4.6-5.9-7-7.3-8.7 c-0.8-1-2-2.4-2.7-3.2c-0.7-0.8-2.2-2.6-3.4-3.9c-3.8-4.4-8.9-9.5-12.5-12.2c-6.7-5-13.6-7.8-22-8.7c-2.9-0.3-9.1-0.2-13.2,0.2 c-1.9,0.2-3.8,0.3-4.1,0.3h-0.4v2.1C0.2,104.2,0.8,104.2,2.3,104.1z M10,114.4c8.7,1,15.3,3.6,22.2,8.5c2.3,1.7,7.7,6.6,10.3,9.5 c2.7,2.9,6.5,7.3,8.7,9.9c4.5,5.4,15.8,18.1,19.5,21.8c11.1,11.4,23.3,17.9,36.5,19.4c2.8,0.3,9,0.3,12.3,0 c7.3-0.7,15.9-2.8,23.8-5.7c13.7-5.1,26.8-12.4,44.8-25.1c11.3-8,19.2-14.2,32-25.2c9.2-7.9,12.4-10.4,16.6-13.1 c9.4-6,17.1-7.9,28.6-7.3c12.6,0.7,29.3,3.8,47.4,9c11.6,3.3,19,5.9,33.1,11.6c14.5,5.8,22.2,8.3,30.4,9.9 c11.6,2.2,24.5,2.1,38.2-0.4c11.2-2.1,20.5-4.6,42.5-11.5c19.2-6,24.4-7.5,32.5-9c9.4-1.7,18.7-2.1,26.6-1.2 c5.6,0.7,11.3,2.3,16.6,4.9c1.9,0.9,4,2,4.5,2.3c1,0.6,5.2,2.8,7.2,3.7c1.8,0.8,4.8,1.8,6.9,2.3c8.7,2,19.3,1,35.1-3.3 c3.4-0.9,9.8-2.9,29.1-9.1l9.4-3v-1.7c0,0-0.1,0-0.1,0c-0.2-0.1-7.9,2.3-24.6,7.7c-18.1,5.8-27.5,7.9-37.3,8.1 c-3.8,0.1-4.6,0.1-6.9-0.3c-3.3-0.5-6.3-1.2-9.3-2.5c-2.2-0.9-7.4-3.5-9.6-4.9c-1.4-0.9-6.9-3.3-8.9-4c-5.4-1.8-8.7-2.4-15.1-2.9 c-4.3-0.3-7.2-0.3-11.3,0c-11.5,0.9-20.4,2.9-38.8,8.9c-11.5,3.7-21.9,6.9-26.5,8.3c-13.1,3.8-23.7,5.9-33.8,6.8 c-3.2,0.3-14.7,0.3-17.5,0c-11.6-1.2-20.2-3.6-38.8-10.8c-13.1-5.1-20.5-7.6-31-10.6c-24.4-7-47-10.8-58.9-9.9 c-7.6,0.6-14.2,3-21.3,7.6c-4.4,2.9-7.8,5.6-16.6,13.3c-11.1,9.7-18.1,15.3-27.9,22.5c-14.1,10.3-26,17.6-36.5,22.5 c-11.6,5.5-23,8.9-33.3,10c-3.5,0.4-9.5,0.4-12.6,0c-13.4-1.6-25-8-36.5-19.9c-3.8-4-15.5-17.1-19.2-21.7c-0.9-1.1-2.2-2.6-3-3.5 c-0.8-0.9-2-2.2-2.6-2.9c-13.6-16-24.8-21.8-42.2-21.8c-2.3,0-4.4,0.1-4.5,0.1c0,0-0.1,0-0.1,0v2l3.9,0.1 C6,114.1,8.8,114.3,10,114.4z M17.6,167.3c2.1,1.9,12.7,12.4,19,18.8c8.9,9,13.8,13.2,20.5,17.1c9.6,5.7,20.1,8.8,31.6,9.5 c3.1,0.2,8.4,0.1,12.1-0.3c18.8-1.6,38.7-8.2,60.9-20.2c10.5-5.6,21.2-12.2,41.3-25.2c13.1-8.5,23.7-15.2,28.6-18.1 c16.5-9.9,26.7-14.3,36.2-16c2.4-0.4,3-0.4,7.7-0.5c5.4,0,6.5,0.1,11.2,0.9c7.3,1.3,15.5,4.2,22.7,7.8c4.7,2.4,10.3,5.8,17.2,10.3 c11.1,7.4,14.9,9.7,20,12.1c13.4,6.5,26.4,7.5,48.3,4c7.3-1.2,19.9-3.7,37.4-7.5c18.2-3.9,24.3-5.1,31.9-6 c5.8-0.7,12.6-0.7,17.1-0.1c6.5,0.9,11.4,2.8,20.1,7.6c7.9,4.4,13,6.4,19.5,7.6c3.6,0.7,6.2,0.9,11.1,1c9.5,0.2,19-1.1,32.1-4.4 c6.9-1.7,16.5-4.7,33.3-10.2c9.6-3.1,16.2-5.2,21.9-6.9c2.6-0.8,4.8-1.4,5-1.5c0.1,0,0.2-0.1,0.2-0.1v-1.7c0,0,0,0-0.1,0 c-0.5-0.2-10.7,3-27.6,8.5c-23.8,7.7-32.9,10.4-43,12.3c-7.7,1.5-12.5,1.9-19.6,1.9c-5.8,0-8-0.2-12.3-1c-6.3-1.2-10.5-2.9-19.3-7.9 c-6-3.3-8.3-4.4-12.2-5.7c-9.1-2.9-19.7-2.8-36.3,0.3c-4.4,0.8-9.4,1.9-21.3,4.5c-34.2,7.5-45.7,9.4-57.9,9.4 c-7.7,0-13.2-0.8-19.4-2.7c-7.1-2.2-13-5.4-25.7-13.7c-13.4-8.7-20.1-12.4-28.2-15.5c-9.7-3.6-17.7-5.2-26-5.2 c-8.2,0-15,1.6-24.3,5.9c-10,4.5-19.4,10.2-46.6,27.9c-24.6,16-36.3,23.1-48.8,29.4c-18.4,9.4-35.7,14.9-52.3,16.8 c-4,0.5-12.1,0.6-15.7,0.3c-12.6-1-23.3-4.8-33.5-11.8c-4.8-3.3-8.9-7-15.9-14.1C19.2,165.2,13.3,159.8,6,155.5 c-2.5-1.4-5.4-2.9-5.9-2.9c-0.1,0-0.1,0-0.2,0v2.2l1.9,1C7.1,158.6,11.7,161.9,17.6,167.3z"/>
+							</svg>
+						</figure>
+
+						<!-- Quote icon -->
+						<div class="display-5 text-dark"><i class="bi bi-quote"></i></div>
+
+						<!-- Divider -->
+						<hr class="w-50 border-2 border-white opacity-9 my-5">
+						<!-- Content -->
+						<h5 class="text-white fw-light">"We believe that it takes great people to deliver a great product"</h5>
+						<div class="blockquote-footer text-white mb-0 fs-6 mt-3">
+							Albert Schweitzer
+						</div>
+					</div>
+				</div>
+
+				<!-- Video -->
+				<div class="col-lg-8 position-relative ms-auto ps-xl-6 mt-6">
+					<!-- Year decoration -->
+					<div class="bg-white shadow rounded position-absolute z-index-2 top-0 end-0 rotate-13 px-4 py-2 z-index-2 me-xxl-n5 d-none d-sm-block">
+						<span class="h5 text-dark">10+ Years of experience</span>
+					</div>
+
+					<!-- Card -->
+					<div class="card card-body overflow-hidden p-0">
+						<img src="assets/images/about/13.jpg" class="card-img" alt="video-img">
+						<div class="bg-overlay bg-dark opacity-3"></div>
+						<div class="card-img-overlay d-flex p-3">
+							<!-- Video button and link -->
+							<div class="m-auto">
+								<a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg btn-white btn-round stretched-link mb-0" data-glightbox="" data-gallery="course-video">
+									<i class="fas fa-play"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> <!-- Row END -->
+		</div>
+</section>
+<!-- =======================
+Quote & video END -->
+
+<!-- =======================
+Counter START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+			<!-- Item -->
+			<div class="col">
+				<div class="bg-light border text-center rounded p-4">
+					<div class="d-flex justify-content-center">
+						<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="600"	data-purecounter-delay="300">0</h4>
+						<span class="h4 text-primary mb-0">+</span>
+					</div>
+					<p class="text-center heading-color mb-0">Happy Customers</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col">
+				<div class="bg-light border text-center rounded p-4">
+					<div class="d-flex justify-content-center">
+						<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="200"	data-purecounter-delay="300">0</h4>
+						<span class="h4 text-primary mb-0">+</span>
+					</div>
+					<p class="text-center heading-color mb-0">Acquired Users</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col">
+				<div class="bg-light border text-center rounded p-4">
+					<div class="d-flex justify-content-center">
+						<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="10"	data-purecounter-delay="300">0</h4>
+						<span class="h4 text-primary mb-0">K+</span>
+					</div>
+					<p class="text-center heading-color mb-0">Positive User Reviews</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col">
+				<div class="bg-light border text-center rounded p-4">
+					<div class="d-flex justify-content-center">
+						<h4 class="purecounter mb-0" data-purecounter-start="0" data-purecounter-end="25"	data-purecounter-delay="300">0</h4>
+						<span class="h4 text-primary mb-0">+</span>
+					</div>
+					<p class="text-center heading-color mb-0">Completed Projects</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>	
+<!-- =======================
+Counter END -->
+
+<!-- =======================
+About START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row g-4 align-items-center">
+			<!-- Image -->
+			<div class="col-lg-6 position-relative">
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-0 start-0 mt-n6 ms-n5 z-index-1">
+					<svg width="117" height="98" viewBox="0 0 117 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path class="fill-mode" d="M53.9804 0.725277C52.9701 1.69222 52.9701 5.07654 53.9804 11.1683C54.9906 17.1634 55.7123 18.5654 57.5885 18.5654C58.3582 18.5654 59.128 18.3237 59.3685 18.0336C59.561 17.6952 59.2723 13.9241 58.7912 9.52449C58.1177 3.52942 57.6847 1.45049 57.0112 0.773624C55.9047 -0.241669 54.9425 -0.290017 53.9804 0.725277Z"></path>
+						<path class="fill-mode" d="M94.055 9.62103C87.2236 16.3413 84.8182 19.3872 85.0106 21.2244C85.1068 22.3847 85.3955 22.7715 86.3095 22.9165C87.2236 23.0616 88.3782 22.2397 91.6015 19.0004C96.9415 13.7305 101.512 8.46069 101.512 7.54209C101.512 6.62349 100.165 5.31812 99.2026 5.31812C98.7696 5.36646 96.4604 7.25201 94.055 9.62103Z"></path>
+						<path class="fill-mode" d="M23.2866 15.2294C22.2763 15.8096 22.1801 17.5984 23.046 18.7104C24.1044 20.0641 34.0148 25.9625 35.2656 25.9625C35.891 25.9625 36.7088 25.6241 37.0937 25.2373C38.537 23.4001 36.4202 21.1278 29.1077 16.5348C25.9806 14.6492 24.7779 14.3108 23.2866 15.2294Z"></path>
+						<path class="fill-mode" d="M103.433 40.37L97.8047 41.4337V42.8357C97.8047 43.851 98.1414 44.4312 99.0555 45.0114C100.21 45.6399 101.124 45.6399 107.09 44.8663C116.038 43.7543 116.038 43.7543 116.663 42.3523C117.096 41.337 117.048 40.9985 116.326 40.1283C115.22 38.8713 110.986 38.9196 103.433 40.37Z"></path>
+						<path class="fill-mode" d="M3.94616 46.1232C0.193694 46.8485 -1.20145 49.2175 1.20397 50.7646C1.97371 51.2481 2.83967 51.4414 3.80184 51.1997C4.57157 51.0547 8.42026 50.7162 12.4133 50.5228C17.8495 50.2328 19.7739 49.9427 20.3512 49.4109C21.5058 48.2505 20.3993 46.8001 17.8495 46.1232C15.3479 45.4947 7.12133 45.4947 3.94616 46.1232Z"></path>
+						<path class="fill-mode" d="M89.1454 69.9584C88.9529 70.1034 88.8086 70.7803 88.8086 71.4088C88.8086 72.7142 90.2518 73.8262 97.6125 77.9357C103.915 81.465 104.877 81.7551 106.416 80.4981C108.244 79.0477 107.234 77.5006 102.664 74.8898C95.3032 70.6352 90.3 68.7981 89.1454 69.9584Z"></path>
+						<path class="fill-mode" d="M30.8398 72.8111C28.3382 74.9384 21.2181 86.9769 20.0635 91.038C19.0532 94.519 21.9397 95.9211 24.0565 93.0203C24.6819 92.1984 26.3657 89.2975 27.7609 86.6868C29.1079 84.0277 31.369 80.1115 32.6198 77.8876C34.929 74.0681 35.2177 72.8111 33.9187 71.9408C33.0047 71.3123 32.3312 71.5541 30.8398 72.8111Z"></path>
+						<path class="fill-mode" d="M60.9544 80.7401C60.1365 81.707 60.0884 93.6488 60.9063 95.7277C61.243 96.4529 62.0128 97.3232 62.7825 97.6616C63.889 98.1935 64.1776 98.1451 65.0436 97.0815C65.5247 96.4529 65.8133 95.631 65.669 95.1959C65.5247 94.8091 65.2841 91.6666 65.0917 88.2823C64.9474 84.8979 64.6106 81.6103 64.4182 80.9818C63.889 79.6764 61.9165 79.5314 60.9544 80.7401Z"></path>
+					</svg>
+				</figure>
+				<!-- Image -->
+				<img src="assets/images/about/14.jpg" class="rounded" alt="about-img">
+			</div>
+			<!-- Content -->
+			<div class="col-lg-6 ps-md-5">
+				<h2 class="mb-4">Boost your business efficiency with Mizzle.</h2>
+				<p class="mb-0">Elevate your online presence and embark on a journey to digital excellence with our meticulously designed digital agency theme.</p>
+
+				<hr class="my-4">
+				<p>At the heart of our theme is a commitment to providing a robust and versatile platform that accommodates the diverse needs of digital agencies.</p>
+
+				<!-- List -->
+				<div class="row row-cols-1 row-cols-sm-2">
+					<div class="col">
+						<ul class="list-group list-group-borderless mb-0">
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Strategic Call-to-Actions</li>
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Content-Rich Sections</li>
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Social Media Integration</li>
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Easy-to-Use Contact Forms</li>
+						</ul>
+					</div>
+					<div class="col">
+						<ul class="list-group list-group-borderless mb-0">
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Performance Analytics</li>
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Fast Loading Speed</li>
+							<li class="list-group-item d-flex"><i class="bi bi-patch-check-fill text-primary me-2"></i>Tested on Major Browsers</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="text-center d-inline-block bg-dark rounded px-5 py-3 mt-4 mt-lg-5">
+					<span class="text-white">Work with us?</span> <a class="ms-2" href="contact-v2.html">Contact us now<span class="bi-chevron-right small ms-1"></span></a>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+
+		<!-- Value START -->
+		<div class="row g-4 mt-5">
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-3 flex-shrink-0">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8.36646 21.5H15.6485C15.9713 21.5 16.1327 21.5 16.269 21.4901C18.1249 21.3547 19.6008 19.8788 19.7362 18.0228C19.7462 17.8866 19.7462 17.7252 19.7462 17.4023C20.8592 17.3842 21.752 16.4767 21.752 15.3636V13.1074C21.752 11.9996 20.8539 11.1016 19.7462 11.1016C19.7462 10.7751 19.7462 10.6119 19.736 10.4741C19.5993 8.62062 18.1255 7.14688 16.272 7.01016C16.1343 7 15.9711 7 15.6446 7H12.625V5.5C13.2463 5.5 13.75 4.99632 13.75 4.375V3.875C13.75 2.97754 13.0225 2.25 12.125 2.25H11.875C10.9775 2.25 10.25 2.97754 10.25 3.875V4.37891C10.25 4.99807 10.7519 5.5 11.3711 5.5V7H8.37037C8.04391 7 7.88069 7 7.74294 7.01016C5.88942 7.14688 4.41569 8.62062 4.27897 10.4741C4.26881 10.6119 4.26881 10.7751 4.26881 11.1016C3.15385 11.1016 2.25 12.0054 2.25 13.1204V15.3835C2.25 16.4985 3.15385 17.4023 4.26881 17.4023C4.26881 17.7252 4.26881 17.8866 4.27874 18.0228C4.41412 19.8788 5.89005 21.3547 7.746 21.4901C7.88222 21.5 8.04364 21.5 8.36646 21.5Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M15 16.75H9M14.25 11.75V11.75C14.6642 11.75 15 12.0858 15 12.5V12.5C15 12.9142 14.6642 13.25 14.25 13.25V13.25C13.8358 13.25 13.5 12.9142 13.5 12.5V12.5C13.5 12.0858 13.8358 11.75 14.25 11.75ZM9.75 11.75V11.75C10.1642 11.75 10.5 12.0858 10.5 12.5V12.5C10.5 12.9142 10.1642 13.25 9.75 13.25V13.25C9.33579 13.25 9 12.9142 9 12.5V12.5C9 12.0858 9.33579 11.75 9.75 11.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</figure>
+					<h6>Innovation-driven</h6>
+					<p class="mb-0">Elevate your digital presence with our innovation-driven approach</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-3 flex-shrink-0">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8.5 18.55C8.5 18.27 8.5 18.13 8.5545 18.023C8.60243 17.9289 8.67892 17.8524 8.773 17.8045C8.87996 17.75 9.01997 17.75 9.3 17.75H14.7C14.98 17.75 15.12 17.75 15.227 17.8045C15.3211 17.8524 15.3976 17.9289 15.4455 18.023C15.5 18.13 15.5 18.27 15.5 18.55C15.5 19.6701 15.5 20.2302 15.282 20.658C15.0903 21.0343 14.7843 21.3403 14.408 21.532C13.9802 21.75 13.4201 21.75 12.3 21.75H11.7C10.5799 21.75 10.0198 21.75 9.59202 21.532C9.21569 21.3403 8.90973 21.0343 8.71799 20.658C8.5 20.2302 8.5 19.6701 8.5 18.55Z" fill="currentColor"/>
+							<path d="M9.14722 16.75H14.8528C14.999 16.75 15.0721 16.75 15.1322 16.7348C15.3106 16.6899 15.4499 16.5506 15.4948 16.3722C15.51 16.3121 15.51 16.239 15.51 16.0928V15.7267C15.51 15.3829 15.6239 15.0488 15.834 14.7766L17.2527 12.938C20.6184 8.57623 17.5093 2.25 12 2.25C6.49069 2.25 3.38158 8.57623 6.74727 12.938L8.16605 14.7766C8.37608 15.0488 8.49 15.3829 8.49 15.7267V16.0928C8.49 16.239 8.49 16.3121 8.50517 16.3722C8.55014 16.5506 8.68941 16.6899 8.86777 16.7348C8.92795 16.75 9.00104 16.75 9.14722 16.75Z" fill="currentColor" fill-opacity="0.25"/>
+							<path d="M10.5 11.5L12 14L13.5 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</figure>
+					<h6>Transparent approach</h6>
+					<p class="mb-0">At our digital agency, transparency isn't just a buzzword</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-3 flex-shrink-0">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M14.0508 20.9081L16.9676 19.7107C18.3713 19.1344 19.0731 18.8463 19.5819 18.3633C19.9838 17.9818 20.2961 17.5159 20.4964 16.9993C20.75 16.3452 20.75 15.5865 20.75 14.0692C20.75 13.8719 20.75 13.7733 20.707 13.7098C20.6734 13.6603 20.6232 13.6244 20.5655 13.6087C20.4915 13.5886 20.3982 13.6206 20.2116 13.6846L12.5838 16.2998C12.327 16.3879 12.1986 16.4319 12.066 16.4407C12.0221 16.4436 11.9779 16.4436 11.934 16.4407C11.8014 16.4319 11.673 16.3879 11.4162 16.2998L3.78841 13.6846C3.60183 13.6206 3.50854 13.5886 3.43453 13.6087C3.37677 13.6244 3.32656 13.6603 3.293 13.7098C3.25 13.7733 3.25 13.8719 3.25 14.0692C3.25 15.5865 3.25 16.3452 3.50359 16.9993C3.70391 17.5159 4.01625 17.9818 4.41813 18.3633C4.9269 18.8463 5.62873 19.1344 7.03239 19.7107L7.03239 19.7107L9.94924 20.9081C10.8475 21.2769 11.2967 21.4613 11.7665 21.4979C11.9219 21.5101 12.0781 21.5101 12.2335 21.4979C12.7033 21.4613 13.1525 21.2769 14.0508 20.9081L14.0508 20.9081Z" fill="currentColor" fill-opacity="0.25"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M9.25035 5C9.25035 3.48122 10.4816 2.25 12.0003 2.25C13.5191 2.25 14.7503 3.48122 14.7503 5C14.7503 6.25878 13.9046 7.32002 12.7503 7.64648V8.24568L19.3266 10.8794C20.1324 11.2021 20.5353 11.3635 20.594 11.6181C20.6121 11.6967 20.611 11.7785 20.5907 11.8565C20.5248 12.1094 20.1176 12.2594 19.3031 12.5594L12.3115 15.1351C12.1748 15.1854 12.1065 15.2106 12.0356 15.2156C12.0121 15.2172 11.9886 15.2172 11.9651 15.2156C11.8942 15.2106 11.8259 15.1854 11.6892 15.1351L4.6976 12.5594C3.88311 12.2594 3.47586 12.1094 3.41002 11.8565C3.38969 11.7785 3.38855 11.6967 3.40668 11.6181C3.46543 11.3635 3.86832 11.2021 4.6741 10.8794L11.2503 8.24568V7.64648C10.0961 7.32002 9.25035 6.25878 9.25035 5Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<h6>Accessible technology</h6>
+					<p class="mb-0">Celebrate Inclusivity with Accessible Technology.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-sm-6 col-lg-3">
+				<div class="card card-body bg-transparent p-0">
+					<!-- Icon -->
+					<figure class="text-primary mb-3 flex-shrink-0">
+						<svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M3 7C5.43353 4.50359 8.57297 3 12 3C15.427 3 18.5665 4.50359 21 7M18.5 10.7328C16.6095 8.84054 14.3868 7.75 12.0086 7.75C9.62315 7.75 7.39426 8.84716 5.5 10.75M8.25 14.25C9.29028 13.1521 10.59 12.5 12 12.5C13.41 12.5 14.7097 13.1521 15.75 14.25" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M14.5 19.25C14.5 20.6307 13.3807 21.75 12 21.75C10.6193 21.75 9.5 20.6307 9.5 19.25C9.5 17.8693 10.6193 16.75 12 16.75C13.3807 16.75 14.5 17.8693 14.5 19.25Z" fill="currentColor"/>
+						</svg>
+					</figure>
+					<h6>Collaborative teamwork</h6>
+					<p class="mb-0">We believe that the best results are born from the synergy of diverse</p>
+				</div>
+			</div>
+		</div>
+		<!-- Value END -->
+	</div>
+</section>
+<!-- =======================
+About END -->
+
+<!-- =======================
+CTA START -->
+<section class="position-relative z-index-2 pt-0">
+	<div class="container position-relative">
+		<div class="bg-dark rounded position-relative overflow-hidden p-4 p-sm-7">
+			<!-- SVG decoration -->
+			<figure class="position-absolute top-0 start-0 mt-n5">
+				<svg class="fill-white" style="opacity:0.02" width="662" height="614" viewBox="0 0 662 614" xmlns="http://www.w3.org/2000/svg">
+					<path d="M-78 0V603.815C-61.4821 612.795 -44.1025 615.867 -28.4464 611.85C9.04192 602.16 38.9177 554.186 58.4519 503.612C77.8424 453.511 90.1949 397.029 105.995 343.383C121.794 289.973 142.477 237.745 173.215 206.549C224.779 154.321 291.425 172.991 349.166 202.768C406.907 232.545 466.227 272.248 525.979 256.414C570.505 244.598 611.441 200.878 636.002 138.724C652.233 97.6029 661.138 48.9196 662 0L-78 0Z"></path>
+				</svg>
+			</figure>
+
+			<!-- SVG decoration -->
+			<figure class="position-absolute top-0 end-0 mt-n5 me-n5">
+				<svg class="fill-primary opacity-2" width="220px" height="209px" viewBox="0 0 220 209" style="enable-background:new 0 0 220 209;" xml:space="preserve">
+					<path d="M84.3,120.6c-1.1-0.3-1.9-0.8-2.4-1.6c-1-1.4-0.7-3.3,0.8-5.2l15.9-21.1c2.2-2.9,6.5-5.3,10.6-5.8 c2.3-0.3,4.2,0,5.4,1l14.9,11.6c1,0.8,1.4,1.9,1.2,3.2c-0.6,3.1-4.6,6.5-9.3,8l-30.9,9.5C88.2,121,85.9,121.1,84.3,120.6z  M112.7,87.7c-1-0.3-2.1-0.3-3.4-0.1c-3.9,0.5-8.1,2.8-10.1,5.6l-15.9,21.1c-1.3,1.7-1.6,3.3-0.8,4.5c1.2,1.7,4.3,2,8,0.9 l30.8-9.5c5.2-1.6,8.4-5,8.9-7.5c0.2-1.1-0.1-2-1-2.6l-14.9-11.6C113.8,88.1,113.3,87.9,112.7,87.7z"></path>
+					<path d="M82.9,123.4c-1-0.3-1.8-0.7-2.4-1.4c-1.1-1.4-1-3.3,0.4-5.4l15.2-23.5c3.5-5.4,12.9-8.9,17-6.3l17.8,11.1 c1.2,0.8,1.8,1.9,1.6,3.3c-0.3,3.3-4.4,7.2-9.4,9l-32.9,12.4C87.5,123.6,84.9,123.9,82.9,123.4z M111.6,86.7 c-4.3-1.1-11.9,2.1-14.9,6.7l-15.2,23.5c-1.2,1.9-1.4,3.5-0.5,4.7c1.4,1.8,5.1,1.9,9,0.4l32.9-12.4c5.5-2.1,8.7-5.9,9-8.5 c0.1-1.2-0.3-2.1-1.4-2.7l-17.8-11.1C112.5,87,112.1,86.9,111.6,86.7z"></path>
+					<path d="M81.7,126.3c-0.9-0.3-1.7-0.7-2.3-1.3c-1.3-1.3-1.3-3.3,0-5.6l14.1-25.9c3.3-6,13.2-10.4,18-8l20.8,10.3 c1.4,0.7,2.2,1.9,2.2,3.5c-0.1,3.5-4,7.8-9.3,10.2l-34.9,15.6C87,126.5,83.9,126.9,81.7,126.3z M110.3,85.8 c-4.8-1.3-13.4,2.9-16.2,8.1l-14.1,25.9c-1.1,2-1.1,3.7-0.1,4.9c1.4,1.5,5.1,2.1,10.1-0.1l34.9-15.6c5.7-2.6,8.9-6.8,8.9-9.6 c0-1.3-0.6-2.3-1.8-2.9l-20.8-10.3C111,86,110.6,85.9,110.3,85.8z"></path>
+					<path d="M80.7,129.6c-0.9-0.2-1.6-0.6-2.2-1.2c-1.4-1.3-1.6-3.4-0.5-5.8l12.7-28.4c2.9-6.6,13.4-11.9,18.9-9.8 l24.1,9.3c1.7,0.7,2.7,1.9,2.8,3.6c0.2,3.7-3.6,8.4-9.1,11.3l-36.8,19.1C86.9,129.6,83.2,130.2,80.7,129.6z M108.8,84.8 c-5.3-1.4-14.9,3.7-17.5,9.7l-12.7,28.4c-1,2.1-0.8,4,0.4,5.1c1.7,1.6,5.9,2,11.3-0.8L127,108c5.9-3.1,9-7.8,8.8-10.7 c-0.1-1.4-0.9-2.5-2.4-3L109.3,85C109.2,84.9,109,84.9,108.8,84.8z"></path>
+					<path d="M79.9,133c-0.8-0.2-1.5-0.5-2.1-1c-1.6-1.3-2-3.4-1.1-5.9l10.8-30.9c2.5-7.1,13.4-13.6,19.7-11.8l27.5,7.9 c2,0.6,3.2,1.9,3.4,3.7c0.5,3.8-3.2,9.1-8.8,12.4l-38.3,23C87,132.9,82.8,133.8,79.9,133z M107,84c-6-1.6-16.5,4.7-18.8,11.4 l-10.8,30.9c-0.8,2.3-0.5,4.1,0.9,5.3c2.4,2,7.6,1.3,12.5-1.7l38.3-23c6.1-3.7,8.9-8.7,8.5-11.8c-0.2-1.6-1.2-2.7-3-3.2L107.2,84 C107.1,84,107.1,84,107,84z"></path>
+					<path d="M79.5,136.8c-0.7-0.2-1.3-0.5-1.9-0.9c-1.8-1.3-2.4-3.4-1.7-6.1l8.5-33.4c2-7.7,13.2-15.4,20.4-14l31.2,6.2 c2.3,0.5,3.8,1.8,4.2,3.8c0.8,4.1-2.6,9.6-8.4,13.6L92,133.3C87.5,136.4,82.8,137.7,79.5,136.8z M136.2,89.4 c-0.1,0-0.3-0.1-0.5-0.1l-31.2-6.2c-6.8-1.3-17.8,6.2-19.6,13.5L76.4,130c-0.6,2.4-0.1,4.3,1.5,5.4c2.9,2,8.6,0.9,13.8-2.6 l39.7-27.2c6.2-4.3,8.8-9.7,8.1-12.9C139.1,91,138,89.9,136.2,89.4z"></path>
+					<path d="M79.3,140.7c-0.6-0.2-1.1-0.4-1.6-0.7c-2-1.2-2.9-3.4-2.4-6.2L80.9,98c1.3-8.2,12.8-17.2,20.9-16.3l35.1,4.1 c2.7,0.3,4.5,1.7,5.1,3.9c1.2,4.2-2,10.3-7.8,14.7l-40.7,31.8C88.5,140,83,141.7,79.3,140.7z M136.7,86.2l0,0.3l-35.1-4.1 c-7.6-0.9-18.9,7.9-20.2,15.7l-5.6,35.8c-0.4,2.6,0.3,4.5,2.1,5.6c3.4,2,9.6,0.5,15-3.8l40.7-31.7c5.6-4.3,8.7-10.1,7.6-14.1 c-0.5-2-2.1-3.2-4.6-3.4L136.7,86.2z"></path>
+					<path d="M79.5,144.9c-0.4-0.1-0.9-0.3-1.3-0.5c-2.3-1.1-3.4-3.3-3.3-6.3l2.2-38.2c0.5-8.8,12.2-19.1,21.2-18.8 l39.1,1.6c3.1,0.1,5.3,1.5,6.1,3.9c1.5,4.3-1.4,10.8-7,15.9l-41.3,36.6C90,143.8,83.8,146,79.5,144.9z M137.4,83.1l0,0.3 l-39.1-1.6c-8.5-0.3-20,9.8-20.5,18.2l-2.2,38.2c-0.2,2.7,0.8,4.7,2.9,5.7c4,1.9,10.7-0.2,16.3-5.1l41.3-36.6 c5.5-4.9,8.3-11.1,6.8-15.2c-0.8-2.2-2.7-3.4-5.5-3.5L137.4,83.1z"></path>
+					<path d="M80.2,149.2c-0.3-0.1-0.6-0.2-0.8-0.3c-2.6-1-4.1-3.2-4.2-6.3l-1.8-40.4c-0.2-4.1,2-9,6.1-13.3 c4.5-4.8,10.3-7.9,15.1-8.1l43.2-1.3c3.5-0.1,6.1,1.3,7.3,3.9c2,4.5-0.5,11.3-6.1,17l-41.4,41.8C92,147.8,85.1,150.5,80.2,149.2z  M140.6,80.4c-0.8-0.2-1.7-0.3-2.7-0.3l-43.2,1.3c-4.7,0.1-10.3,3.1-14.7,7.9c-3.9,4.2-6.1,9-5.9,12.9l1.8,40.4 c0.1,2.8,1.4,4.8,3.8,5.7c4.6,1.8,11.8-0.9,17.5-6.6l41.4-41.8c5.3-5.4,7.8-12.1,6-16.3C143.8,82.1,142.4,80.9,140.6,80.4z"></path>
+					<path d="M81.4,153.8c-0.1,0-0.1,0-0.2,0c-2.9-0.8-4.8-3.1-5.3-6.3L69.5,105c-0.6-4.2,1.1-9.3,4.8-14 c4.4-5.7,10.6-9.6,16.1-10.1l47.5-4.8c4-0.4,7,1,8.5,3.9c2.4,4.6,0.4,11.9-5,18.1l-41,47.3C94.7,151.8,86.9,155.3,81.4,153.8z  M137.9,76.4l0,0.3l-47.5,4.8c-5.4,0.5-11.4,4.3-15.7,9.9c-3.6,4.6-5.3,9.5-4.7,13.6l6.5,42.5c0.5,3,2.1,5,4.8,5.8 c5.3,1.5,12.9-1.9,18.5-8.3l41-47.2c5.2-6,7.2-13,4.9-17.3c-1.4-2.6-4.2-3.9-7.9-3.5L137.9,76.4z"></path>
+					<path d="M83.2,158.5c-3-0.8-5-2.9-5.9-6.1l-11.8-44.3c-1.1-4.2,0.1-9.6,3.5-14.7c4.2-6.6,10.7-11.3,16.9-12.4 l51.8-8.7c4.5-0.8,8.1,0.6,10,3.7c2.9,4.7,1.4,12.3-3.7,19.1L104,148.1c-5.6,7.4-13.9,11.7-20.1,10.5 C83.6,158.6,83.4,158.5,83.2,158.5z M142.6,73.1c-1.4-0.4-3.1-0.4-4.9-0.1l-51.8,8.7c-6,1-12.4,5.6-16.5,12.1 c-3.2,5-4.5,10.2-3.4,14.2l11.8,44.3c0.9,3.2,2.9,5.2,6.1,5.8c6,1.2,14-3,19.5-10.2l39.9-52.9c4.9-6.5,6.4-13.9,3.7-18.4 C146.1,74.7,144.5,73.6,142.6,73.1z"></path>
+					<path d="M85.6,163.2c-2.9-0.8-5.1-2.8-6.3-5.7l-18-45.7c-1.7-4.2-0.9-9.8,2-15.4c3.9-7.3,10.7-13.1,17.5-14.7 l56.1-13.2c5-1.2,9.3,0.1,11.7,3.5c3.4,4.8,2.5,12.7-2.2,20L108.2,151c-5.3,8.1-13.8,13.3-20.8,12.6 C86.7,163.5,86.2,163.4,85.6,163.2z M137,68.8l0.1,0.3L80.9,82.3c-6.6,1.6-13.3,7.2-17,14.4c-2.8,5.4-3.5,10.8-1.9,14.9l18,45.7 c1.3,3.3,3.9,5.3,7.5,5.6c6.8,0.7,15.1-4.4,20.2-12.3l38.1-58.9c4.6-7.1,5.5-14.7,2.3-19.3c-2.3-3.2-6.2-4.4-11-3.2L137,68.8z"></path>
+					<path d="M88.7,168.1c-2.9-0.8-5.1-2.6-6.6-5.3L57.3,116c-2.3-4.3-2.1-10.2,0.4-16.2C61,91.7,68,85,75.3,82.7 l60.3-18.2c5.6-1.7,10.5-0.5,13.5,3.1c4,4.8,3.7,13.1-0.5,20.9l-35.4,65c-4.8,8.8-13.5,14.9-21.2,14.9 C90.8,168.5,89.7,168.3,88.7,168.1z M135.8,65.1L75.5,83.3c-7.2,2.2-14,8.7-17.3,16.7c-2.4,5.8-2.6,11.5-0.4,15.6l24.9,46.8 c1.8,3.5,5.1,5.4,9.2,5.4c7.5,0,16-6,20.7-14.6l35.4-65c4.2-7.6,4.4-15.6,0.6-20.2C145.8,64.6,141.1,63.5,135.8,65.1z"></path>
+					<path d="M92.6,172.9c-2.8-0.7-5.1-2.4-6.8-4.8l-32.6-47.4c-3-4.3-3.5-10.5-1.4-17c2.8-8.9,9.7-16.5,17.6-19.4 l64.4-23.9c6.2-2.3,11.8-1.3,15.5,2.6c4.6,4.9,5.1,13.2,1.4,21.7L118.9,156c-4.3,9.6-12.8,16.5-21.3,17.3 C95.8,173.4,94.1,173.3,92.6,172.9z M143.5,60.2c-2.8-0.8-6.1-0.5-9.5,0.7L69.6,84.9c-7.7,2.9-14.5,10.3-17.2,19 c-2,6.3-1.5,12.3,1.3,16.4l32.6,47.4c2.5,3.6,6.5,5.4,11.2,5c8.2-0.7,16.6-7.6,20.7-16.9l31.8-71.3c3.7-8.2,3.2-16.3-1.2-21 C147.4,61.9,145.6,60.8,143.5,60.2z"></path>
+					<path d="M97.3,177.7c-2.6-0.7-5-2.1-6.8-4.3l-41.2-47.4c-3.8-4.3-5-10.8-3.4-17.8C48,98.6,54.8,90,63.1,86.4 l68.3-30.1c6.7-3,13.2-2.3,17.7,1.9c5.3,4.9,6.6,13.5,3.5,22.4l-27.1,77.6c-3.5,10.1-11.9,18.1-20.9,19.8 C102,178.3,99.5,178.3,97.3,177.7z M131.5,56.5l0.1,0.3L63.3,86.9c-8.1,3.6-14.7,12-16.8,21.3c-1.5,6.8-0.3,13.1,3.3,17.3 L90.9,173c3.3,3.8,8.1,5.3,13.5,4.3c8.8-1.7,17-9.5,20.4-19.4L152,80.3c3-8.7,1.8-17.1-3.4-21.8c-4.3-4-10.5-4.6-17-1.7 L131.5,56.5z"></path>
+					<path d="M102.9,182.3c-2.5-0.7-4.7-1.9-6.7-3.7l-50.6-46.8c-4.7-4.3-6.7-11.2-5.7-18.8c1.4-10.1,7.8-19.5,16.5-24 L128.2,52c7.3-3.7,14.6-3.4,20,0.9c6.1,4.8,8.3,13.7,6,23.1L133,159.7c-2.7,10.7-10.6,19.4-20.1,22.2 C109.3,183,105.9,183.1,102.9,182.3z M128.4,52.2l0.1,0.3L56.6,89.6c-8.5,4.4-14.8,13.6-16.2,23.5c-1,7.4,1,14.1,5.5,18.2 l50.6,46.8c4.2,3.9,10,5.1,16.1,3.3c9.3-2.7,17-11.3,19.6-21.8l21.3-83.8c2.3-9.2,0.1-17.7-5.7-22.4c-5.2-4.2-12.3-4.5-19.3-0.8 L128.4,52.2z"></path>
+					<path d="M109.3,186.7c-2.2-0.6-4.3-1.6-6.2-3l-61-45.4c-5.7-4.3-8.8-11.5-8.3-19.8c0.6-10.7,6.5-20.7,15.5-26.1 l75.1-44.6c7.7-4.6,16.1-4.7,22.5-0.3c7,4.7,10.3,13.5,8.7,23.6l-14.1,90c-1.7,11-9.1,20.7-18.7,24.6 C118.1,187.4,113.4,187.8,109.3,186.7z M124.4,48l0.2,0.3L49.5,92.9c-8.8,5.2-14.6,15-15.2,25.6c-0.4,8.1,2.5,15.1,8.1,19.3 l61,45.4c5.3,3.9,12.2,4.6,19,1.9c9.4-3.9,16.7-13.3,18.4-24.2l14.1-90c1.5-9.8-1.6-18.3-8.4-22.9c-6.2-4.2-14.4-4.1-21.9,0.4 L124.4,48z"></path>
+					<path d="M116.6,190.8c-1.9-0.5-3.7-1.3-5.5-2.3l-72.2-43.1c-7-4.2-11.1-11.8-11.4-20.9c-0.3-11.1,5.1-21.8,14.2-28 l77.8-52.8c8.1-5.5,17.5-6.2,25.1-1.9c8,4.5,12.4,13.4,11.8,23.9l-5.5,95.9c-0.7,11.4-7.1,21.7-16.9,26.9 C128.2,191.5,122.2,192.2,116.6,190.8z M119.6,43.9l0.2,0.3L42,97c-8.9,6-14.2,16.6-13.9,27.5c0.3,8.9,4.3,16.3,11.1,20.4 l72.2,43.1c6.6,3.9,14.7,4,22.2,0c9.6-5.1,15.9-15.2,16.6-26.4l5.5-95.9c0.6-10.2-3.7-18.9-11.5-23.3c-7.4-4.2-16.6-3.5-24.5,1.9 L119.6,43.9z"></path>
+					<path d="M124.9,194.4c-1.5-0.4-2.9-0.9-4.3-1.6L36.2,153c-8.4-4-13.9-12-15-22c-1.3-11.4,3.6-22.8,12.6-29.8 l79.8-61.7c8.4-6.5,18.8-7.9,27.7-3.8c9.1,4.2,14.8,13.2,15.3,24.1l4.6,101.5c0.5,11.6-5.1,22.7-14.6,29 C139.9,195,132.1,196.4,124.9,194.4z M137.2,35c-7.7-2.1-16.1-0.2-23.1,5.2l-79.8,61.7c-8.8,6.8-13.6,18-12.4,29.2 c1.1,9.8,6.4,17.6,14.6,21.5l84.4,39.8c8.2,3.8,17.4,3,25.5-2.4c9.3-6.2,14.8-17.1,14.3-28.5L156.1,60 c-0.5-10.6-6.1-19.5-14.9-23.6C139.9,35.8,138.5,35.3,137.2,35z"></path>
+					<path d="M134,197.6c-0.8-0.2-1.6-0.5-2.5-0.8l-97.4-35.4c-9.9-3.6-17.1-12.2-19.1-23c-2.2-11.7,1.8-23.4,10.8-31.3 l81.1-71.2c8.6-7.6,19.9-9.8,30.3-6.1c10.4,3.8,17.6,12.8,19.3,24.1l16.3,106.6c1.8,11.8-2.6,23.4-11.9,30.9 C153.2,197.8,143.2,200,134,197.6z M134.5,29.6c-9.5-2.5-19.5-0.1-27.2,6.7l-81.1,71.2c-8.8,7.7-12.8,19.2-10.6,30.7 c2,10.6,9,19,18.7,22.5l97.4,35.4c9.7,3.5,20.5,1.6,28.8-5.2c9.1-7.4,13.4-18.7,11.6-30.3L155.9,54c-1.7-11.1-8.8-19.9-18.9-23.6 C136.2,30.1,135.3,29.8,134.5,29.6z"></path>
+					<path d="M144,200.1L32.8,170.3C21,167.1,12,158.2,8.9,146.4c-3.2-11.8,0.1-24,8.7-32.6L99,32.4 c8.7-8.6,20.9-11.9,32.7-8.7c11.8,3.2,20.8,12.1,23.9,23.9l29.8,111.1c3.2,11.8-0.1,24-8.7,32.6C168,200,155.8,203.3,144,200.1z  M99.2,32.6l0.2,0.2L18,114.2c-8.5,8.5-11.7,20.5-8.6,32c3.1,11.6,11.9,20.3,23.5,23.5l111.2,29.8c11.6,3.1,23.6-0.1,32.1-8.6 c8.5-8.5,11.7-20.5,8.6-32L155,47.7c-3.1-11.6-11.9-20.4-23.5-23.5c-11.6-3.1-23.6,0.1-32.1,8.6L99.2,32.6z"></path>
+				</svg>
+			</figure>
+
+			<div class="row g-4 position-relative">
+				<!-- Title and inputs -->
+				<div class="col-lg-10 col-xl-7 mx-auto text-center">
+					<!-- Title -->
+					<h3 class="text-white mb-3">Don't miss out - millions have joined Mizzle!</h3>
+					<p class="text-white opacity-8">Join the Mizzle revolution today and be part of the millions who've already embraced a brighter future!</p>
+					<!-- Search -->
+					<form class="col-md-10 bg-white bg-opacity-10 rounded-2 mx-auto p-2 mb-5">
+						<div class="input-group">
+							<input class="form-control focus-shadow-none bg-transparent text-white border-0 me-1" type="email" placeholder="Your email address">
+							<button type="button" class="btn btn-primary rounded-2 mb-0">Subscribe</button>
+						</div>
+					</form>
+
+					<!-- Client-Slider START -->
+					<div class="swiper" data-swiper-options='{
+						"loop": false, 
+						"slidesPerView": 2, 
+						"spaceBetween": 30,
+						"breakpoints": { 
+							"576": {"slidesPerView": 2}, 
+							"768": {"slidesPerView": 3}, 
+							"992": {"slidesPerView": 4}, 
+							"1200": {"slidesPerView": 4}
+						}}'>
+
+						<!-- Slider items -->
+						<div class="swiper-wrapper align-items-center">
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/05.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/04.svg" class="grayscale px-sm-3 ps-0" alt="client-img">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/01.svg" class="grayscale px-sm-3" alt="client-img">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/02.svg" class="grayscale px-sm-3" alt="client-img">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/03.svg" class="grayscale px-sm-3" alt="client-img">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/client/06.svg" class="grayscale px-sm-3" alt="client-img">
+							</div>
+						</div>
+					</div>
+					<!-- Client-Slider END -->
+				</div>
+			</div> <!-- Row END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+CTA END -->
+
+<!-- =======================
+Team START -->
+<section class="pt-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small text-center mb-4 mb-sm-6">
+			<h2>A squad of talented members</h2>
+			<p class="mb-0">We are a close-knit squad of exceptionally talented individuals who are passionate about all things digital.</p>
+		</div>
+
+		<!-- Team list START -->
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-4 justify-content-center">
+			<!-- Team item -->
+			<div class="col">
+				<div class="card card-body card-hover-shadow bg-transparent text-center p-4">
+					<!-- Image -->
+					<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+					</div>
+
+					<!-- Content -->
+					<h6 class="mb-1"><a href="#">Samuel Bishop</a></h6>
+					<small>UI/UX Designer</small>
+
+					<!-- Social button -->
+					<ul class="list-inline mb-0 mt-3">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Team item -->
+			<div class="col">
+				<div class="card card-body card-hover-shadow bg-transparent text-center p-4">
+					<!-- Image -->
+					<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/11.jpg" alt="avatar">
+					</div>
+
+					<!-- Content -->
+					<h6 class="mb-1"><a href="#">Judy Nguyen</a></h6>
+					<small>Web Designer</small>
+
+					<!-- Social button -->
+					<ul class="list-inline mb-0 mt-3">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Team item -->
+			<div class="col">
+				<div class="card card-body card-hover-shadow bg-transparent text-center p-4">
+					<!-- Image -->
+					<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+					</div>
+
+					<!-- Content -->
+					<h6 class="mb-1"><a href="#">Louis Ferguson</a></h6>
+					<small>Web Developer</small>
+
+					<!-- Social button -->
+					<ul class="list-inline mb-0 mt-3">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Team item -->
+			<div class="col">
+				<div class="card card-body card-hover-shadow bg-transparent text-center p-4">
+					<!-- Image -->
+					<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+					</div>
+
+					<!-- Content -->
+					<h6 class="mb-1"><a href="#">Dennis Barrett</a></h6>
+					<small>CEO & Founder</small>
+
+					<!-- Social button -->
+					<ul class="list-inline mb-0 mt-3">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Team item -->
+			<div class="col">
+				<div class="card card-body card-hover-shadow bg-transparent text-center p-4">
+					<!-- Image -->
+					<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+					</div>
+
+					<!-- Content -->
+					<h6 class="mb-1"><a href="#">Bryan Knight</a></h6>
+					<small>Product Designer</small>
+
+					<!-- Social button -->
+					<ul class="list-inline mb-0 mt-3">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Team list END -->
+	</div>	
+</section>
+<!-- =======================
+Team END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark position-relative overflow-hidden pt-6" data-bs-theme="dark">
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 start-0 mt-n8 ms-n9">
+		<svg class="fill-mode" width="775px" height="834px" viewBox="0 0 775 834" style="enable-background:new 0 0 775 834; opacity: 0.05;" xml:space="preserve">
+			<path d="M486.1,564.4c-3.6,2.5-7.4,4.8-11.3,6.4c-12,5.5-25.7,7.9-42.2,7.4c-30.6-1.1-65.6-12.5-102.8-24.4 c-50.7-16.2-103.3-33.4-152.5-27c-56.1,7.2-97.9,44.4-128,114l-0.4-0.2c67.5-156.1,181-119.5,281.1-87.1c37,12,72,23.2,102.5,24.3 c34.3,1.2,58.1-10.7,74.9-37.4C530.1,505,547.1,466,565,425.1C619.4,301,675.6,172.7,892.1,141.3l0.1,0.4 c-216.2,31.4-272.5,159.5-326.8,283.5c-18.1,41.1-35,79.7-57.7,115.6C501.6,550.7,494.5,558.5,486.1,564.4z"></path>
+			<path d="M500.9,551.4c-43.7,31-103,15.8-165.5-0.2c-49.9-12.7-101.5-25.8-148.7-16.7c-53.3,10.5-93.2,49-121.6,118 l-0.5-0.1c15.3-37.1,33.3-64.7,55.1-84.7c19.5-17.7,41.3-28.6,66.7-33.7c47.4-9.2,99,3.9,148.9,16.6 c70.4,17.9,137.1,34.9,181.3-14.4c35.7-39.9,57.3-91.7,80.2-146.7c23.8-56.7,48.2-115.5,90.2-163.6c22.7-25.9,48.4-46.4,78.4-62.4 c33.9-18.1,72.2-30.3,117.1-37.1l0.1,0.4C695,155.3,645.2,274.5,597.1,389.7c-22.9,55-44.5,106.8-80.4,146.8 C512.3,542.4,506.6,547.3,500.9,551.4z"></path>
+			<path d="M521.3,536.4c-21.9,15.5-48.4,23.4-80.8,23.8c-31.2,0.5-65.1-5.8-97.9-11.9c-49.3-9.2-100.2-18.7-145.7-6.5 c-51.1,13.7-88.9,53.7-116,122.6l-0.6-0.2c60.5-154.1,163.3-135,262.6-116.5c68.1,12.7,132.6,24.6,183.6-15.8 c48.1-38.2,71.1-100.6,95.6-166.5c20.3-55,41.4-111.6,78.3-158.1c20-25.1,42.7-44.9,69.2-60.5c30.1-17.5,64.2-29.1,104.3-35.4 l0.2,0.6c-167.2,26.3-210,141.9-251.4,253.5C598.3,431.5,575,493.8,527,532.2C525.1,533.8,523.2,535.1,521.3,536.4z"></path>
+			<path d="M548.9,520.3c-4,2.9-8.2,5.6-12.6,8c-56.6,31.5-120.9,23.8-183,16.6c-51.7-6-100.4-11.8-144.6,3.2 c-49.9,16.9-85.5,57.7-111.3,128.2l-0.6-0.2c13.7-37.3,30.1-66,49.9-87.8c17.8-19.4,37.9-32.8,61.8-40.9 c44.3-15,93.1-9.3,144.9-3.2c62.1,7.2,126.3,14.8,182.8-16.6c59.6-33.2,82-104.7,105.9-180.4c17.1-54.3,34.7-110.5,67.2-156.6 c36.7-52,87.8-82.8,155.7-94l0.2,0.6c-151.9,25-187.8,139.3-222.3,250C620.4,417.6,599.4,484.5,548.9,520.3z"></path>
+			<path d="M573.5,509.5c-8.2,5.8-17.4,10.7-27.7,14.6c-59.3,22-119.1,18.8-176.8,15.8c-53.2-2.8-103.3-5.3-147.1,12.5 C172.6,572.3,138.1,615.5,113,688l-0.5-0.1c25.1-72.7,59.6-115.9,108.9-136c44-18,94.2-15.3,147.6-12.6 c57.7,3,117.4,6.1,176.6-15.9c70.7-26.2,91.1-106.3,112.8-191.4c13.9-54.5,28.3-111,56.7-156.9C747,123.2,793,92.6,855.6,82l0,0.7 C716.3,106.5,687,221.4,658.9,332.2C640.4,405,622.6,474.4,573.5,509.5z"></path>
+			<path d="M595.2,502.3c-11.3,8-24.6,14-40,17.4c-56.8,12.7-112,12.7-160.5,12.9c-60.2,0.1-112,0.2-157,21.1 c-49.5,23-84,69.3-108.5,146l-0.6-0.2c24.3-76.7,58.9-123.1,108.6-146.3c45.1-21.1,97.2-21.1,157.4-21.2 c48.6,0,103.6-0.1,160.5-12.9c81.6-18.3,99-106.7,117.4-200.6c10.7-55,22-112,46.6-158.2C747,108,788.6,77.5,846.5,67.2l0.1,0.8 C718,91.2,695.2,206.9,673.2,318.9C658.3,394.9,643.8,467.8,595.2,502.3z"></path>
+			<path d="M615.3,497.4c-13.7,9.7-30.2,16-50.8,18c-44.4,4.6-86.5,5.8-123.6,6.8c-71.2,2-132.8,3.7-182,27.7 C206,575.6,169.8,627,145,711.3l-0.8-0.1c13-44.6,29-79.3,48.6-106.3c18.1-24.9,39.5-43.1,65.6-55.7 c49.5-24.1,110.9-25.8,182.4-27.7c37.1-1,79.3-2.2,123.5-6.7c92.6-9.4,106.2-106.5,120.5-209.2c7.8-55.9,15.9-113.6,37-160 c23.8-52.7,61.6-83.1,115.3-93.4l0.3,0.7c-53.4,10.1-91,40.4-114.6,92.9c-21.1,46.4-29.2,104.1-36.8,159.9 C674.6,386,663.8,463,615.3,497.4z"></path>
+			<path d="M634.4,494c-15.5,11-35.2,17.2-60.4,17.3c-12.3,0.1-24.5,0.1-36.1,0.1c-103.7,0-185.5-0.1-246.4,26.4 c-63.5,27.7-103.7,85-130.5,185.5l-0.8-0.1c13.9-52.5,31.3-92.6,53.2-122.9c20.7-28.8,46.2-49.4,77.8-63.2 c61-26.6,142.9-26.4,246.6-26.4c11.7,0.1,23.8,0,36.1-0.1c103.8-0.2,112.9-105.6,122.5-217.2c4.7-56.9,9.9-115.5,27.5-162.4 c20-53.1,54.1-83.7,104.1-93.7l0.1,0.8c-49.5,9.8-83.5,40.3-103.3,93.1c-17.6,46.9-22.7,105.4-27.6,162 C690.1,378.2,682.9,459.6,634.4,494z"></path>
+			<path d="M652.7,491.8c-17.9,12.7-40.7,17.7-69.2,15.4C328,486.2,228.3,517.5,177.2,735.2l-0.9-0.3 c25.9-110.7,64-171.6,127-204c66.6-34.2,160.2-34.6,280.3-24.7c32.2,2.6,56.9-4.1,75.4-20.5c42.1-37.4,45.1-118.6,48-204.7 c4-116.5,8.1-236.8,112.1-258.6l0.1,0.8C715.9,44.8,711.8,164.8,707.8,280.9c-3.1,86.3-5.8,167.7-48.3,205.2 C657.3,488.3,655,490.1,652.7,491.8z"></path>
+			<path d="M670.6,490.3c-19.3,13.7-44.8,17.9-77.7,12.7c-138.5-21.4-227.1-13-287.3,27 c-55.4,36.8-89.1,101.7-112.4,216.9l-0.9-0.3C215.8,631,249.6,566,305.1,528.9c60.3-40.1,149.1-48.6,288.1-27.3 c35.9,5.5,63,0,82.6-16.9c43.2-37.5,42.2-124.3,40.9-216.1C714.9,151,713,28.8,809.9,7.7l0.1,0.8c-96,21.1-94.3,142.7-92.7,260.6 c1.3,92.1,2.4,179-41.1,216.7C674.3,487.4,672.6,488.9,670.6,490.3z"></path>
+		</svg>
+	</figure>
+
+	<!-- SVG decoration -->
+	<div class="position-absolute top-0 end-0 mt-n3 me-n4">
+		<img src="assets/images/elements/decoration-pattern-2.svg" style="opacity:0.05;" alt="">
+	</div>
+
+	<div class="container position-relative mt-5">
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-3">
+				<!-- logo -->
+				<a class="me-0" href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-8 col-xxl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms & condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-4">
+						<h6 class="mb-2 mb-md-4">App available on</h6>
+						<div class="row g-2 mt-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<!-- Language selector -->
+			<div class="dropdown dropup text-center text-md-end mt-3 mt-md-0">
+				<a class="dropdown-toggle btn btn-sm btn-light mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-globe me-2"></i>Language
+				</a>
+				<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

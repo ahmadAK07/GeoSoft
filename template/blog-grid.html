@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-7">
+	<div class="container pt-3 pt-xl-5">
+		<!-- Slider START -->
+		<div class="swiper rounded" data-swiper-options='{
+			"effect": "fade",
+			"navigation":{
+				"nextEl":".swiper-button-next",
+				"prevEl":".swiper-button-prev"
+			},
+			"pagination":{
+				"el":".swiper-pagination",
+				"clickable":"true"
+			}}'>
+
+			<!-- Slider items -->
+			<div class="swiper-wrapper">
+				<!-- Slider item -->
+				<div class="swiper-slide">
+					<!-- Card item START -->
+					<div class="card overflow-hidden h-500px text-center rounded-0" style="background-image:url(assets/images/blog/01.jpg); background-position: center left; background-size: cover;">
+						<!-- Background dark overlay -->
+						<div class="bg-overlay bg-dark opacity-5"></div>
+						<!-- Card image overlay -->
+						<div class="card-img-overlay d-flex align-items-center p-2 p-sm-4"> 
+							<div class="w-100 my-auto">
+								<div class="row justify-content-center">
+									<div class="col-11 col-lg-9">
+										<!-- Badge -->
+										<a href="#" class="badge text-bg-dark mb-4">Marketing</a>
+										<!-- Title -->
+										<h1 class="h2 mb-4"><a href="blog-single-v2.html" class="text-white text-primary-hover">The Evolution of Branding: Unleashing Potential</a></h1>
+										<ul class="nav nav-divider mb-0 justify-content-center small">
+											<li class="nav-item text-white"><a href="#" class="text-decoration-underline"><i class="bi bi-person me-2"></i>Frances Guerrero</a></li>
+											<li class="nav-item text-white"><i class="bi bi-calendar me-2"></i>Nov 5, 2018</li>
+											<li class="nav-item text-white"><i class="bi bi-clock me-2"></i>4 min read</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Card item END -->
+				</div>
+
+				<!-- Slider item -->
+				<div class="swiper-slide">
+					<!-- Card item START -->
+					<div class="card overflow-hidden h-500px text-center rounded-0" style="background-image:url(assets/images/blog/02.jpg); background-position: center left; background-size: cover;">
+						<!-- Background dark overlay -->
+						<div class="bg-overlay bg-dark opacity-5"></div>
+						<!-- Card image overlay -->
+						<div class="card-img-overlay d-flex align-items-center p-2 p-sm-4"> 
+							<div class="w-100 my-auto">
+								<div class="row justify-content-center">
+									<div class="col-11 col-lg-9">
+										<!-- Badge -->
+										<a href="#" class="badge text-bg-dark mb-4">Lifestyle</a>
+										<!-- Title -->
+										<h1 class="h2 mb-4"><a href="blog-single-v1.html" class="text-white text-primary-hover">The Power of Gratitude: Cultivating Joy and Abundance</a></h1>
+										<ul class="nav nav-divider mb-0 justify-content-center small">
+											<li class="nav-item text-white"><a href="#" class="text-decoration-underline"><i class="bi bi-person me-2"></i>Carolyn Ortiz</a></li>
+											<li class="nav-item text-white"><i class="bi bi-calendar me-2"></i>Nov 5, 2018</li>
+											<li class="nav-item text-white"><i class="bi bi-clock me-2"></i>4 min read</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Card item END -->
+				</div>
+
+				<!-- Slider item -->
+				<div class="swiper-slide">
+					<!-- Card item START -->
+					<div class="card overflow-hidden h-500px text-center rounded-0" style="background-image:url(assets/images/blog/03.jpg); background-position: center left; background-size: cover;">
+						<!-- Background dark overlay -->
+						<div class="bg-overlay bg-dark opacity-5"></div>
+						<!-- Card image overlay -->
+						<div class="card-img-overlay d-flex align-items-center p-2 p-sm-4"> 
+							<div class="w-100 my-auto">
+								<div class="row justify-content-center">
+									<div class="col-11 col-lg-9">
+										<!-- Badge -->
+										<a href="#" class="badge text-bg-dark mb-4">Design</a>
+										<!-- Title -->
+										<h1 class="h2 mb-4"><a href="blog-single-v2.html" class="text-white text-primary-hover">Interactive Web Design with Bootstrap and Webestica</a></h1>
+										<ul class="nav nav-divider mb-0 justify-content-center small">
+											<li class="nav-item text-white"><a href="#" class="text-decoration-underline"><i class="bi bi-person me-2"></i>Joan Wallace</a></li>
+											<li class="nav-item text-white"><i class="bi bi-calendar me-2"></i>Nov 5, 2018</li>
+											<li class="nav-item text-white"><i class="bi bi-clock me-2"></i>4 min read</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Card item END -->
+				</div>
+			</div>	
+
+			<!-- Slider Pagination -->
+			<div class="swiper-pagination swiper-pagination-white mb-3"></div>
+
+			<!-- Add pagination and navigation elements here -->
+			<div class="d-flex justify-content-between position-absolute top-50 start-0 w-100 px-1 px-sm-3">
+				<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-prev"><i class="bi bi-arrow-left"></i></a>
+				<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-next"><i class="bi bi-arrow-right"></i></a>
+			</div>
+		</div>				
+		<!-- Slider END -->
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Blog list and sidebar START -->
+<section class="pt-0">
+	<div class="container">
+		<!-- Title & Tab -->
+		<div class="d-lg-flex justify-content-between align-items-center">
+			<!-- Title -->
+			<h4 class="mb-3 mb-lg-0">Our Blog</h4>
+			<!-- Tabs -->
+			<ul class="nav nav-pills gap-1 nav-pills-light">
+				<li class="nav-item">
+					<a class="nav-link active">All blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">Marketing</a>          
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">Design</a>        
+				</li>
+				<li class="nav-item">
+						<a class="nav-link">Lifestyle</a>        
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">Technology</a>        
+				</li>
+			</ul>
+	 	</div>
+
+		<!-- Blog grid -->
+		<div class="row g-4 g-sm-5 g-xl-7 mt-0">
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Technology</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/01.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">10 things you need to know about Mizzle</a></h6>
+						<p class="small mb-0">Consider your expertise, personal experiences, and what you can uniquely offer to your readers.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Bryan Knight</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v1.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Lifestyle</div>
+					
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/02.jpg" class="card-img" alt="Blog-img">
+						
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">The Power of Gratitude: Cultivating Joy and Abundance</a></h6>
+						<p class="small mb-0">By focusing on a niche, you can establish yourself as an authority and build a dedicated community.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Carolyn Ortiz</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v2.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+			
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-dark p-4 overflow-hidden h-100" data-bs-theme="dark">
+					<!-- SVG decoration -->
+					<figure class="position-absolute end-0 bottom-0 mb-n5 me-n7">
+						<svg width="277.7px" height="258.7px" viewBox="0 0 277.7 258.7" style="enable-background:new 0 0 277.7 258.7;" xml:space="preserve">
+							<path class="fill-light" d="M86.9,168.9l-60,60l2.3,2.3l60-60C88.4,170.4,87.6,169.6,86.9,168.9z"/>
+							<path class="fill-light" d="M83.6,165.1l-56.7,47.6l2.1,2.5l56.7-47.6C84.9,166.7,84.2,165.9,83.6,165.1z"/>
+							<path class="fill-light" d="M98.6,178.4l-27.8,48.1l2.8,1.6l27.8-48.1C100.4,179.5,99.5,179,98.6,178.4z"/>
+							<path class="fill-light" d="M117.3,185.8l-7.3,41.2l3.2,0.6l7.3-41.2C119.4,186.2,118.3,186,117.3,185.8z"/>
+							<path class="fill-light" d="M112.4,184.6l-10.7,39.9l3.1,0.8l10.7-39.9C114.5,185.2,113.4,184.9,112.4,184.6z"/>
+							<path class="fill-light" d="M103,180.9l-20,42.9l2.9,1.4l20-42.8C104.9,181.8,104,181.3,103,180.9z"/>
+							<path class="fill-light" d="M107.6,182.9l-14.7,40.4l3,1.1l14.7-40.4C109.6,183.7,108.6,183.3,107.6,182.9z"/>
+							<path class="fill-light" d="M94.4,175.6l-41.7,59.5l2.6,1.8L97,177.4C96.2,176.8,95.3,176.2,94.4,175.6z"/>
+							<path class="fill-light" d="M90.5,172.4l-57.9,69.1l2.5,2.1l58-69.1C92.1,173.8,91.3,173.1,90.5,172.4z"/>
+							<path class="fill-light" d="M80.6,161L30,196.4l1.8,2.6l50.6-35.4C81.8,162.7,81.2,161.9,80.6,161z"/>
+							<path class="fill-light" d="M71.4,122.4l-35.3-3.1l-0.3,3.2l35.3,3.1C71.2,124.6,71.3,123.5,71.4,122.4z"/>
+							<path class="fill-light" d="M71.1,132.5l-29.5,2.6l0.3,3.2l29.5-2.6C71.3,134.7,71.2,133.6,71.1,132.5z"/>
+							<path class="fill-light" d="M71,127.5H40v3.2H71c0-0.5,0-1.1,0-1.6C71,128.5,71,128,71,127.5z"/>
+							<path class="fill-light" d="M71.6,137.5L42,142.8l0.6,3.2l29.7-5.2C72,139.7,71.8,138.6,71.6,137.5z"/>
+							<path class="fill-light" d="M78,156.6l-44.1,25.4l1.6,2.8l44.1-25.4C79,158.5,78.5,157.6,78,156.6z"/>
+							<path class="fill-light" d="M75.8,152.1L37.3,170l1.4,2.9l38.5-18C76.7,154,76.2,153.1,75.8,152.1z"/>
+							<path class="fill-light" d="M72.6,142.5l-31.3,8.4l0.8,3.1l31.3-8.4C73.1,144.6,72.8,143.6,72.6,142.5z"/>
+							<path class="fill-light" d="M74,147.4l-34.2,12.5l1.1,3l34.2-12.5C74.7,149.4,74.3,148.4,74,147.4z"/>
+							<path class="fill-light" d="M175.4,163.6l21.4,15l1.8-2.6l-21.4-15C176.7,161.9,176.1,162.7,175.4,163.6z"/>
+							<path class="fill-light" d="M180.7,155l29.9,13.9l1.4-2.9l-29.9-13.9C181.7,153.1,181.2,154,180.7,155z"/>
+							<path class="fill-light" d="M178.3,159.4l23.6,13.6l1.6-2.8l-23.5-13.6C179.4,157.6,178.8,158.5,178.3,159.4z"/>
+							<path class="fill-light" d="M172.3,167.5l23.7,19.9l2.1-2.5l-23.7-19.9C173.7,165.9,173,166.7,172.3,167.5z"/>
+							<path class="fill-light" d="M72.2,117.4l-45.2-8l-0.6,3.2l45.2,8C71.8,119.5,72,118.5,72.2,117.4z"/>
+							<path class="fill-light" d="M122.3,186.6l-3.9,44.9l3.2,0.3l3.9-44.9C124.4,186.8,123.3,186.7,122.3,186.6z"/>
+							<path class="fill-light" d="M182.8,150.4l40.1,14.6l1.1-3l-40.1-14.6C183.6,148.4,183.2,149.4,182.8,150.4z"/>
+							<path class="fill-light" d="M184.5,145.6l54.5,14.6l0.8-3.1l-54.5-14.6C185,143.6,184.8,144.6,184.5,145.6z"/>
+							<path class="fill-light" d="M186.5,135.7l80.5,7l0.3-3.2l-80.5-7C186.7,133.6,186.6,134.7,186.5,135.7z"/>
+							<path class="fill-light" d="M185.7,140.7l69.1,12.2l0.6-3.2l-69.1-12.2C186.1,138.6,185.9,139.7,185.7,140.7z"/>
+							<path class="fill-light" d="M168.7,171.1l30.2,30.2l2.3-2.3L171,168.9C170.3,169.6,169.5,170.4,168.7,171.1z"/>
+							<path class="fill-light" d="M127.3,187v52.4h3.2V187c-0.5,0-1.1,0-1.6,0C128.4,187,127.9,187,127.3,187z"/>
+							<path class="fill-light" d="M132.4,186.9l5.7,65.3l3.2-0.3l-5.7-65.3C134.5,186.7,133.5,186.8,132.4,186.9z"/>
+							<path class="fill-light" d="M142.4,185.4l18.1,67.4l3.1-0.8l-18.1-67.4C144.5,184.9,143.4,185.2,142.4,185.4z"/>
+							<path class="fill-light" d="M137.4,186.4l12.7,72.3l3.2-0.6l-12.7-72.3C139.5,186,138.5,186.2,137.4,186.4z"/>
+							<path class="fill-light" d="M164.9,174.5l30.5,36.3l2.5-2.1l-30.5-36.3C166.6,173.1,165.8,173.8,164.9,174.5z"/>
+							<path class="fill-light" d="M160.8,177.4l24.7,35.3l2.6-1.8l-24.7-35.3C162.6,176.2,161.7,176.8,160.8,177.4z"/>
+							<path class="fill-light" d="M156.5,180l21.9,37.9l2.8-1.6l-21.9-37.9C158.4,179,157.4,179.5,156.5,180z"/>
+							<path class="fill-light" d="M147.2,184l21.3,58.5l3-1.1l-21.3-58.5C149.3,183.3,148.3,183.7,147.2,184z"/>
+							<path class="fill-light" d="M152,182.2l22,47.2l2.9-1.4l-22-47.2C153.9,181.3,152.9,181.8,152,182.2z"/>
+							<path class="fill-light" d="M171,89.3l36.1-36.1l-2.3-2.3L168.7,87C169.5,87.7,170.3,88.5,171,89.3z"/>
+							<path class="fill-light" d="M174.3,93.1L211,62.3l-2.1-2.5l-36.7,30.8C173,91.4,173.7,92.2,174.3,93.1z"/>
+							<path class="fill-light" d="M177.3,97.2l36.3-25.4l-1.8-2.6l-36.3,25.4C176.1,95.4,176.7,96.3,177.3,97.2z"/>
+							<path class="fill-light" d="M179.9,101.5l37-21.4l-1.6-2.8l-37,21.4C178.8,99.6,179.4,100.6,179.9,101.5z"/>
+							<path class="fill-light" d="M182.1,106.1l41.1-19.2l-1.4-2.9l-41.1,19.2C181.2,104.1,181.7,105.1,182.1,106.1z"/>
+							<path class="fill-light" d="M183.9,110.8l52.5-19.1l-1.1-3l-52.5,19.1C183.2,108.7,183.6,109.8,183.9,110.8z"/>
+							<path class="fill-light" d="M163.5,82.6l28.3-40.4l-2.6-1.8l-28.3,40.4C161.7,81.3,162.6,81.9,163.5,82.6z"/>
+							<path class="fill-light" d="M167.4,85.8L200.8,46l-2.5-2.1l-33.4,39.8C165.8,84.4,166.6,85,167.4,85.8z"/>
+							<path class="fill-light" d="M159.3,79.7l19.6-33.9l-2.8-1.6l-19.6,33.9C157.4,78.6,158.4,79.2,159.3,79.7z"/>
+							<path class="fill-light" d="M186.9,129.1c0,0.5,0,1.1,0,1.6H275v-3.2h-88.1C186.8,128,186.9,128.5,186.9,129.1z"/>
+							<path class="fill-light" d="M186.8,125.6l90.9-8l-0.3-3.2l-90.9,8C186.6,123.5,186.7,124.6,186.8,125.6z"/>
+							<path class="fill-light" d="M185.3,115.6l77.6-20.8l-0.8-3.1l-77.6,20.8C184.8,113.6,185,114.6,185.3,115.6z"/>
+							<path class="fill-light" d="M186.2,120.6l89.9-15.9l-0.6-3.2l-89.9,15.9C185.9,118.5,186.1,119.5,186.2,120.6z"/>
+							<polygon class="fill-light" points="39.1,24.5 90.5,85.8 90.5,85.7 	"/>
+							<path class="fill-light" d="M93,83.7L41.5,22.4l-2.5,2.1l51.4,61.3C91.3,85,92.1,84.3,93,83.7z"/>
+							<path class="fill-light" d="M89.1,87l-53-53l-2.3,2.3l53,53C87.6,88.5,88.4,87.7,89.1,87z"/>
+							<path class="fill-light" d="M97,80.7L47.4,9.8l-2.6,1.8l49.7,70.9C95.3,81.9,96.1,81.3,97,80.7z"/>
+							<path class="fill-light" d="M101.4,78.1L57,1.2l-2.8,1.6l44.4,76.9C99.5,79.2,100.4,78.6,101.4,78.1z"/>
+							<path class="fill-light" d="M85.6,90.6L32.8,46.3l-2.1,2.5l52.9,44.4C84.2,92.2,84.9,91.4,85.6,90.6z"/>
+							<path class="fill-light" d="M77.1,103.1L4.1,69.1L2.7,72l73.1,34.1C76.2,105.1,76.7,104.1,77.1,103.1z"/>
+							<polygon class="fill-light" points="82.4,94.5 27.2,55.9 82.4,94.5 	"/>
+							<path class="fill-light" d="M82.4,94.5L27.2,55.9l-1.8,2.6l55.2,38.7C81.2,96.3,81.8,95.4,82.4,94.5z"/>
+							<path class="fill-light" d="M79.6,98.7L14.1,60.9l-1.6,2.8L78,101.5C78.5,100.6,79,99.6,79.6,98.7z"/>
+							<path class="fill-light" d="M73.4,112.5L8.2,95.1l-0.8,3.1l65.2,17.5C72.8,114.6,73.1,113.6,73.4,112.5z"/>
+							<path class="fill-light" d="M75.1,107.8l-74-26.9l-1.1,3l74,26.9C74.3,109.8,74.7,108.7,75.1,107.8z"/>
+							<path class="fill-light" d="M140.6,72.3l3.2-18l-3.2-0.6l-3.2,18C138.5,71.9,139.5,72.1,140.6,72.3z"/>
+							<path class="fill-light" d="M135.6,71.5l1.7-19.7l-3.2-0.3l-1.7,19.7C133.5,71.3,134.5,71.4,135.6,71.5z"/>
+							<path class="fill-light" d="M154.9,77.3l11.8-25.2l-2.9-1.4L152,75.9C152.9,76.3,153.9,76.8,154.9,77.3z"/>
+							<path class="fill-light" d="M145.5,73.5l4.9-18.3l-3.1-0.8l-4.9,18.4C143.4,73,144.5,73.2,145.5,73.5z"/>
+							<path class="fill-light" d="M150.3,75.2l7.5-20.7l-3-1.1l-7.5,20.7C148.3,74.4,149.3,74.8,150.3,75.2z"/>
+							<path class="fill-light" d="M130.6,71.2l0-24h-3.2v24c0.5,0,1.1,0,1.6,0C129.5,71.1,130,71.2,130.6,71.2z"/>
+							<path class="fill-light" d="M115.5,72.7l-14.2-53l-3.1,0.8l14.2,53C113.4,73.2,114.5,73,115.5,72.7z"/>
+							<path class="fill-light" d="M105.9,75.9L70.5,0l-2.9,1.4L103,77.3C104,76.8,104.9,76.3,105.9,75.9z"/>
+							<path class="fill-light" d="M110.6,74.1l-24.7-68l-3,1.1l24.7,68C108.6,74.8,109.6,74.4,110.6,74.1z"/>
+							<path class="fill-light" d="M125.5,71.2l-2.7-30.9l-3.2,0.3l2.7,30.9C123.4,71.4,124.4,71.3,125.5,71.2z"/>
+							<path class="fill-light" d="M120.5,71.8l-7-39.6l-3.2,0.6l7,39.6C118.3,72.1,119.4,71.9,120.5,71.8z"/>
+							<path class="fill-light" d="M182.2,151.8l35.3,14.6l0.5-1.1l-35.3-14.6C182.5,151,182.3,151.4,182.2,151.8z"/>
+							<path class="fill-light" d="M186.2,137.2l18.3,2.4l0.2-1.2l-18.3-2.4C186.3,136.4,186.3,136.8,186.2,137.2z"/>
+							<path class="fill-light" d="M185.6,117.1l9.1-2l-0.3-1.2l-9,2C185.4,116.3,185.5,116.7,185.6,117.1z"/>
+							<path class="fill-light" d="M180,156.4l27.4,14.3l0.5-1.1l-27.4-14.3C180.3,155.6,180.2,156,180,156.4z"/>
+							<path class="fill-light" d="M186.4,122.1l8.8-1.1l-0.2-1.2l-8.8,1.2C186.3,121.3,186.3,121.7,186.4,122.1z"/>
+							<path class="fill-light" d="M186.7,132.2l12.9,0.6l0-1.2l-12.9-0.6C186.8,131.4,186.8,131.8,186.7,132.2z"/>
+							<path class="fill-light" d="M186.8,127.1l10-0.4l-0.1-1.2l-10,0.4C186.8,126.3,186.8,126.8,186.8,127.1z"/>
+							<path class="fill-light" d="M185.3,142.2l29.3,6.5l0.2-1.2l-29.3-6.5C185.5,141.4,185.4,141.8,185.3,142.2z"/>
+							<path class="fill-light" d="M183.9,147.1l39.9,12.6l0.4-1.1l-39.8-12.6C184.2,146.3,184.1,146.7,183.9,147.1z"/>
+							<path class="fill-light" d="M177.4,160.7l19.1,12.2l0.6-1L178,159.7C177.8,160,177.6,160.4,177.4,160.7z"/>
+							<path class="fill-light" d="M145.7,184.5l1.5,4.7l1.2-0.4l-1.5-4.7C146.5,184.2,146.1,184.4,145.7,184.5z"/>
+							<path class="fill-light" d="M155.1,180.7l0.5,0.9l1.1-0.6l-0.5-0.9C155.8,180.3,155.4,180.5,155.1,180.7z"/>
+							<path class="fill-light" d="M150.5,182.8l0.8,1.9l1.1-0.5l-0.8-1.9C151.2,182.5,150.8,182.7,150.5,182.8z"/>
+							<path class="fill-light" d="M159.5,178.2l0.7,1.1l1-0.7l-0.7-1.1C160.2,177.8,159.8,178,159.5,178.2z"/>
+							<path class="fill-light" d="M174.5,164.8l12.2,9.3l0.7-1l-12.2-9.3C175,164.2,174.7,164.5,174.5,164.8z"/>
+							<path class="fill-light" d="M171.2,168.6l7.1,6.5l0.8-0.9l-7.1-6.5C171.7,168.1,171.4,168.4,171.2,168.6z"/>
+							<path class="fill-light" d="M163.7,175.4l1.7,2.3l1-0.7l-1.7-2.3C164.3,174.9,164,175.2,163.7,175.4z"/>
+							<path class="fill-light" d="M167.6,172.2l3.8,4.1l0.9-0.8l-3.8-4.1C168.2,171.7,167.9,171.9,167.6,172.2z"/>
+							<path class="fill-light" d="M132,71.2l0.1-3.2l-1.2-0.1l-0.1,3.3C131.2,71.2,131.6,71.2,132,71.2z"/>
+							<path class="fill-light" d="M146.9,74l0.6-1.8l-1.1-0.4l-0.6,1.8C146.1,73.8,146.5,73.9,146.9,74z"/>
+							<path class="fill-light" d="M140.8,185.7l2.6,11.7l1.2-0.3l-2.6-11.7C141.6,185.6,141.2,185.7,140.8,185.7z"/>
+							<path class="fill-light" d="M184.3,112.2l10.9-3.4l-0.4-1.2l-10.9,3.4C184.1,111.5,184.2,111.8,184.3,112.2z"/>
+							<path class="fill-light" d="M127,71.2l-0.4-9.8l-1.2,0l0.4,9.8C126.2,71.2,126.6,71.2,127,71.2z"/>
+							<path class="fill-light" d="M121.9,71.6l-2.5-18.9l-1.2,0.2l2.5,18.9C121.1,71.7,121.5,71.6,121.9,71.6z"/>
+							<path class="fill-light" d="M112,73.6l-10.7-33.9l-1.1,0.4L110.9,74C111.3,73.9,111.7,73.8,112,73.6z"/>
+							<path class="fill-light" d="M116.9,72.4l-6.1-27.7l-1.2,0.3l6.1,27.7C116.1,72.6,116.5,72.5,116.9,72.4z"/>
+							<path class="fill-light" d="M151.6,75.8l3.8-9.1l-1.1-0.5l-3.8,9.1C150.9,75.5,151.2,75.6,151.6,75.8z"/>
+							<path class="fill-light" d="M182.6,107.5l15.1-6.3l-0.5-1.1l-15.1,6.3C182.3,106.7,182.5,107.1,182.6,107.5z"/>
+							<path class="fill-light" d="M180.5,102.9l22.4-11.6l-0.6-1.1L180,101.8C180.2,102.1,180.3,102.5,180.5,102.9z"/>
+							<path class="fill-light" d="M175.2,94.3l22.3-17.1l-0.8-1l-22.3,17.1C174.7,93.6,175,94,175.2,94.3z"/>
+							<path class="fill-light" d="M178.1,98.5l25.7-16.4l-0.6-1l-25.7,16.4C177.6,97.8,177.8,98.1,178.1,98.5z"/>
+							<path class="fill-light" d="M156.2,78l6-11.5l-1.1-0.6l-6,11.6C155.4,77.6,155.8,77.8,156.2,78z"/>
+							<path class="fill-light" d="M160.5,80.5l5.4-8.5l-1-0.6l-5.4,8.5C159.8,80.1,160.2,80.3,160.5,80.5z"/>
+							<path class="fill-light" d="M164.6,83.5l6.4-8.4l-1-0.7l-6.4,8.4C164,83,164.3,83.2,164.6,83.5z"/>
+							<path class="fill-light" d="M172,90.4l17-15.5l-0.8-0.9l-17,15.5C171.5,89.8,171.7,90.1,172,90.4z"/>
+							<path class="fill-light" d="M168.5,86.8l10.9-11.9l-0.9-0.8l-10.9,11.9C167.9,86.2,168.2,86.5,168.5,86.8z"/>
+							<path class="fill-light" d="M61.3,100.5l-0.5,1.1l14.3,5.9c0.1-0.4,0.3-0.7,0.5-1.1L61.3,100.5z"/>
+							<path class="fill-light" d="M77.8,101.8L66,95.6l-0.6,1.1l11.8,6.2C77.4,102.5,77.6,102.1,77.8,101.8z"/>
+							<path class="fill-light" d="M80.3,97.4l-9.2-5.8l-0.6,1l9.2,5.9C79.9,98.1,80.1,97.8,80.3,97.4z"/>
+							<path class="fill-light" d="M83.3,93.3l-7.8-6l-0.7,1l7.8,6C82.8,94,83.1,93.6,83.3,93.3z"/>
+							<path class="fill-light" d="M86.6,89.5L78,81.7l-0.8,0.9l8.5,7.8C86,90.1,86.3,89.8,86.6,89.5z"/>
+							<path class="fill-light" d="M90.2,86L77.6,72.2L76.7,73l12.6,13.8C89.6,86.5,89.9,86.2,90.2,86z"/>
+							<path class="fill-light" d="M72.5,116l-13.9-3.1l-0.3,1.2l13.9,3.1C72.3,116.7,72.4,116.3,72.5,116z"/>
+							<path class="fill-light" d="M73.8,111.1l-15.3-4.8l-0.4,1.2l15.3,4.8C73.6,111.8,73.7,111.5,73.8,111.1z"/>
+							<path class="fill-light" d="M71.5,120.9l-7.4-1l-0.2,1.2l7.4,1C71.4,121.7,71.5,121.3,71.5,120.9z"/>
+							<path class="fill-light" d="M107.3,75.3L91.8,38l-1.1,0.4l15.5,37.3C106.5,75.6,106.9,75.5,107.3,75.3z"/>
+							<path class="fill-light" d="M102.7,77.4L83,39.7l-1.1,0.6L101.6,78C102,77.8,102.3,77.6,102.7,77.4z"/>
+							<path class="fill-light" d="M94.1,82.7L72.7,54.9l-1,0.7l21.4,27.9C93.5,83.2,93.8,83,94.1,82.7z"/>
+							<path class="fill-light" d="M98.3,79.9L75.4,44l-1,0.7l22.9,35.9C97.6,80.3,97.9,80.1,98.3,79.9z"/>
+							<path class="fill-light" d="M101.6,180.2l-16.1,31l1.1,0.6l16.1-31C102.3,180.5,102,180.3,101.6,180.2z"/>
+							<path class="fill-light" d="M106.2,182.3l-12.1,29.1l1.1,0.5l12.1-29.1C106.9,182.6,106.5,182.5,106.2,182.3z"/>
+							<path class="fill-light" d="M97.2,177.6l-21.2,33.2l1,0.6l21.2-33.2C97.9,178,97.6,177.8,97.2,177.6z"/>
+							<path class="fill-light" d="M93.1,174.7l-24.9,32.4l1,0.7l24.9-32.5C93.8,175.1,93.5,174.9,93.1,174.7z"/>
+							<path class="fill-light" d="M110.9,184.1l-8.3,26.3l1.2,0.4l8.3-26.3C111.7,184.4,111.3,184.2,110.9,184.1z"/>
+							<path class="fill-light" d="M125.7,186.9l-1.5,35.3l1.2,0.1L127,187C126.6,186.9,126.1,186.9,125.7,186.9z"/>
+							<path class="fill-light" d="M115.8,185.5l-5.7,25.9l1.2,0.3l5.7-25.8C116.5,185.7,116.1,185.6,115.8,185.5z"/>
+							<path class="fill-light" d="M120.7,186.4l-4.2,31.7l1.2,0.2l4.2-31.8C121.5,186.5,121.1,186.5,120.7,186.4z"/>
+							<path class="fill-light" d="M135.8,186.6l3.5,26.3l1.2-0.2l-3.5-26.3C136.6,186.5,136.2,186.5,135.8,186.6z"/>
+							<path class="fill-light" d="M130.8,187l1.5,34.1l1.2-0.1l-1.5-34C131.6,186.9,131.2,187,130.8,187z"/>
+							<path class="fill-light" d="M82.6,163.9l-14.3,11l0.7,1l14.3-11C83,164.5,82.8,164.2,82.6,163.9z"/>
+							<path class="fill-light" d="M89.3,171.4L64,199l0.9,0.8l25.3-27.6C89.9,171.9,89.6,171.6,89.3,171.4z"/>
+							<path class="fill-light" d="M85.8,167.8l-22,20.1l0.8,0.9l22-20.1C86.3,168.4,86,168,85.8,167.8z"/>
+							<path class="fill-light" d="M77.2,155.3l-1.7,0.9l0.6,1.1l1.7-0.9C77.6,156,77.4,155.6,77.2,155.3z"/>
+							<path class="fill-light" d="M79.7,159.7l-6.9,4.4l0.6,1l6.9-4.4C80.1,160.4,79.9,160,79.7,159.7z"/>
+						</svg>
+					</figure>
+
+					<div class="card-body p-0">
+						<!-- Badge -->
+						<div class="d-flex justify-content-between mb-5">
+							<h6 class="mb-0 fw-light">ABD-05</h6>
+							<div class="badge bg-primary text-white small">Podcast</div>
+						</div>
+						<!-- Title -->
+						<h5 class="card-title"><a href="#">Collaborating to drive innovation in the Tech industry</a></h5>
+					</div>
+
+					<!-- Author detail -->
+					<div class="card-footer bg-transparent p-0 d-flex justify-content-between mt-8">
+						<div>
+							<small>Artist</small>
+							<h6>Frances Guerrero</h6>
+						</div>
+						<div class="avatar flex-shrink-0">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Marketing</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/03.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Effortless Web Development with Mizzle</a></h6>
+						<p class="small mb-0">Building a successful blog takes dedication. Don't be discouraged by slow growth in the early stages.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Lori Stevens</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v1.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Research</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/04.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Ten questions you should answer truthfully.</a></h6>
+						<p class="small mb-0"> Remember, blogging is a continuous learning process, so stay open to new ideas.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Louis Crawford</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v2.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Design</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/05.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Mastering Responsive Web Design with Bootstrap</a></h6>
+						<p class="small mb-0">Focus on creating valuable content, implementing and continuously improving your blog.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Joan Wallace</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v1.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-primary p-4 overflow-hidden h-100">
+					<!-- pattern decoration -->
+					<div class="position-absolute end-0 bottom-0 mb-n5 me-n7">
+						<img src="assets/images/elements/pattern.svg" class="opacity-4" alt="">
+					</div>
+
+					<!-- Card body -->
+					<div class="card-body z-index-1 p-0">
+						<div class="d-flex justify-content-between mb-5">
+							<div class="badge bg-dark text-white small">Advertisements</div>
+							<a href="#!" class="mb-0 text-white small" tabindex="0" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="You're seeing this ad because your activity meets the intended audience of our site.">
+								<i class="bi bi-info-circle ps-1"></i> Sponsored
+							</a>
+						</div>
+						<!-- Title -->
+						<h5 class="card-title">Always wanted to become a coder? Here is a great chance for you to fulfill your dream.</h5>
+					</div>
+
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between align-items-center p-0 mt-8 z-index-1">
+						<!-- Avatar info -->
+						<div class="d-flex align-items-center">
+							<div class="avatar flex-shrink-0 me-2">
+								<div class="avatar-img rounded-circle bg-dark">
+									<span class="text-white position-absolute top-50 start-50 translate-middle fw-bold small">WP</span>
+								</div>
+							</div>
+							<span class="heading-color fw-semibold">Web poster</span>
+						</div>
+						<!-- Button -->
+						<a href="#" class="btn btn-sm btn-white mb-0">Apply now</a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Marketing</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/06.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">5 investment doubts you should clarify</a></h6>
+						<p class="small mb-0">Remember, blogging is a continuous learning process, so stay open to new ideas</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Amanda Reed</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v2.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<article class="card bg-transparent h-100 p-0">
+					<!-- Badge -->
+					<div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Technology</div>
+
+					<!-- Card image -->
+					<img src="assets/images/blog/4by3/07.jpg" class="card-img" alt="Blog-img">
+
+					<!-- Card Body -->
+					<div class="card-body px-2 pb-4">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">10 things you need to know about Mizzle</a></h6>
+						<p class="small mb-0">Consider your expertise, personal experiences, and what you can uniquely offer to your readers.</p>
+					</div>
+					
+					<!-- Card footer -->
+					<div class="card-footer bg-transparent d-flex justify-content-between px-2 py-0">
+						<span class="heading-color fw-semibold mb-0">Bryan Knight</span>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single-v1.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+	  </div>
+
+		<!-- Pagination START -->
+		<div class="row mt-7">
+			<div class="col-12 mx-auto">
+				<ul class="pagination pagination-primary-soft d-flex justify-content-center mb-0">
+	        <li>
+						<ul class="list-unstyled">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+							</li>
+							<li class="page-item active"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">..</a></li>
+							<li class="page-item"><a class="page-link" href="#">22</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#">Next</a>
+							</li>
+						</ul>
+					</li>
+	      </ul>
+			</div>
+		</div>
+		<!-- Pagination END -->
+
+	</div>
+</section>
+<!-- =======================
+Blog list and sidebar END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark position-relative overflow-hidden pt-6" data-bs-theme="dark">
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute top-0 start-0 mt-n8 ms-n9">
+		<svg class="fill-mode" width="775px" height="834px" viewBox="0 0 775 834" style="enable-background:new 0 0 775 834; opacity: 0.05;" xml:space="preserve">
+			<path d="M486.1,564.4c-3.6,2.5-7.4,4.8-11.3,6.4c-12,5.5-25.7,7.9-42.2,7.4c-30.6-1.1-65.6-12.5-102.8-24.4 c-50.7-16.2-103.3-33.4-152.5-27c-56.1,7.2-97.9,44.4-128,114l-0.4-0.2c67.5-156.1,181-119.5,281.1-87.1c37,12,72,23.2,102.5,24.3 c34.3,1.2,58.1-10.7,74.9-37.4C530.1,505,547.1,466,565,425.1C619.4,301,675.6,172.7,892.1,141.3l0.1,0.4 c-216.2,31.4-272.5,159.5-326.8,283.5c-18.1,41.1-35,79.7-57.7,115.6C501.6,550.7,494.5,558.5,486.1,564.4z"></path>
+			<path d="M500.9,551.4c-43.7,31-103,15.8-165.5-0.2c-49.9-12.7-101.5-25.8-148.7-16.7c-53.3,10.5-93.2,49-121.6,118 l-0.5-0.1c15.3-37.1,33.3-64.7,55.1-84.7c19.5-17.7,41.3-28.6,66.7-33.7c47.4-9.2,99,3.9,148.9,16.6 c70.4,17.9,137.1,34.9,181.3-14.4c35.7-39.9,57.3-91.7,80.2-146.7c23.8-56.7,48.2-115.5,90.2-163.6c22.7-25.9,48.4-46.4,78.4-62.4 c33.9-18.1,72.2-30.3,117.1-37.1l0.1,0.4C695,155.3,645.2,274.5,597.1,389.7c-22.9,55-44.5,106.8-80.4,146.8 C512.3,542.4,506.6,547.3,500.9,551.4z"></path>
+			<path d="M521.3,536.4c-21.9,15.5-48.4,23.4-80.8,23.8c-31.2,0.5-65.1-5.8-97.9-11.9c-49.3-9.2-100.2-18.7-145.7-6.5 c-51.1,13.7-88.9,53.7-116,122.6l-0.6-0.2c60.5-154.1,163.3-135,262.6-116.5c68.1,12.7,132.6,24.6,183.6-15.8 c48.1-38.2,71.1-100.6,95.6-166.5c20.3-55,41.4-111.6,78.3-158.1c20-25.1,42.7-44.9,69.2-60.5c30.1-17.5,64.2-29.1,104.3-35.4 l0.2,0.6c-167.2,26.3-210,141.9-251.4,253.5C598.3,431.5,575,493.8,527,532.2C525.1,533.8,523.2,535.1,521.3,536.4z"></path>
+			<path d="M548.9,520.3c-4,2.9-8.2,5.6-12.6,8c-56.6,31.5-120.9,23.8-183,16.6c-51.7-6-100.4-11.8-144.6,3.2 c-49.9,16.9-85.5,57.7-111.3,128.2l-0.6-0.2c13.7-37.3,30.1-66,49.9-87.8c17.8-19.4,37.9-32.8,61.8-40.9 c44.3-15,93.1-9.3,144.9-3.2c62.1,7.2,126.3,14.8,182.8-16.6c59.6-33.2,82-104.7,105.9-180.4c17.1-54.3,34.7-110.5,67.2-156.6 c36.7-52,87.8-82.8,155.7-94l0.2,0.6c-151.9,25-187.8,139.3-222.3,250C620.4,417.6,599.4,484.5,548.9,520.3z"></path>
+			<path d="M573.5,509.5c-8.2,5.8-17.4,10.7-27.7,14.6c-59.3,22-119.1,18.8-176.8,15.8c-53.2-2.8-103.3-5.3-147.1,12.5 C172.6,572.3,138.1,615.5,113,688l-0.5-0.1c25.1-72.7,59.6-115.9,108.9-136c44-18,94.2-15.3,147.6-12.6 c57.7,3,117.4,6.1,176.6-15.9c70.7-26.2,91.1-106.3,112.8-191.4c13.9-54.5,28.3-111,56.7-156.9C747,123.2,793,92.6,855.6,82l0,0.7 C716.3,106.5,687,221.4,658.9,332.2C640.4,405,622.6,474.4,573.5,509.5z"></path>
+			<path d="M595.2,502.3c-11.3,8-24.6,14-40,17.4c-56.8,12.7-112,12.7-160.5,12.9c-60.2,0.1-112,0.2-157,21.1 c-49.5,23-84,69.3-108.5,146l-0.6-0.2c24.3-76.7,58.9-123.1,108.6-146.3c45.1-21.1,97.2-21.1,157.4-21.2 c48.6,0,103.6-0.1,160.5-12.9c81.6-18.3,99-106.7,117.4-200.6c10.7-55,22-112,46.6-158.2C747,108,788.6,77.5,846.5,67.2l0.1,0.8 C718,91.2,695.2,206.9,673.2,318.9C658.3,394.9,643.8,467.8,595.2,502.3z"></path>
+			<path d="M615.3,497.4c-13.7,9.7-30.2,16-50.8,18c-44.4,4.6-86.5,5.8-123.6,6.8c-71.2,2-132.8,3.7-182,27.7 C206,575.6,169.8,627,145,711.3l-0.8-0.1c13-44.6,29-79.3,48.6-106.3c18.1-24.9,39.5-43.1,65.6-55.7 c49.5-24.1,110.9-25.8,182.4-27.7c37.1-1,79.3-2.2,123.5-6.7c92.6-9.4,106.2-106.5,120.5-209.2c7.8-55.9,15.9-113.6,37-160 c23.8-52.7,61.6-83.1,115.3-93.4l0.3,0.7c-53.4,10.1-91,40.4-114.6,92.9c-21.1,46.4-29.2,104.1-36.8,159.9 C674.6,386,663.8,463,615.3,497.4z"></path>
+			<path d="M634.4,494c-15.5,11-35.2,17.2-60.4,17.3c-12.3,0.1-24.5,0.1-36.1,0.1c-103.7,0-185.5-0.1-246.4,26.4 c-63.5,27.7-103.7,85-130.5,185.5l-0.8-0.1c13.9-52.5,31.3-92.6,53.2-122.9c20.7-28.8,46.2-49.4,77.8-63.2 c61-26.6,142.9-26.4,246.6-26.4c11.7,0.1,23.8,0,36.1-0.1c103.8-0.2,112.9-105.6,122.5-217.2c4.7-56.9,9.9-115.5,27.5-162.4 c20-53.1,54.1-83.7,104.1-93.7l0.1,0.8c-49.5,9.8-83.5,40.3-103.3,93.1c-17.6,46.9-22.7,105.4-27.6,162 C690.1,378.2,682.9,459.6,634.4,494z"></path>
+			<path d="M652.7,491.8c-17.9,12.7-40.7,17.7-69.2,15.4C328,486.2,228.3,517.5,177.2,735.2l-0.9-0.3 c25.9-110.7,64-171.6,127-204c66.6-34.2,160.2-34.6,280.3-24.7c32.2,2.6,56.9-4.1,75.4-20.5c42.1-37.4,45.1-118.6,48-204.7 c4-116.5,8.1-236.8,112.1-258.6l0.1,0.8C715.9,44.8,711.8,164.8,707.8,280.9c-3.1,86.3-5.8,167.7-48.3,205.2 C657.3,488.3,655,490.1,652.7,491.8z"></path>
+			<path d="M670.6,490.3c-19.3,13.7-44.8,17.9-77.7,12.7c-138.5-21.4-227.1-13-287.3,27 c-55.4,36.8-89.1,101.7-112.4,216.9l-0.9-0.3C215.8,631,249.6,566,305.1,528.9c60.3-40.1,149.1-48.6,288.1-27.3 c35.9,5.5,63,0,82.6-16.9c43.2-37.5,42.2-124.3,40.9-216.1C714.9,151,713,28.8,809.9,7.7l0.1,0.8c-96,21.1-94.3,142.7-92.7,260.6 c1.3,92.1,2.4,179-41.1,216.7C674.3,487.4,672.6,488.9,670.6,490.3z"></path>
+		</svg>
+	</figure>
+
+	<!-- SVG decoration -->
+	<div class="position-absolute top-0 end-0 mt-n3 me-n4">
+		<img src="assets/images/elements/decoration-pattern-2.svg" style="opacity:0.05;" alt="">
+	</div>
+
+	<div class="container position-relative mt-5">
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-3">
+				<!-- logo -->
+				<a class="me-0" href="index.html">
+					<img class="h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-8 col-xxl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-4">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms & condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-4">
+						<h6 class="mb-2 mb-md-4">App available on</h6>
+						<div class="row g-2 mt-2 mb-4 mb-sm-5">
+							<!-- Google play store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+							</div>
+							<!-- App store button -->
+							<div class="col-5 col-sm-4 col-md-6">
+								<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+							</div>
+						</div>
+
+						<!-- Social buttons -->
+						<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light-soft" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light-soft" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light-soft" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light-soft" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light-soft" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<!-- Language selector -->
+			<div class="dropdown dropup text-center text-md-end mt-3 mt-md-0">
+				<a class="dropdown-toggle btn btn-sm btn-light-soft mb-0" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-globe me-2"></i>Language
+				</a>
+				<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+					<li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

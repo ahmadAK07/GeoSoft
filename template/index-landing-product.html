@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-absolute header-sticky">
+	<!-- Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover ms-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item active" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-8 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Ceremony Worthy of Time</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-4">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="docs/index.html" target="_blank">Docs</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link text-warning mb-0 px-2 lh-1" id="bs-theme"
+					type="button"
+					aria-expanded="false"
+					data-bs-toggle="dropdown"
+					data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-lg-end" aria-labelledby="bs-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block ms-2">
+					<button class="btn btn-sm btn-dark mb-0">Buy now!</button>
+				</li>
+				
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="bg-light position-relative overflow-hidden">
+	<!-- Big text decoration -->
+	<div class="text-end position-absolute top-0 end-0 mt-md-6 me-n4">
+		<h6 class="mb-0" style="font-size:350px; opacity:0.03;">Air</h6>
+		<h6 class="mb-0" style="font-size:350px; opacity:0.03;">Pods</h6>
+	</div>
+
+	<!-- SVG decoration -->
+	<figure class="position-absolute bottom-0 start-0 mb-n8 ms-n7">
+		<svg class="fill-body" width="805" height="234" viewBox="0 0 805 234" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M397.811 234.041H407.242L407.242 0.0406647H397.811V234.041Z"/>
+			<path d="M375.791 199.177H385.223V34.9041H375.791V199.177Z"/>
+			<path d="M287.248 195.945H296.68V38.021H287.248V195.945Z"/>
+			<path d="M220.959 195.945H230.391L230.391 38.0206H220.959L220.959 195.945Z"/>
+			<path d="M66.2796 195.945H75.7109L75.7109 38.021H66.2796L66.2796 195.945Z"/>
+			<path d="M419.944 199.177H429.375V34.9041H419.944V199.177Z"/>
+			<path d="M353.655 182.438H363.086V51.6427H353.655V182.438Z"/>
+			<path d="M442.08 182.438H451.512V51.6427H442.08V182.438Z"/>
+			<path d="M486.237 182.438H495.668V51.6427H486.237V182.438Z"/>
+			<path d="M530.506 182.438H539.938V51.6427H530.506V182.438Z"/>
+			<path d="M508.373 195.945H517.805V38.0206H508.373V195.945Z"/>
+			<path d="M574.662 195.945H584.094V38.0206H574.662V195.945Z"/>
+			<path d="M309.385 182.669H318.816V51.4123H309.385V182.669Z"/>
+			<path d="M265.229 182.669H274.66V51.4123H265.229V182.669Z"/>
+			<path d="M154.666 182.669H164.098L164.098 51.4123H154.666L154.666 182.669Z"/>
+			<path d="M88.4163 182.669H97.8477L97.8477 51.4123H88.4163L88.4163 182.669Z"/>
+			<path d="M331.518 159.119H340.949V74.9622H331.518V159.119Z"/>
+			<path d="M464.217 159.119H473.648V74.9622H464.217V159.119Z"/>
+			<path d="M552.643 151.5H562.074V82.5815H552.643V151.5Z"/>
+			<path d="M596.799 151.5H606.23V82.5815H596.799V151.5Z"/>
+			<path d="M685.104 151.5H694.535V82.581H685.104V151.5Z"/>
+			<path d="M751.51 162.928H760.941V71.0368H751.51V162.928Z"/>
+			<path d="M773.491 154.386H782.922V79.6949H773.491V154.386Z"/>
+			<path d="M795.627 142.38H805.059V91.7008H795.627V142.38Z"/>
+			<path d="M618.932 169.624H628.363V64.457H618.932V169.624Z"/>
+			<path d="M663.084 169.624H672.516V64.457H663.084V169.624Z"/>
+			<path d="M640.991 182.669H650.422V51.4123H640.991V182.669Z"/>
+			<path d="M707.241 182.669H716.672V51.4118H707.241V182.669Z"/>
+			<path d="M729.377 195.945H738.809V38.0206H729.377V195.945Z"/>
+			<path d="M44.1468 162.929H53.5781L53.5781 71.0372H44.1468L44.1468 162.929Z"/>
+			<path d="M176.803 169.624H186.234V64.457H176.803V169.624Z"/>
+			<path d="M132.573 169.624H142.004V64.457H132.573V169.624Z"/>
+			<path d="M243.092 151.5H252.523V82.581H243.092V151.5Z"/>
+			<path d="M198.823 151.5H208.254V82.581H198.823V151.5Z"/>
+			<path d="M110.553 151.5H119.984L119.984 82.581H110.553L110.553 151.5Z"/>
+			<path d="M22.1663 154.386H31.5977L31.5977 79.6954H22.1663L22.1663 154.386Z"/>
+			<path d="M0.0295906 142.38H9.46094L9.46094 91.7012H0.0295906L0.0295906 142.38Z"/>
+		</svg>
+	</figure>
+
+	<div class="container position-relative pt-5">
+		<div class="row">
+			<!-- Hero Title and content -->
+			<div class="col-lg-7 mb-6 mb-lg-0">
+				<!-- Title -->
+				<h1 class="display-4 lh-base mb-4">Magic Like You've Never Heard</h1>
+				<p class="mb-4">Welcome to our AirPods landing page! Here, you will discover everything you need to know about the revolutionary wireless earbuds from Mizzle.</p>
+				<a href="#" class="btn btn-lg btn-primary mb-0">Purchase Now</a>
+				<hr class="my-4 my-sm-6"> <!-- Divider -->
+
+				<!-- Product options -->
+				<div class="row g-4 align-items-center">
+					<!-- Product Image -->
+					<div class="col-6 col-sm-3">
+						<img src="assets/images/products/01.png" alt="product-img">
+ 					</div>
+
+					<!-- Product Content -->
+					<div class="col-sm-8">
+						<h5 class="mb-3">Now with 4 new exciting colors</h5>
+						<p class="heading-color mb-3">AirPods are also designed with comfort in mind. They come with different ear tip sizes to fit a variety of ear shapes and sizes.</p>
+						
+						<!-- Radio color tabs -->
+						<div class="nav nav-tabs nav-tabs-radio border-0" role="tablist">
+							<!-- Item -->
+							<div class="nav-link p-0 me-2" data-bs-toggle="tab" data-bs-target="#white" aria-selected="false" tabindex="-1" role="tab">
+								<input class="btn-check" type="radio" name="color" id="white-color" checked="">
+								<label class="btn btn-icon btn-xs mb-0" for="white-color">
+									<span class="d-block" style="background-color: #fff;"></span>
+								</label>
+							</div>
+							<!-- Item -->
+							<div class="nav-link p-0 me-2" data-bs-toggle="tab" data-bs-target="#yellow" aria-selected="false" tabindex="-1" role="tab">
+								<input class="btn-check" type="radio" name="color" id="yellow-color">
+								<label class="btn btn-icon btn-xs mb-0" for="yellow-color">
+									<span class="d-block" style="background-color: #F7C32E;"></span>
+								</label>
+							</div>
+							<!-- Item -->
+							<div class="nav-link p-0 me-2" data-bs-toggle="tab" data-bs-target="#blue" aria-selected="false" role="tab" tabindex="-1">
+								<input class="btn-check" type="radio" name="color" id="blue-color">
+								<label class="btn btn-icon btn-xs mb-0" for="blue-color">
+									<span class="d-block" style="background-color: #32C7F5;"></span>
+								</label>
+							</div>
+							<!-- Item -->
+							<div class="nav-link p-0 me-2" data-bs-toggle="tab" data-bs-target="#green" aria-selected="false" role="tab">
+								<input class="btn-check" type="radio" name="color" id="green-color">
+								<label class="btn btn-icon btn-xs mb-0" for="green-color">
+									<span class="d-block" style="background-color: #348866;"></span>
+								</label>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+			<!-- Hero Image -->
+			<div class="col-sm-10 col-lg-5 position-relative px-5 mx-auto">
+				<img src="assets/images/products/hero-img.png" alt="hero-img">
+
+				<!-- Navigation decoration -->
+				<div class="position-absolute top-0 start-0">
+					<div class="position-relative">
+						<button type="button" class="btn btn-white btn-ripple btn-round text-primary z-index-1" 
+						data-bs-toggle="popover" 
+						data-bs-trigger="focus"
+						data-bs-content="And here's some amazing content. It's very engaging. Right?">
+							<i class="bi bi-plus-lg"></i>
+						</button>
+						<!-- SVG decoration -->
+						<figure class="position-absolute top-50 start-50 mt-n1">
+							<svg width="249" height="69" viewBox="0 0 249 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M244 66V1H0" stroke="#DCE0E5"/>
+								<circle class="fill-primary" cx="244" cy="64" r="5"/>
+							</svg>
+						</figure>
+					</div>
+				</div>
+
+				<!-- Navigation decoration -->
+				<div class="position-absolute bottom-0 end-0 me-lg-4 me-xl-8 mb-lg-9 mb-xl-7">
+					<div class="position-relative">
+						<button type="button" class="btn btn-white btn-ripple btn-round text-primary z-index-1 mb-0 mt-n1" 
+						data-bs-toggle="popover"  
+						data-bs-trigger="focus"
+						data-bs-content="And here's some amazing content. It's very engaging. Right?">
+							<i class="bi bi-plus-lg"></i>
+						</button>
+						<!-- SVG decoration -->
+						<figure class="position-absolute bottom-100 end-100 mb-n3">
+							<svg width="175" height="90" viewBox="0 0 175 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5 4V89H175" stroke="#DCE0E5"/>
+								<circle class="fill-primary" cx="5" cy="5" r="5" transform="rotate(180 5 5)"/>
+							</svg>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Technical details START -->
+<section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container text-center mb-4 mb-sm-6">
+			<h2 class="mb-4">Technical details</h2>
+			<p class="mb-0">The sound quality of AirPods is impressive. They offer rich, clear, and well-balanced audio performance, making them ideal for listening to music, watching movies, or making calls.</p>
+		</div>
+
+		<!-- Technical features START -->
+		<div class="row g-4 align-items-center">
+			<!-- Features -->
+			<div class="col-lg-4 order-1">
+				<!-- Item -->
+				<div class="d-flex justify-content-lg-end mb-4 mb-lg-8">
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-1">Audio Specification</h6>
+						<small>(Custom high-excursion, Noise Cancellation, Adaptive Transparency, Adaptive EQ)</small>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0 order-lg-2"><i class="bi bi-volume-up fa-xl"></i></div>
+				</div>
+
+				<!-- Item -->
+				<div class="d-flex justify-content-lg-end mb-4 mb-lg-8 me-5">
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-1">Physical Units</h6>
+						<small>Height: 1.78 inches, Width: 2.39 inches, Depth: 0.85 inches, Weight: 1.79 ounces</small>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0 order-lg-2"><i class="bi bi-rulers fa-xl"></i></div>
+				</div>
+
+				<!-- Item -->
+				<div class="d-flex justify-content-lg-end">
+					<div class="text-lg-end order-1 ms-3 ms-lg-0 me-lg-3">
+						<h6 class="mb-1">Immersive Sound</h6>
+						<small>Personalized Spatial Audio with dynamic head tracking</small>
+					</div>
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0 order-lg-2"><i class="bi bi-soundwave fa-xl"></i></div>
+				</div>
+			</div>
+
+			<!-- Image -->
+			<div class="col-md-7 col-lg-4 mx-auto position-relative order-lg-2">
+				<img src="assets/images/products/02.png" class="px-4 z-index-1 position-relative" alt="Technical-img">
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-50 start-0 mt-n8 ms-n7 ms-xl-n3 d-none d-md-block">
+					<svg class="fill-dark" style="opacity:0.04;" width="462" height="134" viewBox="0 0 462 134" xmlns="http://www.w3.org/2000/svg">
+						<path d="M228.306 134.023H233.719L233.719 0.0231934H228.306L228.306 134.023Z"/>
+						<path d="M215.669 114.059H221.082V19.9878H215.669V114.059Z"/>
+						<path d="M164.853 112.208H170.266V21.7726H164.853V112.208Z"/>
+						<path d="M126.81 112.208H132.223V21.7724H126.81L126.81 112.208Z"/>
+						<path d="M38.0364 112.208H43.4492L43.4492 21.7726H38.0364L38.0364 112.208Z"/>
+						<path d="M241.009 114.059H246.422V19.9878H241.009V114.059Z"/>
+						<path d="M202.966 104.473H208.379V29.573H202.966V104.473Z"/>
+						<path d="M253.712 104.473H259.125V29.573H253.712V104.473Z"/>
+						<path d="M279.056 104.473H284.469V29.573H279.056V104.473Z"/>
+						<path d="M304.462 104.473H309.875V29.573H304.462V104.473Z"/>
+						<path d="M291.759 112.208H297.172V21.7724H291.759V112.208Z"/>
+						<path d="M329.806 112.208H335.219V21.7724H329.806V112.208Z"/>
+						<path d="M177.556 104.605H182.969V29.4412H177.556V104.605Z"/>
+						<path d="M152.216 104.605H157.629V29.4412H152.216V104.605Z"/>
+						<path d="M88.763 104.605H94.1758L94.1758 29.4412H88.763L88.763 104.605Z"/>
+						<path d="M50.7396 104.605H56.1523L56.1523 29.4412H50.7396L50.7396 104.605Z"/>
+						<path d="M190.259 91.1194H195.672V42.927H190.259V91.1194Z"/>
+						<path d="M266.419 91.1194H271.832V42.927H266.419V91.1194Z"/>
+						<path d="M317.165 86.7563H322.578V47.2901H317.165V86.7563Z"/>
+						<path d="M342.509 86.7563H347.922V47.2901H342.509V86.7563Z"/>
+						<path d="M393.189 86.7561H398.602V47.2899H393.189V86.7561Z"/>
+						<path d="M431.298 93.3008H436.711V40.6792H431.298V93.3008Z"/>
+						<path d="M443.915 88.4087H449.328V45.6371H443.915V88.4087Z"/>
+						<path d="M456.618 81.5334H462.031V52.5122H456.618V81.5334Z"/>
+						<path d="M355.212 97.1353H360.625V36.9113H355.212V97.1353Z"/>
+						<path d="M380.552 97.1353H385.965V36.9113H380.552V97.1353Z"/>
+						<path d="M367.872 104.605H373.285V29.4412H367.872V104.605Z"/>
+						<path d="M405.892 104.605H411.305V29.4409H405.892V104.605Z"/>
+						<path d="M418.595 112.208H424.008V21.7724H418.595V112.208Z"/>
+						<path d="M25.3333 93.301H30.7461L30.7461 40.6794H25.3333L25.3333 93.301Z"/>
+						<path d="M101.466 97.1353H106.879L106.879 36.9113H101.466V97.1353Z"/>
+						<path d="M76.0833 97.1353H81.4961L81.4961 36.9113H76.0833V97.1353Z"/>
+						<path d="M139.513 86.7561H144.926V47.2899H139.513V86.7561Z"/>
+						<path d="M114.103 86.7561H119.516V47.2899H114.103V86.7561Z"/>
+						<path d="M63.4466 86.7561H68.8594V47.2899H63.4466L63.4466 86.7561Z"/>
+						<path d="M12.72 88.4092H18.1328L18.1328 45.6376H12.72L12.72 88.4092Z"/>
+						<path d="M0.0169144 81.5337H5.42969L5.42969 52.5125H0.0169144L0.0169144 81.5337Z"/>
+					</svg>
+				</figure>
+			</div>
+
+			<!-- Features -->
+			<div class="col-lg-4 order-3">
+				<!-- Item -->
+				<div class="d-flex mb-4 mb-lg-8">
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0"><i class="bi bi-box-seam fa-xl"></i></div>
+					<div class="ms-3">
+						<h6 class="mb-1">Included In Box</h6>
+						<small>AirPods Pro, Charging Casen, USB-C Cable, Documentation</small>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="d-flex mb-4 mb-lg-8 ms-lg-5">
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0"><i class="bi bi-battery-charging fa-xl"></i></div>
+					<div class="ms-3">
+						<h6 class="mb-1">Best Battery Life</h6>
+						<small>Up to 30 hours of listening time, Up to 24 hours of talk time</small>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="d-flex">
+					<!-- Icon -->
+					<div class="icon-lg bg-light heading-color rounded flex-shrink-0"><i class="bi bi-fingerprint fa-xl"></i></div>
+					<div class="ms-3">
+						<h6 class="mb-1">Sensors</h6>
+						<small>Dual beamforming microphones, Skin-detect sensor, Touch control</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Technical features END -->
+	</div>
+</section>
+<!-- =======================
+Technical details END -->
+
+<!-- =======================
+Featured START -->
+<section class="pb-0">
+	<div class="container">
+		<div class="row g-0 bg-light rounded overflow-hidden">
+			<!-- Content -->
+			<div class="col-md-6">
+				<div class="card card-body bg-transparent d-block p-4 p-md-5 p-lg-7 h-100">
+					<!-- Title -->
+					<h2 class="mb-4">With special audio that places sound all around you</h2>
+					<p class="mb-4">Why end might ask civil again spoil. Dinner she our horses depend remember at children by reserved to vicinity. </p>
+					<!-- List -->
+					<ul class="list-group list-group-borderless mb-4">
+						<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Press once to play, pause or answer a phone call</li>
+						<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Press twice to skip forward</li>
+						<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Press three times to skip back</li>
+						<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Press and hold to switch between Active Noise Cancellation.</li>
+						<li class="list-group-item d-flex heading-color pb-0"><i class="bi bi-patch-check-fill text-primary me-2"></i>Swipe up or down to adjust volume</li>
+					</ul>
+					<!-- Button -->
+					<a href="#" class="btn btn-dark mb-0">Click here for more detail</a>
+				</div>
+			</div>
+
+			<!-- Image -->
+			<div class="col-md-6"> 
+				<div class="h-100 py-8 py-md-0" style="background:url(assets/images/about/08.jpg) no-repeat; background-size:cover;"></div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Featured END -->
+
+<!-- =======================
+product image START -->
+<section class="pb-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 mx-auto">
+				<img src="assets/images/products/detail-img.png" alt="product-mechanism">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+product image END -->
+
+<!-- =======================
+Featured START -->
+<section class="pb-0">
+	<div class="container">
+		<div class="row g-0 bg-light rounded overflow-hidden">
+			<!-- Image -->
+			<div class="col-md-6"> 
+				<div class="h-100 py-8 py-md-0" style="background:url(assets/images/about/09.jpg) no-repeat; background-size:cover; background-position:center;"></div>
+			</div>
+
+			<!-- Content -->
+			<div class="col-md-6">
+				<div class="card card-body bg-transparent d-block p-4 p-md-5 p-lg-7 h-100">
+					<!-- Title -->
+					<h2 class="mb-4">A magical connection to your devices.</h2>
+					<p class="mb-4">Why end might ask civil again spoil. Dinner she our horses depend remember at children by reserved to vicinity.</p>
+					<!-- Feature -->
+					<div class="row row-cols-2 row-cols-lg-3 g-4 mb-4">
+						<div class="col">
+							<span class="heading-color">More than</span>
+							<h4 class="my-2">24</h4>
+							<p class="mb-0">Of battery life with charging case</p>
+						</div>
+						<div class="col">
+							<span class="heading-color">Up to</span>
+							<h4 class="my-2">5 hr</h4>
+							<p class="mb-0">Of listing time on one charge</p>
+						</div>
+						<div class="col">
+							<span class="heading-color">Connectivity</span>
+							<h4 class="my-2"><i class="fa-brands fa-bluetooth-b"></i></h4>
+							<p class="mb-0">Bluetooth 5.3 wireless technology</p>
+						</div>
+					</div>
+					<!-- Button -->
+					<a href="#" class="btn btn-dark mb-0">View full specifications</a>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Featured END -->
+
+<!-- =======================
+Product list START -->
+<section>
+	<div class="container">
+		<div class="row g-4">
+			<!-- Title -->
+			<div class="col-md-4">
+				<h2 class="text-center text-md-start">The perfect Airpods that suit you</h2>
+				<!-- Slider arrow -->
+				<div class="d-flex justify-content-center justify-content-md-start gap-3 position-relative mt-5 mt-md-6">
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-prev"><i class="bi bi-arrow-left"></i></a>
+					<a href="#" class="btn btn-dark btn-icon rounded-circle mb-0 swiper-button-next"><i class="bi bi-arrow-right"></i></a>
+				</div>	
+			</div>
+
+			<!-- Products -->
+			<div class="col-md-8">
+				<!-- Slider START -->
+				<div class="swiper" data-swiper-options='{
+					"loop": false, 
+					"spaceBetween": 30,
+					"navigation":{
+						"nextEl":".swiper-button-next",
+						"prevEl":".swiper-button-prev"
+					},
+					"breakpoints": {
+						"576": {"slidesPerView": 2}, 
+						"768": {"slidesPerView": 2}, 
+						"992": {"slidesPerView": 3}
+					}}'>
+
+					<!-- Slider items -->
+					<div class="swiper-wrapper">
+
+						<!-- Slider item -->
+						<div class="swiper-slide">
+							<div class="card bg-transparent text-center p-0">
+								<!-- Image -->
+								<img src="assets/images/products/03.png" class="px-5" alt="product-img">
+								<div class="card-body p-0 mt-3">
+									<!-- Title -->
+									<h6 class="card-title mb-3"><a href="#">Airpods Drop 2</a></h6>
+									<!-- Price -->
+									<div class="d-flex align-items-center justify-content-center mb-3">
+										<h6 class="fw-normal mb-0 me-1">$225</h6>
+										<span class="text-decoration-line-through">$305</span>
+									</div>
+									<!-- Button -->
+									<a href="#" class="btn btn-sm btn-primary mb-0">Buy now</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slider item -->
+						<div class="swiper-slide">
+							<div class="card bg-transparent text-center p-0">
+								<!-- Image -->
+								<img src="assets/images/products/04.png" class="px-5" alt="product-img">
+								<div class="card-body p-0 mt-3">
+									<!-- Title -->
+									<h6 class="card-title mb-3"><a href="#">Airpods pro Drop</a></h6>
+									<!-- Price -->
+									<h6 class="fw-normal mb-3 me-1">$350</h6>
+									<!-- Button -->
+									<a href="#" class="btn btn-sm btn-primary mb-0">Buy now</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slider item -->
+						<div class="swiper-slide">
+							<div class="card bg-transparent text-center p-0">
+								<!-- Image -->
+								<img src="assets/images/products/05.png" class="px-5" alt="product-img">
+								<div class="card-body p-0 mt-3">
+									<!-- Title -->
+									<h6 class="card-title mb-3"><a href="#">Airpods pro max</a></h6>
+									<!-- Price -->
+									<div class="d-flex align-items-center justify-content-center mb-3">
+										<h6 class="fw-normal mb-0 me-1">$315</h6>
+										<span class="text-decoration-line-through">$350</span>
+									</div>
+									<!-- Button -->
+									<a href="#" class="btn btn-sm btn-primary mb-0">Buy now</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slider item -->
+						<div class="swiper-slide">
+							<div class="card bg-transparent text-center p-0">
+								<!-- Image -->
+								<img src="assets/images/products/04.png" class="px-5" alt="product-img">
+								<div class="card-body p-0 mt-3">
+									<!-- Title -->
+									<h6 class="card-title mb-3"><a href="#">Airpods pro Drop</a></h6>
+									<!-- Price -->
+									<h6 class="fw-normal mb-3 me-1">$350</h6>
+									<!-- Button -->
+									<a href="#" class="btn btn-sm btn-primary mb-0">Buy now</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slider item -->
+						<div class="swiper-slide">
+							<div class="card bg-transparent text-center p-0">
+								<!-- Image -->
+								<img src="assets/images/products/05.png" class="px-5" alt="product-img">
+								<div class="card-body p-0 mt-3">
+									<!-- Title -->
+									<h6 class="card-title mb-3"><a href="#">Airpods pro 2.0</a></h6>
+									<!-- Price -->
+									<h6 class="fw-normal mb-3 me-1">$285</h6>
+									<!-- Button -->
+									<a href="#" class="btn btn-sm btn-primary mb-0">Buy now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>		
+				<!-- Slider END -->
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- =======================
+Product list START -->
+
+<!-- =======================
+Video START -->
+<section class="bg-parallax position-relative h-400px h-xl-600px" data-jarallax data-speed="0.6" style="background:url(assets/images/products/video-img.jpg) no-repeat; background-size:cover; background-position:center;">
+	<div class="position-absolute top-50 start-50 translate-middle">
+		<a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-icon btn-xl btn-dark btn-round mb-0 stretched-link" data-glightbox="" data-gallery="Video"><i class="bi bi-play-fill fa-lg"></i></a>
+	</div>
+</section>
+<!-- =======================
+Video END -->
+
+<!-- =======================
+Testimonials and contact form START -->
+<section>
+	<div class="container">
+		<div class="row g-4">
+			<!-- Testimonials -->
+			<div class="col-lg-5">
+				<div class="card card-body bg-dark p-sm-5">
+					<!-- Quote icon -->
+					<span class="display-5 text-primary"><i class="bi bi-quote"></i></span>
+					<p class="text-white fs-5">The sound quality is impressive for earbuds of this size. The audio is clear, with balanced mids and highs. The bass isn't overpowering, but it's adequate for most music genres.</p>
+					<!-- Star -->
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item me-0"><i class="bi bi-star-fill text-white fs-6"></i></li>
+						<li class="list-inline-item me-0"><i class="bi bi-star-fill text-white fs-6"></i></li>
+						<li class="list-inline-item me-0"><i class="bi bi-star-fill text-white fs-6"></i></li>
+						<li class="list-inline-item me-0"><i class="bi bi-star-fill text-white fs-6"></i></li>
+						<li class="list-inline-item me-0"><i class="bi bi-star-fill text-white fs-6"></i></li>
+					</ul>
+					<hr class="opacity-1 my-4"> <!-- Divider -->
+
+					<!-- Avatar -->
+					<div class="d-sm-flex align-items-center">
+						<!-- Avatar -->
+						<div class="avatar flex-shrink-0">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt="avatar">
+						</div>
+						<!-- Info -->
+						<div class="ms-sm-2 mt-2 mt-sm-0">
+							<h6 class="text-white mb-0">Dennis Barrett</h6>
+							<p class="mb-0 small text-white">CEO and co-founder, MacoInfo</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Contact detail -->
+			<div class="col-lg-7 ps-lg-5">
+				<!-- Title -->
+				<h2 class="mb-4">Discover the Future of Sound with AirPods</h2>
+
+				<!-- Features -->
+				<div class="row g-4 g-lg-5">
+					<div class="col-md-6">
+						<div class="card card-body bg-transparent p-0">
+							<div class="icon-md bg-primary bg-opacity-10 text-primary rounded mb-3"><i class="bi bi-fire fa-xl"></i></div>
+							<h6 class="mb-2">Seamless Connectivity</h6>
+							<p class="mb-0">Effortlessly pair your AirPods with your devices for a hassle-free listening.</p>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="card card-body bg-transparent p-0">
+							<div class="icon-md bg-primary bg-opacity-10 text-primary rounded mb-3"><i class="bi bi-truck fa-xl"></i></div>
+							<h6 class="mb-2">Get flexible delivery</h6>
+							<p class="mb-0">Get free delivery or pickup at your Airpods store.</p>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="card card-body bg-transparent p-0">
+							<div class="icon-md bg-primary bg-opacity-10 text-primary rounded mb-3"><i class="bi bi-earbuds fa-xl"></i></div>
+							<h6 class="mb-2">Accessories and Customization</h6>
+							<p class="mb-0">Explore a range of accessories and customization options to your AirPods.</p>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="card card-body bg-transparent p-0">
+							<div class="icon-md bg-primary bg-opacity-10 text-primary rounded mb-3"><i class="bi bi-shield-fill-check fa-xl"></i></div>
+							<h6 class="mb-2">Worry-Free Warranty</h6>
+							<p class="mb-0">Rest easy with a comprehensive warranty that covers your AirPods against defects.</p>
+						</div>
+					</div>
+
+
+				</div>
+				
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Testimonials and contact form END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6" data-bs-theme="dark">
+	<div class="container position-relative mt-sm-5">
+
+		<!-- CTA -->
+		<div class="bg-light border rounded p-4 p-sm-5 mb-7">
+			<div class="d-md-flex align-items-center">
+				<!-- Icon -->
+				<div class="icon-lg bg-dark text-white rounded flex-shrink-0"><i class="bi bi-cursor fa-xl"></i></div>
+				<!-- Content -->
+				<div class="ms-md-4 my-4 my-md-0">
+					<h5>Join our awesome community!</h5>
+					<p class="mb-0">Share work, seek support, vote on components, stay updated and network with others.</p>
+				</div>
+				<!-- Button -->
+				<a href="#" class="btn btn-white mb-0 ms-auto flex-shrink-0">Join now</a>
+			</div>
+		</div>
+
+		<!-- Widgets -->
+		<div class="row g-4 justify-content-between">
+			<!-- Widget 1 START -->
+			<div class="col-lg-5">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+				<!-- Social icon -->
+				<ul class="list-inline mb-0 mt-4">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-6 col-xxl-4">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms &amp; condition</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<div class="nav mt-2 mt-lg-0">
+				<ul class="list-inline mx-auto mb-0">
+					<li class="list-inline-item me-0"><a class="nav-link py-0" href="#">Privacy policy</a></li>
+					<li class="list-inline-item me-0"><a class="nav-link py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+<script src="assets/vendor/jarallax/jarallax.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

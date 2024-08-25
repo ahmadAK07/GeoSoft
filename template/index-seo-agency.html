@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item active" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms &amp; Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown dropdown-fullwidth">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+						<div class="dropdown-menu py-0">
+							<div class="row p-2 p-sm-4">
+								<!-- Dropdown column item -->
+								<div class="col-md-6 col-xl-4 col-xxl-3">
+									<div class="d-md-flex gap-4 h-100">
+										<!-- Links -->
+										<ul class="list-unstyled w-100">
+											<li class="dropdown-header h6 mb-2">Useful links</li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-file-text fa-fw me-2"></i>Guides</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-chat-left fa-fw me-2"></i>Supports</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-calendar3-week fa-fw me-2"></i>Community &amp; events</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-blockquote-right fa-fw me-2"></i>Blogs</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-lock fa-fw me-2"></i>Security</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-star fa-fw me-2"></i>Tutorials</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-question-circle fa-fw me-2"></i>Help center</a> </li>
+											<li> <a class="dropdown-item" href="#"><i class="bi bi-envelope fa-fw me-2"></i>Developer newsletter</a> </li>
+										</ul>
+										<!-- Divider line -->
+										<div class="vr ms-2 ms-auto d-none d-md-block"></div>
+									</div>
+								</div>
+
+								<!-- Dropdown column item -->
+								<div class="col-md-6 col-xl-4 col-xxl-5 h-100">
+									<span class="dropdown-header h6 mb-2">Key features</span>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi-file-earmark-text heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Documentation</p>
+												<p class="mb-0 text-body small">Using documentation you can easily develop projects</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="docs/index.html" target="_blank"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-stickies heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Snippets</p>
+												<p class="mb-0 text-body small">Development guides for building projects with Mizzle</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-bullseye heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<p class="stretched-link heading-color fw-bold mb-0">Changelog</p>
+												<p class="mb-0 text-body small">Recent feature release and announcement. See how changes are made.</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="docs/changelog.html" target="_blank"><i class="bi bi-box-arrow-up-right"></i> </a>
+									</div>
+
+									<!-- Dropdown item -->
+									<div class="dropdown-item bg-light-hover d-flex align-items-center justify-content-between position-relative text-wrap py-3">
+										<div class="d-flex me-3">
+											<!-- Icon -->
+											<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-mask heading-color fs-6"></i></div>
+											<!-- Content -->
+											<div class="mx-2">
+												<a class="stretched-link heading-color fw-bold mb-0" href="#">Playwright tips</a>
+												<p class="mb-0 text-body small">Tips and In-depth guide for headless browser automation</p>
+											</div>
+										</div>
+										<!-- Button -->
+										<a class="icon-link icon-link-hover text-primary-hover stretched-link" href="#"><i class="bi bi-chevron-right"></i> </a>
+									</div>
+								</div>
+
+								<!-- Feature resources card -->
+								<div class="col-lg-4">
+									<span class="dropdown-header h6 mb-2">Feature resources</span>
+
+									<!-- Feature card -->
+									<div class="card bg-transparent px-3">
+										<!-- Image -->
+										<img src="assets/images/blog/02.jpg" class="rounded mb-3" alt="feature-img">
+										<div class="card-body p-0">
+											<h6><a href="#">Featured title here</a></h6>
+											<p class="mb-2">Departure defective arranging rapturous did believe him all had supported.</p>
+											<a class="icon-link icon-link-hover stretched-link z-index-2" href="#">Check it out<i class="bi bi-arrow-right"></i> </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+							<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
+								<div class="row g-xl-3">
+									<!-- Work -->
+									<div class="col-xl-8 d-none d-xl-block">
+										<div class="d-flex gap-4">
+											<!-- Card -->
+											<div class="card bg-transparent">
+												<!-- Image -->
+												<img src="assets/images/portfolio/list/01.jpg" class="card-img" alt="">
+												<!-- Card body -->
+												<div class="card-body px-0 text-start pb-0">
+													<h6><a href="#">Ceremony Worthy of Time</a></h6>
+													<p class="mb-2 small">We help our customers better manage their web presence.</p>
+													<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												</div>
+											</div>
+
+											<!-- Card -->
+											<div class="card bg-transparent">
+												<!-- Image -->
+												<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+												<!-- Card body -->
+												<div class="card-body px-0 text-start pb-0">
+													<h6><a href="#">Brushstrokes and Beyond</a></h6>
+													<p class="mb-2 small">We help our customers better manage their web presence.</p>
+													<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												</div>
+											</div>
+
+											<!-- Divider line -->
+											<div class="vr ms-2"></div>
+										</div>
+									</div>
+
+									<!-- Index nav links -->
+									<div class="col-xl-4">
+										<ul class="list-unstyled">
+											<li class="dropdown-header h6">Portfolio Pages</li>
+											<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+											<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+										</ul>
+									</div>
+								</div>
+							</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link text-warning mb-0 px-2 lh-1" id="bs-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-lg-end" aria-labelledby="bs-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Sign up button -->
+				<li class="nav-item me-2">
+					<a href="sign-up.html" class="btn btn-sm btn-light mb-0"><i class="bi bi-person-circle me-1"></i>Sign up</a>
+				</li>
+
+				<!-- Buy now button -->
+				<li class="nav-item d-none d-sm-block">
+					<button class="btn btn-sm btn-primary mb-0">Buy now!</button>
+				</li>
+				
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+		</div>
+	</nav>
+	<!-- Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-xl-8 pb-0 position-relative">
+	<div class="container py-5 position-relative">
+		<!-- Title and contents -->
+		<div class="inner-container mx-auto text-center">
+			<!-- Title -->
+			<h1 class="mb-4">Dominate Search
+				<!-- Decoration -->
+				<span>
+					<svg width="76" height="51" viewBox="0 0 76 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="path-1-inside-1_3060_294" fill="white">
+						<path d="M25.5 51C18.737 51 12.251 48.3134 7.46878 43.5312C2.6866 38.749 -1.88135e-07 32.263 0 25.5C1.88135e-07 18.737 2.6866 12.251 7.46878 7.46878C12.251 2.6866 18.737 -8.06482e-08 25.5 0L25.5 25.5L25.5 51Z"/>
+						</mask>
+						<path d="M25.5 51C18.737 51 12.251 48.3134 7.46878 43.5312C2.6866 38.749 -1.88135e-07 32.263 0 25.5C1.88135e-07 18.737 2.6866 12.251 7.46878 7.46878C12.251 2.6866 18.737 -8.06482e-08 25.5 0L25.5 25.5L25.5 51Z" fill="white" stroke="#202124" stroke-width="4" mask="url(#path-1-inside-1_3060_294)"/>
+						<path d="M50.5 51C43.737 51 37.251 48.3134 32.4688 43.5312C27.6866 38.749 25 32.263 25 25.5C25 18.737 27.6866 12.251 32.4688 7.46878C37.251 2.6866 43.737 -8.06482e-08 50.5 0L50.5 25.5L50.5 51Z" fill="#202124"/>
+						<path d="M75.5 51C68.737 51 62.251 48.3134 57.4688 43.5312C52.6866 38.749 50 32.263 50 25.5C50 18.737 52.6866 12.251 57.4688 7.46878C62.251 2.6866 68.737 -8.06482e-08 75.5 0V25.5L75.5 51Z" fill="#09B850"/>
+					</svg>
+				</span>
+				 Engines With Proven SEO Strategies
+			</h1>
+			<p class="mb-5">Our comprehensive SEO solutions are designed to put your website in front of the right audience at the right time. Let us take your online presence to the next level.</p>
+
+			<!-- Button -->
+			<div class="d-flex gap-1 gap-sm-3 flex-wrap justify-content-center mb-6">
+				<button class="btn btn-lg btn-dark" type="button">Request a free consultation</button>
+				<a class="btn btn-lg btn-white border" href="#">Learn more</a>
+			</div>
+
+			<!-- Rating start -->
+			<div class="inner-container-small d-sm-flex justify-content-center">
+				<!-- Trustpilot rating -->
+				<div>
+					<img src="assets/images/elements/trustpilot.svg" class="light-mode-item h-40px mb-3" alt="Client-img">
+					<img src="assets/images/elements/trustpilot-light.svg" class="dark-mode-item h-40px mb-2" alt="Client-img">
+					<ul class="list-inline mb-3">
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+						<li class="list-inline-item me-0"><a href="#" class="heading-color text-primary-hover fw-semibold">114 Reviews</a></li>
+					</ul>
+				</div>
+
+				<div class="vr bg-primary mx-6"></div> <!-- Divider -->
+
+				<!-- Google rating -->
+				<div>
+					<img src="assets/images/elements/google.svg" class="h-40px mb-3" alt="Client-img">
+					<ul class="list-inline mb-3">
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+						<li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+						<li class="list-inline-item me-0"><a href="#" class="heading-color text-primary-hover fw-semibold">215 Reviews</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main image -->
+		<div class="row mt-7">
+			<div class="col-md-10 mx-auto">
+				<img src="assets/images/elements/hero-seo.svg" alt="">
+			</div>
+		</div>
+		
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Service START -->
+<Section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="row align-items-center mb-4 mb-md-6">
+			<div class="col-md-6 mb-3 mb-md-0">
+				<h2 class="mb-0">Tailored SEO Solutions for Your Business</h2>
+			</div>
+
+			<div class="col-md-4 ms-auto text-md-end">
+				<a href="#" class="btn btn-dark mb-0">View all services</a>
+			</div>
+		</div>
+
+		<!-- Service box START -->
+		<div class="swiper" data-swiper-options='{
+			"loop": false,
+			"spaceBetween": 30,
+			"pagination":{
+				"el":".swiper-pagination"
+			},
+			"breakpoints": {
+				"576": {"slidesPerView": 1}, 
+				"768": {"slidesPerView": 2}, 
+				"992": {"slidesPerView": 3}
+			}}'>
+
+			<!-- Slider items -->
+			<div class="swiper-wrapper">
+
+				<div class="swiper-slide">
+					<div class="card bg-primary p-5 mt-lg-7">
+						<!-- Card header -->
+						<div class="card-header bg-transparent d-flex justify-content-between p-0 pb-6">
+							<h5 class="me-4 mb-0"><a href="#" class="stretched-link heading-color">SEO Training and Workshops</a></h5>
+							<!-- Button -->
+							<a href="#" class="btn btn-round btn-light border flex-shrink-0"><i class="bi bi-arrow-up-right"></i></a>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Icon -->
+							<figure class="heading-color mb-5">
+								<svg width="79" height="90" viewBox="0 0 79 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M78.3117 35.252L62.0851 26.4733C61.7532 26.2904 61.3476 26.2904 61.0341 26.4733L56.7562 28.7777V9.88519C56.7562 9.48283 56.5349 9.11705 56.1846 8.91587L39.958 0.137167C39.6261 -0.0457224 39.2204 -0.0457224 38.9069 0.137167L22.6803 8.91587C22.33 9.11705 22.1087 9.48283 22.1087 9.88519V28.7777L17.8492 26.4733C17.5173 26.2904 17.1117 26.2904 16.7982 26.4733L0.571618 35.252C0.221271 35.4532 0 35.8189 0 36.2213V68.4099C0 68.8122 0.221271 69.178 0.571618 69.3792L16.7982 78.1579C17.1301 78.3408 17.5358 78.3408 17.8492 78.1579L22.1087 75.8535V80.1148C22.1087 80.5172 22.33 80.883 22.6803 81.0841L38.9069 89.8628C39.2388 90.0457 39.6445 90.0457 39.958 89.8628L56.1846 81.0841C56.5349 80.883 56.7562 80.5172 56.7562 80.1148V75.8535L61.0157 78.1579C61.3476 78.3408 61.7532 78.3408 62.0667 78.1579L78.2933 69.3792C78.6436 69.178 78.8649 68.8122 78.8649 68.4099V36.2213C78.8833 35.8189 78.6621 35.4532 78.3117 35.252ZM61.5504 28.6862L75.4721 36.2213L61.5504 43.7564L47.6287 36.2213L61.5504 28.6862ZM39.4232 65.7031L25.5016 58.1681L39.4232 50.633L53.3449 58.1681L39.4232 65.7031ZM34.629 36.2213C34.629 35.8189 34.4077 35.4532 34.0574 35.252L24.303 29.9848V11.7324L38.3169 19.3223V48.7492L34.629 50.7427V36.2213ZM54.5435 29.9848L44.7891 35.252C44.4387 35.4532 44.2175 35.8189 44.2175 36.2213V50.7244L40.5296 48.7309V19.3223L54.5435 11.7324V29.9848ZM56.1846 57.1987L46.4302 51.9315V38.0685L60.444 45.6584V75.3414L56.7562 73.3479V58.1681C56.7562 57.7657 56.5349 57.3999 56.1846 57.1987ZM39.4232 2.35013L53.3449 9.88519L39.4232 17.4202L25.5016 9.88519L39.4232 2.35013ZM17.2961 28.6862L31.2177 36.2213L17.2961 43.7564L3.37439 36.2213L17.2961 28.6862ZM2.17584 38.0685L16.1897 45.6584V75.3414L2.17584 67.7515V38.0685ZM18.4024 75.3414V45.6584L32.4163 38.0685V51.9315L22.6619 57.1987C22.3116 57.3999 22.0903 57.7657 22.0903 58.1681V73.3479L18.4024 75.3414ZM24.303 73.988V60.0152L38.3169 67.6052V87.0463L24.303 79.4564V73.988ZM54.5435 79.4564L40.5296 87.0463V67.6052L54.5435 60.0152V73.988V79.4564ZM62.6568 75.3414V45.6584L76.6706 38.0685V67.7515L62.6568 75.3414Z" fill="currentColor"/>
+								</svg>
+							</figure>
+
+							<!-- Title and desc -->
+							<span class="text-white">What included:</span>
+							<p class="fw-semibold heading-color mb-0 mt-2">Fundamentals of SEO, Keyword research, Reporting, and Algorithm updates</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="card bg-dark p-5 mt-lg-4" data-bs-theme="dark">
+						<!-- Card header -->
+						<div class="card-header bg-transparent d-flex justify-content-between p-0 pb-6">
+							<h5 class="me-4 mb-0"><a href="#" class="stretched-link">Mobile SEO Optimization</a></h5>
+							<!-- Button -->
+							<a href="#" class="btn btn-round btn-light border flex-shrink-0"><i class="bi bi-arrow-up-right"></i></a>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Icon -->
+							<figure class="heading-color mb-5">
+								<svg width="74" height="90" viewBox="0 0 74 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M36.582 90C36.3791 90 36.1898 89.942 36.0297 89.8412L0.501132 68.337C0.190185 68.1489 0 67.8116 0 67.448C0 67.448 0 58.0947 0 58.0855C0.00332564 57.722 0.203487 57.3791 0.516721 57.1961L5.98635 53.8859L0.500925 50.5657C0.190186 50.3776 0 50.0402 0 49.6767C0 49.6767 0 40.3233 0 40.3142C0.00332564 39.9511 0.203695 39.6073 0.516721 39.4248L5.98614 36.1143L0.501132 32.7945C0.190185 32.6062 0 32.2691 0 31.9053C0 31.9053 0 22.552 0 22.5428C0.00332564 22.1703 0.216582 21.828 0.516928 21.6534L36.0439 0.150277C36.3748 -0.0500924 36.7892 -0.0500924 37.1201 0.150277C37.1201 0.150277 72.5965 21.6229 72.6473 21.6534C72.9651 21.8459 73.1609 22.1797 73.164 22.552V31.9053C73.164 32.2691 72.974 32.6062 72.6628 32.7943L67.1778 36.1143C67.1778 36.1143 72.6429 39.4225 72.647 39.425C72.9538 39.6106 73.1606 39.9482 73.1638 40.3235V49.6769C73.1638 50.0404 72.9738 50.3778 72.6626 50.5659L67.1774 53.8859C67.1774 53.8859 72.6441 57.1947 72.6466 57.1961C72.9534 57.3818 73.1606 57.7164 73.1638 58.0949V67.4482C73.1638 67.8118 72.9738 68.1491 72.6626 68.3372L37.1343 89.8412C36.9742 89.942 36.7851 90 36.582 90ZM37.6212 80.1931V87.1169L71.0854 66.8623V59.9385L37.6212 80.1931ZM2.07852 66.8623L35.5427 87.1169V80.1931L2.07852 59.9385V66.8623ZM3.04649 58.0947L36.582 78.3925L70.1177 58.0947L65.1706 55.1006L37.1343 72.07C36.9742 72.1706 36.7851 72.2286 36.582 72.2286C36.3791 72.2286 36.1898 72.1706 36.0297 72.0698L7.99358 55.1006L3.04649 58.0947ZM37.6212 62.4218V69.3455L71.0854 49.0909V42.1672L37.6212 62.4218ZM2.07852 49.0909L35.5427 69.3455V62.4218L2.07852 42.1672V49.0909ZM3.04628 40.3233L36.582 60.6211L70.1177 40.3233L65.1708 37.329L37.1343 54.2985C36.974 54.3991 36.7848 54.4573 36.582 54.4573C36.3791 54.4573 36.1898 54.3993 36.0297 54.2985L7.99296 37.329L3.04628 40.3233ZM37.6212 44.6504V51.5742L71.0854 31.3196V24.3958L37.6212 44.6504ZM2.07852 31.3196L35.5427 51.5742V44.6504L2.07852 24.3958V31.3196ZM3.04628 22.552L36.582 42.8498L70.1177 22.552L36.582 2.25416L3.04628 22.552Z" fill="currentColor"/>
+								</svg>
+							</figure>
+							<!-- Title and desc -->
+							<span>What included:</span>
+							<p class="fw-semibold heading-color mb-0 mt-2">Optimizing page speed, mobile responsiveness, and usability factors</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="swiper-slide">
+					<div class="card bg-light border p-5">
+						<!-- Card header -->
+						<div class="card-header bg-transparent d-flex justify-content-between p-0 pb-6">
+							<h5 class="me-4 mb-0"><a href="#" class="stretched-link">Content Strategy and Creation</a></h5>
+							<!-- Button -->
+							<a href="#" class="btn btn-round btn-white border flex-shrink-0"><i class="bi bi-arrow-up-right"></i></a>
+						</div>
+
+						<!-- Card body -->
+						<div class="card-body p-0">
+							<!-- Icon -->
+							<figure class="heading-color mb-5">
+								<svg width="82" height="91" viewBox="0 0 82 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.894531 65.0129C0.894523 65.2227 0.948005 65.4291 1.04993 65.6126C1.15185 65.796 1.29885 65.9505 1.47705 66.0613L40.453 90.313C40.6524 90.4373 41.4679 90.6552 41.8211 90.3106L80.4581 66.0589C80.6352 65.9478 80.7811 65.7935 80.8823 65.6105C80.9835 65.4276 81.0366 65.2219 81.0366 65.0129C81.0366 65.0129 81.0334 25.8976 81.0331 25.8856C81.0413 25.6708 80.9918 25.4577 80.8899 25.2684C80.7879 25.0791 80.6372 24.9205 80.4533 24.8091L41.6173 0.682433C41.4217 0.560647 41.196 0.496094 40.9656 0.496094C40.7352 0.496094 40.5095 0.560647 40.3139 0.682433L1.47787 24.8092C1.29278 24.9193 1.14107 25.0776 1.03895 25.2672C0.936835 25.4568 0.88814 25.6705 0.898072 25.8857C0.897742 25.8976 0.894531 65.0129 0.894531 65.0129ZM59.1999 58.2046L41.0757 69.4641L22.9514 58.2046L41.0757 46.9451L59.1999 58.2046ZM39.9145 44.7586L21.8461 55.9836V38.1889L39.9145 26.8151V44.7586ZM60.3054 38.1922V55.9836L42.4156 44.8697V27.0275L60.3054 38.1922ZM3.36457 28.0789L19.2641 37.9566V58.0645C19.2588 58.3076 19.321 58.5473 19.4438 58.7572C19.5665 58.967 19.745 59.1387 19.9594 59.2533L39.8705 71.6231V87.0413L3.36457 64.3268V28.0789ZM42.3995 87.0313V71.5791L62.1919 59.2536C62.402 59.1535 62.573 58.9868 62.6785 58.7794C62.784 58.5721 62.818 58.3357 62.7753 58.107V37.8891L78.5664 28.0789V64.3297L42.3995 87.0313ZM77.4612 25.858L61.303 35.8962L42.2878 24.0194C41.964 23.8172 41.5903 23.709 41.2085 23.7069C40.8267 23.7048 40.4518 23.809 40.1258 24.0078L20.6277 35.8961L4.46955 25.8579L40.9656 3.18545L77.4612 25.858Z" fill="currentColor"/>
+								</svg>
+							</figure>
+							<!-- Title and desc -->
+							<span>What included:</span>
+							<p class="fw-semibold heading-color mb-0 mt-2">Audience Research, Keyword Analysis, Content Planning, Optimization</p>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+
+			<!-- Slider Pagination -->
+			<div class="swiper-pagination swiper-pagination-primary position-relative mt-4"></div>
+		</div>
+		<!-- Service box END -->
+	</div>
+</Section>
+<!-- =======================
+Service END -->
+
+<!-- =======================
+About us START -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11 mx-auto">
+				<div class="row align-items-center">
+					<!-- Image -->
+					<div class="col-md-6 col-lg-5 mb-4 mb-md-0">
+						<img src="assets/images/about/21.jpg" class="rounded" alt="">
+					</div>
+					<!-- Content -->
+					<div class="col-md-6 ms-auto">
+						<h2 class="mb-md-4">Learn About Our Journey to SEO Mastery</h2>
+						<p class="mb-md-4">With a team of dedicated professionals and years of industry experience, we pride ourselves on delivering innovative and effective SEO solutions tailored to your unique needs.</p>
+						<p class="mb-md-4">Whether you're a small startup or a large enterprise, we have the expertise to meet your needs.</p>
+						<div class="text-center d-inline-block bg-dark rounded px-5 py-3">
+							<span class="text-white">Work with us?</span> <a class="ms-2" href="contact-v2.html">Contact us now<span class="bi-chevron-right small ms-1"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+About us END -->
+
+<!-- =======================
+Testimonial and counter START -->
+<section class="bg-dark" data-bs-theme="dark">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Testimonials -->
+			<div class="col-md-5 mb-5 mb-md-0">
+				<div class="swiper mt-2 mt-md-4" data-swiper-options='{
+					"spaceBetween": 30,
+					"autoplay":{
+						"delay": 2000, 
+						"disableOnInteraction": false,
+						"pauseOnMouseEnter": true
+					},
+					"pagination":{
+						"el":".swiper-pagination",
+						"clickable":"true"
+					}}'>
+					
+					<div class="swiper-wrapper pb-5">
+						<!-- Review item -->
+						<div class="swiper-slide">
+							<!-- Icon -->
+							<div class="text-primary mb-4">
+								<svg width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.3043 40C11.222 39.9991 11.1402 39.9874 11.0609 39.9652C10.8802 39.9125 10.7216 39.8027 10.6087 39.6522C10.4958 39.5017 10.4348 39.3186 10.4348 39.1304V22.2304H0.869565C0.638942 22.2304 0.417765 22.1388 0.25469 21.9757C0.0916147 21.8127 0 21.5915 0 21.3609V0.869565C0 0.638942 0.0916147 0.417765 0.25469 0.25469C0.417765 0.0916148 0.638942 0 0.869565 0H22.6087C22.8393 0 23.0605 0.0916148 23.2236 0.25469C23.3866 0.417765 23.4783 0.638942 23.4783 0.869565V21.3435C23.4783 21.5082 23.4316 21.6695 23.3435 21.8087L12.0391 39.5957C11.9607 39.7195 11.8522 39.8216 11.7237 39.8923C11.5952 39.963 11.451 40 11.3043 40ZM1.73913 20.4739H11.3043C11.535 20.4739 11.7561 20.5655 11.9192 20.7286C12.0823 20.8917 12.1739 21.1129 12.1739 21.3435V36.1261L21.7391 21.087V1.73913H1.73913V20.4739Z" fill="currentColor"/>
+									<path d="M43.4792 40C43.3968 39.9991 43.315 39.9874 43.2357 39.9652C43.0551 39.9125 42.8964 39.8027 42.7835 39.6522C42.6706 39.5017 42.6096 39.3186 42.6096 39.1304V22.2304H33.0444C32.8137 22.2304 32.5926 22.1388 32.4295 21.9757C32.2664 21.8127 32.1748 21.5915 32.1748 21.3609V0.869565C32.1748 0.638942 32.2664 0.417765 32.4295 0.25469C32.5926 0.0916148 32.8137 0 33.0444 0H54.7835C55.0141 0 55.2353 0.0916148 55.3984 0.25469C55.5615 0.417765 55.6531 0.638942 55.6531 0.869565V21.3435C55.6531 21.5082 55.6064 21.6695 55.5183 21.8087L44.2139 39.5957C44.1355 39.7195 44.027 39.8216 43.8985 39.8923C43.77 39.963 43.6258 40 43.4792 40ZM33.9139 20.4739H43.4792C43.7098 20.4739 43.931 20.5655 44.094 20.7286C44.2571 20.8917 44.3487 21.1129 44.3487 21.3435V36.1261L53.9139 21.087V1.73913H33.9139V20.4739Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<!-- Review -->
+							<p class="heading-color lead mb-4">Our passion for customer excellence is just one reason why we are the market leader. We've always worked very hard to give our customers the best experience.</p>
+							<!-- Author detail -->
+							<h6 class="mb-1">Jacqueline Miller</h6>
+							<p class="mb-0 small">Product designer</p>
+						</div>
+
+						<!-- Review item -->
+						<div class="swiper-slide">
+							<!-- Icon -->
+							<div class="text-primary mb-4">
+								<svg width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.3043 40C11.222 39.9991 11.1402 39.9874 11.0609 39.9652C10.8802 39.9125 10.7216 39.8027 10.6087 39.6522C10.4958 39.5017 10.4348 39.3186 10.4348 39.1304V22.2304H0.869565C0.638942 22.2304 0.417765 22.1388 0.25469 21.9757C0.0916147 21.8127 0 21.5915 0 21.3609V0.869565C0 0.638942 0.0916147 0.417765 0.25469 0.25469C0.417765 0.0916148 0.638942 0 0.869565 0H22.6087C22.8393 0 23.0605 0.0916148 23.2236 0.25469C23.3866 0.417765 23.4783 0.638942 23.4783 0.869565V21.3435C23.4783 21.5082 23.4316 21.6695 23.3435 21.8087L12.0391 39.5957C11.9607 39.7195 11.8522 39.8216 11.7237 39.8923C11.5952 39.963 11.451 40 11.3043 40ZM1.73913 20.4739H11.3043C11.535 20.4739 11.7561 20.5655 11.9192 20.7286C12.0823 20.8917 12.1739 21.1129 12.1739 21.3435V36.1261L21.7391 21.087V1.73913H1.73913V20.4739Z" fill="currentColor"/>
+									<path d="M43.4792 40C43.3968 39.9991 43.315 39.9874 43.2357 39.9652C43.0551 39.9125 42.8964 39.8027 42.7835 39.6522C42.6706 39.5017 42.6096 39.3186 42.6096 39.1304V22.2304H33.0444C32.8137 22.2304 32.5926 22.1388 32.4295 21.9757C32.2664 21.8127 32.1748 21.5915 32.1748 21.3609V0.869565C32.1748 0.638942 32.2664 0.417765 32.4295 0.25469C32.5926 0.0916148 32.8137 0 33.0444 0H54.7835C55.0141 0 55.2353 0.0916148 55.3984 0.25469C55.5615 0.417765 55.6531 0.638942 55.6531 0.869565V21.3435C55.6531 21.5082 55.6064 21.6695 55.5183 21.8087L44.2139 39.5957C44.1355 39.7195 44.027 39.8216 43.8985 39.8923C43.77 39.963 43.6258 40 43.4792 40ZM33.9139 20.4739H43.4792C43.7098 20.4739 43.931 20.5655 44.094 20.7286C44.2571 20.8917 44.3487 21.1129 44.3487 21.3435V36.1261L53.9139 21.087V1.73913H33.9139V20.4739Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<!-- Review -->
+							<p class="heading-color lead mb-4">Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal.</p>
+							<!-- Author detail -->
+							<h6 class="mb-1">Emma Watson</h6>
+							<p class="mb-0 small">Co-Founder</p>
+						</div>
+
+						<!-- Review item -->
+						<div class="swiper-slide">
+							<!-- Icon -->
+							<div class="text-primary mb-4">
+								<svg width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.3043 40C11.222 39.9991 11.1402 39.9874 11.0609 39.9652C10.8802 39.9125 10.7216 39.8027 10.6087 39.6522C10.4958 39.5017 10.4348 39.3186 10.4348 39.1304V22.2304H0.869565C0.638942 22.2304 0.417765 22.1388 0.25469 21.9757C0.0916147 21.8127 0 21.5915 0 21.3609V0.869565C0 0.638942 0.0916147 0.417765 0.25469 0.25469C0.417765 0.0916148 0.638942 0 0.869565 0H22.6087C22.8393 0 23.0605 0.0916148 23.2236 0.25469C23.3866 0.417765 23.4783 0.638942 23.4783 0.869565V21.3435C23.4783 21.5082 23.4316 21.6695 23.3435 21.8087L12.0391 39.5957C11.9607 39.7195 11.8522 39.8216 11.7237 39.8923C11.5952 39.963 11.451 40 11.3043 40ZM1.73913 20.4739H11.3043C11.535 20.4739 11.7561 20.5655 11.9192 20.7286C12.0823 20.8917 12.1739 21.1129 12.1739 21.3435V36.1261L21.7391 21.087V1.73913H1.73913V20.4739Z" fill="currentColor"/>
+									<path d="M43.4792 40C43.3968 39.9991 43.315 39.9874 43.2357 39.9652C43.0551 39.9125 42.8964 39.8027 42.7835 39.6522C42.6706 39.5017 42.6096 39.3186 42.6096 39.1304V22.2304H33.0444C32.8137 22.2304 32.5926 22.1388 32.4295 21.9757C32.2664 21.8127 32.1748 21.5915 32.1748 21.3609V0.869565C32.1748 0.638942 32.2664 0.417765 32.4295 0.25469C32.5926 0.0916148 32.8137 0 33.0444 0H54.7835C55.0141 0 55.2353 0.0916148 55.3984 0.25469C55.5615 0.417765 55.6531 0.638942 55.6531 0.869565V21.3435C55.6531 21.5082 55.6064 21.6695 55.5183 21.8087L44.2139 39.5957C44.1355 39.7195 44.027 39.8216 43.8985 39.8923C43.77 39.963 43.6258 40 43.4792 40ZM33.9139 20.4739H43.4792C43.7098 20.4739 43.931 20.5655 44.094 20.7286C44.2571 20.8917 44.3487 21.1129 44.3487 21.3435V36.1261L53.9139 21.087V1.73913H33.9139V20.4739Z" fill="currentColor"/>
+								</svg>
+							</div>
+							<!-- Review -->
+							<p class="heading-color lead mb-4">Two before narrow not relied on how except moment myself Dejection assurance Mrs led certainly So gate at no only none open Betrayed.</p>
+							<!-- Author detail -->
+							<h6 class="mb-1">Louis Ferguson</h6>
+							<p class="mb-0 small">Web Developer</p>
+						</div>
+					</div>
+
+					<!-- Pagination -->
+					<div class="swiper-pagination swiper-pagination-primary position-relative text-start"></div>
+				</div>			
+			</div>
+
+			<!-- Counter content -->
+			<div class="col-md-6 ms-auto">
+				<!-- Counter -->
+				<div class="row g-4 mb-4 mb-md-7">
+					<div class="col-md-6">
+						<h3 class="border-start border-primary border-2 ps-4 mb-3">50,000+</h3>
+						<p class="mb-0">Customers have used our awesome templates since 2019</p>
+					</div>
+
+					<div class="col-md-6">
+						<h3 class="border-start border-primary border-2 ps-4 mb-3">150+</h3>
+						<p class="mb-0">Client's projects complete all over the world</p>
+					</div>
+				</div>
+
+				<!-- Award content -->
+				<div class="bg-light rounded d-flex p-4">
+					<!-- Icon -->
+					<div class="text-white">
+						<svg width="61" height="50" viewBox="0 0 61 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M60.2106 26.15C60.1726 26.1185 60.1173 26.1086 60.0742 26.1231C60.0217 26.1392 59.9735 26.1533 59.928 26.1666L59.9058 26.1731C59.7937 26.2058 59.6969 26.2339 59.601 26.2725C58.0857 26.8745 56.8927 27.9061 55.9537 29.4258C55.7219 29.8013 55.5423 30.1916 55.3992 30.5809C55.6338 29.2716 55.6882 28.7615 55.7297 27.2964C55.7317 27.2349 55.7317 27.1724 55.7317 27.1103C55.7317 26.9409 55.7317 26.7807 55.7687 26.6347C55.8131 26.4616 55.9024 26.2889 55.9888 26.1219C56.0131 26.0746 56.0374 26.0273 56.0575 25.9858C56.0645 25.9776 56.087 25.9639 56.0957 25.9625C56.5291 25.8963 56.9123 25.7124 57.2676 25.4001C57.6256 25.084 57.92 24.697 58.1428 24.2496C58.9424 22.6461 59.3425 20.8736 59.3324 18.9822C59.3315 18.7997 59.3101 18.6221 59.2865 18.4289C59.2758 18.3423 59.2649 18.2538 59.2558 18.1621C59.2507 18.1118 59.2197 18.0671 59.1749 18.0454C59.1306 18.0239 59.0772 18.0254 59.0324 18.0525C59.0054 18.0694 58.9823 18.0831 58.9613 18.0954C58.9207 18.1195 58.8897 18.1384 58.8604 18.1596C58.1783 18.6485 57.5766 19.2572 57.072 19.9684C56.2484 21.1307 55.7695 22.445 55.6405 23.8909C55.6276 23.7297 55.6146 23.5685 55.6016 23.4073L55.5971 23.3489C55.5465 22.717 55.4943 22.0636 55.4517 21.421C55.4409 21.2584 55.4097 21.1001 55.3795 20.9469C55.3212 20.6525 55.266 20.3744 55.3542 20.083C55.3743 20.0172 55.3912 19.9509 55.4082 19.8847C55.4498 19.7208 55.6512 19.4684 55.9604 19.1924L55.972 19.182C56.0861 19.0854 56.6718 18.5494 57.0041 17.4894C57.3414 16.4124 57.3159 15.2871 57.2973 14.4653L57.2969 14.4434C57.2721 13.3139 57.1501 12.4627 56.9011 11.6832C56.869 11.5835 56.8307 11.4851 56.7903 11.3818C56.7693 11.328 56.7478 11.2724 56.7258 11.2143C56.7076 11.1651 56.6641 11.1293 56.6132 11.1208L56.5883 11.1185C56.5442 11.1185 56.503 11.1383 56.475 11.1725L56.2332 11.4672C55.0737 12.8813 54.5041 14.5398 54.5398 16.3968C54.546 16.7238 54.5704 17.0593 54.6138 17.4057C54.3191 16.3887 53.9735 15.3987 53.5805 14.4463C53.5723 14.4255 53.567 14.3996 53.5664 14.3777L53.5637 14.2475C53.5596 14.0596 53.5554 13.8652 53.5634 13.674C53.5646 13.6423 53.5851 13.5853 53.6279 13.5293C53.6886 13.4491 53.756 13.3707 53.8258 13.2891C53.9446 13.1508 54.0674 13.0079 54.1647 12.8447C54.478 12.32 54.6251 11.7001 54.6275 10.8936C54.6318 9.94427 54.4854 8.94523 54.1664 7.74936C53.9921 7.09698 53.7289 6.24944 53.2389 5.48105C53.2057 5.42939 53.1685 5.38075 53.129 5.32924C53.1111 5.30643 53.0924 5.28211 53.0734 5.25598C53.0456 5.21867 53.0072 5.19692 52.9453 5.19692C52.8959 5.20055 52.8518 5.22864 52.8272 5.2723C52.2121 6.38236 51.9058 7.56825 51.8913 8.8978C51.8789 10.0064 52.052 10.9602 52.269 11.7141C51.7166 10.705 51.1028 9.72993 50.4374 8.80505L50.4221 8.78406C50.407 8.76397 50.4007 8.75415 50.4018 8.7611C50.3599 8.46187 50.3309 8.22245 50.3108 8.014C50.3113 8.01083 50.3152 7.99331 50.3463 7.94135C50.3903 7.86643 50.4385 7.79302 50.4897 7.71538C50.5924 7.55919 50.6984 7.39757 50.7664 7.21661C50.9715 6.67041 51.0176 6.05096 50.9069 5.3235C50.6638 3.71346 49.954 2.26368 48.7375 0.891095C48.6123 0.750165 48.4739 0.625549 48.3275 0.493834L48.2871 0.457128C48.2298 0.405318 48.171 0.3523 48.1117 0.29626C48.0739 0.260311 48.0199 0.246867 47.9674 0.262275C47.9179 0.277984 47.8797 0.319069 47.8679 0.370124L47.8413 0.486735C47.8232 0.564072 47.8091 0.625096 47.7987 0.686422C47.635 1.66371 47.6469 2.71049 47.8354 3.88687C48.0224 5.05358 48.3951 6.05987 48.9668 6.934C48.1094 5.92377 47.2755 5.07548 46.4039 4.3237C46.4 4.31857 46.3943 4.30301 46.3938 4.29908C46.4619 3.71225 46.3172 3.15941 45.9511 2.60899C45.4703 1.88561 44.8022 1.33428 43.9654 0.970547C43.4646 0.753338 42.9458 0.561051 42.4378 0.372692C42.1945 0.282364 41.9511 0.192338 41.7005 0.0958174C41.4487 -0.00432869 41.341 -0.0221526 41.2826 0.0319232C41.2073 0.10201 41.2255 0.161826 41.2583 0.270582L41.2688 0.306079C41.5759 1.34047 41.9834 2.15855 42.515 2.80701C43.4908 3.99864 44.632 4.60405 46.002 4.65752C46.05 4.66039 46.0881 4.67369 46.1036 4.68577C46.2965 4.83017 46.4385 4.94573 46.564 5.06022C46.961 5.42304 47.3519 5.80958 47.7344 6.21666C47.1655 5.8632 46.4702 5.70369 45.6872 5.74327C45.2587 5.76487 44.8333 5.82771 44.422 5.88843L44.4063 5.89085C44.2847 5.90867 44.1637 5.92634 44.043 5.94341C43.7787 5.97921 43.5122 6.02604 43.2769 6.06712C43.1816 6.08419 42.9539 6.136 42.9015 6.24642C42.8834 6.28418 42.8849 6.32557 42.9055 6.36318C42.9236 6.39596 42.9435 6.42677 42.9653 6.45487C43.6445 7.33624 44.4194 7.91673 45.3342 8.22925C46.4495 8.61231 47.474 8.58074 48.3945 8.13016C48.5352 8.05267 48.705 8.0134 48.899 8.0134C49.0453 8.0134 49.1551 8.03651 49.1915 8.04482C49.2461 8.05388 49.3201 8.08439 49.3352 8.10403C49.9077 8.85671 50.451 9.6606 50.9584 10.5051C50.5297 10.0882 49.9707 9.80712 49.2091 9.62404C48.5416 9.46499 47.8591 9.43085 47.1993 9.39762L46.9784 9.38644C46.7714 9.37587 46.5645 9.36273 46.3514 9.34928L45.994 9.32723C45.9477 9.32723 45.9038 9.34959 45.8769 9.38674C45.8472 9.42677 45.84 9.47873 45.8576 9.52541C45.8719 9.56438 45.8981 9.63311 45.9115 9.65607C46.6074 10.8201 47.4246 11.6252 48.4094 12.1176C49.3722 12.5985 50.2421 12.7257 51.1195 12.5159C51.221 12.4914 51.3387 12.4784 51.4603 12.4784C51.8336 12.4784 52.0938 12.5923 52.1485 12.6978C52.6313 13.6936 53.062 14.7285 53.4336 15.784C53.0439 15.2467 52.4989 14.8103 51.8089 14.4839C51.1235 14.1604 50.4098 13.8646 49.7075 13.5735C49.4057 13.4488 49.1027 13.3236 48.8011 13.1955C48.7562 13.1758 48.7032 13.1799 48.6614 13.2075C48.6203 13.2349 48.5958 13.2805 48.5958 13.3296C48.5958 13.4239 49.5973 16.2033 51.0517 17.2986C51.645 17.7454 52.3758 18.205 53.2974 18.2266C53.5732 18.2322 53.8584 18.2712 54.0738 18.516C54.1067 18.555 54.1504 18.5854 54.1979 18.6015C54.2715 18.6257 54.2917 18.6707 54.328 18.8242C54.6265 20.0773 54.8438 21.3689 54.9777 22.6805C54.9372 22.5474 54.8902 22.413 54.8363 22.2769C54.5108 21.4514 53.9629 20.7291 53.1122 20.0036C52.6737 19.6281 52.2145 19.2645 51.7704 18.9127L51.7493 18.8961C51.547 18.7358 51.3452 18.5762 51.144 18.4145C51.1025 18.3812 51.062 18.3467 51.015 18.3065L50.8895 18.199C50.8455 18.1618 50.7801 18.1541 50.7288 18.1798C50.6761 18.2065 50.6445 18.2618 50.6486 18.3209C50.6548 18.4096 50.6597 18.4934 50.6644 18.5739L50.6668 18.6115C50.6768 18.7772 50.6862 18.9335 50.7029 19.0879C50.8603 20.591 51.3073 21.8459 52.0693 22.9243C52.5411 23.5909 53.2178 24.4056 54.273 24.791C54.5298 24.8852 54.716 25.028 54.9156 25.2841C55.1038 25.524 55.1388 25.7432 55.1346 26.019C55.1166 27.1744 55.0343 28.3205 54.8891 29.443C54.8552 29.1306 54.7833 28.809 54.6728 28.4749C54.4443 27.7831 54.0881 27.1105 53.5838 26.4187C53.1484 25.8196 52.6954 25.2184 52.2574 24.6367L52.2283 24.5979C52.0545 24.3676 51.881 24.1369 51.712 23.9112C51.6802 23.8649 51.6345 23.8483 51.608 23.839C51.5706 23.8208 51.5259 23.819 51.4861 23.8359C51.4472 23.8525 51.4173 23.8853 51.4041 23.9254L51.399 23.9412C51.3917 23.9623 51.386 23.981 51.383 23.9998C51.0809 25.8012 51.2662 27.4151 51.9494 28.9344C52.2831 29.6773 52.7306 30.5183 53.5197 31.1234C53.88 31.3997 54.1644 31.7873 54.3206 32.2146C54.3537 32.3066 54.3525 32.3465 54.3487 32.3619C54.0147 33.7452 53.5785 35.0794 53.0481 36.3422C53.1847 35.6767 53.1753 34.9776 53.0194 34.2533C52.7982 33.2268 52.4178 32.232 52.0786 31.3801L51.9769 31.1249C51.8179 30.7257 51.6577 30.3233 51.4923 29.9063C51.4713 29.8529 51.4207 29.8165 51.3532 29.8132C51.3 29.8132 51.2511 29.8436 51.2257 29.8928L51.1724 29.9931C51.149 30.0371 51.1271 30.078 51.1084 30.1203C50.4259 31.6601 50.1954 33.2386 50.4237 34.8119C50.5868 35.9369 50.8632 36.7425 51.32 37.424C51.5564 37.7763 51.781 38.1687 51.8218 38.6513C51.8314 38.7655 51.8269 38.8442 51.776 38.9338C51.1999 39.9426 50.554 40.8947 49.8466 41.7792C49.8494 41.7744 49.8519 41.7696 49.8547 41.7647C50.3635 40.8347 50.3789 39.8292 50.327 38.968C50.2821 38.2299 50.1975 37.4927 50.1161 36.7801L50.1114 36.7389C50.0787 36.4534 50.046 36.168 50.0163 35.8821C49.9991 35.72 49.9799 35.5579 49.9601 35.3935L49.934 35.1708C49.9282 35.1216 49.8982 35.079 49.855 35.0575C49.7746 35.0155 49.6445 35.0803 49.5041 35.2465C48.5387 36.3883 47.9396 37.6785 47.7233 39.0816C47.499 40.5364 47.6206 41.7814 48.0955 42.8876C48.1082 42.9171 48.1079 42.9772 48.1078 42.9973L48.0822 43.6338C48.0785 43.6796 48.0543 43.7313 48.0344 43.7504C47.0704 44.6788 46.0091 45.4859 44.8702 46.1576C45.4093 45.6703 45.7968 45.0345 46.048 44.2288C46.3264 43.3358 46.4693 42.4064 46.6078 41.5052L46.6199 41.425C46.669 41.1084 46.7202 40.7924 46.7725 40.4695L46.8315 40.1044C46.84 40.0512 46.819 39.9981 46.7778 39.9662C46.7368 39.9336 46.6776 39.9257 46.6305 39.9459L46.579 39.9672C46.524 39.9898 46.4761 40.0098 46.431 40.033C44.2779 41.1083 42.8606 43.6163 43.0609 45.9963C43.0923 46.369 43.0582 46.7192 42.9564 47.066C42.9468 47.0976 42.9163 47.1318 42.9039 47.1376C41.8813 47.5688 40.909 47.8835 39.9307 48.0995C39.8804 48.1111 39.8405 48.147 39.8242 48.1955C39.8077 48.2443 39.8177 48.2973 39.8512 48.3372C39.9576 48.4632 40.0502 48.5987 40.1263 48.7405C40.1576 48.7985 40.232 48.8283 40.2878 48.8138C41.0848 48.6319 41.8611 48.3964 42.5956 48.1134C42.655 48.0895 42.7003 48.0782 42.7428 48.0851C42.9062 48.1069 43.0789 48.1404 43.2705 48.188C43.3101 48.1976 43.3429 48.2159 43.3435 48.2143C43.7622 49.049 44.4818 49.5807 45.5441 49.8394C45.7753 49.8948 46.0136 49.9358 46.2526 49.9609C46.5027 49.9873 46.7817 50.0007 47.0815 50.0007C47.4969 50.0007 47.7931 49.9751 47.7967 49.9748C48.7175 49.8717 49.5039 49.6645 50.2004 49.3411C50.4862 49.2086 50.8119 49.0302 51.0621 48.7117C51.11 48.6506 51.102 48.5626 51.0439 48.5114C50.3364 47.8871 49.616 47.4335 48.8413 47.1247C47.6934 46.6686 46.6479 46.545 45.623 46.7421C45.4698 46.7719 45.3203 46.8094 45.175 46.8524C46.1337 46.2793 47.0516 45.6058 47.9185 44.8385C47.9351 44.8233 47.9625 44.8101 47.9838 44.8063C48.1256 44.7827 48.3139 44.7537 48.5067 44.7398C48.5245 44.7398 48.5472 44.7484 48.5497 44.7493C49.0721 45.3339 49.745 45.618 50.607 45.618C50.651 45.618 50.6951 45.6171 50.7391 45.6156C51.6763 45.5854 52.6186 45.3279 53.5401 44.8498C54.2099 44.5004 54.908 44.0936 55.4742 43.487C55.5997 43.3521 55.7118 43.1996 55.8107 43.065L55.8204 43.0518C55.8642 42.9925 55.9084 42.9327 55.9539 42.8736C55.9787 42.8417 55.9891 42.8006 55.9826 42.7592C55.9756 42.7194 55.9525 42.6839 55.9131 42.6582C55.9031 42.6528 55.6634 42.5242 55.4446 42.4395C53.9791 41.8732 52.4995 41.8152 51.0881 42.27C50.6261 42.4185 50.1912 42.6414 49.7678 42.9496C50.5508 42.0393 51.2759 41.0415 51.9342 39.9678C51.9413 39.9565 51.96 39.9259 51.966 39.9203C52.0236 39.8836 52.0825 39.8488 52.1412 39.8145C52.2465 39.7528 52.3556 39.6889 52.458 39.6127C52.5444 39.5482 52.5687 39.5466 52.656 39.6028C52.7796 39.683 52.9232 39.7247 53.0485 39.7574C53.781 39.945 54.5195 39.8515 55.3364 39.468C56.0826 39.1182 56.6563 38.5652 57.1653 38.0199C57.9058 37.2245 58.3896 36.5068 58.6881 35.7613C58.7507 35.6048 58.7954 35.443 58.842 35.2738C58.8612 35.2028 58.8808 35.1318 58.9016 35.0621C58.9244 34.9871 58.8846 34.9078 58.8106 34.8817L58.7492 34.877C58.4473 34.877 55.7538 34.9213 54.1783 36.4499C53.8356 36.7825 53.5283 37.136 53.2478 37.523C53.8711 36.2031 54.3996 34.8121 54.8256 33.3682L54.8317 33.347C54.8369 33.3294 54.8446 33.3026 54.8497 33.2954L55.2618 32.7295C55.2772 32.7069 55.279 32.7069 55.3032 32.7069C55.3139 32.7069 55.3257 32.7076 55.3391 32.7084L55.4272 32.7137C55.7338 32.7327 55.9143 32.73 56.0628 32.7067C56.6495 32.6141 57.1791 32.3187 57.6816 31.8033C58.8569 30.5979 59.6659 29.0941 60.1547 27.2062C60.2072 27.004 60.2218 26.7998 60.2375 26.5832C60.2445 26.485 60.2522 26.3838 60.2633 26.2793C60.268 26.2291 60.2484 26.1812 60.2106 26.15Z" fill="currentColor"/>
+							<path d="M20.3331 48.0972C19.3557 47.8814 18.3835 47.5667 17.3606 47.1355C17.3484 47.1297 17.318 47.0954 17.3085 47.0646C17.2065 46.7171 17.1724 46.3669 17.2038 45.9941C17.4041 43.614 15.9868 41.1062 13.8342 40.031C13.7884 40.0077 13.7407 39.9876 13.6857 39.9651L13.6347 39.944C13.5862 39.9233 13.5271 39.9319 13.488 39.9633C13.4457 39.9959 13.4247 40.0491 13.4333 40.1024L13.4922 40.4674C13.5445 40.7903 13.5957 41.1063 13.6448 41.4226L13.6572 41.5054C13.7954 42.4043 13.9383 43.3338 14.2167 44.2269C14.4679 45.0326 14.8555 45.6683 15.3946 46.1555C14.2556 45.4839 13.1944 44.6768 12.2305 43.7486C12.2103 43.7291 12.1863 43.6775 12.1828 43.6349L12.157 42.9979C12.1568 42.9753 12.1565 42.9151 12.1693 42.8854C12.6441 41.7794 12.7657 40.5344 12.5414 39.0797C12.3251 37.6766 11.726 36.3863 10.7606 35.2445C10.6477 35.1108 10.548 35.0432 10.4643 35.0432C10.4439 35.0432 10.4255 35.0472 10.411 35.0548C10.3666 35.0769 10.3365 35.1196 10.3306 35.169L10.3048 35.3912C10.2848 35.5561 10.2657 35.7181 10.2484 35.8803C10.2187 36.1661 10.1861 36.4514 10.1533 36.7369L10.1486 36.7781C10.067 37.4909 9.98244 38.2281 9.93773 38.9661C9.88577 39.8271 9.90117 40.8326 10.4101 41.7628C10.4128 41.7675 10.4152 41.7724 10.4179 41.7771C9.71055 40.8926 9.06481 39.9407 8.4887 38.932C8.4378 38.8422 8.43342 38.7635 8.44294 38.6493C8.48387 38.1664 8.70833 37.774 8.94472 37.4221C9.40135 36.7405 9.67777 35.935 9.84105 34.8099C10.0693 33.2366 9.83879 31.6583 9.15634 30.1185C9.13761 30.076 9.11571 30.0351 9.0923 29.9912L9.03898 29.8906C9.01345 29.8415 8.95892 29.8091 8.90137 29.8117C8.84397 29.8147 8.79337 29.8511 8.77253 29.904C8.60698 30.3215 8.44686 30.7237 8.28781 31.123L8.18615 31.3781C7.84689 32.2302 7.4664 33.225 7.24526 34.2514C7.08938 34.9757 7.07986 35.6747 7.21656 36.3402C6.68608 35.0776 6.24999 33.7434 5.91602 32.3599C5.91225 32.3445 5.91104 32.3046 5.94412 32.2126C6.1003 31.7852 6.38473 31.3976 6.74514 31.1213C7.53407 30.5162 7.98163 29.6752 8.3153 28.9323C8.9985 27.413 9.18384 25.7991 8.88174 23.9978C8.87856 23.9789 8.87282 23.9602 8.86603 23.9398L8.86059 23.9235C8.84745 23.8832 8.81754 23.8505 8.77797 23.8335C8.7393 23.8173 8.69066 23.8203 8.6606 23.8351C8.63039 23.8461 8.58462 23.8629 8.55486 23.9066C8.38388 24.135 8.21032 24.3655 8.03661 24.5958L8.00746 24.6346C7.56942 25.2163 7.11642 25.8175 6.68109 26.4164C6.17674 27.1084 5.82056 27.781 5.59202 28.4728C5.48175 28.8069 5.4097 29.1285 5.37572 29.4409C5.23056 28.3184 5.14824 27.1724 5.13026 26.0169C5.12603 25.7411 5.16108 25.5219 5.34944 25.2819C5.54882 25.026 5.73507 24.8831 5.99185 24.7888C7.04693 24.4034 7.72379 23.5888 8.19552 22.9222C8.95756 21.8438 9.40452 20.5891 9.56191 19.0861C9.57868 18.9314 9.5882 18.7749 9.59801 18.6094L9.60043 18.5718C9.60511 18.4913 9.6101 18.4074 9.61644 18.3186C9.62037 18.2597 9.5888 18.2044 9.53608 18.1777C9.48503 18.152 9.41963 18.1596 9.37522 18.1972L9.25 18.3044C9.20287 18.3446 9.16254 18.379 9.1207 18.4126C8.91965 18.5741 8.71785 18.7339 8.51559 18.8941L8.49444 18.9107C8.05051 19.2624 7.59132 19.626 7.15282 20.0015C6.30196 20.7271 5.7541 21.4494 5.42859 22.2749C5.37481 22.411 5.32768 22.5456 5.2872 22.6788C5.42103 21.3671 5.63839 20.0753 5.93687 18.8221C5.97312 18.6688 5.99336 18.6237 6.06783 18.5993C6.11465 18.5834 6.15831 18.5529 6.19018 18.5151C6.40663 18.2691 6.69166 18.2301 6.96778 18.2245C7.88919 18.2029 8.61997 17.7433 9.21314 17.2965C10.6676 16.2011 11.6691 13.4217 11.6691 13.3275C11.6691 13.2784 11.6446 13.2326 11.6031 13.205C11.5621 13.1779 11.5068 13.1742 11.4651 13.1927C11.1621 13.3213 10.8591 13.4465 10.5454 13.5763C9.8551 13.8625 9.14139 14.1583 8.45593 14.4817C7.76608 14.8081 7.22094 15.2446 6.83123 15.7817C7.20267 14.7264 7.63331 13.6917 8.11546 12.6973C8.1709 12.5901 8.43131 12.4762 8.8047 12.4762C8.92615 12.4762 9.04381 12.4892 9.14547 12.5136C10.0228 12.7239 10.8927 12.5964 11.8555 12.1153C12.8405 11.6229 13.6576 10.8178 14.3537 9.65335C14.367 9.63084 14.3931 9.56211 14.4071 9.5236C14.4248 9.47647 14.4177 9.42451 14.3884 9.38508C14.3612 9.34762 14.3177 9.32527 14.2623 9.32527C14.2618 9.32527 14.2615 9.32527 14.2611 9.32527L13.9134 9.34717C13.7002 9.36061 13.4933 9.37375 13.2864 9.38433L13.0654 9.39551C12.4056 9.42874 11.7231 9.46287 11.0555 9.62193C10.2941 9.805 9.73502 10.0861 9.30634 10.503C9.81371 9.65848 10.357 8.8549 10.9294 8.10222C10.9448 8.08228 11.0186 8.05177 11.0792 8.04165C11.1094 8.03455 11.2194 8.01144 11.3656 8.01144C11.5595 8.01144 11.7293 8.05086 11.8733 8.13001C12.7879 8.57727 13.815 8.6105 14.9302 8.22744C15.845 7.91491 16.6197 7.33443 17.2988 6.45336C17.3209 6.42496 17.3408 6.39399 17.359 6.36137C17.3797 6.32376 17.381 6.28237 17.3629 6.24461C17.3103 6.13434 17.0828 6.08253 16.9871 6.06531C16.752 6.02422 16.4857 5.9774 16.2217 5.9416C16.1007 5.92468 15.9796 5.90701 15.8581 5.88903L15.8426 5.88662C15.4311 5.82589 15.0058 5.76306 14.5772 5.74146C13.7942 5.70143 13.0989 5.86124 12.5299 6.215C12.9125 5.80777 13.3034 5.42138 13.7004 5.05841C13.8259 4.94391 13.9679 4.82851 14.1614 4.68366C14.1763 4.67218 14.2144 4.65873 14.2611 4.65601C15.6325 4.60239 16.7736 3.99698 17.7494 2.8055C18.281 2.15689 18.6885 1.33881 18.9956 0.304418L19.0062 0.268921C19.0389 0.160165 19.0571 0.100349 18.9817 0.0302618C18.9235 -0.0238141 18.8211 -0.00780235 18.555 0.0976305C18.3133 0.190526 18.0701 0.280703 17.8204 0.373297C17.3188 0.559239 16.7999 0.751525 16.2992 0.968735C15.4624 1.33246 14.7941 1.88379 14.3133 2.60717C13.9472 3.1576 13.8025 3.71059 13.8706 4.29485C13.8702 4.30135 13.8644 4.31691 13.8635 4.31872C12.99 5.07291 12.155 5.92196 11.2976 6.93249C11.8694 6.05836 12.242 5.05192 12.429 3.88521C12.6175 2.70898 12.6294 1.66205 12.4657 0.684761C12.4553 0.623586 12.4412 0.562411 12.4233 0.485829L12.3965 0.367858C12.3844 0.317257 12.3464 0.276322 12.2964 0.260613C12.2464 0.24581 12.1903 0.258951 12.153 0.294448C12.0932 0.35079 12.0346 0.403959 11.9774 0.455619L11.937 0.492022C11.7905 0.624039 11.6521 0.748655 11.5269 0.889585C10.3102 2.26218 9.60058 3.71195 9.35754 5.32184C9.24682 6.04945 9.29274 6.6689 9.49802 7.2151C9.56599 7.39606 9.67203 7.55768 9.77761 7.7181C9.82595 7.79136 9.87429 7.86492 9.91854 7.94044C9.95117 7.99467 9.95389 8.00872 9.95374 8.00615C9.93365 8.2214 9.9048 8.46126 9.86583 8.74916C9.86416 8.75279 9.85873 8.76125 9.84136 8.78421L9.82731 8.80369C9.16193 9.72857 8.54807 10.7036 7.99568 11.7128C8.21289 10.959 8.38584 10.005 8.3736 8.89644C8.3588 7.56675 8.05262 6.38085 7.43725 5.27049C7.41293 5.22728 7.36882 5.19919 7.30704 5.19496C7.26218 5.19496 7.21898 5.21716 7.19073 5.25508C7.17231 5.28076 7.15357 5.30492 7.13575 5.32788C7.09602 5.37924 7.05887 5.42788 7.02564 5.47984C6.53563 6.24823 6.2728 7.09547 6.09834 7.74785C5.77947 8.94432 5.63296 9.94336 5.63719 10.8921C5.6396 11.6986 5.78657 12.3185 6.09985 12.8431C6.19728 13.0064 6.31993 13.1492 6.44319 13.293C6.50859 13.3693 6.57581 13.4477 6.63668 13.5281C6.67928 13.584 6.69982 13.6409 6.70103 13.6726C6.70904 13.8639 6.70481 14.0583 6.70073 14.2462L6.69786 14.3761C6.6974 14.3984 6.69227 14.4241 6.68457 14.4437C6.29123 15.3967 5.94548 16.3872 5.65063 17.4043C5.69398 17.058 5.71845 16.7226 5.72464 16.3955C5.76029 14.5385 5.19068 12.8801 4.03122 11.4658L3.78954 11.1714C3.7616 11.1368 3.72021 11.1172 3.6761 11.1172L3.65194 11.1193C3.60028 11.1279 3.55678 11.1637 3.5388 11.2125C3.51675 11.2712 3.49515 11.3267 3.47415 11.3803C3.43367 11.4839 3.39545 11.5821 3.36313 11.6819C3.11435 12.4612 2.9923 13.3125 2.96753 14.4418L2.96708 14.4638C2.9485 15.2854 2.92297 16.4109 3.26042 17.4879C3.59257 18.5481 4.17835 19.0838 4.29193 19.1801L4.30402 19.1909C4.61322 19.4669 4.81457 19.7193 4.85626 19.8832C4.87302 19.9494 4.89009 20.0157 4.91003 20.0812C4.99824 20.3729 4.94311 20.6508 4.8836 20.951C4.85399 21.1025 4.82318 21.259 4.81245 21.4195C4.76986 22.0621 4.71759 22.7155 4.66699 23.3474L4.66246 23.4058C4.64947 23.567 4.63648 23.7282 4.62364 23.8893C4.49464 22.4435 4.01582 21.1292 3.19199 19.9669C2.68748 19.2557 2.086 18.6473 1.40386 18.1581C1.37441 18.1369 1.34344 18.118 1.30205 18.0934C1.28196 18.0818 1.2587 18.0679 1.23046 18.0502C1.18786 18.0247 1.13318 18.0224 1.08922 18.0439C1.04421 18.0658 1.01325 18.1103 1.00811 18.1608C0.998897 18.2522 0.988172 18.3407 0.976844 18.4325C0.954035 18.6206 0.932435 18.7982 0.931529 18.9807C0.921408 20.8721 1.32154 22.6445 2.1212 24.2481C2.344 24.6955 2.63839 25.0825 2.99653 25.3988C3.35165 25.7107 3.73486 25.8947 4.16732 25.9608C4.17683 25.9625 4.19949 25.9763 4.20297 25.979C4.22638 26.0259 4.2507 26.0731 4.27502 26.1204C4.36142 26.2873 4.45069 26.4599 4.4951 26.633C4.5321 26.7794 4.5321 26.9393 4.5321 27.1088C4.5321 27.1709 4.5321 27.2334 4.53407 27.2948C4.57561 28.76 4.63014 29.2702 4.86457 30.5793C4.72152 30.1901 4.54192 29.7998 4.31006 29.4243C3.37114 27.9046 2.17829 26.873 0.663415 26.2711C0.567045 26.2323 0.470373 26.2043 0.358294 26.1717L0.335939 26.1651C0.290473 26.1518 0.242288 26.1376 0.19078 26.1219C0.144257 26.1066 0.0912382 26.117 0.0533247 26.1484C0.0155622 26.1797 -0.00422532 26.2276 0.000759326 26.2774C0.011937 26.3814 0.0196406 26.4824 0.0267399 26.5811C0.042298 26.7974 0.0569499 27.0016 0.109364 27.2037C0.598162 29.0917 1.40718 30.5954 2.5825 31.8009C3.08505 32.3163 3.61463 32.6117 4.20146 32.7043C4.34949 32.7274 4.53044 32.7303 4.83677 32.7113L4.92499 32.706C4.93843 32.7052 4.95021 32.7045 4.96094 32.7045C4.9851 32.7045 4.98707 32.7045 5.00383 32.7292L5.41424 33.2928C5.41952 33.3002 5.42723 33.3269 5.43251 33.3454L5.43855 33.3656C5.86452 34.8096 6.39304 36.2005 7.01627 37.5205C6.73577 37.1334 6.42838 36.7799 6.0858 36.4475C4.51035 34.9189 1.81683 34.8746 1.51488 34.8746L1.47727 34.8749L1.45356 34.8793C1.37954 34.9056 1.33951 34.9847 1.36232 35.0592C1.38332 35.1294 1.40296 35.2004 1.42546 35.2838C1.46851 35.4404 1.51322 35.6022 1.57591 35.7587C1.87438 36.5046 2.35819 37.2221 3.09879 38.0175C3.60768 38.5628 4.18137 39.1158 4.9274 39.4655C5.74443 39.8491 6.48216 39.9428 7.21581 39.7549C7.34057 39.7221 7.48407 39.6806 7.60748 39.6005C7.69539 39.5442 7.71941 39.546 7.80581 39.6103C7.90822 39.6864 8.01713 39.7503 8.12286 39.8123C8.18132 39.8466 8.24023 39.8811 8.29521 39.9159C8.30397 39.9233 8.3227 39.954 8.32965 39.9653C8.98792 41.0389 9.71312 42.0368 10.4962 42.947C10.0726 42.6389 9.63774 42.4159 9.17583 42.2674C7.76427 41.8126 6.28474 41.8705 4.8194 42.4371C4.60068 42.5218 4.36096 42.6502 4.34495 42.6593C4.31142 42.6813 4.28831 42.717 4.28106 42.7579C4.27472 42.7981 4.28514 42.8392 4.30961 42.8706C4.35538 42.9301 4.39963 42.9899 4.44344 43.0493L4.45311 43.0623C4.55204 43.197 4.66412 43.3494 4.7898 43.4844C5.35578 44.0912 6.05378 44.498 6.72384 44.8472C7.64524 45.3253 8.58749 45.5828 9.5246 45.613C9.56871 45.6146 9.61282 45.6155 9.65677 45.6155C10.5188 45.6155 11.1917 45.3313 11.7104 44.7502C11.7168 44.7457 11.7393 44.7371 11.7517 44.7369C11.9499 44.7511 12.1382 44.78 12.279 44.8034C12.3012 44.8073 12.3285 44.8206 12.3456 44.836C13.2122 45.6032 14.13 46.2766 15.0887 46.8497C14.9434 46.8066 14.7937 46.7692 14.6405 46.7391C13.6159 46.5421 12.5704 46.6657 11.4222 47.1219C10.6477 47.4306 9.9273 47.8842 9.21994 48.5085C9.16163 48.5597 9.15347 48.6478 9.20151 48.7088C9.4518 49.0274 9.77746 49.2058 10.0631 49.3381C10.7597 49.6618 11.5461 49.869 12.468 49.972C12.4707 49.9722 12.7669 49.9979 13.1823 49.9979C13.4821 49.9979 13.7611 49.9844 14.0111 49.958C14.25 49.9329 14.4884 49.892 14.7197 49.8364C15.7818 49.5778 16.5016 49.0461 16.914 48.2206C16.9214 48.2135 16.9531 48.1951 16.9933 48.1853C17.1849 48.1377 17.3574 48.1042 17.5215 48.0823C17.5602 48.0761 17.6083 48.0865 17.6691 48.111C18.4026 48.3936 19.1788 48.629 19.9747 48.8106C19.9859 48.8133 19.9975 48.8147 20.0091 48.8147C20.0626 48.8147 20.1118 48.7852 20.1378 48.7372C20.2138 48.5958 20.3064 48.4602 20.4129 48.334C20.4463 48.2943 20.4562 48.2415 20.4398 48.1925C20.4241 48.1451 20.3842 48.1091 20.3331 48.0972Z" fill="currentColor"/>
+							<path d="M37.2974 28.6051L43.3666 22.6891C43.5723 22.4885 43.6466 22.1882 43.5577 21.9149C43.4689 21.6414 43.2326 21.442 42.948 21.4008L34.5613 20.1829L30.81 12.5831C30.6828 12.3252 30.4203 12.1621 30.1328 12.1621C29.8454 12.1621 29.5827 12.3255 29.4557 12.5831L25.7057 20.1829L17.3176 21.4008C17.0332 21.442 16.7968 21.6415 16.708 21.9149C16.619 22.1882 16.6931 22.4885 16.899 22.6891L22.9682 28.6051L21.5363 36.958C21.4876 37.2412 21.6041 37.5276 21.8367 37.6965C22.069 37.8655 22.3772 37.8879 22.632 37.754L30.1331 33.8109L37.6343 37.754C37.7447 37.8122 37.8654 37.8407 37.9854 37.8407C38.1421 37.8407 38.2978 37.7921 38.4294 37.6965C38.662 37.5278 38.7786 37.2412 38.7298 36.958L37.2974 28.6051Z" fill="currentColor"/>
+						</svg>
+					</div>
+
+					<p class="mb-0 ms-3 heading-color">Whether you're a small startup or a large enterprise, we have the expertise to meet your needs.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Testimonial and counter END -->
+
+<!-- =======================
+Case studies START -->
+<section class="bg-light pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="inner-container-small mx-auto">
+			<!-- Title -->
+			<div class="text-center mb-6">
+				<h2 class="mb-">Case studies</h2>
+				<p class="mb-0">Discover a selection of our most recent client projects, showcasing our expertise, creativity, and commitment to delivering outstanding results.</p>
+			</div>
+		</div>
+		
+		<!-- Projects -->
+		<div class="row g-4 g-lg-5 justify-content-center">
+			<!-- Card item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-img-scale card-element-hover overflow-hidden">
+					<!-- Card image -->
+					<div class="card-img-scale-wrapper">
+						<!-- Hover elements -->
+						<div class="card-img-overlay hover-element d-flex align-items-center justify-content-center">
+							<!-- Client image -->
+							<img src="assets/images/client/client-white/02.svg" class="h-40px z-index-2" alt="client logo">
+							<!-- BG overlay -->
+							<div class="bg-overlay bg-dark opacity-7"></div>
+						</div>
+						<!-- Case studie image -->
+						<img src="assets/images/portfolio/list/02.jpg" class="img-scale card-img-top" alt="portfolio-img">
+					</div>
+
+					<div class="card-body">
+						<h6 class="card-title mb-2">Website Optimization for TechWave</h6>
+						<p class="card-text mb-3">The most powerful software & app landing software marketing business.</p>
+						<!-- Badge list -->
+						<div class="hstack flex-wrap gap-2 mb-4">
+							<div class="badge border heading-color bg-light">Branding</div>
+							<div class="badge border heading-color bg-light">Packaging</div>
+							<div class="badge border heading-color bg-light">Development</div>
+						</div>
+						<!-- Button -->
+						<a href="portfolio-case-studies-v2.html" class="text-primary-hover stretched-link heading-color mb-0">View case study<i class="fa-solid fa-arrow-right-long fa-fw ms-2"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-img-scale card-element-hover overflow-hidden">
+					<!-- Card image -->
+					<div class="card-img-scale-wrapper">
+						<!-- Hover elements -->
+						<div class="card-img-overlay hover-element d-flex align-items-center justify-content-center">
+							<!-- Client image -->
+							<img src="assets/images/client/client-white/03.svg" class="h-40px z-index-2" alt="client logo">
+							<!-- BG overlay -->
+							<div class="bg-overlay bg-dark opacity-7"></div>
+						</div>
+						<!-- Case studie image -->
+						<img src="assets/images/portfolio/list/01.jpg" class="img-scale card-img-top" alt="portfolio-img">
+					</div>
+
+					<div class="card-body">
+						<h6 class="card-title mb-2">Transforming Ideas into Reality</h6>
+						<p class="card-text mb-3">The most powerful software & app landing software marketing business.</p>
+						<!-- Badge list -->
+						<div class="hstack flex-wrap gap-2 mb-4">
+							<div class="badge border heading-color bg-light">UI/UX design</div>
+							<div class="badge border heading-color bg-light">Research</div>
+						</div>
+						<!-- Button -->
+						<a href="portfolio-case-studies-v2.html" class="text-primary-hover stretched-link heading-color mb-0">View case study<i class="fa-solid fa-arrow-right-long fa-fw ms-2"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-img-scale card-element-hover overflow-hidden">
+					<!-- Card image -->
+					<div class="card-img-scale-wrapper">
+						<!-- Hover elements -->
+						<div class="card-img-overlay hover-element d-flex align-items-center justify-content-center">
+							<!-- Client image -->
+							<img src="assets/images/client/client-white/04.svg" class="h-40px z-index-2" alt="client logo">
+							<!-- BG overlay -->
+							<div class="bg-overlay bg-dark opacity-7"></div>
+						</div>
+						<!-- Case studie image -->
+						<img src="assets/images/portfolio/list/03.jpg" class="img-scale card-img-top" alt="portfolio-img">
+					</div>
+
+					<div class="card-body">
+						<h6 class="card-title mb-2">Bio Cosmetics</h6>
+						<p class="card-text mb-3">The most powerful software & app landing software marketing business.</p>
+						<!-- Badge list -->
+						<div class="hstack flex-wrap gap-2 mb-4">
+							<div class="badge border heading-color bg-light">Branding</div>
+							<div class="badge border heading-color bg-light">UI/UX design</div>
+						</div>
+						<!-- Button -->
+						<a href="portfolio-case-studies-v2.html" class="text-primary-hover stretched-link heading-color mb-0">View case study<i class="fa-solid fa-arrow-right-long fa-fw ms-2"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Button -->
+		<div class="text-center pt-6">
+			<a href="portfolio-grid.html" class="btn btn-lg btn-dark mb-0">Explore all case studies</a>
+		</div>
+	</div>
+
+	<!-- CTA -->
+	<div class="bg-primary d-sm-flex align-items-center justify-content-center gap-2 mt-6 mt-sm-8 p-4">
+		<ul class="avatar-group mb-3 mb-ms-0">
+			<li class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+			</li>
+			<li class="avatar avatar-sm">
+				<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+			</li>
+			<li class="avatar avatar-sm">
+				<div class="avatar-img rounded-circle text-bg-dark">
+					<i class="bi bi-telephone text-white position-absolute top-50 start-50 translate-middle"></i>
+				</div>
+			</li>
+		</ul>
+		<p class="fw-normal text-white mb-0">Maximize Productivity by Simplifying Solution Search <a href="#" class="text-decoration-underline text-white fw-semibold">Got a project in mind?</a></p>
+	</div>
+</section>
+<!-- =======================
+Case studies END -->
+
+<!-- =======================
+Approach START -->
+<section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<div class="row g-4 g-md-5">
+
+			<div class="col-md-6 col-lg-4">
+				<h2 class="mb-0">Our Approach to SEO Success</h2>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-body border p-4 h-100">
+					<h6 class="text-primary mb-4">01.</h6>
+					<h5>Business understanding</h5>
+					<p class="mb-0">We begin by gaining a deep understanding of your business, industry, and target audience.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-body border p-4 h-100">
+					<h6 class="text-primary mb-4">02.</h6>
+					<h5>Keyword research</h5>
+					<p class="mb-0">Our approach starts with comprehensive keyword research potential customers are searching for. </p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-body border p-4 h-100">
+					<h6 class="text-primary mb-4">03.</h6>
+					<h5>Technical optimization</h5>
+					<p class="mb-0">We conduct a thorough technical audit of your website to identify any issues that may be hindering its.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-body border p-4 h-100">
+					<h6 class="text-primary mb-4">04.</h6>
+					<h5>Content strategy</h5>
+					<p class="mb-0">Content is king in the world of SEO. We develop a strategic content plan that aligns with your.</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card card-body border p-4 h-100">
+					<h6 class="text-primary mb-4">05.</h6>
+					<h5>Transparent Reporting</h5>
+					<p class="mb-0">We provide regular reports and updates on the progress of your SEO campaigns giving you full.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Approach END -->
+
+<!-- =======================
+Team START -->
+<section class="pb-0">
+	<div class="container">
+		<div class="inner-container">
+			<!-- Title -->
+			<h2 class="text-center mb-4 mb-sm-5">Our leadership</h2>
+
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-0 justify-content-center">
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Samuel Bishop</a></h6>
+						<small>UI/UX Designer</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/11.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Judy Nguyen</a></h6>
+						<small>Web Designer</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Louis Ferguson</a></h6>
+						<small>Web Developer</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Dennis Barrett</a></h6>
+						<small>CEO &amp; Founder</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Dennis Barrett</a></h6>
+						<small>CEO &amp; Founder</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Team item -->
+				<div class="col">
+					<div class="card card-body bg-transparent text-center p-4">
+						<!-- Image -->
+						<div class="avatar avatar-xxl mx-auto flex-shrink-0 mb-3">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/10.jpg" alt="avatar">
+						</div>
+
+						<!-- Content -->
+						<h6 class="mb-1"><a href="#">Bryan Knight</a></h6>
+						<small>Product Designer</small>
+
+						<!-- Social button -->
+						<ul class="list-inline mb-0 mt-3">
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+							<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Team END -->
+
+<!-- =======================
+CTA START -->
+<section>
+	<div class="container">
+		<div class="inner-container-small text-center">
+			<!-- SVG -->
+			<figure class="mb-4">
+				<svg width="223.6px" height="87.2px" viewBox="0 0 223.6 87.2" style="enable-background:new 0 0 223.6 87.2;" xml:space="preserve">
+					<path class="fill-mode" d="M222.9,53.8c-13.2-3-28-3-41,0.9c-5.5,1.7-11,4.3-14.9,8.7c-1.3-0.1-2.6-0.2-3.8-0.1 c-5.8,0.1-11.6,1.5-16.9,3.7c-2.9,1.2-5.7,2.9-8.5,4.4c-3.7,1.9-7.4,3.8-11.3,5.3c-7.3,2.9-16,5-23.5,1.7c-1.5-0.6-2.9-1.5-4.1-2.6 c6.5-2.6,12.2-7.9,13.2-15c0.8-6.6-5.1-12.1-11.6-11.4c-5,0.6-7.5,5.6-8.3,10.1c-0.9,4.9-0.3,10.8,2.7,14.9 c0.2,0.2,0.4,0.5,0.5,0.7c-0.4,0.1-0.8,0.2-1.3,0.3c-6.6,1.5-14.3,0.3-20.3-2.9c-6.1-3.3-10.3-9.1-12.3-15.6 c-0.2-0.7-1.2-0.4-1,0.3c2.1,7.3,6.7,13.4,13.4,17.1c6.8,3.7,15.4,4.5,22.7,2.4c0,0,0.1,0,0.1,0c4.5,4.4,11.2,5.9,17.3,5.4 c8-0.6,15.6-4.1,22.7-7.7c5.6-2.9,10.8-6,17-7.6c3.8-0.9,7.8-1.5,11.8-1.3c-3.3,4.8-4.6,11.1-2.3,16.5c2.8,6.4,11.3,6.7,16.3,2.8 c5.1-4,2.8-12.4-1-16.4c-2.4-2.5-5.7-3.9-9.1-4.5c0.2-0.2,0.3-0.3,0.5-0.4c4.3-4,10.2-6.2,15.9-7.5c11.8-2.8,24.9-2.7,36.7,0 C223.6,56,224.1,54,222.9,53.8z M95.5,71.6c-1.2-2.4-1.7-5.1-1.8-7.8c-0.1-4.5,1.1-11.2,6.1-12.6c2.4-0.7,5.2,0.4,7.2,1.7 c2.9,1.9,3.5,5.5,2.9,8.7c-1.2,6.2-6.8,10.5-12.6,12.6C96.7,73.4,96,72.5,95.5,71.6z M171.5,66.3c5.7,1.8,10.3,7.8,8.5,14 c-1.1,3.9-6.1,5.2-9.6,4.8c-3.5-0.4-5.5-3.4-6.2-6.5c-1.1-4.7,0.6-9.5,3.5-13.1C169,65.7,170.2,65.9,171.5,66.3z"></path>
+					<polygon class="fill-primary" points="65.3,39 61,56.8 0.7,0.7"></polygon>
+					<path class="fill-mode" d="M60.6,57.3L0.2,1.1C0,0.9-0.1,0.5,0.1,0.3C0.3,0,0.7-0.1,1,0.1l64.7,38.3c0.2,0.1,0.4,0.4,0.3,0.7l-4.3,17.8 c-0.1,0.2-0.2,0.4-0.4,0.5c-0.1,0-0.1,0-0.2,0C60.9,57.4,60.7,57.4,60.6,57.3z M5.6,4.3l55.1,51.2l3.9-16.3L5.6,4.3z"></path>
+					<polygon class="fill-primary" points="56.5,42.4 61,56.8 0.7,0.8"></polygon>
+					<path class="fill-mode" d="M60.6,57.3L0.2,1.3C0,1.1-0.1,0.7,0.2,0.4c0.2-0.3,0.6-0.3,0.9-0.1l55.8,41.5c0.1,0.1,0.2,0.2,0.2,0.3 l4.6,14.4c0.1,0.3,0,0.6-0.3,0.8c-0.1,0.1-0.2,0.1-0.4,0.1C60.9,57.4,60.7,57.4,60.6,57.3z M10.1,8.7l49.6,45.9l-3.8-11.8 L10.1,8.7z"></path>
+					<polygon class="fill-primary" points="0.7,0.7 91.5,28.5 65.2,38.8 			"></polygon>
+					<path class="fill-mode" d="M64.9,39.4L0.3,1.2C0,1.1-0.1,0.7,0.1,0.4C0.2,0.1,0.5-0.1,0.9,0l90.9,27.8c0.3,0.1,0.5,0.3,0.5,0.6 c0,0.3-0.2,0.5-0.4,0.6L65.4,39.4c-0.1,0-0.2,0-0.2,0C65.1,39.4,65,39.4,64.9,39.4z M5.8,2.9l59.5,35.2l24.3-9.5L5.8,2.9z"></path>
+					<polygon class="fill-primary" points="56.3,42.4 26.5,57.6 0.7,0.7 			"></polygon>
+					<path class="fill-mode" d="M26.3,58.3c-0.2-0.1-0.3-0.2-0.4-0.3L0.1,0.9c-0.1-0.3,0-0.6,0.2-0.8C0.5,0,0.8,0,1.1,0.1l55.7,41.8 c0.2,0.1,0.3,0.4,0.3,0.6c0,0.2-0.2,0.4-0.4,0.5L26.8,58.2c-0.1,0-0.2,0.1-0.3,0.1C26.5,58.3,26.4,58.3,26.3,58.3z M2.3,2.7 l24.5,54l28.2-14.4L2.3,2.7z"></path>
+				</svg>
+			</figure>
+
+			<!-- Title -->
+			<h2>Let's stay in touch</h2>
+			<p>Receive news, stay updated, and special offers</p>
+
+			<div class="position-relative mt-5">
+				<!-- SVG decoration -->
+				<figure class="position-absolute top-100 start-100 translate-middle d-none d-lg-block">
+					<svg class="opacity-1" width="148" height="140" viewBox="0 0 148 140" xmlns="http://www.w3.org/2000/svg">
+						<path class="fill-primary" d="m9.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="131.41" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="131.41" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 131.41c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="113.61" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="113.61" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 113.61c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="95.81" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="95.81" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 95.81c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 78.01c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 60.22c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m28.8 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m47.66 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m66.52 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m85.37 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.64 0 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m104.23 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m123.09 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m141.95 42.42c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<circle class="fill-primary" cx="25.86" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="24.62" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="24.62" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 24.62c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95 2.95 1.32 2.95 2.95z"></path>
+						<path class="fill-primary" d="m9.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95c0-1.62 1.32-2.94 2.95-2.94s2.95 1.32 2.95 2.94z"></path>
+						<circle class="fill-primary" cx="25.86" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="44.71" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="63.57" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="82.43" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="101.29" cy="6.82" r="2.95"></circle>
+						<circle class="fill-primary" cx="120.14" cy="6.82" r="2.95"></circle>
+						<path class="fill-primary" d="m141.95 6.82c0 1.63-1.32 2.95-2.95 2.95s-2.95-1.32-2.95-2.95 1.32-2.95 2.95-2.95c1.63 0.01 2.95 1.33 2.95 2.95z"></path>
+					</svg>
+				</figure>
+
+				<!-- Input -->
+				<div class="bg-light border rounded-2 position-relative z-index-2 p-2 mb-2">
+					<form class="input-group">
+						<input class="form-control form-control-lg focus-shadow-none bg-light border-0 me-1" type="email" placeholder="Enter your email address">
+						<button type="button" class="btn btn-lg btn-dark rounded-2 mb-0">Subscribe!</button>
+					</form>
+				</div>
+			</div>
+			<p class="small mb-0 px-4">Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books, and much more!</p>
+		</div>
+	</div>
+</section>
+<!-- =======================
+CTA END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6 position-relative" data-bs-theme="dark">
+	<div class="container position-relative mt-5">
+		<!-- Widgets -->
+		<div class="row g-4 justify-content-between">
+			<!-- Widget 1 START -->
+			<div class="col-lg-5">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				</a>
+
+				<p class="mt-4 mb-2">A Bootstrap theme that's both stylish and functional, perfect for any type of technology or corporate website.</p>
+				<!-- Social icon -->
+				<ul class="list-inline mb-0 mt-4">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-light" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-6 col-xxl-4">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms &amp; condition</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-4 mb-0">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- copyright links-->
+			<div class="nav mt-2 mt-lg-0">
+				<ul class="list-inline mx-auto mb-0">
+					<li class="list-inline-item me-0"><a class="nav-link py-0" href="#">Privacy policy</a></li>
+					<li class="list-inline-item me-0"><a class="nav-link py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

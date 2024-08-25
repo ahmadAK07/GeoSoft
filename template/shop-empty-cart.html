@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-5" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<div class="dropdown-menu dropdown-menu-size-lg p-3">
+							<div class="row pt-2">
+								<!-- Image and button -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index.html">Classic Default</a> </li>
+										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
+										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
+										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+									</ul>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
+										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
+										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
+										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+									</ul>
+								</div>
+
+								<!-- CTA -->
+								<div class="col-12">
+									<hr class="mt-2"> <!-- Divider -->
+									<div class="d-sm-flex justify-content-between align-items-center px-2">
+										<div class="me-3 mb-2 mb-sm-0">
+											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
+											<small class="mb-0">Take your documents to the next level with Mizzle</small>
+										</div>
+										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
+									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
+									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
+									<li> <a class="dropdown-item" href="team.html">Team</a></li>
+									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
+									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
+									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
+									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
+									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
+									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
+									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+								</ul>
+							</li>
+							
+							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
+							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="features.html">Features</a></li>
+									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
+									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
+									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<ul class="dropdown-menu" >
+									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
+									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
+									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
+									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<ul class="dropdown-menu">
+									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
+									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
+									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
+									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown submenu -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<ul class="dropdown-menu" data-bs-popper="none">
+									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+								</ul>
+							</li>
+
+							<!-- Dropdown divider -->
+							<li> <hr class="dropdown-divider"></li>
+							
+							<!-- Dropdown Multilevel -->
+							<li class="dropdown dropend">
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown levels</a>
+								<ul class="dropdown-menu">
+
+									<!-- dropdown submenu open right -->
+										<li class="dropdown dropend">
+											<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (end)</a>
+											<ul class="dropdown-menu">
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+												<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											</ul>
+										</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+
+									<!-- dropdown submenu open left -->
+									<li class="dropdown dropstart">
+										<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" href="#">Dropdown (start)</a>
+										<ul class="dropdown-menu">
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+										</ul>
+									</li>
+									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-lg p-3">
+							<div class="row g-xl-3">
+								<!-- Work -->
+								<div class="col-xl-7 d-none d-xl-block">
+									<div class="d-flex gap-4">
+										<!-- Card -->
+										<div class="card bg-transparent">
+											<!-- Image -->
+											<img src="assets/images/portfolio/list/02.jpg" class="card-img" alt="">
+											<!-- Card body -->
+											<div class="card-body px-0 text-start pb-0">
+												<h6><a href="#">Brushstrokes and Beyond</a></h6>
+												<p class="mb-2 small">We help our customers better manage their web presence.</p>
+												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+											</div>
+										</div>
+
+										<!-- Divider line -->
+										<div class="vr ms-2"></div>
+									</div>
+								</div>
+
+								<!-- Index nav links -->
+								<div class="col-xl-5">
+									<ul class="list-unstyled">
+										<li class="dropdown-header h6">Portfolio Pages</li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+				<!-- Dark mode option START -->
+				<li class="nav-item dropdown dropdown-animation">
+					<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+						<use href="#"></use>
+					</svg>
+					</button>
+
+					<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
+								<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+									<use href="#"></use>
+								</svg>Light
+							</button>
+						</li>
+						<li class="mb-1">
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+									<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+									<use href="#"></use>
+								</svg>Dark
+							</button>
+						</li>
+						<li>
+							<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+									<use href="#"></use>
+								</svg>Auto
+							</button>
+						</li>
+					</ul>
+				</li>
+				<!-- Dark mode option END -->
+
+				<!-- Search -->
+				<li class="nav-item flex-nowrap align-items-center ms-3 d-none d-md-block">
+					<form class="position-relative">
+						<input class="form-control pe-5 bg-light" type="search" placeholder="Search" aria-label="Search">
+						<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</form>
+				</li>
+
+				<!-- Offcanvas cart menu -->
+				<li class="nav-item position-relative ms-2 ms-sm-3">
+					<a class="btn btn-light border btn-round mb-0" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
+							<i class="bi bi-cart3 fa-fw" data-bs-target="#offcanvasMenu"></i>
+					</a>
+					<span class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-primary mt-xl-2 ms-n1">2 
+						<span class="visually-hidden">unread messages</span>
+					</span>
+				</li>
+
+				<!-- Responsive navbar toggler -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Cart detail START -->
+<section>
+	<div class="container">
+		<div class="inner-container-small mx-auto text-center">
+			<!-- SVG image -->
+			<figure class="mb-3">
+				<svg width="300" height="300" viewBox="0 0 2688 2058" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path opacity="0.1" d="M603.663 2058C459.392 2018.13 248.68 1851.06 201.222 1718.16C151.866 1585.27 176.544 1429.59 263.866 1313.78C309.426 1253.02 372.07 1199.87 385.358 1127.72C402.443 1030.9 322.714 943.565 269.561 858.132C113.9 609.425 195.527 254.401 448.002 87.3308C586.578 -3.79839 780.205 -36.0733 922.578 51.2588C1038.37 123.403 1093.43 256.299 1201.63 336.037C1319.32 423.37 1482.58 436.659 1632.54 425.268C1782.51 413.877 1934.37 383.501 2084.34 400.587C2234.31 417.674 2389.97 497.412 2433.63 634.106C2482.98 787.886 2374.78 949.261 2380.48 1108.74C2384.27 1234.04 2454.51 1347.95 2517.15 1459.96C2579.8 1571.98 2634.85 1697.28 2604.48 1820.68C2574.1 1944.09 2433.63 2058 2241.9 2058" fill="#7A7D7C"/>
+					<path class="fill-primary" d="M1182.65 1887.13C1182.65 1936.49 1142.78 1978.26 1091.53 1978.26C1042.17 1978.26 1000.41 1938.39 1000.41 1887.13C1000.41 1837.77 1040.27 1796 1091.53 1796C1142.78 1796 1182.65 1837.77 1182.65 1887.13Z"/>
+					<path class="fill-white" d="M1129.49 1887.13C1129.49 1908.01 1112.41 1923.2 1093.43 1923.2C1072.55 1923.2 1057.36 1906.12 1057.36 1887.13C1057.36 1866.25 1074.44 1851.06 1093.43 1851.06C1112.41 1851.06 1129.49 1868.15 1129.49 1887.13Z"/>
+					<path class="fill-primary" d="M1854.65 1887.13C1854.65 1936.49 1814.78 1978.26 1763.53 1978.26C1714.17 1978.26 1672.41 1938.39 1672.41 1887.13C1672.41 1837.77 1712.27 1796 1763.53 1796C1814.78 1796 1854.65 1837.77 1854.65 1887.13Z"/>
+					<path class="fill-white" d="M1801.5 1887.13C1801.5 1908.01 1784.41 1923.2 1765.43 1923.2C1744.55 1923.2 1729.36 1906.12 1729.36 1887.13C1729.36 1866.25 1746.44 1851.06 1765.43 1851.06C1784.41 1851.06 1801.5 1868.15 1801.5 1887.13Z"/>
+					<path class="fill-mode" d="M835.258 858.129L937.766 1655.51H1930.58L2033.09 858.129H835.258ZM920.682 1148.6H1156.07L1176.95 1393.51H951.054L920.682 1148.6ZM1203.53 1148.6H1427.53V1393.51H1224.41L1203.53 1148.6ZM1427.53 1099.24H1199.73L1182.65 905.592H1427.53V1099.24ZM1476.88 905.592H1721.77L1704.68 1099.24H1476.88V905.592ZM1427.53 1440.98V1608.05H1241.5L1228.21 1440.98H1427.53ZM1476.88 1440.98H1676.21L1662.92 1608.05H1476.88V1440.98ZM1476.88 1393.51V1148.6H1700.88L1680 1393.51H1476.88ZM1748.34 1148.6H1943.87L1911.6 1393.51H1727.46L1748.34 1148.6ZM1754.04 1099.24L1771.12 905.592H1978.04L1953.36 1099.24H1754.04ZM1135.19 905.592L1152.27 1099.24H914.987L890.309 905.592H1135.19ZM956.749 1440.98H1178.85L1192.14 1608.05H979.529L956.749 1440.98ZM1710.38 1608.05L1723.66 1440.98H1907.8L1886.92 1608.05H1710.38Z"/>
+					<path class="fill-primary" d="M2025.5 920.781H878.919C858.038 920.781 840.953 903.694 840.953 882.81V880.912C840.953 860.028 858.038 842.941 878.919 842.941H2027.39C2048.28 842.941 2065.36 860.028 2065.36 880.912V882.81C2065.36 903.694 2048.28 920.781 2025.5 920.781Z"/>
+					<path class="fill-mode" d="M1913.5 1828.28H922.58C905.495 1828.28 890.309 1813.09 890.309 1796C890.309 1778.91 905.495 1763.73 922.58 1763.73H1913.5C1941.97 1763.73 1964.75 1740.94 1964.75 1712.47C1964.75 1683.99 1941.97 1661.21 1913.5 1661.21H958.648C943.461 1661.21 928.275 1649.81 926.376 1632.73L810.58 729.03H586.58C569.495 729.03 554.309 713.842 554.309 696.755C554.309 679.669 569.495 664.48 586.58 664.48H839.054C854.241 664.48 869.427 675.872 871.326 692.958L987.122 1596.66H1915.39C1978.04 1596.66 2029.29 1647.92 2029.29 1710.57C2027.39 1777.02 1976.14 1828.28 1913.5 1828.28Z"/>
+					<path class="fill-primary" d="M867.529 738.523H590.376C569.495 738.523 550.512 721.436 550.512 700.553C550.512 679.669 567.596 660.684 590.376 660.684H867.529C888.41 660.684 907.393 677.77 907.393 700.553C907.393 721.436 890.308 738.523 867.529 738.523Z"/>
+					<path class="fill-primary" d="M1137.09 920.781L1138.99 962.549H1188.34L1184.55 920.781H1137.09Z"/>
+					<path class="fill-primary" d="M2021.7 920.781H1974.24L1968.55 962.549H2017.9L2021.7 920.781Z"/>
+					<path class="fill-primary" d="M1474.99 920.781H1427.53V962.549H1474.99V920.781Z"/>
+					<path class="fill-primary" d="M1769.23 920.781H1719.87L1716.07 962.549H1765.43L1769.23 920.781Z"/>
+					<path class="fill-mode" d="M2240 1978.26H603.663C596.07 1978.26 588.477 1987.75 588.477 1999.15V2037.12C588.477 2048.51 596.07 2058 603.663 2058H2240C2247.6 2058 2255.19 2048.51 2255.19 2037.12V1999.15C2255.19 1987.75 2247.6 1978.26 2240 1978.26Z"/>
+					<path d="M2234.31 1687.79C2198.24 1687.79 2198.24 1742.84 2234.31 1742.84C2270.38 1742.84 2270.38 1687.79 2234.31 1687.79Z" class="fill-mode"/>
+					<path d="M2017.9 620.816C1995.12 620.816 1983.73 603.729 1983.73 586.642C1983.73 569.555 1995.12 552.469 2017.9 552.469C2027.39 552.469 2036.88 556.266 2042.58 563.86C2048.27 569.555 2050.17 579.048 2050.17 586.642C2050.17 603.729 2038.78 620.816 2017.9 620.816ZM2017.9 565.758C2004.61 565.758 1998.92 575.251 1998.92 586.642C1998.92 596.135 2004.61 607.526 2017.9 607.526C2023.59 607.526 2029.29 605.627 2033.09 601.83C2036.88 598.033 2038.78 592.338 2038.78 586.642C2036.88 575.251 2031.19 565.758 2017.9 565.758Z" class="fill-mode"/>
+					<path d="M858.035 391.094C821.967 391.094 821.967 446.151 858.035 446.151C894.103 446.151 894.103 391.094 858.035 391.094Z" class="fill-mode"/>
+					<path d="M653.017 1488.44C630.238 1488.44 618.848 1471.35 618.848 1454.27C618.848 1444.77 622.644 1437.18 626.441 1431.48C632.136 1423.89 641.627 1420.09 651.119 1420.09C673.899 1420.09 685.288 1437.18 685.288 1454.27C685.288 1463.76 681.492 1471.35 677.695 1477.05C672 1484.64 664.407 1488.44 653.017 1488.44ZM653.017 1433.38C639.729 1433.38 634.034 1442.88 634.034 1454.27C634.034 1463.76 639.729 1475.15 653.017 1475.15C666.305 1475.15 672 1465.66 672 1454.27C673.899 1442.88 666.305 1433.38 653.017 1433.38Z" class="fill-mode"/>
+					<path class="fill-primary" d="M2661.43 1123.93C2625.36 1123.93 2625.36 1178.98 2661.43 1178.98C2695.6 1178.98 2695.6 1123.93 2661.43 1123.93Z"/>
+					<path class="fill-primary" d="M1602.17 83.5352C1566.1 83.5352 1566.1 138.592 1602.17 138.592C1636.34 138.592 1636.34 83.5352 1602.17 83.5352Z"/>
+					<path class="fill-primary" d="M26.5782 618.918C-9.48961 618.918 -9.48961 673.975 26.5782 673.975C62.646 673.975 62.646 618.918 26.5782 618.918Z"/>
+					<path class="fill-primary" d="M96.8165 1955.48C60.7487 1955.48 60.7487 2010.53 96.8165 2010.53C130.986 2010.53 130.986 1955.48 96.8165 1955.48Z"/>
+				</svg>
+			</figure>
+
+			<!-- Subtitle -->
+			<h2 class="mb-3">Your cart is currently empty</h2>
+			<!-- info -->
+			<p class="mb-0">I think the below button is important. Hit this button and you will find a lot of interesting products on our "Shop" page</p>
+			<!-- Button -->
+			<a href="index.html" class="btn btn-primary mt-4 mb-0">Back to Shop</a>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Cart detail END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6" data-bs-theme="dark">
+	<div class="container position-relative mt-sm-5">
+
+		<!-- Footer Widgets -->
+		<div class="row g-4 justify-content-between">
+
+			<!-- Widget 1 START -->
+			<div class="col-lg-8 col-xl-7">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-2 mb-md-4">Quick links</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Contact us</a></li>
+							<li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-v1.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-in.html">Sign in</a></li>
+							<li class="nav-item"><a class="nav-link" href="sign-up.html">Sign up</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6 col-md-3">
+						<h6 class="mb-2 mb-md-4">Community</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="#">Documents</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Supports <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+							<li class="nav-item"><a class="nav-link" href="faq.html">Faqs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+							<li class="nav-item"><a class="nav-link" href="blog-grid.html">News and blogs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Terms & condition</a></li>
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-md-6">
+						<h6 class="mb-2 mb-md-4">Contact details</h6>
+						<ul class="list-group list-group-borderless">
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-geo-alt"></i>1421 Coburn Hollow Road Metamora, Near Center Point, IL 61548. </li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-headset"></i> (251) 854-6308 </li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-envelope"></i> help@example.com</li>
+							<li class="d-flex mb-3"><i class="me-2 text-primary bi bi-clock"></i>
+								<p class="mb-0">Mon - Fri: <strong>09:00 - 21:00</strong> <br>Sat - Sun: <strong>Closed</strong></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-3">
+				<h6 class="mb-2 mb-md-4">App available on</h6>
+				<div class="row g-2 mb-4 mb-sm-5">
+					<!-- Google play store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
+						<a href="#"> <img src="assets/images/elements/google-play.svg" alt=""> </a>
+					</div>
+					<!-- App store button -->
+					<div class="col-6 col-sm-4 col-md-3 col-lg-6">
+						<a href="#"> <img src="assets/images/elements/app-store.svg" alt="app-store"> </a>
+					</div>
+				</div>
+
+				<!-- Social buttons -->
+				<h6 class="mb-2 mb-md-4">Follow on</h6>
+
+				<ul class="list-inline mb-0 mt-3">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="fab fa-fw fa-facebook-f lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="fab fa-fw fa-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter" href="#"><i class="fab fa-fw fa-twitter lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-youtube" href="#"><i class="fab fa-fw fa-youtube lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="opacity-1 mt-4 mb-3">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-3">
+			<!-- Logo -->
+			<a class="navbar-brand" href="index.html">
+				<img class="light-mode-item navbar-brand-item h-40px" src="assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+			</a>
+
+			<!-- Copyright link-->
+			<div class="text-body mt-3 mt-md-0"> Copyrights ©2024 Mizzle. Build by <a href="https://www.webestica.com/" class="text-body text-primary-hover">Webestica</a>. </div>
+			<!-- Copyright link-->
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Offcanvas START -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+	<!-- Offcanvas header -->
+	<div class="offcanvas-header justify-content-between border-bottom px-3">
+		<h5 class="mb-0">Your Cart</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+
+	<!-- Offcanvas body -->
+	<div class="offcanvas-body d-flex flex-column px-3">
+		<div class="row g-3">
+			<!-- Image -->
+			<div class="col-4">
+				<img class="rounded-2 bg-light p-2" src="assets/images/shop/02.png" alt="avatar">
+			</div>
+			<div class="col-8">
+				<p class="heading-color fw-semibold mb-1">Round neck cotton t-shirt</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<!-- Select item -->
+					<select class="form-select form-select-sm w-auto" aria-label="Default select example">
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+					</select>
+	
+					<a href="#" class="btn btn-sm btn-link p-0">Remove</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Button and price -->
+		<div class="mt-auto">
+			<div class="d-flex justify-content-between mb-2">
+				<span class="heading-color fw-semibold">Subtotal</span>
+				<h6 class="text-success mb-0">$103</h6>
+			</div>
+			<!-- Button -->
+			<div class="d-grid">
+				<a href="checkout.html" class="btn btn-lg btn-dark mb-0">Continue to Checkout</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Offcanvas END -->
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Mizzle - Technology and Corporate Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+	<meta name="description" content="Technology and Corporate Bootstrap Theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+		<div class="row g-0">
+			<!-- left -->
+			<div class="col-lg-7 vh-100 d-none d-lg-block">
+				<!-- Slider START -->
+				<div class="swiper h-100" data-swiper-options='{
+					"pagination":{
+						"el":".swiper-pagination",
+						"clickable":"true"
+					}}'>
+
+					<!-- Slider items START -->
+					<div class="swiper-wrapper">
+						<!-- Item -->
+						<div class="swiper-slide">
+							<div class="card rounded-0 h-100" data-bs-theme="dark" style="background-image:url(assets/images/auth/01.jpg); background-position: center left; background-size: cover;">
+								<!-- Bg overlay -->
+								<div class="bg-overlay bg-dark opacity-5"></div>
+
+								<!-- Card info -->
+								<div class="card-img-overlay z-index-2 p-7">
+									<div class="d-flex flex-column justify-content-end h-100">
+										<!-- Quote -->
+										<h4 class="fw-light">"With unwavering determination, they navigate the complexities of the industry, forging strategic partnerships and driving transformative change."</h4>
+										<!-- Info -->
+										<div class="d-flex justify-content-between mt-5">
+											<div>
+												<h5 class="mb-0">Emma Watson</h5>
+												<span>Founder, catalog</span>
+											</div>
+											<!-- Rating star -->
+											<ul class="list-inline mb-1">
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Item -->
+						<div class="swiper-slide">
+							<div class="card rounded-0 h-100" data-bs-theme="dark" style="background-image:url(assets/images/auth/02.jpg); background-position: center left; background-size: cover;">
+								<!-- Bg overlay -->
+								<div class="bg-overlay bg-dark opacity-5"></div>
+
+								<!-- Card info -->
+								<div class="card-img-overlay z-index-2 p-7">
+									<div class="d-flex flex-column justify-content-end h-100">
+										<!-- Quote -->
+										<h4 class="fw-light">"An exceptional agency CEO is a visionary, constantly pushing the boundaries of creativity and pushing their team to new heights. They inspire with their passion and cultivate a culture of trust and respect."</h4>
+										<!-- Info -->
+										<div class="d-flex justify-content-between mt-5">
+											<div>
+												<h5 class="mb-0">Carolyn Ortiz</h5>
+												<span>CEO, mizzle</span>
+											</div>
+											<!-- Rating star -->
+											<ul class="list-inline mb-1">
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Item -->
+						<div class="swiper-slide">
+							<div class="card rounded-0 h-100" data-bs-theme="dark" style="background-image:url(assets/images/auth/03.jpg); background-position: center left; background-size: cover;">
+								<!-- Bg overlay -->
+								<div class="bg-overlay bg-dark opacity-5"></div>
+
+								<!-- Card info -->
+								<div class="card-img-overlay z-index-2 p-7">
+									<div class="d-flex flex-column justify-content-end h-100">
+										<!-- Quote -->
+										<h4 class="fw-light">" Through collaboration and strategic direction, they steer the agency towards its goals, navigating the ever-evolving landscape with agility and grace."</h4>
+										<!-- Info -->
+										<div class="d-flex justify-content-between mt-5">
+											<div>
+												<h5 class="mb-0">Dennis Barrett</h5>
+												<span>Founder, catalog</span>
+											</div>
+											<!-- Rating star -->
+											<ul class="list-inline mb-1">
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
+												<li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Slider Pagination -->
+					<div class="swiper-pagination swiper-pagination-line mb-3"></div>
+				</div>
+			</div>
+
+			<!-- Right -->
+			<div class="col-sm-10 col-lg-5 d-flex m-auto vh-100">
+				<div class="row w-100 m-auto">
+					<div class="col-sm-10 my-5 m-auto">
+
+						<a href="index.html"><img src="assets/images/logo-icon.svg" class="h-50px mb-4" alt="logo"></a>
+
+						<h2 class="mb-0">Welcome back</h2>
+						<p class="mb-0">Welcome back, please enter your detail</p>
+
+						<!-- Social buttons -->
+						<div class="row mt-5">
+							<!-- Social btn -->
+							<div class="col-xxl-6 d-grid">
+								<a href="#" class="btn border bg-light mb-2 mb-xxl-0"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Signup with Google</a>
+							</div>
+							<!-- Social btn -->
+							<div class="col-xxl-6 d-grid">
+								<a href="#" class="btn border bg-light mb-0"><i class="fab fa-fw fa-facebook-f text-facebook me-2"></i>Signup with Facebook</a>
+							</div>
+							<!-- Divider with text -->
+							<div class="position-relative my-5">
+								<hr>
+								<p class="small position-absolute top-50 start-50 translate-middle bg-body px-4">Or</p>
+							</div>
+						</div>
+					
+						<!-- Form START -->
+						<form>
+							<!-- Email -->
+							<div class="input-floating-label form-floating mb-4">
+								<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+								<label for="floatingInput">Email address</label>
+							</div>
+
+							<!-- Password -->
+							<div class="input-floating-label form-floating mb-4 position-relative">
+								<input type="password" class="form-control fakepassword pe-6" id="psw-input" placeholder="Enter your password">
+								<label for="floatingInput">Password</label>
+								<span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
+									<i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
+								</span>
+							</div>
+
+							<!-- Check box -->
+							<div class="mb-4 d-flex justify-content-between">
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="checkbox-1">
+									<label class="form-check-label" for="checkbox-1">Remember me</label>
+								</div>
+
+								<a href="forgot-password.html" class="link-underline-primary"> Forgot password?</a>
+							</div>
+
+							<!-- Button -->
+							<div class="align-items-center mt-0">
+								<div class="d-grid">
+									<button class="btn btn-dark mb-0" type="button">Login</button>
+								</div>
+							</div>
+						</form>
+						<!-- Form END -->
+
+						<!-- Sign up link -->
+						<div class="mt-4 text-center">
+							<span>Not registered yet?<a href="sign-up.html"> Create an account</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>
