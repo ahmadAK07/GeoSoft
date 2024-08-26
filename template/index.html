@@ -48,7 +48,7 @@
 	<nav class="navbar navbar-expand-xl">
 		<div class="container">
 			<!-- Logo START -->
-			<a class="navbar-brand me-0" href="index.html">
+			<a aria-label="Home" class="navbar-brand me-0" href="index.html">
 				<img loading="lazy" class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
 				<img loading="lazy" class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
 			</a>
@@ -60,32 +60,74 @@
 
 					<!-- Nav item -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+						<a class="nav-link dropdown-toggle active" href="#" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Demos Toggler">Demos</a>
 						<div class="dropdown-menu dropdown-menu-size-lg p-3">
 							<div class="row pt-2">
 								<!-- Image and button -->
 								<div class="col-sm-6">
 									<ul class="list-unstyled">
-										<li> <a class="dropdown-item active" href="index.html">Classic Default</a> </li>
-										<li> <a class="dropdown-item" href="index-creative-agency.html">Creative Agency</a> </li>
-										<li> <a class="dropdown-item" href="index-digital-agency.html">Digital Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
-										<li> <a class="dropdown-item" href="index-design-agency.html">Design Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
-										<li> <a class="dropdown-item" href="index-seo-agency.html">SEO Agency<span class="badge text-bg-success ms-2">New</span></a> </li>
-										<li> <a class="dropdown-item" href="index-landing-product.html">Product Landing</a> </li>
-										<li> <a class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a> </li>
+										<li>
+											<a aria-label="Home - Classic Default" class="dropdown-item active" href="index.html">Classic Default</a>
+										</li>
+										<li>
+											<a aria-label="Home - Creative Agency" class="dropdown-item" href="index-creative-agency.html">Creative Agency</a>
+										</li>
+										<li>
+											<a aria-label="Home - Digital Agency" class="dropdown-item" href="index-digital-agency.html">
+												Digital Agency
+												<span class="badge text-bg-success ms-2">New</span>
+											</a>
+										</li>
+										<li>
+											<a aria-label="Home - Design Agency" class="dropdown-item" href="index-design-agency.html">
+												Design Agency
+												<span class="badge text-bg-success ms-2">New</span>
+											</a>
+										</li>
+										<li>
+											<a aria-label="Home - SEO Agency" class="dropdown-item" href="index-seo-agency.html">
+												SEO Agency
+												<span class="badge text-bg-success ms-2">New</span>
+											</a>
+										</li>
+										<li>
+											<a aria-label="Home - Product Landing" class="dropdown-item" href="index-landing-product.html">Product Landing</a>
+										</li>
+										<li>
+											<a aria-label="Home - Mobile App Showcase" class="dropdown-item" href="index-mobile-app-showcase.html">Mobile App Showcase</a>
+										</li>
+										
 									</ul>
 								</div>
 
 								<!-- Index nav links -->
 								<div class="col-sm-6">
 									<ul class="list-unstyled">
-										<li> <a class="dropdown-item" href="index-saas.html">SaaS v.1</a> </li>
-										<li> <a class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a> </li>
-										<li> <a class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a> </li>
-										<li> <a class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a> </li>
-										<li> <a class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a> </li>
-										<li> <a class="dropdown-item" href="index-finance-consulting.html">Finance consulting<span class="badge text-bg-success ms-2">New</span></a> </li>
-										<li> <a class="dropdown-item" href="index-shop.html">Index Shop</a> </li>
+										<li>
+											<a aria-label="Home - SaaS Version 1" class="dropdown-item" href="index-saas.html">SaaS v.1</a>
+										</li>
+										<li>
+											<a aria-label="Home - SaaS Version 2" class="dropdown-item" href="index-saas-v2.html">SaaS v.2</a>
+										</li>
+										<li>
+											<a aria-label="Home - SaaS Version 3" class="dropdown-item" href="index-saas-v3.html">SaaS v.3</a>
+										</li>
+										<li>
+											<a aria-label="Home - SaaS Version 4" class="dropdown-item" href="index-saas-v4.html">SaaS v.4</a>
+										</li>
+										<li>
+											<a aria-label="Home - SaaS Version 5" class="dropdown-item" href="index-saas-v5.html">SaaS v.5</a>
+										</li>
+										<li>
+											<a aria-label="Home - Finance Consulting" class="dropdown-item" href="index-finance-consulting.html">
+												Finance consulting
+												<span class="badge text-bg-success ms-2">New</span>
+											</a>
+										</li>
+										<li>
+											<a aria-label="Home - Index Shop" class="dropdown-item" href="index-shop.html">Index Shop</a>
+										</li>
+										
 									</ul>
 								</div>
 
@@ -97,7 +139,7 @@
 											<h6 class="mb-2 mb-sm-0">Ready to get started?</h6>
 											<small class="mb-0">Take your documents to the next level with Mizzle</small>
 										</div>
-										<a href="#" class="btn btn-sm btn-primary">Get in touch</a>
+										<a href="#" aria-label="Get In Touch" class="btn btn-sm btn-primary">Get in touch</a>
 									</div>
 								</div>
 							</div>
@@ -110,95 +152,172 @@
 						<ul class="dropdown-menu">
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+								<a class="nav-link dropdown-link dropdown-toggle" aria-label="About" data-bs-toggle="dropdown" href="#">About</a>
 								<ul class="dropdown-menu" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="about-v1.html">About v.1</a></li>
-									<li> <a class="dropdown-item" href="about-v2.html">About v.2</a></li>
-									<li> <a class="dropdown-item" href="about-v3.html">About v.3</a></li>
-									<li> <a class="dropdown-item" href="team.html">Team</a></li>
-									<li> <a class="dropdown-item" href="services-v1.html">Services v.1</a></li>
-									<li> <a class="dropdown-item" href="services-v2.html">Services v.2</a></li>
-									<li> <a class="dropdown-item" href="service-single.html">Service Single</a></li>
-									<li> <a class="dropdown-item" href="customer-stories.html">Customer Stories</a></li>
-									<li> <a class="dropdown-item" href="customer-story-single.html">Customer Story Single</a></li>
-									<li> <a class="dropdown-item" href="career.html">Career <span class="badge text-bg-primary ms-2">2 Job</span></a></li>
-									<li> <a class="dropdown-item" href="career-single.html">Career Single</a></li>
+									<li>
+										<a aria-label="About Version 1" class="dropdown-item" href="about-v1.html">About v.1</a>
+									</li>
+									<li>
+										<a aria-label="About Version 2" class="dropdown-item" href="about-v2.html">About v.2</a>
+									</li>
+									<li>
+										<a aria-label="About Version 3" class="dropdown-item" href="about-v3.html">About v.3</a>
+									</li>
+									<li>
+										<a aria-label="Team Page" class="dropdown-item" href="team.html">Team</a>
+									</li>
+									<li>
+										<a aria-label="Services Version 1" class="dropdown-item" href="services-v1.html">Services v.1</a>
+									</li>
+									<li>
+										<a aria-label="Services Version 2" class="dropdown-item" href="services-v2.html">Services v.2</a>
+									</li>
+									<li>
+										<a aria-label="Service Single Page" class="dropdown-item" href="service-single.html">Service Single</a>
+									</li>
+									<li>
+										<a aria-label="Customer Stories Page" class="dropdown-item" href="customer-stories.html">Customer Stories</a>
+									</li>
+									<li>
+										<a aria-label="Customer Story Single Page" class="dropdown-item" href="customer-story-single.html">Customer Story Single</a>
+									</li>
+									<li>
+										<a aria-label="Career Page with 2 Job Listings" class="dropdown-item" href="career.html">
+											Career
+											<span class="badge text-bg-primary ms-2">2 Job</span>
+										</a>
+									</li>
+									<li>
+										<a aria-label="Career Single Page" class="dropdown-item" href="career-single.html">Career Single</a>
+									</li>
+									
 								</ul>
 							</li>
 							
-							<li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
-							<li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
+							<li>
+								<a aria-label="Contact Version 1" class="dropdown-item" href="contact-v1.html">Contact v.1</a>
+							</li>
+							<li>
+								<a aria-label="Contact Version 2" class="dropdown-item" href="contact-v2.html">Contact v.2</a>
+							</li>
+							
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">SaaS Pages</a>
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-label="Saas Pages" href="#">SaaS Pages</a>
 								<ul class="dropdown-menu">
-									<li> <a class="dropdown-item" href="features.html">Features</a></li>
-									<li> <a class="dropdown-item" href="feature-single.html">Feature Single</a></li>
-									<li> <a class="dropdown-item" href="integrations.html">Integrations</a></li>
-									<li> <a class="dropdown-item" href="integration-single.html">Integration Single</a></li>
+									<li>
+										<a aria-label="Features Page" class="dropdown-item" href="features.html">Features</a>
+									</li>
+									<li>
+										<a aria-label="Feature Single Page" class="dropdown-item" href="feature-single.html">Feature Single</a>
+									</li>
+									<li>
+										<a aria-label="Integrations Page" class="dropdown-item" href="integrations.html">Integrations</a>
+									</li>
+									<li>
+										<a aria-label="Integration Single Page" class="dropdown-item" href="integration-single.html">Integration Single</a>
+									</li>
+									
 								</ul>
 							</li>
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Shop</a>
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-label="Shhop">Shop</a>
 								<ul class="dropdown-menu" >
-									<li> <a class="dropdown-item" href="shop-grid.html">Shop Grid</a></li>
-									<li> <a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
-									<li> <a class="dropdown-item" href="shop-cart.html">Shop Cart</a></li>
-									<li> <a class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a></li>
-									<li> <a class="dropdown-item" href="shop-checkout.html">Shop Checkout</a></li>
+									<li>
+										<a aria-label="Shop Grid Page" class="dropdown-item" href="shop-grid.html">Shop Grid</a>
+									</li>
+									<li>
+										<a aria-label="Shop Single Product Page" class="dropdown-item" href="shop-single.html">Shop Single</a>
+									</li>
+									<li>
+										<a aria-label="Shopping Cart Page" class="dropdown-item" href="shop-cart.html">Shop Cart</a>
+									</li>
+									<li>
+										<a aria-label="Shop Empty Cart Page" class="dropdown-item" href="shop-empty-cart.html">Shop Empty Cart</a>
+									</li>
+									<li>
+										<a aria-label="Shop Checkout Page" class="dropdown-item" href="shop-checkout.html">Shop Checkout</a>
+									</li>
+									
 								</ul>
 							</li>
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Blog</a>
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-label="Blog">Blog</a>
 								<ul class="dropdown-menu" >
-									<li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
-									<li> <a class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a></li>
-									<li> <a class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a></li>
-									<li> <a class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a></li>
+									<li>
+										<a aria-label="Blog Grid Page" class="dropdown-item" href="blog-grid.html">Blog Grid</a>
+									</li>
+									<li>
+										<a aria-label="Blog List with Sidebar Page" class="dropdown-item" href="blog-list-sidebar.html">Blog List Sidebar</a>
+									</li>
+									<li>
+										<a aria-label="Blog Single Version 1 Page" class="dropdown-item" href="blog-single-v1.html">Blog Single v.1</a>
+									</li>
+									<li>
+										<a aria-label="Blog Single Version 2 Page" class="dropdown-item" href="blog-single-v2.html">Blog Single v.2</a>
+									</li>
+									
 								</ul>
 							</li>
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Specialty Pages</a>
+								<a class="nav-link dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-label="Specialty Pages">Specialty Pages</a>
 								<ul class="dropdown-menu" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
-									<li> <a class="dropdown-item" href="help-center-detail.html">Help Center Detail</a></li>
-									<li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
-									<li> <a class="dropdown-item" href="faq.html">Faqs</a></li>
-									<li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
-									<li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
-									<li> <a class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a></li>
+									<li>
+										<a aria-label="Help Center Page" class="dropdown-item" href="help-center.html">Help Center</a>
+									</li>
+									<li>
+										<a aria-label="Help Center Detail Page" class="dropdown-item" href="help-center-detail.html">Help Center Detail</a>
+									</li>
+									<li>
+										<a aria-label="Pricing Page" class="dropdown-item" href="pricing.html">Pricing</a>
+									</li>
+									<li>
+										<a aria-label="Frequently Asked Questions Page" class="dropdown-item" href="faq.html">FAQs</a>
+									</li>
+									<li>
+										<a aria-label="Error 404 Page" class="dropdown-item" href="error-404.html">Error 404</a>
+									</li>
+									<li>
+										<a aria-label="Coming Soon Page" class="dropdown-item" href="coming-soon.html">Coming Soon</a>
+									</li>
+									<li>
+										<a aria-label="Terms and Conditions Page" class="dropdown-item" href="terms-and-condition.html">Terms & Conditions</a>
+									</li>
+									
 								</ul>
 							</li>
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Authentication</a>
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-label="Authentication">Authentication</a>
 								<ul class="dropdown-menu" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-									<li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
-									<li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+									<li> <a class="dropdown-item" href="sign-up.html" aria-label="Sign Up Page">Sign Up</a></li>
+									<li> <a class="dropdown-item" href="sign-in.html" aria-label="Sign In Page">Sign In</a></li>
+									<li> <a class="dropdown-item" href="forgot-password.html" aria-label="Forgot Password Page">Forgot Password</a></li>
+									
 								</ul>
 							</li>
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown dropend">
-								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Accounts</a>
+								<a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-label="Accounts">Accounts</a>
 								<ul class="dropdown-menu" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="account-detail.html">Details</a></li>
-									<li> <a class="dropdown-item" href="account-security.html">Security</a></li>
-									<li> <a class="dropdown-item" href="account-notification.html">Notifications</a></li>
-									<li> <a class="dropdown-item" href="account-projects.html">My Projects</a></li>
-									<li> <a class="dropdown-item" href="account-payment-details.html">Payment Details</a></li>
-									<li> <a class="dropdown-item" href="account-order.html">Order History</a></li>
-									<li> <a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
-									<li> <a class="dropdown-item" href="account-delete.html">Delete Profile</a></li>
+									<li> <a class="dropdown-item" href="account-detail.html" aria-label="Account Details Page">Details</a></li>
+									<li> <a class="dropdown-item" href="account-security.html" aria-label="Account Security Page">Security</a></li>
+									<li> <a class="dropdown-item" href="account-notification.html" aria-label="Account Notifications Page">Notifications</a></li>
+									<li> <a class="dropdown-item" href="account-projects.html" aria-label="My Projects Page">My Projects</a></li>
+									<li> <a class="dropdown-item" href="account-payment-details.html" aria-label="Payment Details Page">Payment Details</a></li>
+									<li> <a class="dropdown-item" href="account-order.html" aria-label="Order History Page">Order History</a></li>
+									<li> <a class="dropdown-item" href="account-wishlist.html" aria-label="Wishlist Page">Wishlist</a></li>
+									<li> <a class="dropdown-item" href="account-delete.html" aria-label="Delete Profile Page">Delete Profile</a></li>
+									
 								</ul>
 							</li>
 
@@ -207,17 +326,17 @@
 							
 							<!-- Dropdown Multilevel -->
 							<li> 
-								<a class="dropdown-item" href="https://mizzle.webestica.com/rtl/" target="_blank">
+								<a class="dropdown-item" href="https://mizzle.webestica.com/rtl/" aria-label="RTL demo" target="_blank">
 									<i class="fa-fw bi bi-toggle-off me-2"></i>RTL demo
 								</a> 
 							</li>
 							<li> 
-								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank" aria-label="Support">
 									<i class="fa-fw bi bi-life-preserver me-2"></i>Support
 								</a> 
 							</li>
 							<li> 
-								<a class="dropdown-item" href="docs/index.html" target="_blank">
+								<a class="dropdown-item" href="docs/index.html" target="_blank" aria-label="Documentation">
 									<i class="fa-fw bi bi-card-text me-2"></i>Documentation
 								</a> 
 							</li>
@@ -226,7 +345,7 @@
 
 					<!-- Nav item -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-label="Portfolio" aria-expanded="false">Portfolio</a>
 						<div class="dropdown-menu dropdown-menu-center dropdown-menu-size-xl p-3">
 							<div class="row g-xl-3">
 								<!-- Work -->
@@ -240,7 +359,7 @@
 											<div class="card-body px-0 text-start pb-0">
 												<h6><a href="#">Ceremony Worthy of Time</a></h6>
 												<p class="mb-2 small">We help our customers better manage their web presence.</p>
-												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												<a aria-label="Learn More" class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v1.html">Learn more<i class="bi bi-arrow-right"></i> </a>
 											</div>
 										</div>
 
@@ -252,7 +371,7 @@
 											<div class="card-body px-0 text-start pb-0">
 												<h6><a href="#">Brushstrokes and Beyond</a></h6>
 												<p class="mb-2 small">We help our customers better manage their web presence.</p>
-												<a class="icon-link icon-link-hover stretched-link mb-0" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
+												<a class="icon-link icon-link-hover stretched-link mb-0" aria-label="Learn MOre" href="portfolio-case-studies-v2.html">Learn more<i class="bi bi-arrow-right"></i> </a>
 											</div>
 										</div>
 
@@ -265,11 +384,12 @@
 								<div class="col-xl-4">
 									<ul class="list-unstyled">
 										<li class="dropdown-header h6">Portfolio Pages</li>
-										<li> <a class="dropdown-item" href="portfolio-masonry.html">Portfolio Masonry</a> </li>
-										<li> <a class="dropdown-item" href="portfolio-showcase.html">Portfolio Showcase</a> </li>
-										<li> <a class="dropdown-item" href="portfolio-list.html">Portfolio List</a> </li>
-										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html">Portfolio Case Study v.1</a> </li>
-										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html">Portfolio Case Study v.2</a> </li>
+										<li> <a class="dropdown-item" href="portfolio-masonry.html" aria-label="Portfolio Masonry Page">Portfolio Masonry</a></li>
+										<li> <a class="dropdown-item" href="portfolio-showcase.html" aria-label="Portfolio Showcase Page">Portfolio Showcase</a></li>
+										<li> <a class="dropdown-item" href="portfolio-list.html" aria-label="Portfolio List Page">Portfolio List</a></li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v1.html" aria-label="Portfolio Case Study Version 1 Page">Portfolio Case Study v.1</a></li>
+										<li> <a class="dropdown-item" href="portfolio-case-studies-v2.html" aria-label="Portfolio Case Study Version 2 Page">Portfolio Case Study v.2</a></li>
+										
 									</ul>
 								</div>
 							</div>
@@ -278,7 +398,7 @@
 
 					<!-- Nav item -->
 					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Megamenu</a>
+						<a class="nav-link dropdown-toggle" aria-label="Megamenu" href="#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Megamenu</a>
 						<div class="dropdown-menu py-0" aria-labelledby="megaMenu">
 							
 							<div class="row p-2 p-sm-4 g-4">
@@ -286,12 +406,13 @@
 								<div class="col-md-6 col-xl-3">
 									<ul class="list-unstyled">
 										<li class="dropdown-header h6 mb-2">Useful links</li>
-										<li> <a class="dropdown-item" href="#">Market research</a> </li>
-										<li> <a class="dropdown-item" href="#">Advertising</a> </li>
-										<li> <a class="dropdown-item" href="#">Consumer behavior</a> </li>
-										<li> <a class="dropdown-item" href="#">Digital marketing</a> </li>
-										<li> <a class="dropdown-item" href="#">Marketing ethics</a> </li>
-										<li> <a class="dropdown-item" href="#">Social media marketing</a> </li>
+										<li> <a class="dropdown-item" href="#" aria-label="Market Research Page">Market research</a></li>
+										<li> <a class="dropdown-item" href="#" aria-label="Advertising Page">Advertising</a></li>
+										<li> <a class="dropdown-item" href="#" aria-label="Consumer Behavior Page">Consumer behavior</a></li>
+										<li> <a class="dropdown-item" href="#" aria-label="Digital Marketing Page">Digital marketing</a></li>
+										<li> <a class="dropdown-item" href="#" aria-label="Marketing Ethics Page">Marketing ethics</a></li>
+										<li> <a class="dropdown-item" href="#" aria-label="Social Media Marketing Page">Social media marketing</a></li>
+										
 									</ul>
 								</div>
 
@@ -302,7 +423,7 @@
 									<div class="dropdown-item d-flex bg-light-hover position-relative text-wrap py-3">
 										<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-boxes heading-color fs-6"></i></div>
 										<div class="ms-2">
-											<a class="stretched-link heading-color fw-bold mb-0" href="#">About us</a>
+											<a class="stretched-link heading-color fw-bold mb-0" href="#" aria-label="About Us Page">About us</a>
 											<p class="mb-0 text-body small">Learn about our story, our mission statement and roadmap.</p>
 										</div>
 									</div>
@@ -310,7 +431,7 @@
 									<div class="dropdown-item d-flex bg-light-hover position-relative text-wrap py-3">
 										<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-rocket heading-color fs-6"></i></div>
 										<div class="ms-2">
-											<a class="stretched-link heading-color fw-bold mb-0" href="#">Career<span class="badge text-bg-primary ms-2">3 Jobs</span></a>
+											<a class="stretched-link heading-color fw-bold mb-0" href="#" aria-label="Career Opportunities Page">Career<span class="badge text-bg-primary ms-2">3 Jobs</span></a>
 											<p class="mb-0 text-body small">We're always looking for talented people. Join our team!</p>
 										</div>
 									</div>
@@ -318,11 +439,13 @@
 									<div class="dropdown-item d-flex bg-light-hover position-relative text-wrap py-3">
 										<div class="icon-md border bg-body rounded flex-shrink-0"><i class="bi bi-emoji-sunglasses heading-color fs-6"></i></div>
 										<div class="ms-2">
-											<a class="stretched-link heading-color fw-bold mb-0" href="#">Customer stories</a>
+											<a class="stretched-link heading-color fw-bold mb-0" href="#" aria-label="Customer Stories Page">Customer stories</a>
 											<p class="mb-0 text-body small">Learn how our customer are making big changes to their tech stack</p>
 										</div>
 									</div>
 								</div>
+								
+								
 
 								<!-- Dropdown column item -->
 								<div class="col-md-6 col-xl-3">
