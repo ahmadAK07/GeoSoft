@@ -31,9 +31,14 @@
 		}
 	</style>
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	<!-- <link rel="preload" href="assets/vendor/font-awesome/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css"></noscript>
+  
+	<link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css"></noscript>
+  
+	<link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css"></noscript> -->
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -1574,6 +1579,27 @@ Footer END -->
 
 <!-- Back to top -->
 <div class="back-top"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var link1 = document.createElement("link");
+      link1.rel = "stylesheet";
+      link1.href = "assets/vendor/font-awesome/css/all.min.css";
+      document.head.appendChild(link1);
+
+      var link2 = document.createElement("link");
+      link2.rel = "stylesheet";
+      link2.href = "assets/vendor/bootstrap-icons/bootstrap-icons.css";
+      document.head.appendChild(link2);
+
+      var link3 = document.createElement("link");
+      link3.rel = "stylesheet";
+      link3.href = "assets/vendor/swiper/swiper-bundle.min.css";
+      document.head.appendChild(link3);
+    });
+  </script>
+
+
 <script>
 	const storedTheme = localStorage.getItem('theme')
 
